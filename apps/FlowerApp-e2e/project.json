@@ -1,0 +1,9 @@
+{
+  "name": "FlowerApp-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/FlowerApp-e2e/src",
+  "implicitDependencies": ["FlowerApp"],
+  "// targets": "to see all targets run: nx show project FlowerApp-e2e --web",
+  "targets": {}
+}
