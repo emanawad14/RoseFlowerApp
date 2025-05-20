@@ -22,10 +22,11 @@
             "input": "apps/FlowerApp/public"
           }
         ],
-        "styles": [  "node_modules/primeflex/primeflex.css",
-        "apps/FlowerApp/src/styles.scss"
-     
-      ],
+        "styles": [
+          "node_modules/primeflex/primeflex.css",
+          "apps/FlowerApp/src/styles.scss",
+          "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        ],
         "scripts": [],
         "server": "apps/FlowerApp/src/main.server.ts",
         "ssr": {
