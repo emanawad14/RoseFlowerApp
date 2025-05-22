@@ -1,0 +1,28 @@
+.gift {
+  border-radius: 14px;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: center; /* Centering y-axis */
+  // align-items: center; /* Centering x-axis */
+  text-align: center;
+  height: 410px;
+  background-repeat: no-repeat;
+  
+  .heading3 {
+    font-size: 1.1em;
+    line-height: 100%;
+    letter-spacing: 0%;
+    vertical-align: middle;
+  }
+  .gift-title {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 19px;
+    text-transform: capitalize;
+    color: var(--primary-color);
+  }
+}
+ 
+ 
