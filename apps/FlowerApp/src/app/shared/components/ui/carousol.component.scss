@@ -29,9 +29,8 @@
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: .8em;
-    line-height: 28px;
-    
+    font-size: 0.8em;
+    //line-height: 28px;
 
     color: #757f95;
     display: -webkit-box;
@@ -42,10 +41,10 @@
   }
 
   .title {
-     font-family: 'Inter';
+    font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
-    font-size: .9em;
+    font-size: 0.9em;
     line-height: 25px;
     letter-spacing: 3.72778px;
     text-transform: uppercase;
@@ -53,12 +52,53 @@
     color: var(--primary-color);
   }
   h3 {
-     font-family: 'Inter';
+    font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
     font-size: 1.5em;
     // line-height: 50px;
     text-transform: capitalize;
     color: #160e4b;
+  }
+}
+.p-galleria-inset-indicators.p-galleria-indicators-bottom
+  .p-galleria-indicator-list {
+  width: unset !important;
+  bottom: 0;
+  left: 50%;
+  /* align-items: center; */
+  transform: translate(-50%);
+  position: absolute;
+  background: none;
+}
+
+
+.p-galleria-inset-indicators .p-galleria-indicator-button {
+  background: var(--primary-color);
+   
+}
+.p-galleria-inset-indicators
+  .p-galleria-indicator-active
+  .p-galleria-indicator-button {
+  background: var(--primary-color);
+  width: 2rem;
+  border-radius: 46.6px;
+  :hover{
+     background: var(--primary-color);
+  }
+}
+.p-galleria-inset-indicators .p-galleria-indicator-button:hover {
+    background: var(--primary-color);
+}
+/* hide indicators by default */
+.p-galleria-inset-indicators .p-galleria-indicator-list {
+  display: none;
+}
+/* show indicators from md breakpoint upward (768px+) */
+@media (min-width: 950px) {
+  .p-galleria-inset-indicators .p-galleria-indicator-list {
+    display: flex;
+
+    //background: var(--p-galleria-inset-indicator-list-background);
   }
 }
