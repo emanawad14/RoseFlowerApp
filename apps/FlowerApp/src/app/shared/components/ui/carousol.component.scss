@@ -1,5 +1,5 @@
 .p-galleria-nav-button {
-  color: gray;
+  color: #757f95;
   background: var(--white-color);
   top: unset !important;
   bottom: 10px;
@@ -22,9 +22,7 @@
   width: 50% !important;
   background: none;
   height: 100%;
-  // display: flex;
-  // align-content: center;
-  // flex-wrap: wrap;
+
   .text-paragraph {
     font-family: 'Inter';
     font-style: normal;
@@ -33,11 +31,11 @@
     //line-height: 28px;
 
     color: #757f95;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    // display: -webkit-box;
+    // -webkit-line-clamp: 3;
+    // line-clamp: 4;
+    // -webkit-box-orient: vertical;
+    // overflow: hidden;
   }
 
   .title {
@@ -72,10 +70,8 @@
   background: none;
 }
 
-
 .p-galleria-inset-indicators .p-galleria-indicator-button {
   background: var(--primary-color);
-   
 }
 .p-galleria-inset-indicators
   .p-galleria-indicator-active
@@ -83,12 +79,12 @@
   background: var(--primary-color);
   width: 2rem;
   border-radius: 46.6px;
-  :hover{
-     background: var(--primary-color);
+  :hover {
+    background: var(--primary-color);
   }
 }
 .p-galleria-inset-indicators .p-galleria-indicator-button:hover {
-    background: var(--primary-color);
+  background: var(--primary-color);
 }
 /* hide indicators by default */
 .p-galleria-inset-indicators .p-galleria-indicator-list {
