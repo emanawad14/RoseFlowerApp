@@ -1,0 +1,50 @@
+<h2 class="font-bold text-4xl">popular items</h2>
+<div class="section flex flex-wrap  justify-content-start w-full">
+
+  @for (product of products; track $index) {
+  <div class="product-card p-3 w-full sm:w-6 md:w-4 lg:w-3">
+    <p-card [style]="{ backgroundColor: 'white', color: 'black' }"
+      class="card-content w-full h-full shadow-1 border-round-3xl lg:text-2xl">
+      <ng-template #header>
+        <div class="relative">
+          <img [alt]="product.title" class=" border-round-2xl w-full h-25rem" [src]="product.imgCover" />
+
+
+          <!-- #cover show when hover on img -->
+          <div
+            class="cover  w-full h-full justify-content-around align-items-center  absolute top-5 left-5 border-round-2xl">
+            <span class="icon p-4 border-circle  cursor-pointer">
+              <i class="fa-regular fa-heart text-2xl text-white"></i> </span>
+            <span class="icon p-4 border-circle  cursor-pointer">
+              <i class="fa-regular fa-eye text-2xl text-white"></i>
+            </span>
+          </div>
+        </div>
+      </ng-template>
+
+      <ng-template #title>
+        <h4 class="font-bold capitalize p-0 m-0">
+          {{ product.title.split(' ').slice(0, 3).join(' ') }}
+        </h4>
+      </ng-template>
+
+      <ng-template #subtitle>
+        <div class="flex justify-content-between align-items-center w-full my-3">
+          <div class="rate">
+            <ng-container *ngFor="let star of [0,1,2,3]; let i = index">
+              <i class="fa fa-star" [ngClass]="i < product.rateAvg ? 'text-yellow-400' : 'text-black'"></i>
+            </ng-container>
+          </div>
+          <span class="icon p-3 border-circle bg-bag-color cursor-pointer">
+            <i class="fa-solid fa-bag-shopping text-white"></i>
+          </span>
+        </div>
+      </ng-template>
+
+      <span class="text-pinky font-bold ">
+        {{ product.price | currency: 'USD': 'symbol' : '1.2-2' }}
+      </span>
+    </p-card>
+  </div>
+  }
+</div>
