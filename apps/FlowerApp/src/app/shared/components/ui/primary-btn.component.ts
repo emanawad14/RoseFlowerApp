@@ -8,7 +8,7 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './primary-btn.component.scss',
 })
 export class PrimaryBtnComponent {
-   @Input({ required: true }) labelName!: Signal<string>;
-   @Input({required:false}) displayIcon:Signal<boolean>=signal(true);
+   @Input({ required: true }) labelName!: string;
+   @Input({required:false}) displayIcon:boolean=true;
     
 }

@@ -1,9 +1,10 @@
-import { Signal } from "@angular/core";
-
+ 
 export interface Gift {
-    id:number,
+    id:string,
     title:string,
     description:string,
-    btnText:Signal<string>,
+    btnText?:string,
     bgImg:string
+    subTitle?:string,
 }
+  

@@ -1,4 +1,4 @@
-import { Component, Input, signal } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PrimaryBtnComponent } from './primary-btn.component';
 import { Gift } from '../../interfaces/gift';
@@ -11,6 +11,5 @@ import { Gift } from '../../interfaces/gift';
 })
 export class GiftUiComponent {
   @Input() gift!: Gift;
-  labelName = signal('Shop Now');
-  displayIcon = signal(false);
+   displayIcon = false;
 }

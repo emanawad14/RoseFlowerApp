@@ -10,5 +10,5 @@ import { PrimaryBtnComponent } from './primary-btn.component';
 })
 export class ImageContainerComponent {
 
-    labelName = signal('Shop Now');
+    labelName = 'Shop Now';
 }

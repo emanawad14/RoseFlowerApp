@@ -1,5 +1,4 @@
-<!-- [showIndicators]="true" -->
-
+  
 <p-galleria
   [showIndicatorsOnItem]="true"
   [value]="giftsList"
@@ -11,7 +10,7 @@
 >
   <ng-template #item let-item>
     <img
-      [src]="item.itemImageSrc"
+      [src]="item.bgImg"
       class="img-fluid border-round-20"
       style="width: 100%; display: block; border-radius: 20px"
     />
@@ -20,7 +19,7 @@
     <div class="h-full flex flex-column justify-content-center lg:w-7">
       <div class="mb-2 title single-line">{{ item.title }}</div>
       <h3 class="mb-2">{{ item.subTitle }}</h3>
-      <p class="text-paragraph mb-2">{{ item.alt }}</p>
+      <p class="text-paragraph mb-2">{{ item.description }}</p>
       <app-primary-btn [labelName]="labelName"></app-primary-btn>
     </div>
   </ng-template>

@@ -1,8 +1,9 @@
 import { GalleriaModule } from 'primeng/galleria';
-import { Component, signal, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PrimaryBtnComponent } from "./primary-btn.component";
- 
+import { PrimaryBtnComponent } from './primary-btn.component';
+import { Gift } from '../../interfaces/gift';
+
 @Component({
   selector: 'app-carousol',
   imports: [CommonModule, GalleriaModule, PrimaryBtnComponent],
@@ -11,68 +12,40 @@ import { PrimaryBtnComponent } from "./primary-btn.component";
   encapsulation: ViewEncapsulation.None,
 })
 export class CarousolComponent {
-  labelName = signal('Shop Now');
-//showIndicators = window.innerWidth >= 1024;
-  giftsList = [
+  labelName = 'Shop Now';
+  giftsList: Gift[] = [
     {
-      itemImageSrc: '/images/slide1.jpg',
-      thumbnailImageSrc:
-        'https://primefaces.org/cdn/primeng/images/galleria/galleria1s.jpg',
-      alt: 'Culpa ducimus nesciunt aliquam non rerum esse recusandae omnis. Rerum optio dolores et.',
+      id: '1',
+      bgImg: '/images/slide1.jpg',
+      description:
+        'Culpa ducimus nesciunt aliquam non rerum esse recusandae omnis. Rerum optio dolores et.',
       title: 'Best Gift Shop',
       subTitle: 'Choose Perfect gifts From Us',
     },
     {
-      itemImageSrc: '/images/slide2.jpg',
-      alt: 'Culpa ducimus nesciunt aliquam non rerum esse recusandae omnis. Rerum optio dolores et.',
+      id: '2',
+      bgImg: '/images/slide2.jpg',
+      description:
+        'Culpa ducimus nesciunt aliquam non rerum esse recusandae omnis. Rerum optio dolores et.',
       title: 'Best Gift Shop',
       subTitle: 'Choose Perfectfts From Us',
     },
     {
-      itemImageSrc: '/images/slide3.jpg',
-      alt: 'Culpa ducimus nesciunt aliquam non rerum esse recusandae omnis. Rerum optio dolores et.',
+      id: '3',
+      bgImg: '/images/slide3.jpg',
+      description:
+        'Culpa ducimus nesciunt aliquam non rerum esse recusandae omnis. Rerum optio dolores et.',
       title: 'Best Gift Shop',
       subTitle: 'Choose Perfectfts From Us',
     },
     {
-      itemImageSrc: '/images/slide4.jpg',
+      id: '4',
+      bgImg: '/images/slide4.jpg',
 
-      alt: 'Culpa ducimus nesciunt aliquam non rerum esse recusandae omnis. Rerum optio dolores et.',
-      title: 'Best Gift Shop',
-      subTitle: 'Choose Perfectfts From Us',
-    },
-     {
-      itemImageSrc: '/images/slide1.jpg',
-      thumbnailImageSrc:
-        'https://primefaces.org/cdn/primeng/images/galleria/galleria1s.jpg',
-      alt: 'Culpa ducimus nesciunt aliquam non rerum esse recusandae omnis. Rerum optio dolores et.',
-      title: 'Best Gift Shop',
-      subTitle: 'Choose Perfect gifts From Us',
-    },
-    {
-      itemImageSrc: '/images/slide2.jpg',
-      alt: 'Culpa ducimus nesciunt aliquam non rerum esse recusandae omnis. Rerum optio dolores et.',
-      title: 'Best Gift Shop',
-      subTitle: 'Choose Perfectfts From Us',
-    },
-    {
-      itemImageSrc: '/images/slide3.jpg',
-      alt: 'Culpa ducimus nesciunt aliquam non rerum esse recusandae omnis. Rerum optio dolores et.',
-      title: 'Best Gift Shop',
-      subTitle: 'Choose Perfectfts From Us',
-    },
-    {
-      itemImageSrc: '/images/slide4.jpg',
-
-      alt: 'Culpa ducimus nesciunt aliquam non rerum esse recusandae omnis. Rerum optio dolores et.',
+      description:
+        'Culpa ducimus nesciunt aliquam non rerum esse recusandae omnis. Rerum optio dolores et.',
       title: 'Best Gift Shop',
       subTitle: 'Choose Perfectfts From Us',
     },
   ];
-  constructor( ){
-    
-  }
-  ngOnInit() {
-  
-}
 }

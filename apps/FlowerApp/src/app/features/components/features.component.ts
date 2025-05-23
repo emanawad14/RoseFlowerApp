@@ -12,10 +12,10 @@ import { Feature } from '../../shared/interfaces/feature';
 export class FeaturesComponent {
 
   features:Feature[]=[
-    {iconImg:'/images/delivery.png',title:'Free Delivery',desc:'Orders Over $120s'},
-    {iconImg:'/images/refund.png',title:'Get Refund',desc:'Within 30 Days Returns'},
-    {iconImg:'/images/payment.png',title:'Safe Payment',desc:'100% Secure Payment'},
-    {iconImg:'/images/support.png',title:'24/7 Support',desc:'Feel Free To Call Us'},
+    {id:'1',iconImg:'/images/delivery.png',title:'Free Delivery',desc:'Orders Over $120s'},
+    {id:'2',iconImg:'/images/refund.png',title:'Get Refund',desc:'Within 30 Days Returns'},
+    {id:'3',iconImg:'/images/payment.png',title:'Safe Payment',desc:'100% Secure Payment'},
+    {id:'4',iconImg:'/images/support.png',title:'24/7 Support',desc:'Feel Free To Call Us'},
      
   ];
 }
