@@ -5,11 +5,11 @@ import { CardModule } from 'primeng/card';
 import { ProductService } from '../../../services/product.service';
 import { Product } from '../../../../features/interfaces/products';
 import { Subscription } from 'rxjs';
-import { Rating } from 'primeng/rating';
+import { RatingModule } from 'primeng/rating';
 import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-product',
-  imports: [CommonModule, CardModule, ButtonModule, FormsModule, Rating],
+  imports: [CommonModule, CardModule, ButtonModule, FormsModule, RatingModule],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css',
 })
