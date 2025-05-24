@@ -30,10 +30,8 @@
 
       <ng-template #subtitle>
         <div class="flex justify-content-between align-items-center w-full my-3">
-          <div class="rate">
-            <ng-container *ngFor="let star of [0,1,2,3]; let i = index">
-              <i class="fa fa-star" [ngClass]="i < product.rateAvg ? 'text-yellow-400' : 'text-black'"></i>
-            </ng-container>
+          <div class="card flex justify-center ">
+            <p-rating [(ngModel)]="product.rateAvg" [stars]="5" [readonly]="true" iconOnClass="text-yellow-500" />
           </div>
           <span class="icon p-3 border-circle bg-bag-color cursor-pointer">
             <i class="fa-solid fa-bag-shopping text-white"></i>
