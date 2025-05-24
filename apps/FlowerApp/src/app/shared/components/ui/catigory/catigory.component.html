@@ -1,24 +1,16 @@
-<section class="w-full">
-
-
-
-  <div class="container flex flex-wrap justify-content-between align-items-center  p-3 gap-3">
-    @for (category of categories; track $index) {
-
-
-
-    <div class="card p-2 flex gap-3 bg-white-alpha-90 border-round-xl w-full lg:w-2 md:w-3 sm:w-5 xs:12 text-center">
-      <div class="imgContainer p-3 border-circle bg-pink-400">
-        <img [src]="category.image" alt="" width="50" height="50" class="border-circle">
-
+<section class="w-full my-5">
+  <p-carousel [value]="categories" [numVisible]="5" [numScroll]="1" [circular]="true" [autoplayInterval]="3000"
+    [showNavigators]="true" [responsiveOptions]="responsiveOptions" [showIndicators]="false">
+    <ng-template let-category pTemplate="item">
+      <div class="card p-3 flex gap-4 surface-100 shadow-2 border-round-xl text-center m-2">
+        <div class="imgContainer p-3 border-circle surface-100 border-1  border-pink-400">
+          <img [src]="category.image" alt="category.name" width="50" height="50" class="border-circle">
+        </div>
+        <div class="content text-center flex flex-column align-items-center justify-content-center">
+          <h4 class="text-black-alpha-80 font-bold p-0 capitalize">{{category.name}}</h4>
+          <span class="text-black-alpha-60 p-0">{{category.productsCount}} items</span>
+        </div>
       </div>
-
-      <div class="content text-center flex flex-column align-items-center justify-content-center">
-        <h4 class="text-black-alpha-80 font-bold p-0 capitalize">{{category.name}}</h4>
-        <span class="text-black-alpha-60 p-0">{{category.productsCount}} items</span>
-      </div>
-    </div>
-    }
-
-  </div>
+    </ng-template>
+  </p-carousel>
 </section>

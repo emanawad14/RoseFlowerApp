@@ -24,8 +24,7 @@
         ],
         "styles": [
           "node_modules/primeflex/primeflex.css",
-          "apps/FlowerApp/src/styles.scss",
-          "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+          "apps/FlowerApp/src/styles.scss"
         ],
         "scripts": [],
         "server": "apps/FlowerApp/src/main.server.ts",
