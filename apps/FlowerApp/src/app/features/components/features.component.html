@@ -1,0 +1,9 @@
+<section
+  class="container text-center my-3 features border-round-xl "
+>
+  <div class="flex  md:flex-row flex-column justify-content-between  flex-wrap gap-2 p-4">
+    @for (feature of features; track feature.title) {
+    <app-avatar-features [feature]="feature"></app-avatar-features>
+    }
+  </div>
+</section>

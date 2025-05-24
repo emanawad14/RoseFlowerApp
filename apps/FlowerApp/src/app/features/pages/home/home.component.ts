@@ -8,6 +8,13 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-home',
   imports: [CommonModule, CatigoryComponent],
+=======
+import { SpecialGiftsComponent } from '../../components/special-gifts.component';
+import { FeaturesComponent } from '../../components/features.component';
+
+@Component({
+  selector: 'app-home',
+  imports: [CommonModule,SpecialGiftsComponent,FeaturesComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
