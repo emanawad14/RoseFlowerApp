@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="grid ">
+    <!-- special Gift  banner -->
+    <div class="col-12 lg:col-4 md:col-4">
+      <app-image-container></app-image-container>
+    </div>
+    <!-- Galleria  banner -->
+    <div class="col-12 md:col-8 lg:col-8">
+      <app-carousol></app-carousol>
+    </div>
+  </div>
+
+  <!-- gifts section  -->
+  <div class="grid">
+    @for (gift of gifts; track gift.id) {
+    <div class="col-12 md:col-4">
+      <app-gift-ui [gift]="gift"></app-gift-ui>
+    </div>
+    }
+  </div>
+</div>

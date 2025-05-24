@@ -1,0 +1,26 @@
+  
+.p-button {
+  background: var(--primary-color) !important;
+  border:none;
+  border-radius: 9.32px;
+  padding: 10px 20px;
+    &:hover {
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+}
+.custom-label{
+/* Shop Now */
+ font-family: 'Inter';
+font-weight: 600;
+font-size: 12px;
+line-height: 100%;
+letter-spacing: 0%;
+text-align: center;
+vertical-align: middle;
+text-transform: capitalize;
+
+/* color/White */
+color: #FFFFFF;
+}
