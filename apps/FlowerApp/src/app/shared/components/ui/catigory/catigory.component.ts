@@ -13,10 +13,6 @@ import { ButtonModule } from 'primeng/button';
 })
 export class CatigoryComponent {
   @Input() categories!: Catigory[];
-  products: Catigory[] = [];
-  constructor() {
-    this.products = this.categories;
-  }
 
   responsiveOptions = [
     {

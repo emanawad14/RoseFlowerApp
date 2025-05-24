@@ -1,8 +1,9 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CatigoryService } from '../../services/catigory.service';
 import { Catigory } from '../../interfaces/catigory.FlowerApp';
 import { CatigoryComponent } from '../../../shared/components/ui/catigory/catigory.component';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -10,9 +11,10 @@ import { CatigoryComponent } from '../../../shared/components/ui/catigory/catigo
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
   private readonly _catigory = inject(CatigoryService);
   catigory: Catigory[] = [];
+  sub!: Subscription;
   constractor() {
     this.GetCatigorys();
   }
@@ -21,7 +23,7 @@ export class HomeComponent implements OnInit {
   }
 
   GetCatigorys() {
-    this._catigory.getCatigory().subscribe({
+    this.sub = this._catigory.getCatigory().subscribe({
       next: (response) => {
         this.catigory = response.categories;
         console.log(this.catigory);
@@ -30,5 +32,11 @@ export class HomeComponent implements OnInit {
         console.log('Error fetching categories:', error);
       },
     });
+  }
+
+  ngOnDestroy() {
+    if (this.sub) {
+      this.sub.unsubscribe();
+    }
   }
 }
