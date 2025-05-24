@@ -18,6 +18,7 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(withFetch()),
     provideRouter(appRoutes),
     provideAnimationsAsync(),
+    provideHttpClient(withFetch()),
     providePrimeNG({
       theme: {
         preset: Aura,

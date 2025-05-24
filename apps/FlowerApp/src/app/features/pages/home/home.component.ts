@@ -1,20 +1,18 @@
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ProductComponent } from '../../../shared/components/ui/product/product.component';
 import { CatigoryService } from '../../services/catigory.service';
 import { Catigory } from '../../interfaces/catigory.FlowerApp';
 import { CatigoryComponent } from '../../../shared/components/ui/catigory/catigory.component';
-import { Subscription } from 'rxjs';
-
-@Component({
-  selector: 'app-home',
-  imports: [CommonModule, CatigoryComponent],
-=======
 import { SpecialGiftsComponent } from '../../components/special-gifts.component';
 import { FeaturesComponent } from '../../components/features.component';
+import { Subscription } from 'rxjs';
+
+
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule,SpecialGiftsComponent,FeaturesComponent],
+  imports: [CommonModule, ProductComponentCatigoryComponent,],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
