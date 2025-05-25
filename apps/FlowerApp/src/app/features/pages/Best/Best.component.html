@@ -35,14 +35,13 @@
                     </h3>
                        
                     <div class="flex gap-1 my-2">
-                      <ng-container *ngFor="let star of [0,1,2,3,4]; let i = index">
+                     @for (i of [0, 1, 2, 3, 4]; track i) {
                         <i class="pi"
-                          [ngClass]="{
-                            'pi-star-fill text-yellow-400': i < item.rateAvg,
-                            'pi-star text-gray-400': i >= item.rateAvg
-                          }">
-                        </i>
-                      </ng-container>
+                         [ngClass]="{
+                        'pi-star-fill text-yellow-400': i < item.rateAvg,
+                         'pi-star text-gray-400': i >= item.rateAvg}">
+                         </i>}
+
                     </div>
 
                     <h3 class="text-sm">

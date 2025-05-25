@@ -1,9 +1,9 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { CommonModule, NgClass } from '@angular/common';
-
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { HomeService } from '../../services/home/home.service';
 import { IItems } from '../../interfaces/i-items';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-best',
@@ -11,16 +11,24 @@ import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
   templateUrl: './Best.component.html',
   styleUrl: './Best.component.css',
 })
-export class BestComponent implements OnInit {
+export class BestComponent implements OnInit , OnDestroy {
 
 
    bests:IItems[]=[]
 
     constructor(){}
-    private readonly homeServices=inject(HomeService)
+    private readonly homeServices=inject(HomeService);
+    homeUnSubscribe:Subscription=new Subscription()
 
       ngOnInit(): void {
-        this.homeServices.getHomeScreen().subscribe(
+       
+        this.getHomeScreens()
+    
+    }
+
+    getHomeScreens()
+    {
+        this.homeUnSubscribe= this.homeServices.getHomeScreen().subscribe(
             {
                 next:(res)=>
                 {
@@ -37,9 +45,7 @@ export class BestComponent implements OnInit {
                 }
             }
         )
-    
     }
-
 
 
  customOptions: OwlOptions = {
@@ -68,4 +74,7 @@ export class BestComponent implements OnInit {
   nav: true
 };
 
+ngOnDestroy(): void {
+    this.homeUnSubscribe.unsubscribe()
+}
 }

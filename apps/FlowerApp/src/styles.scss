@@ -3,6 +3,20 @@
 @import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
 @import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
 
+:root {
+  --primary-pink: #F82BA9;
+  --primary-purple: #8C52FF;
+  --primary-navy: #160E4B;
+  --text-gray: #757F95;
+  --bg-light-pink: #FEEDF7;
+  --btn-shadow: #0000000D;
+  --white: #ffffff;
+   --font-main: "Inter", sans-serif;
+   --highlight-pink: #ec4899;
+}
+
+
+
 ::-webkit-scrollbar {
     width: 4px;
  }
