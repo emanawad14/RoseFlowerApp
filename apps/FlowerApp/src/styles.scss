@@ -13,6 +13,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 /* You can add global styles to this file, and also import other style files */
+//fonts
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-VariableFont_opsz,wght.ttf');
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/Roboto-VariableFont_wdth,wght.ttf');
+}
 * {
   padding: 0;
   margin: 0;
@@ -30,7 +39,7 @@
   --white-color: #ffff;
 }
 .pink-text {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter';
   font-weight: 700;
   font-size: 16px;
   line-height: 30.2px;
@@ -41,7 +50,7 @@
 }
 
 .heading3 {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter' ;
   font-style: normal;
   font-weight: 600;
   font-size: 1.5rem;
