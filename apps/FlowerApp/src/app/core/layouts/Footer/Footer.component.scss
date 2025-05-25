@@ -1,0 +1,43 @@
+
+footer
+{
+    background-image:url('/images/image 35.png') ;
+  min-height: 50vh; 
+    background-position: center;
+     padding: 30px;
+     font-family: "Inter", sans-serif;
+    text-align: center;
+    background-size: cover;
+}
+li{
+    color: #160e4b;
+    font-size: 16px;
+    font-weight: 700;
+}
+li
+{
+    list-style: none;
+}
+
+.get {
+  font-size: 24px; 
+  font-weight: 700;
+  color: #160e4b;
+}
+
+.paragraph {
+  font-size: 16px;
+  font-weight: 500;
+  color: #757f95;
+}
+
+@media (min-width: 768px) {
+  .get {
+    font-size: 30px;
+  }
+
+  .paragraph {
+    font-size: 20px;
+  }
+}
+
