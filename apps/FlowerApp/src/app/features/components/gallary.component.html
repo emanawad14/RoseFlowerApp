@@ -1,7 +1,9 @@
-<section class="gallay-section container    ">
+<section class="gallay-section container">
   <div class="gallary-title flex md:align-items-center flex-column">
-  <h3 class="pink-text mb-1">Our Gallery</h3>
-  <h2 class="heading3 text-with-line-and-bg">Let's Check Our Photo Gallery</h2>
+    <h3 class="pink-text mb-1">Our Gallery</h3>
+    <h2 class="heading3 text-with-line-and-bg">
+      Let's Check Our Photo Gallery
+    </h2>
   </div>
   <div class="grid my-5">
     @for(img of images; track img.src){
@@ -15,7 +17,7 @@
       <img
         [src]="img.src"
         [alt]="img.alt"
-        class="w-full h-16rem object-cover border-round-3xl  "
+        class="w-full h-20rem object-cover border-round-3xl"
       />
     </div>
     }
