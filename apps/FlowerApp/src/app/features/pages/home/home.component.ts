@@ -3,16 +3,11 @@ import { CommonModule } from '@angular/common';
 import { ProductComponent } from '../../../shared/components/ui/product/product.component';
 import { CatigoryService } from '../../services/catigory.service';
 import { Catigory } from '../../interfaces/catigory.FlowerApp';
-import { CatigoryComponent } from '../../../shared/components/ui/catigory/catigory.component';
-import { SpecialGiftsComponent } from '../../components/special-gifts.component';
-import { FeaturesComponent } from '../../components/features.component';
 import { Subscription } from 'rxjs';
-
-
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, ProductComponentCatigoryComponent,],
+  imports: [CommonModule, ProductComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
@@ -20,21 +15,21 @@ export class HomeComponent implements OnInit, OnDestroy {
   private readonly _catigory = inject(CatigoryService);
   catigory: Catigory[] = [];
   sub!: Subscription;
-  constractor() {
-    this.GetCatigorys();
-  }
+
   ngOnInit(): void {
+    console.log('Home component initializing...');
     this.GetCatigorys();
   }
 
   GetCatigorys() {
+    console.log('Fetching categories...');
     this.sub = this._catigory.getCatigory().subscribe({
       next: (response) => {
+        console.log('Categories received:', response.categories);
         this.catigory = response.categories;
-        console.log(this.catigory);
       },
       error: (error) => {
-        console.log('Error fetching categories:', error);
+        console.error('Error fetching categories:', error);
       },
     });
   }
