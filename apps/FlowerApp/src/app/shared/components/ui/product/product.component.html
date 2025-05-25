@@ -1,21 +1,50 @@
-<h2 class="font-bold text-4xl">popular items</h2>
-<div class="section flex flex-wrap  justify-content-start w-full">
+<h2 class="font-bold text-4xl my-5 head">popular items</h2>
 
+<!-- Simple Category Menu -->
+<div class="category-menu w-full my-4 flex flex-wrap justify-content-around align-items-center gap-3">
+  <!-- All Products Button -->
+  <button
+    class="category-btn p-3 bg-white text-pink-500 hover:bg-pink-500 hover:text-white border-round-lg cursor-pointer min-w-10rem text-center"
+    [class.active]="activeCategory === 'all'" (click)="filterByCategory('all')">
+    All Products
+  </button>
+
+  <!-- Category Buttons -->
+  @for(category of categories; track category._id) {
+  <button
+    class="category-btn p-3 bg-white text-pink-500 hover:bg-pink-500 hover:text-white border-round-lg cursor-pointer min-w-10rem text-center"
+    [class.active]="activeCategory === category._id" (click)="filterByCategory(category._id)">
+    {{category.name}}
+  </button>
+  }
+</div>
+
+<!-- Products Section -->
+<div class="section flex flex-wrap justify-content-start w-full my-3">
+  @if (products.length === 0) {
+  <div class="w-full flex align-items-center justify-content-center" style="min-height: 300px;">
+    <div class="text-center">
+      <i class="pi pi-inbox text-pink-500 text-5xl mb-3"></i>
+      <h3 class="text-pink-500 text-2xl font-medium">No Products Found</h3>
+      <p class="text-gray-600">Try selecting a different category</p>
+    </div>
+  </div>
+  } @else {
   @for (product of products; track $index) {
   <div class="product-card p-3 w-full sm:w-6 md:w-4 lg:w-3">
     <p-card [style]="{ backgroundColor: 'white', color: 'black' }"
       class="card-content w-full h-full shadow-1 border-round-3xl lg:text-2xl">
       <ng-template #header>
         <div class="relative">
-          <img [alt]="product.title" class=" border-round-2xl w-full h-25rem" [src]="product.imgCover" />
-
+          <img [alt]="product.title" class="border-round-2xl w-full h-25rem" [src]="product.imgCover" />
 
           <!-- #cover show when hover on img -->
           <div
-            class="cover  w-full h-full justify-content-around align-items-center  absolute top-5 left-5 border-round-2xl">
-            <span class="icon p-4 border-circle  cursor-pointer">
-              <i class="fa-regular fa-heart text-2xl text-white"></i> </span>
-            <span class="icon p-4 border-circle  cursor-pointer">
+            class="cover w-full h-full justify-content-around align-items-center absolute top-5 left-5 border-round-2xl">
+            <span class="icon p-4 border-circle cursor-pointer">
+              <i class="fa-regular fa-heart text-2xl text-white"></i>
+            </span>
+            <span class="icon p-4 border-circle cursor-pointer">
               <i class="fa-regular fa-eye text-2xl text-white"></i>
             </span>
           </div>
@@ -39,10 +68,11 @@
         </div>
       </ng-template>
 
-      <span class="text-pinky font-bold ">
+      <span class="text-pinky font-bold">
         {{ product.price | currency: 'USD': 'symbol' : '1.2-2' }}
       </span>
     </p-card>
   </div>
+  }
   }
 </div>
