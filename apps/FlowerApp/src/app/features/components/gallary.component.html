@@ -1,0 +1,23 @@
+<section class="gallay-section container    ">
+  <div class="gallary-title flex md:align-items-center flex-column">
+  <h3 class="pink-text mb-1">Our Gallery</h3>
+  <h2 class="heading3 text-with-line-and-bg">Let's Check Our Photo Gallery</h2>
+  </div>
+  <div class="grid my-5">
+    @for(img of images; track img.src){
+    <div
+      class="col-12"
+      [ngClass]="{
+        'md:col-4': img.spanUnit === 1,
+        'md:col-8': img.spanUnit === 2
+      }"
+    >
+      <img
+        [src]="img.src"
+        [alt]="img.alt"
+        class="w-full h-16rem object-cover border-round-3xl  "
+      />
+    </div>
+    }
+  </div>
+</section>

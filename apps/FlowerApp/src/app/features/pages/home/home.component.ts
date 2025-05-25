@@ -7,12 +7,18 @@ import { CatigoryComponent } from '../../../shared/components/ui/catigory/catigo
 import { SpecialGiftsComponent } from '../../components/special-gifts.component';
 import { FeaturesComponent } from '../../components/features.component';
 import { Subscription } from 'rxjs';
-
-
+import { GallaryComponent } from '../../components/gallary.component';
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, ProductComponent,CatigoryComponent, SpecialGiftsComponent, FeaturesComponent, ],
+  imports: [
+    CommonModule,
+    ProductComponent,
+    CatigoryComponent,
+    SpecialGiftsComponent,
+    FeaturesComponent,
+    GallaryComponent,
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
