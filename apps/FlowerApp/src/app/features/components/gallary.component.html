@@ -11,14 +11,21 @@
       class="col-12"
       [ngClass]="{
         'md:col-4': img.spanUnit === 1,
-        'md:col-8': img.spanUnit === 2
+        'md:col-8': img.spanUnit === 2,
       }"
     >
-      <img
+      <div
+        class="h-16rem border-round-3xl bg-cover bg-center"
+        [ngStyle]="{
+        'background-image': 'url(' + img.src + ')',
+       
+      }"
+      ></div>
+      <!-- <img
         [src]="img.src"
         [alt]="img.alt"
-        class="w-full h-20rem object-cover border-round-3xl"
-      />
+        class="w-full h-20rem border-round-3xl"
+      /> -->
     </div>
     }
   </div>

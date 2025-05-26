@@ -14,7 +14,7 @@ interface GalleryImage {
 })
 export class GallaryComponent {
   images: GalleryImage[] = [
-    { src: '/images/gallary-1.jpg', alt: 'Gift 1', spanUnit: 1 },
+    { src: '/images/gallary-1.png', alt: 'Gift 1', spanUnit: 1 },
     { src: '/images/gallary-2.png', alt: 'Gift 2', spanUnit: 1 },
     { src: '/images/gallary-3.png', alt: 'Gift 3', spanUnit: 1 },
     { src: '/images/gallary-4.png', alt: 'Gift 4', spanUnit: 2 },
