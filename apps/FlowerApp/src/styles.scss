@@ -37,7 +37,7 @@
   --text-color: #333333;
   --background-color: #feedf7;
   --white-color: #ffff;
-  --bg-pink:#FEEDF7;
+  --bg-pink: #feedf7;
 }
 .pink-text {
   font-family: 'Inter';
@@ -51,7 +51,7 @@
 }
 
 .heading3 {
-  font-family: 'Inter' ;
+  font-family: 'Inter';
   font-style: normal;
   font-weight: 600;
   font-size: 1.5rem;
@@ -63,7 +63,8 @@
   /* Special Gifts Box For Your Love */
 }
 
-.heading4 {
+.heading4,
+h4 {
   font-family: 'Inter';
   font-style: normal;
   font-weight: 600;
