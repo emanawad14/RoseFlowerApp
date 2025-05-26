@@ -8,10 +8,19 @@ import { Subscription } from 'rxjs';
 import { RatingModule } from 'primeng/rating';
 import { FormsModule } from '@angular/forms';
 import { Catigory } from '../../../../features/interfaces/catigory.FlowerApp';
+import { Carousel } from 'primeng/carousel';
 
 @Component({
   selector: 'app-product',
-  imports: [CommonModule, CardModule, ButtonModule, FormsModule, RatingModule],
+  standalone: true,
+  imports: [
+    CommonModule,
+    CardModule,
+    ButtonModule,
+    FormsModule,
+    RatingModule,
+    Carousel,
+  ],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css',
 })
@@ -21,9 +30,39 @@ export class ProductComponent implements OnInit, OnDestroy {
   products: Product[] = [];
   @Input() categories!: Catigory[];
   activeCategory = 'all';
+  carouselItems!: any[];
+
+  responsiveOptions = [
+    {
+      breakpoint: '1400px',
+      numVisible: 5,
+      numScroll: 1,
+    },
+    {
+      breakpoint: '1199px',
+      numVisible: 4,
+      numScroll: 1,
+    },
+    {
+      breakpoint: '991px',
+      numVisible: 3,
+      numScroll: 1,
+    },
+    {
+      breakpoint: '767px',
+      numVisible: 2,
+      numScroll: 1,
+    },
+    {
+      breakpoint: '575px',
+      numVisible: 1,
+      numScroll: 1,
+    },
+  ];
 
   ngOnInit(): void {
     this.getAllproducts();
+    this.carouselItems = ['all', ...this.categories];
   }
 
   filterByCategory(categoryId: string) {

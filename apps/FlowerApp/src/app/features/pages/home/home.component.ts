@@ -4,11 +4,12 @@ import { ProductComponent } from '../../../shared/components/ui/product/product.
 import { CatigoryService } from '../../services/catigory.service';
 import { Catigory } from '../../interfaces/catigory.FlowerApp';
 import { Subscription } from 'rxjs';
-import { FooterComponent } from "../../../core/layouts/Footer/Footer.component";
+import { FooterComponent } from '../../../core/layouts/Footer/Footer.component';
 import { GallaryComponent } from '../../components/gallary.component';
 import { CatigoryComponent } from '../../../shared/components/ui/catigory/catigory.component';
 import { SpecialGiftsComponent } from '../../components/special-gifts.component';
 import { FeaturesComponent } from '../../components/features.component';
+import { NavBarComponent } from '../../../core/layouts/navBar/navBar.component';
  import { TrustedbyComponent } from "../Trustedby/Trustedby.component";
 import { BestComponent } from "../Best/Best.component";
 @Component({
@@ -20,7 +21,9 @@ import { BestComponent } from "../Best/Best.component";
     SpecialGiftsComponent,
     FeaturesComponent,
     GallaryComponent,
-    FooterComponent,TrustedbyComponent, BestComponent
+    FooterComponent,
+    NavBarComponent,
+   TrustedbyComponent, BestComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
