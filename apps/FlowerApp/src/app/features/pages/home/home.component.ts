@@ -4,11 +4,19 @@ import { ProductComponent } from '../../../shared/components/ui/product/product.
 import { CatigoryService } from '../../services/catigory.service';
 import { Catigory } from '../../interfaces/catigory.FlowerApp';
 import { Subscription } from 'rxjs';
-
+ import { GallaryComponent } from '../../components/gallary.component';
+ 
 @Component({
   selector: 'app-home',
-
-  imports: [CommonModule, ProductComponent,CatigoryComponent, SpecialGiftsComponent, FeaturesComponent],
+  imports: [
+    CommonModule,
+    ProductComponent,
+    CatigoryComponent,
+    SpecialGiftsComponent,
+    FeaturesComponent,
+    GallaryComponent,
+  ],
+ 
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
