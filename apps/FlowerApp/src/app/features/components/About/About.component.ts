@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { AvatarModule } from 'primeng/avatar';
+import { AvatarGroupModule } from 'primeng/avatargroup';
+import { PrimaryBtnComponent } from "../../../shared/components/ui/primary-btn.component";
 @Component({
   selector: 'app-about',
-  imports: [CommonModule],
+  imports: [CommonModule, AvatarModule, AvatarGroupModule, PrimaryBtnComponent,PrimaryBtnComponent],
   templateUrl: './About.component.html',
   styleUrl: './About.component.scss',
 })

@@ -1,73 +1,85 @@
-
-.btn{
-  background-color: #F82BA9;
+.btn {
+  background-color: #f82ba9;
   border-radius: 10px;
   padding: 10px 20px;
-  border: 1px solid #F82BA9;
-  box-shadow: 0px 0px 40px 5px #0000000D;
+  border: 1px solid #f82ba9;
+  box-shadow: 0px 0px 40px 5px #0000000d;
   color: white;
   font-size: 16px;
 }
 
-.bag
-{
-  background-color: #8C52FF;
+.bag {
+  background-color: #8c52ff;
   display: flex;
+
   justify-content: center;
   align-items: center;
-  width: 42px;
-  height: 42px;
+  // width: 42px;
+  // height: 42px;
   border-radius: 21px;
-  border: #8C52FF 1px solid;
+  border: #8c52ff 1px solid;
 }
-.bag i
-{
+.bag i {
   color: white;
 }
-section
-{
-   
-   
+
+// .about {
+//   width: 627px;
+// }
+section h1 {
+  color: #f82ba9;
+  letter-spacing: 6px;
+  font-size: 17px;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
 }
-
-.about
-{
-    width: 627px;
+section h2 {
+  font-family: 'Inter', sans-serif;
+  font-size: 30px;
+  color: #160e4b;
 }
-section h1
-{
-    color:#F82BA9;
-    letter-spacing: 6px;
-    font-size: 17px;
-    font-weight: 700;
-     font-family: "Inter", sans-serif;
+.check p {
+  color: #000000;
+  font-size: 12px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
 }
-section h2
-{
-    font-family: "Inter", sans-serif;
-    font-size: 30px;
-    color: #160e4b;
+.paragra {
+  color: #757f95;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: 'Inter', sans-serif;
 }
-.check p
-{
-    color: #000000;
-    font-size: 12px;
-   font-family: "Inter", sans-serif;
-   font-weight: 500;
-   
+/*fatmaa*/ //////////////////////////////////
+.box-image {
+  width: 302px;
+  height: 344px;
+  position: relative;
+  &::after {
+    content: ' ';
+    position: absolute;
+    right: 40px;
+    left: -21px;
+    top: -16px;
+    z-index: -1;
+    height: 100%;
+    display: block;
+    border-top-left-radius: 32.16px;
+    border-top-right-radius: 77.19px;
+    border-bottom-right-radius: 77.19px;
+    border-bottom-left-radius: 77.19px;
+    border: 5px solid var(--primary-color);
+  }
 }
-.paragra{
-    color: #757F95;
-    font-size: 16px;
-    font-weight: 400;
-     font-family: "Inter", sans-serif;
+.img-top {
+  width: 193px;
+  height: 193px;
 }
-
-
-
-
-
-
-
-
-
+.img-bottom {
+  width: 193px;
+  height: 144px;
+  border-top-left-radius: 32.16px;
+  border-top-right-radius: 64.32px;
+  border-bottom-right-radius: 64.32px;
+  border-bottom-left-radius: 32.16px;
+}
