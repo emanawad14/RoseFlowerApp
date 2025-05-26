@@ -1,0 +1,40 @@
+<p-galleria
+  [showIndicatorsOnItem]="true"
+  [value]="giftsList"
+  [showThumbnails]="false"
+  showItemNavigators="true"
+  [containerStyle]="{ 'max-width': '100%' }"
+  [showIndicators]="true"
+>
+  <ng-template #item let-item>
+    <!-- <img
+      [src]="item.bgImg"
+      class="img-fluid border-round-20"
+      style="width: 100%; display: block; border-radius: 20px"
+    /> -->
+    <div
+      class="h-20rem img-fluid border-round-xl bg-cover bg-center bg-blue-200 w-full"
+      [ngStyle]="{
+        'background-image': 'url(' + item.bgImg + ')',
+       
+      }"
+    >
+      <div
+        class="caption-content mx-5 h-full flex flex-column justify-content-center lg:w-7"
+      >
+        <div class="mb-2 title single-line">{{ item.title }}</div>
+        <h3 class="mb-2">{{ item.subTitle }}</h3>
+        <p class="text-paragraph mb-2">{{ item.description }}</p>
+        <app-primary-btn [labelName]="labelName"></app-primary-btn>
+      </div>
+    </div>
+  </ng-template>
+  <!-- <ng-template #caption let-item class="md:my-60">
+    <div class="h-full flex flex-column justify-content-center lg:w-7">
+      <div class="mb-2 title single-line">{{ item.title }}</div>
+      <h3 class="mb-2">{{ item.subTitle }}</h3>
+      <p class="text-paragraph mb-2">{{ item.description }}</p>
+      <app-primary-btn [labelName]="labelName"></app-primary-btn>
+    </div>
+  </ng-template> -->
+</p-galleria>
