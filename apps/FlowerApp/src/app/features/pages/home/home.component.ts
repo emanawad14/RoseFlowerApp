@@ -10,7 +10,8 @@ import { CatigoryComponent } from '../../../shared/components/ui/catigory/catigo
 import { SpecialGiftsComponent } from '../../components/special-gifts.component';
 import { FeaturesComponent } from '../../components/features.component';
 import { NavBarComponent } from '../../../core/layouts/navBar/navBar.component';
-
+ import { TrustedbyComponent } from "../Trustedby/Trustedby.component";
+import { BestComponent } from "../Best/Best.component";
 @Component({
   selector: 'app-home',
   imports: [
@@ -22,6 +23,7 @@ import { NavBarComponent } from '../../../core/layouts/navBar/navBar.component';
     GallaryComponent,
     FooterComponent,
     NavBarComponent,
+   TrustedbyComponent, BestComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',

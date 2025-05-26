@@ -1,5 +1,22 @@
 @import 'primeicons/primeicons.css';
 
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+::-webkit-scrollbar {
+    width: 4px;
+ }
+ ::-webkit-scrollbar-track {
+    background-color: #e0e5ec;
+ }
+ ::-webkit-scrollbar-thumb {
+    background-color: #f472b6;
+    border-radius: 50px;
+    box-shadow: 0 0 5px rgba(81, 72, 72, 0.5) inset;
+ }
+
+
+ 
+ 
 /* You can add global styles to this file, and also import other style files */
 .text-pinky {
   color: #f05454 !important;
@@ -38,6 +55,15 @@
   --background-color: #feedf7;
   --white-color: #ffff;
   --bg-pink: #feedf7;
+    --primary-pink: #F82BA9;
+  --primary-purple: #8C52FF;
+  --primary-navy: #160E4B;
+  --text-gray: #757F95;
+  --bg-light-pink: #FEEDF7;
+  --btn-shadow: #0000000D;
+  --white: #ffffff;
+   --font-main: "Inter", sans-serif;
+   --highlight-pink: #ec4899;
 }
 .pink-text {
   font-family: 'Inter';
