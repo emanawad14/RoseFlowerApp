@@ -6,6 +6,9 @@ import { Catigory } from '../../interfaces/catigory.FlowerApp';
 import { Subscription } from 'rxjs';
 import { FooterComponent } from "../../../core/layouts/Footer/Footer.component";
 import { GallaryComponent } from '../../components/gallary.component';
+import { CatigoryComponent } from '../../../shared/components/ui/catigory/catigory.component';
+import { SpecialGiftsComponent } from '../../components/special-gifts.component';
+import { FeaturesComponent } from '../../components/features.component';
  
 @Component({
   selector: 'app-home',

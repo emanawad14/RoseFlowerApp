@@ -12,16 +12,16 @@
 .p-galleria {
   border: none !important; /* pink border */
 }
-.p-galleria-caption {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 0;
-  right: 0;
+.caption-content {
+  // position: absolute;
+  // top: 50%;
+  // transform: translateY(-50%);
+  // left: 0;
+  // right: 0;
   max-width: 50%;
   width: 50% !important;
-  background: none;
-  height: 100%;
+  // background: none;
+  
 
   .text-paragraph {
     font-family: 'Inter';
@@ -59,6 +59,8 @@
     color: #160e4b;
   }
 }
+
+/*ingicators*************/
 .p-galleria-inset-indicators.p-galleria-indicators-bottom
   .p-galleria-indicator-list {
   width: unset !important;
