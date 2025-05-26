@@ -4,7 +4,8 @@ import { ProductComponent } from '../../../shared/components/ui/product/product.
 import { CatigoryService } from '../../services/catigory.service';
 import { Catigory } from '../../interfaces/catigory.FlowerApp';
 import { Subscription } from 'rxjs';
- import { GallaryComponent } from '../../components/gallary.component';
+import { FooterComponent } from "../../../core/layouts/Footer/Footer.component";
+import { GallaryComponent } from '../../components/gallary.component';
  
 @Component({
   selector: 'app-home',
@@ -15,8 +16,8 @@ import { Subscription } from 'rxjs';
     SpecialGiftsComponent,
     FeaturesComponent,
     GallaryComponent,
+    FooterComponent
   ],
- 
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
