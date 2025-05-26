@@ -1,0 +1,25 @@
+.bg-pink-50 {
+  background-color: var(--bg-light-pink);
+  padding: 40px 24px;
+  border-radius: 20px;
+  margin: auto;
+  gap: 40px;
+  max-width: 1080px;
+}
+
+.trust {
+  color: var(--primary-navy);
+  font-family: var(--font-main);
+  font-weight: 700;
+  font-size: 30px;
+}
+
+.trusted-by::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background-color: var(--highlight-pink);
+}

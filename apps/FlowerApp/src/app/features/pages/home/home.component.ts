@@ -9,7 +9,8 @@ import { GallaryComponent } from '../../components/gallary.component';
 import { CatigoryComponent } from '../../../shared/components/ui/catigory/catigory.component';
 import { SpecialGiftsComponent } from '../../components/special-gifts.component';
 import { FeaturesComponent } from '../../components/features.component';
- 
+ import { TrustedbyComponent } from "../Trustedby/Trustedby.component";
+import { BestComponent } from "../Best/Best.component";
 @Component({
   selector: 'app-home',
   imports: [
@@ -19,7 +20,7 @@ import { FeaturesComponent } from '../../components/features.component';
     SpecialGiftsComponent,
     FeaturesComponent,
     GallaryComponent,
-    FooterComponent
+    FooterComponent,TrustedbyComponent, BestComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
