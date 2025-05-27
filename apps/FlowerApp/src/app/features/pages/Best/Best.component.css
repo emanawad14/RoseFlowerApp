@@ -69,7 +69,7 @@
 
 ::ng-deep .owl-nav {
   position: absolute;
-  top: 20%;
+  top: 30%;
   left: 0%;
   width: 100%;
   display: flex !important;
@@ -80,7 +80,7 @@
 
 ::ng-deep .owl-theme .owl-nav [class*=owl-] {
   background: none !important;
-  margin: 0px !important;
+  margin:0px !important;
 }
 
 ::ng-deep .owl-nav i {
