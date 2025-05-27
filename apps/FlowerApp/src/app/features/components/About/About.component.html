@@ -1,8 +1,10 @@
-<section class="grid my-5 mx-3">
+<section class="grid  my-5 mx-3">
   <div class="col-12 md:col-5">
-    <div class="flex align-items-center justify-content-between gap-3">
+    <div
+      class="flex align-items-center flex-colum lg-flex-row justify-content-center gap-3  "
+    >
       <div
-        class="box-image bg-no-repeat bg-right bg-cover w-full"
+        class="box-image bg-no-repeat bg-center bg-cover  "
         style="
           background-image: url('/images/gift-image.png');
           border-top-left-radius: 32.16px;
@@ -12,7 +14,7 @@
         "
       ></div>
 
-      <div class="">
+      <div class=" md:pr-5 ">
         <div
           class="bg-cover bg-center img-top border-circle mb-2"
           style="background-image: url('/images/orange-gift.png')"
@@ -28,15 +30,13 @@
   <div class="about col-12 md:col-7 h-full">
     <h1 class="my-3 uppercase">About us</h1>
     <h2 class="my-3">
-      We Provide Best And Quality<span class="text-pink-500">Gifts</span>
-      <br />
-      <span class="text-pink-500">Box</span>Product For You
+      We Provide Best And Quality <span class="text-pink-500">Gifts </span>
+      <span class="text-pink-500">Box</span> Product For You
     </h2>
     <p class="my-3 paragra">
       Recusandae tempora aut laborum molestias veniam. A commodi sequi
-      accusantium <br />
-      ullam cupiditate. Neque quidem qui et autem dolor dicta necessitatibus ut
-      ad.
+      accusantium ullam cupiditate. Neque quidem qui et autem dolor dicta
+      necessitatibus ut ad.
     </p>
 
     <app-primary-btn
@@ -44,21 +44,21 @@
       [labelName]="'discover more'"
     ></app-primary-btn>
 
-    <div class="check flex flex-column gap-x-4 gap-y-4 gap-3 my-3">
-      <div class="flex align-items-center">
-        <button class="bag"><i class="pi pi-check"></i></button>
+    <div class="check grid mt-2">
+      <div class="col-12 md:col-6 flex align-items-center">
+        <i class="pi pi-check p-2 border-circle"></i>
         <p class="ml-2">Streamlined Shipping Experience</p>
       </div>
-      <div class="flex align-items-center">
-        <button class="bag"><i class="pi pi-check"></i></button>
+      <div class="col-12 md:col-6 flex align-items-center">
+        <i class="pi pi-check p-2 border-circle"></i>
         <p class="ml-2">Affordable Modern Design</p>
       </div>
-      <div class="flex align-items-center">
-        <button class="bag"><i class="pi pi-check"></i></button>
-        <p class="ml-1">Competitive Price & Easy To Shop</p>
+      <div class="col-12 md:col-6 flex align-items-center">
+        <i class="pi pi-check p-2 border-circle"></i>
+        <p class="ml-2">Competitive Price & Easy To Shop</p>
       </div>
-      <div class="flex align-items-center">
-        <button class="bag"><i class="pi pi-check"></i></button>
+      <div class="col-12 md:col-6 flex align-items-center">
+        <i class="pi pi-check p-2 border-circle"></i>
         <p class="ml-2">We Made Awesome Products</p>
       </div>
     </div>
