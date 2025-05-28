@@ -152,3 +152,8 @@ h2::after {
     }
   }
 }
+
+::ng-deep .p-carousel-items-content {
+  overflow: hidden;
+  white-space: nowrap;
+}

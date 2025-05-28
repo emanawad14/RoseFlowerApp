@@ -14,7 +14,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideClientHydration(withEventReplay()),
     provideZoneChangeDetection({ eventCoalescing: true }),
-
+    provideHttpClient(withFetch()),
     provideRouter(appRoutes),
     provideAnimationsAsync(),
     providePrimeNG({
@@ -23,7 +23,6 @@ export const appConfig: ApplicationConfig = {
         options: {
           darkModeSelector: false,
           darkTheme: false,
-
         },
       },
     }),

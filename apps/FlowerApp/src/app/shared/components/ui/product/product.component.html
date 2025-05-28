@@ -3,8 +3,8 @@
 
   <!-- Category Menu -->
   <div class="category-menu  my-4 ">
-    <p-carousel [value]="carouselItems" [numVisible]="5" [numScroll]="1" [circular]="true" [autoplayInterval]="3000"
-      [showNavigators]="false" [showIndicators]="false" styleClass="category-carousel">
+    <p-carousel [value]="carouselItems" [numVisible]="5" [numScroll]="1" [circular]="true" [autoplayInterval]="5000"
+      [showNavigators]="true" [showIndicators]="false" styleClass="category-carousel">
       <ng-template let-item pTemplate="item">
         <div class="px-2">
           @if (item === 'all') {
