@@ -5,6 +5,6 @@ import { CommonModule } from '@angular/common';
   selector: 'app-trustedby',
   imports: [CommonModule ],
   templateUrl: './Trustedby.component.html',
-  styleUrl: './Trustedby.component.css',
+  styleUrl: './Trustedby.component.scss',
 })
 export class TrustedbyComponent {}

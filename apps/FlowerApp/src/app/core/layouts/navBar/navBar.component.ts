@@ -20,7 +20,7 @@ import { BadgeModule } from 'primeng/badge';
     BadgeModule,
   ],
   templateUrl: './navBar.component.html',
-  styleUrl: './navBar.component.css',
+  styleUrl: './navBar.component.scss',
 })
 export class NavBarComponent {
   @ViewChild('menu') menu!: Menu;
