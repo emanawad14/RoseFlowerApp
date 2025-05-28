@@ -73,7 +73,9 @@
   color: var(--secondary-color);
   /* Special Gifts Box For Your Love */
 }
-
+.container {
+  margin: 0 2rem;
+}
 .heading4,
 h4 {
   font-family: 'Inter';
@@ -95,9 +97,7 @@ h4 {
   /* color/Slate Gray */
   color: #757f95;
 }
-.container {
-  margin: 0 2rem;
-}
+
 .p-avatar img {
   width: 29px !important;
   height: 29px !important;
