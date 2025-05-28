@@ -91,17 +91,21 @@ h2::after {
 /* Category Button Styles */
 .category-btn {
   background-color: white;
-  color: #f82ba9;
-  border: 1px solid #f82ba9;
-  border-radius: 0.5rem;
-  transition: all 0.3s ease;
+  color: black;
+  border: none;
+  outline: none;
+  white-space: nowrap;
+  /* border-radius: 0.5rem; */
   cursor: pointer;
+  transition: color 0.3s ease;
+  transition: border 0.2s ease;
 }
 
 .category-btn:hover,
 .category-btn.active {
-  background-color: #f82ba9;
-  color: white;
+  padding-bottom: 0;
+  color: #f82ba9;
+  border-bottom: 3px solid #f82ba9;
 }
 
 /* No Products Found Styles */
