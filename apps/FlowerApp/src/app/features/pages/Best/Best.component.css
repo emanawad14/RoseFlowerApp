@@ -19,7 +19,7 @@
   font-weight: 400;
   font-size: 16px;
   font-family: 'Inter', sans-serif;
-  line-height: 28px;
+  line-height: 25px;
 }
 
 .btn {
@@ -81,7 +81,7 @@
 
 ::ng-deep .owl-theme .owl-nav [class*='owl-'] {
   background: none !important;
-  margin:0px !important;
+  margin: 0px !important;
 }
 
 ::ng-deep .owl-nav i {
@@ -247,4 +247,36 @@ h2::after {
       height: 1.5rem;
     }
   }
+}
+
+.cover {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(248, 43, 169, 0.5);
+  display: none;
+  transition: display 0.8s ease;
+}
+
+.cover span {
+  background-color: #f82ba9;
+}
+
+.relative:hover .cover {
+  display: flex;
+}
+
+::ng-deep .p-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+::ng-deep .p-rating .p-rating-item {
+  cursor: default;
+}
+
+::ng-deep .p-rating .p-rating-icon {
+  color: #ffd700 !important;
+  font-size: 1.2rem;
+  transition: color 0.2s;
 }
