@@ -22,7 +22,7 @@ import { Carousel } from 'primeng/carousel';
     Carousel,
   ],
   templateUrl: './product.component.html',
-  styleUrl: './product.component.css',
+  styleUrl: './product.component.scss',
 })
 export class ProductComponent implements OnInit, OnDestroy {
   private readonly _ProductService = inject(ProductService);

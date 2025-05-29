@@ -26,7 +26,7 @@ import { BestComponent } from "../Best/Best.component";
    TrustedbyComponent, BestComponent
   ],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css',
+  styleUrl: './home.component.scss',
 })
 export class HomeComponent implements OnInit, OnDestroy {
   private readonly _catigory = inject(CatigoryService);

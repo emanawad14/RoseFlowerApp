@@ -18,7 +18,7 @@ import { FormsModule } from '@angular/forms';
     CardModule,
   ],
   templateUrl: './Best.component.html',
-  styleUrl: './Best.component.css',
+  styleUrl: './Best.component.scss',
 })
 export class BestComponent implements OnInit, OnDestroy {
   bests: IItems[] = [];
