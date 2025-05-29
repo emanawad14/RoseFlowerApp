@@ -5,32 +5,18 @@
       popular items
     </h2>
 
-    <p-carousel
-      [value]="carouselItems"
-      [numVisible]="5"
-      [numScroll]="1"
-      [circular]="true"
-      [autoplayInterval]="5000"
-      [showNavigators]="true"
-      [showIndicators]="false"
-      styleClass="category-carousel"
-    >
+    <p-carousel [value]="carouselItems" [numVisible]="5" [numScroll]="1" [circular]="true" [autoplayInterval]="3000"
+      [showNavigators]="false" [showIndicators]="false" styleClass="category-carousel">
       <ng-template let-item pTemplate="item">
         <div class="px-2">
           @if (item === 'all') {
-          <button
-            class="category-btn p-3 text-center"
-            [class.active]="activeCategory === 'all'"
-            (click)="filterByCategory('all')"
-          >
+          <button class="category-btn p-3 text-center" [class.active]="activeCategory === 'all'"
+            (click)="filterByCategory('all')">
             All Products
           </button>
           } @else {
-          <button
-            class="category-btn p-3 text-center"
-            [class.active]="activeCategory === item._id"
-            (click)="filterByCategory(item._id)"
-          >
+          <button class="category-btn p-3 text-center" [class.active]="activeCategory === item._id"
+            (click)="filterByCategory(item._id)">
             {{ item.name }}
           </button>
           }
@@ -42,10 +28,7 @@
   <!-- Products Section -->
   <div class="section flex flex-wrap justify-content-start w-full my-3">
     @if (products.length === 0) {
-    <div
-      class="w-full flex align-items-center justify-content-center"
-      style="min-height: 300px"
-    >
+    <div class="w-full flex align-items-center justify-content-center" style="min-height: 300px">
       <div class="text-center">
         <i class="pi pi-inbox text-pink-500 text-5xl mb-3"></i>
         <h3 class="text-pink-500 text-2xl font-medium">No Products Found</h3>
@@ -53,23 +36,16 @@
       </div>
     </div>
     } @else { @for(product of products; track product._id) {
-    <div class="product-card p-5 w-full sm:w-6 md:w-4 lg:w-3">
-      <p-card
-        [style]="{ backgroundColor: 'white', color: 'black' }"
-        class="card-content w-full h-full shadow-1 border-round-3xl lg:text-2xl"
-      >
+    <div class="product-card p-5 w-full sm:w-6 md:w-4 lg:w-3  ">
+      <p-card [style]="{ backgroundColor: 'white', color: 'black' }"
+        class="card-content w-full h-full shadow-1 border-round-3xl lg:text-2xl bg-white-alpha-80 shadow-2 overflow-hidden">
         <ng-template #header>
-          <div class="relative">
-            <img
-              [alt]="product.title"
-              class="border-round-2xl w-full h-20rem"
-              [src]="product.imgCover"
-            />
+          <div class="relative  overflow-hidden">
+            <img [alt]="product.title" class=" w-full h-20rem border-round-3xl" [src]="product.imgCover" />
 
             <!-- !cover on img of card -->
             <div
-              class="cover w-full h-full justify-content-around align-items-center absolute top-5 left-5 border-round-2xl"
-            >
+              class="cover w-full h-full justify-content-around align-items-center absolute top-5 left-5 border-round-2xl">
               <span class="icon p-4 border-circle cursor-pointer">
                 <i class="fa-regular fa-heart text-2xl text-white"></i>
               </span>
@@ -81,23 +57,15 @@
         </ng-template>
 
         <ng-template #title>
-          <h4
-            class="font-bold capitalize p-0 m-0 text-overflow-ellipsis overflow-hidden white-space-nowrap heading4"
-          >
+          <h4 class="font-bold capitalize p-0 m-0 text-overflow-ellipsis overflow-hidden white-space-nowrap heading4">
             {{ product.title }}
           </h4>
         </ng-template>
 
         <ng-template #subtitle>
-          <div
-            class="flex justify-content-between align-items-center w-full my-0"
-          >
+          <div class="flex justify-content-between align-items-center w-full my-0">
             <div class="card flex flex-column justify-content-center p-2">
-              <p-rating
-                [(ngModel)]="product.rateAvg"
-                [stars]="5"
-                [readonly]="true"
-              />
+              <p-rating [(ngModel)]="product.rateAvg" [stars]="5" [readonly]="true" />
               <span class="text-pinky font-bold text-xl pt-3">
                 {{ product.price | currency : 'USD' : 'symbol' : '1.2-2' }}
               </span>

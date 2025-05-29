@@ -7,17 +7,15 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font: {
-    optical-sizing: auto;
-    style: normal;
-  }
+  font-optical-sizing: auto;
+  font-style: normal;
 }
+
 :root {
   --primary-color: #f82ba9;
   --secondary-color: #160e4b;
   --text-color: #333333;
   --background-color: #feedf7;
-  --white-color: #ffff;
   --bg-pink: #feedf7;
   --primary-pink: #f82ba9;
   --primary-purple: #8c52ff;
@@ -28,7 +26,9 @@
   --white: #ffffff;
   --font-main: 'Inter', sans-serif;
   --highlight-pink: #ec4899;
+  --highlight-red: #f05454;
 }
+
 ::-webkit-scrollbar {
   width: 4px;
 }
@@ -68,14 +68,13 @@
   font-size: 1.5rem;
   line-height: 31px;
   text-transform: capitalize;
-
-  /* color/Violet */
   color: var(--secondary-color);
-  /* Special Gifts Box For Your Love */
 }
+
 .container {
   margin: 0 2rem;
 }
+
 .heading4,
 h4 {
   font-family: 'Inter';
@@ -84,32 +83,33 @@ h4 {
   font-size: 1rem;
   line-height: 24px;
   align-items: center;
-  /* color/Violet */
   color: var(--secondary-color);
 }
+
 .paragraph-text {
-  /* Title/Semantic/Link */
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
   font-size: 0.8rem;
   line-height: 29px;
-  /* color/Slate Gray */
-  color: #757f95;
+  color: var(--text-gray);
 }
 
 .p-avatar img {
   width: 29px !important;
   height: 29px !important;
 }
+
 .p-avatar-circle img {
   border-radius: 0% !important;
 }
+
 .single-line {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 .two-line-ellipsis {
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -118,24 +118,26 @@ h4 {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-/*Gallary */
+
+// Gallary
 .text-with-line-and-bg {
   position: relative;
 
   &::after {
     content: '';
-    position: absolute; // absolute inside the h2
-    bottom: -0.5rem; // move it just below the text
-    left: 0; // align to the left edge
-    width: 9.5rem; // how long the line is
-    height: 2px; // thickness
+    position: absolute;
+    bottom: -0.5rem;
+    left: 0;
+    width: 9.5rem;
+    height: 2px;
     background-color: var(--primary-color);
   }
+
   &::before {
     content: '';
-    position: absolute; // absolute inside the h2
-    bottom: -0.5rem; // move it just below the text
-    left: 0; // align to the left edge
+    position: absolute;
+    bottom: -0.5rem;
+    left: 0;
     width: 17rem;
     height: 20px;
     border-top-right-radius: 20px;
@@ -144,10 +146,11 @@ h4 {
     z-index: -1;
   }
 }
+
 .text-pinky {
-  color: #f05454 !important;
+  color: var(--highlight-red) !important;
 }
 
 .bg-bag-color {
-  background-color: #8c52ff !important;
+  background-color: var(--primary-purple) !important;
 }

@@ -59,7 +59,7 @@ export class BestComponent implements OnInit, OnDestroy {
       0: {
         items: 1,
       },
-      460: {
+      568: {
         items: 2,
       },
 

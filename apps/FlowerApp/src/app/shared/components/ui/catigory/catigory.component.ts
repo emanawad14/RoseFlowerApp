@@ -22,18 +22,23 @@ export class CatigoryComponent {
     },
     {
       breakpoint: '1199px',
-      numVisible:4,
-      numScroll: 1,
-    },
-    {
-      breakpoint: '767px',
       numVisible: 4,
       numScroll: 1,
     },
     {
-      breakpoint: '575px',
+      breakpoint: '780px',
+      numVisible: 3,
+      numScroll: 1,
+    },
+    {
+      breakpoint: '650px',
       numVisible: 2,
-      numScroll: 2,
+      numScroll: 1,
+    },
+    {
+      breakpoint: '460px',
+      numVisible: 1,
+      numScroll: 1,
     },
   ];
 }
