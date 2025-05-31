@@ -6,7 +6,7 @@ import { PrimaryBtnComponent } from "../../../shared/components/ui/primary-btn.c
 @Component({
   selector: 'app-about',
   imports: [CommonModule, AvatarModule, AvatarGroupModule, PrimaryBtnComponent,PrimaryBtnComponent],
-  templateUrl: './About.component.html',
-  styleUrl: './About.component.scss',
+  templateUrl: './about.component.html',
+  styleUrl: './about.component.scss',
 })
 export class AboutComponent {}
