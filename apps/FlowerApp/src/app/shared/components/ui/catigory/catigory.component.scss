@@ -1,0 +1,15 @@
+::ng-deep .p-carousel-items-content {
+  overflow: hidden;
+  white-space: nowrap;
+}
+.imgContainer{
+   img{
+    overflow: visible !important;
+   }
+  width: 90px;
+  height: 90px;
+  background-color: var(--white-color )!important;
+}
+.card{
+   background-color: var(--bg-pink) !important;
+}

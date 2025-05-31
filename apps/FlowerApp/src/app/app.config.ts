@@ -10,7 +10,6 @@ import {
   withEventReplay,
 } from '@angular/platform-browser';
 import { provideHttpClient, withFetch } from '@angular/common/http';
-
 export const appConfig: ApplicationConfig = {
   providers: [
     provideClientHydration(withEventReplay()),
@@ -18,14 +17,12 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(withFetch()),
     provideRouter(appRoutes),
     provideAnimationsAsync(),
-    provideHttpClient(withFetch()),
     providePrimeNG({
       theme: {
         preset: Aura,
         options: {
           darkModeSelector: false,
           darkTheme: false,
-
         },
       },
     }),

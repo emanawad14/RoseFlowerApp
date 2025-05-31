@@ -1,0 +1,60 @@
+<!-- Main Navigation Bar -->
+<nav class="w-full shadow-1 bg-white">
+  <div class="container mx-auto p-4">
+    <div class="flex align-items-center justify-content-between">
+      <!-- Logo -->
+      <img src="images/logo.png" alt="Rose Flower Logo" height="50" class="flex-none">
+
+      <!-- Desktop Navigation Links - Hidden on Mobile -->
+      <ul class="hidden lg:flex list-none gap-4 m-0">
+        <li>
+          <a pRipple routerLink="/home" routerLinkActive="text-pink-500"
+            class="text-900 hover:text-pink-500 no-underline cursor-pointer block heading4" role="button" tabindex="0">
+            Home
+          </a>
+        </li>
+        <li>
+          <a pRipple routerLink="/categories" routerLinkActive="text-pink-500"
+            class="text-900 hover:text-pink-500 no-underline cursor-pointer block heading4" role="button" tabindex="0">
+            Categories
+          </a>
+        </li>
+        <li>
+          <a pRipple routerLink="/about" routerLinkActive="text-pink-500"
+            class="text-900 hover:text-pink-500 no-underline cursor-pointer block heading4" role="button" tabindex="0">
+            About
+          </a>
+        </li>
+        <li>
+          <a pRipple routerLink="/contact" routerLinkActive="text-pink-500"
+            class="text-900 hover:text-pink-500 no-underline cursor-pointer block heading4" role="button" tabindex="0">
+            Contact
+          </a>
+        </li>
+      </ul>
+
+      <!-- Icons - Always Visible -->
+      <div class="flex gap-3 items-center">
+        <!-- Menu Toggle (Mobile Only) -->
+        <button pButton class="p-button-text text-pink-500 lg:hidden" (click)="toggleMenu($event)">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <!-- Search Button -->
+        <button pButton class="p-button-text text-pink-500">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <!-- Wishlist Button -->
+        <button pButton class="p-button-text text-pink-500">
+          <i class="fa-regular fa-heart" pBadge value="2" badgeSize="small"></i>
+        </button>
+        <!-- Shopping Cart Button -->
+        <button pButton class="p-button-text text-pink-500">
+          <i class="fa-solid fa-bag-shopping" pBadge value="2" badgeSize="small"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Popup -->
+  <p-menu #menu [popup]="true" [model]="menuItems" [appendTo]="'body'" styleClass="w-full sm:w-48 mt-3"></p-menu>
+</nav>

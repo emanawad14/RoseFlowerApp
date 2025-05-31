@@ -1,0 +1,159 @@
+h2 {
+  color: black;
+}
+
+h2::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: #f82ba9;
+  margin-top: 8px;
+}
+
+.cover {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(248, 43, 169, 0.5);
+  display: none;
+  transition: display 0.8s ease;
+}
+
+.cover span {
+  background-color: #f82ba9;
+}
+
+.relative:hover .cover {
+  display: flex;
+}
+
+::ng-deep .p-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+::ng-deep .p-rating .p-rating-item {
+  cursor: default;
+}
+
+::ng-deep .p-rating .p-rating-icon {
+  color: #ffd700 !important;
+  font-size: 1.2rem;
+  transition: color 0.2s;
+}
+
+/* Category Menu Styles */
+::ng-deep .p-tabmenu {
+  background: transparent;
+  border: none;
+}
+
+::ng-deep .p-tabmenu .p-tabmenu-nav {
+  background: transparent;
+  border: none;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+::ng-deep .p-tabmenu .p-tabmenu-nav .p-tabmenuitem {
+  margin: 0;
+}
+
+::ng-deep .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link {
+  background: transparent;
+  border: none;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+}
+
+::ng-deep
+  .p-tabmenu
+  .p-tabmenu-nav
+  .p-tabmenuitem
+  .p-menuitem-link:not(.p-disabled):focus {
+  box-shadow: none;
+}
+
+@media screen and (max-width: 576px) {
+  ::ng-deep .p-tabmenu .p-tabmenu-nav {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  ::ng-deep .p-tabmenu .p-tabmenu-nav .p-tabmenuitem {
+    margin: 0.25rem 0;
+  }
+}
+
+/* Category Button Styles */
+.category-btn {
+  background-color: white;
+  color: black;
+  border: none;
+  outline: none;
+  white-space: nowrap;
+  /* border-radius: 0.5rem; */
+  cursor: pointer;
+  transition: color 0.3s ease;
+  transition: border 0.2s ease;
+}
+
+.category-btn:hover,
+.category-btn.active {
+  padding-bottom: 0;
+  color: #f82ba9;
+  border-bottom: 3px solid #f82ba9;
+}
+
+/* No Products Found Styles */
+.pi-inbox {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+:host ::ng-deep .category-carousel {
+  .p-carousel-container {
+    padding: 0.5rem;
+  }
+
+  .p-carousel-items-container {
+    padding: 0.5rem 0;
+  }
+
+  .p-carousel-items-content {
+    overflow: visible;
+  }
+
+  .p-carousel-prev,
+  .p-carousel-next {
+    color: #f82ba9;
+    border: 1px solid #f82ba9;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .p-carousel-prev:hover,
+  .p-carousel-next:hover {
+    background: #f82ba9;
+    color: white;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  :host ::ng-deep .category-carousel {
+    .p-carousel-prev,
+    .p-carousel-next {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
+}
+
+::ng-deep .p-carousel-items-content {
+  overflow: hidden;
+  white-space: nowrap;
+}

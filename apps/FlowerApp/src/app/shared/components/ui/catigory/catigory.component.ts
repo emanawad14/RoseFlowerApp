@@ -9,7 +9,7 @@ import { ButtonModule } from 'primeng/button';
   selector: 'app-catigory',
   imports: [CommonModule, Carousel, ButtonModule, CardModule],
   templateUrl: './catigory.component.html',
-  styleUrl: './catigory.component.css',
+  styleUrl: './catigory.component.scss',
 })
 export class CatigoryComponent {
   @Input() categories!: Catigory[];
@@ -22,18 +22,18 @@ export class CatigoryComponent {
     },
     {
       breakpoint: '1199px',
-      numVisible: 3,
+      numVisible:4,
       numScroll: 1,
     },
     {
       breakpoint: '767px',
-      numVisible: 2,
+      numVisible: 4,
       numScroll: 1,
     },
     {
       breakpoint: '575px',
-      numVisible: 1,
-      numScroll: 1,
+      numVisible: 2,
+      numScroll: 2,
     },
   ];
 }
