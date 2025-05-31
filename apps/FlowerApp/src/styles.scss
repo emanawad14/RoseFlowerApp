@@ -18,6 +18,11 @@
   --text-color: #333333;
   --background-color: #feedf7;
   --white-color: #ffff;
+ 
+  --black-color:#000000;
+  --purple-color:#8C52FF;
+  --gray-text:#757F95;
+ 
   --bg-pink: #feedf7;
   --primary-pink: #f82ba9;
   --primary-purple: #8c52ff;
@@ -44,6 +49,7 @@
 @font-face {
   font-family: 'Inter';
   src: url('/fonts/Inter-VariableFont_opsz,wght.ttf');
+ 
 }
 @font-face {
   font-family: 'Roboto';

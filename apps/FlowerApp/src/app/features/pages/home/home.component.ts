@@ -9,9 +9,15 @@ import { GallaryComponent } from '../../components/gallary.component';
 import { CatigoryComponent } from '../../../shared/components/ui/catigory/catigory.component';
 import { SpecialGiftsComponent } from '../../components/special-gifts.component';
 import { FeaturesComponent } from '../../components/features.component';
+ 
+ 
+import { AboutComponent } from '../../components/about/about.component';
+
+ 
 import { NavBarComponent } from '../../../core/layouts/navBar/navBar.component';
  import { TrustedbyComponent } from "../Trustedby/Trustedby.component";
 import { BestComponent } from "../Best/Best.component";
+ 
 @Component({
   selector: 'app-home',
   imports: [
@@ -20,10 +26,12 @@ import { BestComponent } from "../Best/Best.component";
     CatigoryComponent,
     SpecialGiftsComponent,
     FeaturesComponent,
+    AboutComponent,
     GallaryComponent,
     FooterComponent,
     NavBarComponent,
-   TrustedbyComponent, BestComponent
+ TrustedbyComponent,
+    BestComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
