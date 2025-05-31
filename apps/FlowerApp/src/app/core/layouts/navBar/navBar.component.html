@@ -102,4 +102,19 @@
     [appendTo]="'body'"
     styleClass="w-full sm:w-48 mt-3"
   ></p-menu>
+  <p-menu #menu [popup]="true" [model]="menuItems" [appendTo]="'body'"
+    styleClass="w-full sm:w-48 mt-3 border-0"></p-menu>
+
+
+  <div class="card">
+    <p-dialog header="" [modal]="true" [(visible)]="visible" draggable="false" [position]="position"
+      [style]="{ width: '18rem'}">
+      <ng-template pTemplate="header">
+        <div class="flex items-center gap-2">
+          <img src="images/logo.png" alt="User Icon" class="w-6 h-6" />
+        </div>
+      </ng-template>
+      <p-menu #menu [model]="menuItems" [appendTo]="'body'" styleClass="w-full mt-2 border-0"></p-menu>
+    </p-dialog>
+  </div>
 </nav>

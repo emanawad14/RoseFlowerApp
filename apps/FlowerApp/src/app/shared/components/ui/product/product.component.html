@@ -1,9 +1,10 @@
 <section class="p-4">
   <!-- Category Menu -->
   <div class="category-menu my-4">
-    <h2 class="font-bold text-4xl my-5 head text-with-line-and-bg">
-      popular items
-    </h2>
+    <div class="header flex justify-content-between w-100 flex-wrap align-items-center">
+      <h2 class="font-bold text-4xl my-5 head text-with-line-and-bg heading3">
+        popular items
+      </h2>
 
     <p-carousel
       [value]="carouselItems"
@@ -41,10 +42,7 @@
   <!-- Products Section -->
   <div class="section flex flex-wrap justify-content-start w-full my-3">
     @if (products.length === 0) {
-    <div
-      class="w-full flex align-items-center justify-content-center"
-      style="min-height: 300px"
-    >
+    <div class="w-full flex align-items-center justify-content-center" style="min-height: 300px">
       <div class="text-center">
         <i class="pi pi-inbox text-primary-color text-5xl mb-3"></i>
         <h3 class="text-primary-color text-2xl font-medium">
@@ -58,16 +56,11 @@
       <p-card class="card-content w-full h-full border-round-3xl lg:text-2xl">
         <ng-template #header>
           <div class="relative">
-            <img
-              [alt]="product.title"
-              class="border-round-2xl w-full h-20rem"
-              [src]="product.imgCover"
-            />
+            <img [alt]="product.title" class="border-round-2xl w-full h-20rem" [src]="product.imgCover" />
 
             <!-- !cover on img of card -->
             <div
-              class="cover w-full h-full justify-content-around align-items-center absolute top-5 left-5 border-round-2xl"
-            >
+              class="cover w-full h-full justify-content-around align-items-center absolute top-5 left-5 border-round-2xl">
               <span class="icon p-4 border-circle cursor-pointer">
                 <i class="fa-regular fa-heart text-2xl"></i>
               </span>
@@ -79,17 +72,13 @@
         </ng-template>
 
         <ng-template #title>
-          <h4
-            class="font-bold capitalize p-0 m-0 text-overflow-ellipsis overflow-hidden white-space-nowrap heading4"
-          >
+          <h4 class="font-bold capitalize p-0 m-0 text-overflow-ellipsis overflow-hidden white-space-nowrap heading4">
             {{ product.title }}
           </h4>
         </ng-template>
 
         <ng-template #subtitle>
-          <div
-            class="flex justify-content-between align-items-center w-full my-0"
-          >
+          <div class="flex justify-content-between align-items-center w-full my-0">
             <div class="card flex flex-column justify-content-center p-2">
               <p-rating
                 [(ngModel)]="product.rateAvg"
