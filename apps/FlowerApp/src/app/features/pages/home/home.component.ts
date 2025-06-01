@@ -1,4 +1,4 @@
-import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+ import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductComponent } from '../../../shared/components/ui/product/product.component';
 import { CatigoryService } from '../../services/catigory.service';

@@ -4,6 +4,7 @@
   "license": "MIT",
   "scripts": {
     "start": "npx nx s FlowerApp"
+
   },
   "private": true,
   "dependencies": {

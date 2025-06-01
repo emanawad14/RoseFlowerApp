@@ -21,7 +21,6 @@
   max-width: 50%;
   width: 50% !important;
   // background: none;
-  
 
   .text-paragraph {
     font-family: 'Inter';
@@ -65,7 +64,7 @@
   .p-galleria-indicator-list {
   width: unset !important;
   bottom: 0;
-  left: 50%;
+  left: 50% !important;
   /* align-items: center; */
   transform: translate(-50%);
   position: absolute;
@@ -73,7 +72,7 @@
 }
 
 .p-galleria-inset-indicators .p-galleria-indicator-button {
-  background: var(--primary-color);
+  background: var(--primary-color) !important;
 }
 .p-galleria-inset-indicators
   .p-galleria-indicator-active
@@ -85,18 +84,22 @@
     background: var(--primary-color);
   }
 }
+.p-galleria-nav-button {
+  color: var(--gray-text) !important;
+  background-color:  var(--white-color) !important;
+}
 .p-galleria-inset-indicators .p-galleria-indicator-button:hover {
   background: var(--primary-color);
 }
 /* hide indicators by default */
 .p-galleria-inset-indicators .p-galleria-indicator-list {
   display: none;
-}
-/* show indicators from md breakpoint upward (768px+) */
-@media (min-width: 950px) {
-  .p-galleria-inset-indicators .p-galleria-indicator-list {
-    display: flex;
+  /* show indicators from md breakpoint upward (768px+) */
+  @media (min-width: 950px) {
+    .p-galleria-inset-indicators .p-galleria-indicator-list {
+      display: flex;
 
-    //background: var(--p-galleria-inset-indicator-list-background);
+      //background: var(--p-galleria-inset-indicator-list-background);
+    }
   }
 }
