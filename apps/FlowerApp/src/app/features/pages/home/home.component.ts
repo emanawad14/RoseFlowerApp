@@ -1,4 +1,4 @@
-import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+ import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductComponent } from '../../../shared/components/ui/product/product.component';
 import { CatigoryService } from '../../services/catigory.service';
@@ -9,15 +9,11 @@ import { GallaryComponent } from '../../components/gallary.component';
 import { CatigoryComponent } from '../../../shared/components/ui/catigory/catigory.component';
 import { SpecialGiftsComponent } from '../../components/special-gifts.component';
 import { FeaturesComponent } from '../../components/features.component';
- 
- 
-import { AboutComponent } from '../../components/about/about.component';
-
- 
 import { NavBarComponent } from '../../../core/layouts/navBar/navBar.component';
  import { TrustedbyComponent } from "../Trustedby/Trustedby.component";
 import { BestComponent } from "../Best/Best.component";
- 
+import { AboutComponent } from '../../components/About/About.component';
+  
 @Component({
   selector: 'app-home',
   imports: [
