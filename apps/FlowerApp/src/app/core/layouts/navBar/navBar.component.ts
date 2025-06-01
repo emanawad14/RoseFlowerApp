@@ -28,6 +28,8 @@ import { InputTextModule } from 'primeng/inputtext';
   styleUrl: './navBar.component.scss',
 })
 export class NavBarComponent implements OnInit {
+  langClick = false;
+  darkMode = false;
   @ViewChild('menu') menu!: Menu;
 
   menuItems: MenuItem[] = [
@@ -99,5 +101,12 @@ export class NavBarComponent implements OnInit {
   ) {
     this.position = position;
     this.visible = true;
+  }
+
+  languageToggle() {
+    this.langClick = !this.langClick;
+  }
+  darkModeToggle() {
+    this.darkMode = !this.darkMode;
   }
 }
