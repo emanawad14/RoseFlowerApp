@@ -55,7 +55,7 @@
     font-size: 1.5em;
     // line-height: 50px;
     text-transform: capitalize;
-    color: #160e4b;
+    color: var(--secondary-color);
   }
 }
 
@@ -85,7 +85,7 @@
   }
 }
 .p-galleria-nav-button {
-  color: var(--gray-text) !important;
+  color: var(--text-gray) !important;
   background-color:  var(--white-color) !important;
 }
 .p-galleria-inset-indicators .p-galleria-indicator-button:hover {

@@ -16,23 +16,40 @@
   --primary-color: #f82ba9;
   --secondary-color: #160e4b;
   --text-color: #333333;
-  --background-color: #feedf7;
+  --bg-light-pink: #feedf7;
   --white-color: #ffff;
-
   --black-color: #000000;
   --purple-color: #8c52ff;
-  --gray-text: #757f95;
-
+ --text-gray: #757F95;
+ --text-zink:#27272A;
   --bg-pink: #feedf7;
-  --primary-pink: #f82ba9;
-  --primary-purple: #8c52ff;
-  --primary-navy: #160e4b;
-  --text-gray: #757f95;
-  --bg-light-pink: #feedf7;
+  --home-bg: #ffff;
   --btn-shadow: #0000000d;
-  --white: #ffffff;
   --font-main: 'Inter', sans-serif;
   --highlight-pink: #ec4899;
+  --third-color:#741C21;
+  --icon-bg:#8C52FF;
+  --text-p:#71717A;
+  --bg-dark:#18181B;
+}
+html {
+  background-color: var(--home-bg);
+}
+.my-app-dark {
+  --primary-color: #ffc2d0;
+  --secondary-color: #ffffff;
+  --text-color: #333333;
+  --bg-light-pink: #3f3f46;
+  --white-color: #ffff;
+  --black-color: #000000;
+  --purple-color: #8c52ff;
+ --text-gray: #A1A1AA;
+ --text-zink:#FAFAFA;
+  --bg-pink: #3f3f46;
+  --home-bg: #27272a;
+   --third-color:#FFC2D0;
+   --icon-bg:#CD2E33;
+    --text-p:#A1A1AA;
 }
 ::-webkit-scrollbar {
   width: 4px;
@@ -100,7 +117,7 @@ h4 {
   font-size: 0.8rem;
   line-height: 29px;
   /* color/Slate Gray */
-  color: var(--gray-text);
+  color: var(--text-p);
 }
 
 .p-avatar img {
@@ -149,12 +166,12 @@ h4 {
     z-index: -1;
   }
 }
-.text-pinky {
-  color: #f05454 !important;
-}
-.text-primary-color{
+// .text-pinky {
+//   color: #f05454 !important;
+// }
+.text-primary-color {
   color: var(--primary-color);
 }
 .bg-bag-color {
-  background-color: #8c52ff !important;
+  background-color: var(--icon-bg) !important;
 }

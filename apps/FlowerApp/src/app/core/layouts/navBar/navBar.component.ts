@@ -55,4 +55,8 @@ export class NavBarComponent {
   toggleMenu(event: Event) {
     this.menu.toggle(event);
   }
+  toggleDarkMode() {
+    const element = document.querySelector('html');
+    element!.classList.toggle('my-app-dark');
+  }
 }

@@ -8,8 +8,15 @@
    }
   width: 90px;
   height: 90px;
-  background-color: var(--white-color )!important;
+  background-color: var(--primary-color )!important;
 }
 .card{
-   background-color: var(--bg-pink) !important;
+   background-color: var(--bg-light-pink) !important;
+   h4{
+    color:var(--primary-color);
+
+   }
+   span{
+    color:var(--text-gray)
+   }
 }

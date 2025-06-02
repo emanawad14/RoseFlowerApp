@@ -10,11 +10,9 @@
   >
     <ng-template let-category pTemplate="item">
       <div
-        class="card p-2 flex align-items-center flex-column md:flex-row gap-3  shadow-2 border-round-xl text-center m-2 h-12rem md:h-8rem"
+        class="card p-2 flex align-items-center flex-column md:flex-row gap-3 shadow-2 border-round-xl text-center m-2 h-12rem md:h-8rem"
       >
-        <div
-          class="imgContainer p-3 border-circle "
-        >
+        <div class="imgContainer p-3 border-circle">
           <img
             [src]="category.image"
             [alt]="category.name"
@@ -26,12 +24,10 @@
         <div
           class="content text-center flex flex-column align-items-center justify-content-center"
         >
-          <h4 class="text-black-alpha-80 font-bold p-0 capitalize">
+          <h4 class="font-bold p-0 capitalize">
             {{ category.name }}
           </h4>
-          <span class="text-black-alpha-60 p-0"
-            >{{ category.productsCount }} items</span
-          >
+          <span class="p-0">{{ category.productsCount }} items</span>
         </div>
       </div>
     </ng-template>
