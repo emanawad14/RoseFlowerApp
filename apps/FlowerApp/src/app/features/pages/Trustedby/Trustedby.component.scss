@@ -6,9 +6,11 @@
   gap: 40px;
   max-width: 1080px;
 }
-
+.text-primary-color {
+  color: var(--primary-span);
+}
 .trust {
-  color: var(--secondary-color);
+  color: var(--secondary-text);
   font-family: var(--font-main);
   font-weight: 700;
   font-size: 30px;

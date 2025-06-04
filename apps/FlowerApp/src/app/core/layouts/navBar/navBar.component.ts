@@ -1,4 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
+import { ThemeService } from './../../services/theme-service.service';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
@@ -22,7 +23,7 @@ import { BadgeModule } from 'primeng/badge';
   templateUrl: './navBar.component.html',
   styleUrl: './navBar.component.scss',
 })
-export class NavBarComponent {
+export class NavBarComponent implements OnInit {
   @ViewChild('menu') menu!: Menu;
 
   menuItems: MenuItem[] = [
@@ -47,7 +48,7 @@ export class NavBarComponent {
       routerLink: '/contact',
     },
   ];
-
+  constructor(private _themeService: ThemeService) {}
   /**
    * Toggles the mobile menu
    * @param event - The click event that triggered the toggle
@@ -55,8 +56,11 @@ export class NavBarComponent {
   toggleMenu(event: Event) {
     this.menu.toggle(event);
   }
+  ngOnInit() {
+    //initial theme
+    this._themeService.initialTheme();
+  }
   toggleDarkMode() {
-    const element = document.querySelector('html');
-    element!.classList.toggle('my-app-dark');
+    this._themeService.toggleTheme();
   }
 }

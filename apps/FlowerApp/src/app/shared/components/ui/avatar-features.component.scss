@@ -1,8 +1,11 @@
 .avatar-style {
   background-color: var(--primary-color);
-  // color: var(--white-color);
-
+ 
 }
 .heading4{
-  color: var(--primary-color);
+  color: var(--secondary-text);
+}
+svg {
+ color: var(--btn-text)!important;
+     overflow: visible;
 }

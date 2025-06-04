@@ -1,11 +1,22 @@
-<div class="md:flex md:flex-row gap-3 md:w-15rem">
-  <div>
-    <p-avatar
+<div class="md:flex md:flex-row   gap-3 md:w-15rem">
+  <div class=" ">
+    <!-- <p-avatar
       image="{{ feature.iconImg }}"
       class="avatar-style"
       size="xlarge"
       shape="circle"
-    />
+    /> -->
+    <p-avatar class="avatar-style " size="xlarge" shape="circle">
+      <svg
+        width="28"
+        height="31"
+        viewBox="0 0 31 31"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path [attr.d]="feature.iconImg" fill="currentColor" />
+      </svg>
+    </p-avatar>
   </div>
   <div class="text-center md:text-left">
     <h3 class="heading4 pt-2 single-line">{{ feature.title }}</h3>

@@ -1,5 +1,5 @@
 h2 {
-  color: var(--third-color);
+  color: var(--secondary-text);
 }
 
 // h2::after {
@@ -12,6 +12,9 @@ h2 {
 // }
 
 .cover {
+  i{
+    color:var( --icon-sm);
+  }
   position: absolute;
   inset: 0;
   background-color: rgba(248, 43, 169, 0.5);
@@ -20,7 +23,7 @@ h2 {
 }
 
 .cover span {
-  background-color:  var(--primary-color);
+  background-color: var(--bg-icon-hover);
 }
 
 .relative:hover .cover {
@@ -104,8 +107,8 @@ h2 {
 .category-btn:hover,
 .category-btn.active {
   padding-bottom: 0;
-  color:  var(--primary-color);
-  border-bottom: 3px solid  var(--primary-color);
+  color: var(--primary-color);
+  border-bottom: 3px solid var(--primary-color);
 }
 
 /* No Products Found Styles */
@@ -129,8 +132,8 @@ h2 {
 
   .p-carousel-prev,
   .p-carousel-next {
-    color:  var(--primary-color);
-    border: 1px solid  var(--primary-color);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
     border-radius: 50%;
     width: 2rem;
     height: 2rem;
@@ -138,7 +141,7 @@ h2 {
 
   .p-carousel-prev:hover,
   .p-carousel-next:hover {
-    background:  var(--primary-color);
+    background: var(--primary-color);
     color: white;
   }
 }
@@ -157,11 +160,20 @@ h2 {
   overflow: hidden;
   white-space: nowrap;
 }
- .heading4{
-color: var(--third-color)!important;
- }
- .product-card{
-  span{
-    color: var(--third-color)!important;
+.heading4 {
+  color: var(--secondary-text) !important;
+}
+.product-card {
+  span {
+    color: var(--text-sm) !important;
   }
- }
+}
+::ng-deep.p-card {
+  background: var(--bg-light-pink) !important;
+
+  /* color: var(--p-card-color); */
+  box-shadow: none !important;
+}
+::ng-deep.p-card-body {
+  background-color: var(--home-bg);
+}
