@@ -21,6 +21,11 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <script>
+      //get theme faster
+      const theme = localStorage.getItem('app-theme') || 'light';
+      document.documentElement.setAttribute('theme', theme);
+    </script>
   </head>
 
   <body>
