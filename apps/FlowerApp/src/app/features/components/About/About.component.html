@@ -5,7 +5,7 @@
     >
       <div class="h-20rem w-7">
         <div
-          class="bg-no-repeat  md:w-20rem md:h-20rem"
+          class="bg-no-repeat md:w-20rem md:h-20rem"
           style="
             background-image: url('/images/gift-image.png');
             border-top-left-radius: 32.16px;
@@ -14,8 +14,7 @@
             border-bottom-left-radius: 77.19px;
             background-position: center;
             background-size: cover;
-                min-width: 50%;
-            
+            min-width: 50%;
           "
         ></div>
       </div>
@@ -34,39 +33,37 @@
   </div>
 
   <div class="about col-12 md:col-7 h-full">
-    <h1 class="my-3 uppercase">About us</h1>
-    <h2 class="my-3">
-      We Provide Best And Quality <span class="text-pink-500">Gifts </span>
-      <span class="text-pink-500">Box</span> Product For You
-    </h2>
-    <p class="my-3 paragra">
-      Recusandae tempora aut laborum molestias veniam. A commodi sequi
-      accusantium ullam cupiditate. Neque quidem qui et autem dolor dicta
-      necessitatibus ut ad.
-    </p>
+   <h1>{{ 'about.Title' | translate }}</h1>
 
-    <app-primary-btn
-      [displayIcon]="true"
-      [labelName]="'discover more'"
-    ></app-primary-btn>
+<h2>
+  {{ 'about.SubTitle' | translate:{ gift: ('about.Gift' | translate), box: ('about.Box' | translate) } }}
+</h2>
+
+<p>{{ 'about.Paragraph' | translate }}</p>
+
+<app-primary-btn
+  [displayIcon]="true"
+  [labelName]="'about.Discover' | translate"
+></app-primary-btn>
 
     <div class="check grid mt-2">
-      <div class="col-12 md:col-6 flex align-items-center">
-        <i class="pi pi-check p-2 border-circle"></i>
-        <p class="ml-2">Streamlined Shipping Experience</p>
-      </div>
-      <div class="col-12 md:col-6 flex align-items-center">
-        <i class="pi pi-check p-2 border-circle"></i>
-        <p class="ml-2">Affordable Modern Design</p>
-      </div>
-      <div class="col-12 md:col-6 flex align-items-center">
-        <i class="pi pi-check p-2 border-circle"></i>
-        <p class="ml-2">Competitive Price & Easy To Shop</p>
-      </div>
-      <div class="col-12 md:col-6 flex align-items-center">
-        <i class="pi pi-check p-2 border-circle"></i>
-        <p class="ml-2">We Made Awesome Products</p>
-      </div>
-    </div>
+  <div class="col-12 md:col-6 flex align-items-center">
+    <i class="pi pi-check p-2 border-circle"></i>
+    <p class="ml-2">{{ 'about.Features.Shipping' | translate }}</p>
+  </div>
+  <div class="col-12 md:col-6 flex align-items-center">
+    <i class="pi pi-check p-2 border-circle"></i>
+    <p class="ml-2">{{ 'about.Features.Design' | translate }}</p>
+  </div>
+  <div class="col-12 md:col-6 flex align-items-center">
+    <i class="pi pi-check p-2 border-circle"></i>
+    <p class="ml-2">{{ 'about.Features.Price' | translate }}</p>
+  </div>
+  <div class="col-12 md:col-6 flex align-items-center">
+    <i class="pi pi-check p-2 border-circle"></i>
+    <p class="ml-2">{{ 'about.Features.Products' | translate }}</p>
+  </div>
+</div>
+
   </div>
 </section>

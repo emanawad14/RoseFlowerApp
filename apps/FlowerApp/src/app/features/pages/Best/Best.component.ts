@@ -7,6 +7,7 @@ import { Subscription } from 'rxjs';
 import { RatingModule } from 'primeng/rating';
 import { CardModule } from 'primeng/card';
 import { FormsModule } from '@angular/forms';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-best',
@@ -16,6 +17,7 @@ import { FormsModule } from '@angular/forms';
     RatingModule,
     FormsModule,
     CardModule,
+    TranslatePipe
   ],
   templateUrl: './Best.component.html',
   styleUrl: './Best.component.scss',
@@ -35,7 +37,6 @@ export class BestComponent implements OnInit, OnDestroy {
     this.homeUnSubscribe = this.homeServices.getHomeScreen().subscribe({
       next: (res) => {
         this.bests = res.bestSeller;
-        // console.log(res.bestSeller);
       },
       error: (err) => {
         console.log(err);
@@ -47,6 +48,9 @@ export class BestComponent implements OnInit, OnDestroy {
     loop: true,
     margin: 2,
     mouseDrag: true,
+   rtl:true
+  ,
+
     touchDrag: true,
     pullDrag: false,
     dots: false,

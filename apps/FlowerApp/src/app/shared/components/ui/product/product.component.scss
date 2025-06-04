@@ -2,6 +2,11 @@ h2 {
   color: black;
 }
 
+.avatar
+{
+   text-align: start;
+}
+
 h2::after {
   content: '';
   display: block;
