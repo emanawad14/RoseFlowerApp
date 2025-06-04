@@ -12,8 +12,8 @@ import { FeaturesComponent } from '../../components/features.component';
 import { NavBarComponent } from '../../../core/layouts/navBar/navBar.component';
 import { TrustedbyComponent } from '../Trustedby/Trustedby.component';
 import { BestComponent } from '../Best/Best.component';
-import { AboutComponent } from '../../components/About/About.component';
-
+import { AboutComponent } from '../../components/about.component';
+ 
 @Component({
   selector: 'app-home',
   imports: [
