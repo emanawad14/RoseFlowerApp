@@ -12,27 +12,78 @@
     style: normal;
   }
 }
-:root {
+[theme='light'] {
+  --icon-sm: #ffff;
+  --bg-icon-hover: #f82ba9;
+  --bg-icon: #f82ba9;
+  --text-sm: #f05454;
+  --line-color: #f82ba9;
+  --btn-text: #ffffff;
+  --secondary-text: #160e4b;
+  --primary-text: #f82ba9;
+  --primary-span: #f82ba9;
   --primary-color: #f82ba9;
   --secondary-color: #160e4b;
   --text-color: #333333;
-  --background-color: #feedf7;
+  --bg-light-pink: #feedf7;
   --white-color: #ffff;
-
   --black-color: #000000;
   --purple-color: #8c52ff;
-  --gray-text: #757f95;
-
-  --bg-pink: #feedf7;
-  --primary-pink: #f82ba9;
-  --primary-purple: #8c52ff;
-  --primary-navy: #160e4b;
   --text-gray: #757f95;
-  --bg-light-pink: #feedf7;
+  --text-zink: #27272a;
+  --bg-pink: #feedf7;
+  --home-bg: #ffff;
   --btn-shadow: #0000000d;
-  --white: #ffffff;
   --font-main: 'Inter', sans-serif;
   --highlight-pink: #ec4899;
+  --third-color: #741c21;
+  --icon-bg: #8c52ff;
+  --text-p: #71717a;
+  --bg-dark: #18181b;
+  --bg-zink: #ffffff;
+  --text-title: #160e4b;
+  --link-color:#160e4b;;
+}
+
+[theme='dark'] {
+  --icon-sm: #cd2e33;
+  --bg-icon-hover: #ffff;
+  --bg-icon: #cd2e33;
+  --text-sm: #ffc2d0;
+  --line-color: #ff668b;
+  --btn-text: #27272a;
+  --primary-span: #d75458;
+  --secondary-text: #ffc2d0;
+  --primary-text: #fbeaea;
+
+  --bg-color: #111827;
+  // --text-color: #f9fafb;
+  --bg-light-pink: #3f3f46;
+  --white-color: #ffff;
+  --primary-color: #ffc2d0;
+  --secondary-color: #ffffff;
+  --text-color: #333333;
+  --black-color: #000000;
+  --purple-color: #8c52ff;
+  --text-gray: #a1a1aa;
+  --text-zink: #fafafa;
+  --bg-pink: #3f3f46;
+  --home-bg: #27272a;
+  --btn-shadow: #0000000d;
+  --font-main: 'Inter', sans-serif;
+  --highlight-pink: #ec4899;
+  --third-color: #ffc2d0;
+  --icon-bg: #cd2e33;
+  --text-p: #a1a1aa;
+  --bg-dark: #18181b;
+  --bg-zink: #27272a;
+  --text-title: #ffa3b9;
+  --link-color:#A1A1AA;
+}
+html,
+body,
+app-root {
+  background-color: var(--home-bg);
 }
 ::-webkit-scrollbar {
   width: 4px;
@@ -63,7 +114,7 @@
   letter-spacing: 4.66px;
   vertical-align: middle;
   text-transform: uppercase;
-  color: var(--primary-color);
+  color: var(--primary-span);
 }
 
 .heading3 {
@@ -75,7 +126,7 @@
   text-transform: capitalize;
 
   /* color/Violet */
-  color: var(--secondary-color);
+  color: var(--secondary-text);
   /* Special Gifts Box For Your Love */
 }
 .container {
@@ -100,7 +151,7 @@ h4 {
   font-size: 0.8rem;
   line-height: 29px;
   /* color/Slate Gray */
-  color: var(--gray-text);
+  color: var(--text-p);
 }
 
 .p-avatar img {
@@ -123,10 +174,11 @@ h4 {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+//  inset-inline-start: 0rem;
 /*Gallary */
 .text-with-line-and-bg {
   position: relative;
-
+  z-index: 1; // ensures h2 text is on top
   &::after {
     content: '';
     position: absolute; // absolute inside the h2
@@ -134,27 +186,24 @@ h4 {
     left: 0; // align to the left edge
     width: 9.5rem; // how long the line is
     height: 2px; // thickness
-    background-color: var(--primary-color);
+    background-color: var(--line-color);
   }
   &::before {
     content: '';
     position: absolute; // absolute inside the h2
     bottom: -0.5rem; // move it just below the text
     left: 0; // align to the left edge
-    width: 17rem;
+    width: 13rem;
     height: 20px;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
-    background-color: var(--bg-pink);
-    z-index: -1;
+    background-color: var(--bg-light-pink);
+    z-index: -1; // puts it behind the h2
   }
 }
-.text-pinky {
-  color: #f05454 !important;
-}
-.text-primary-color{
+.text-primary-color {
   color: var(--primary-color);
 }
 .bg-bag-color {
-  background-color: #8c52ff !important;
+  background-color: var(--icon-bg) !important;
 }

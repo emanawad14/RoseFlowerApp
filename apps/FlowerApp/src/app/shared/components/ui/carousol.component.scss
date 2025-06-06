@@ -1,5 +1,5 @@
 .p-galleria-nav-button {
-  color: #757f95;
+  color: var( --text-gray);
   background: var(--white-color);
   top: unset !important;
   bottom: 10px;
@@ -29,7 +29,7 @@
     font-size: 0.8em;
     //line-height: 28px;
 
-    color: #757f95;
+    color: var( --text-gray);
     // display: -webkit-box;
     // -webkit-line-clamp: 3;
     // line-clamp: 4;
@@ -37,17 +37,17 @@
     // overflow: hidden;
   }
 
-  .title {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 0.9em;
-    line-height: 25px;
-    letter-spacing: 3.72778px;
-    text-transform: uppercase;
-    /* color/Persian Rose */
-    color: var(--primary-color);
-  }
+  // .title {
+  //   font-family: 'Inter';
+  //   font-style: normal;
+  //   font-weight: 700;
+  //   font-size: 0.9em;
+  //   line-height: 25px;
+  //   letter-spacing: 3.72778px;
+  //   text-transform: uppercase;
+  //   /* color/Persian Rose */
+  //   color: var(--primary-color);
+  // }
   h3 {
     font-family: 'Inter';
     font-style: normal;
@@ -55,7 +55,7 @@
     font-size: 1.5em;
     // line-height: 50px;
     text-transform: capitalize;
-    color: #160e4b;
+    color: var(--secondary-color);
   }
 }
 
@@ -85,7 +85,7 @@
   }
 }
 .p-galleria-nav-button {
-  color: var(--gray-text) !important;
+  color: var(--text-gray) !important;
   background-color:  var(--white-color) !important;
 }
 .p-galleria-inset-indicators .p-galleria-indicator-button:hover {
