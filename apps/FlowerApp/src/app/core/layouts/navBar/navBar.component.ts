@@ -35,25 +35,25 @@ export class NavBarComponent implements OnInit {
   menuItems: MenuItem[] = [
     {
       label: 'Home',
-      icon: 'fa-solid fa-home text-pink-500',
+      // icon: 'fa-solid fa-home text-pink-500',
       routerLink: '/home',
       styleClass: 'py-2 paragraph-text',
     },
     {
       label: 'Categories',
-      icon: 'fa-solid fa-list text-pink-500',
+      // icon: 'fa-solid fa-list text-pink-500',
       routerLink: '/categories',
       styleClass: 'py-2 paragraph-text',
     },
     {
       label: 'About',
-      icon: 'fa-solid fa-circle-info text-pink-500',
+      // icon: 'fa-solid fa-circle-info text-pink-500',
       routerLink: '/about',
       styleClass: 'py-2 paragraph-text',
     },
     {
       label: 'Contact',
-      icon: 'fa-solid fa-envelope text-pink-500',
+      // icon: 'fa-solid fa-envelope text-pink-500',
       routerLink: '/contact',
       styleClass: 'py-2 paragraph-text',
     },
@@ -85,7 +85,7 @@ export class NavBarComponent implements OnInit {
     | 'topleft'
     | 'topright'
     | 'bottomleft'
-    | 'bottomright' = 'center';
+    | 'bottomright' = 'topleft';
 
   showDialog(
     position:
@@ -99,7 +99,7 @@ export class NavBarComponent implements OnInit {
       | 'bottomleft'
       | 'bottomright'
   ) {
-    this.position = position;
+    this.position = 'topleft';
     this.visible = true;
   }
 

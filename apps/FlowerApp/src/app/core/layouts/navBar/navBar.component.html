@@ -63,7 +63,7 @@
       </ul>
 
       <!-- Icons - Always Visible -->
-      <div class="flex gap-3 items-center">
+      <div class="flex gap-2 items-center">
         <!-- Menu Toggle (Mobile Only) -->
         <button
           pButton
@@ -77,14 +77,14 @@
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
         <!-- Dark mode Button -->
-        <button pButton class="p-button-text " (click)="darkModeToggle()">
+        <button pButton class="p-button-text btn-dark-mode" (click)="darkModeToggle()">
           @if (darkMode) {
-          <i class="fa-solid fa-moon text-white"></i>
+          <i class="fa-solid fa-sun text-pink-500"></i>
           }
-          @else {<i class="fa-solid fa-moon text-black"></i> }
+          @else {<i class="fa-solid fa-moon text-pink-500"></i> }
         </button>
         <!-- Wishlist Button -->
-        <button pButton class="p-button-text text-pink-500">
+        <button pButton class="p-button-text text-pink-500 relative">
           <i class="fa-regular fa-heart" pBadge value="2" badgeSize="small"></i>
         </button>
         <!-- Shopping Cart Button -->
@@ -100,7 +100,6 @@
         <button pButton class="p-button-text text-pink-500" (click)="languageToggle()">
           @if (!langClick) {
           <i>العربيه</i>
-
           }
           @else {<i>En</i>
           }
@@ -124,9 +123,9 @@
 
   <div class="card">
     <p-dialog header="" [modal]="true" [(visible)]="visible" draggable="false" [position]="position"
-      [style]="{ width: '18rem'}">
+      [style]="{ width: '16rem', top: '1rem', right: '1rem' }">
       <ng-template pTemplate="header">
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-1">
           <img src="images/logo.png" alt="User Icon" class="w-6 h-6" />
         </div>
       </ng-template>
