@@ -1,6 +1,5 @@
 import { Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NxWelcomeComponent } from './nx-welcome.component';
 import { ButtonModule } from 'primeng/button';
 import { TranslateService } from '@ngx-translate/core';
 import { MyTranslateService } from './core/services/myTranslate/my-translate.service';

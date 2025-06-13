@@ -71,21 +71,34 @@ export class MyTranslateService {
   }
 
 
-   changeDiraction():void
-   {
-    if(localStorage.getItem('lang') === 'en')
-    {
-      this.render2.setAttribute(document.documentElement, 'dir' ,'ltr');
-      this.render2.setAttribute(document.documentElement, 'lang' ,'en');
+  //  changeDiraction():void
+  //  {
+  //   if(localStorage.getItem('lang') === 'en')
+  //   {
+  //     this.render2.setAttribute(document.documentElement, 'dir' ,'ltr');
+  //     this.render2.setAttribute(document.documentElement, 'lang' ,'en');
 
-    }
-    else if(localStorage.getItem('lang') === 'ar')
-    {
-      this.render2.setAttribute(document.documentElement, 'dir' ,'ltr');
-      this.render2.setAttribute(document.documentElement, 'lang' ,'ar');
-    }
-   }
+  //   }
+  //   else if(localStorage.getItem('lang') === 'ar')
+  //   {
+  //     this.render2.setAttribute(document.documentElement, 'dir' ,'ltr');
+  //     this.render2.setAttribute(document.documentElement, 'lang' ,'ar');
+  //   }
+  //  }
 
+
+
+  changeDiraction(): void {
+  const lang = localStorage.getItem('lang');
+  
+  if (lang === 'en') {
+    this.render2.setAttribute(document.documentElement, 'dir', 'ltr');
+    this.render2.setAttribute(document.documentElement, 'lang', 'en');
+  } else if (lang === 'ar') {
+    this.render2.setAttribute(document.documentElement, 'dir', 'rtl');
+    this.render2.setAttribute(document.documentElement, 'lang', 'ar');
+  }
+}
 
 
 

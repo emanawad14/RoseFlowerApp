@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
-import { TranslatePipe } from '@ngx-translate/core';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
+import { MyTranslateService } from '../../services/myTranslate/my-translate.service';
 
 @Component({
   selector: 'app-footer',
@@ -11,4 +12,8 @@ import { TranslatePipe } from '@ngx-translate/core';
   templateUrl: './Footer.component.html',
   styleUrl: './Footer.component.scss',
 })
-export class FooterComponent {}
+export class FooterComponent {
+constructor(public translate: TranslateService) {}
+
+
+}

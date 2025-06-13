@@ -6,12 +6,13 @@
 
 
 
-body[dir='rtl'] {
+html[dir='rtl'] {
   text-align: right;
   direction: rtl;
 }
 
-body[dir='ltr'] {
+
+html[dir='ltr'] {
   text-align: left;
   direction: ltr;
 }
