@@ -12,7 +12,7 @@
     style: normal;
   }
 }
-[theme='light'] {
+:root[theme='light'] {
   --icon-sm: #ffff;
   --bg-icon-hover: #f82ba9;
   --bg-icon: #f82ba9;
@@ -45,7 +45,7 @@
   --link-color:#160e4b;;
 }
 
-[theme='dark'] {
+:root[theme='dark'] {
   --icon-sm: #cd2e33;
   --bg-icon-hover: #ffff;
   --bg-icon: #cd2e33;

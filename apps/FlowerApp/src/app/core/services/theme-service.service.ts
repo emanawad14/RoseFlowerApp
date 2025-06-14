@@ -7,11 +7,21 @@ import { LocalStorageService } from './local-storage.service';
 })
 export class ThemeService {
   private readonly storageKey = 'app-theme';
-  private readonly defaultTheme = 'light';
+  private readonly currentTheme = 'light';
+
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
     private _LocalStorageService: LocalStorageService
   ) {}
+  // loadTheme(): Promise<void> {
+  //   return new Promise((resolve) => {
+  //     // Apply theme to <body> or <html>
+  //     this.initialTheme();
+  //     // Update state
+  //     resolve(); // let Angular continue bootstrapping
+  //   });
+  // }
+
   setTheme(theme: 'light' | 'dark') {
     this.setHtmlTheme(theme); // Apply to <html>
   }
@@ -19,10 +29,11 @@ export class ThemeService {
     return (
       (this._LocalStorageService.getFromLocal(this.storageKey) as
         | 'light'
-        | 'dark') || this.defaultTheme
+        | 'dark') || this.currentTheme
     );
   }
   initialTheme() {
+    console.log('theme');
     const currentTheme = this.getTheme();
     this.setTheme(currentTheme);
   }
