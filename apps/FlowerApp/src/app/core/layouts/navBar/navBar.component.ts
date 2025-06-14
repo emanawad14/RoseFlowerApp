@@ -1,5 +1,5 @@
 import { ThemeService } from './../../services/theme-service.service';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnChanges, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
@@ -23,7 +23,7 @@ import { BadgeModule } from 'primeng/badge';
   templateUrl: './navBar.component.html',
   styleUrl: './navBar.component.scss',
 })
-export class NavBarComponent implements OnInit {
+export class NavBarComponent implements OnInit, OnChanges {
   @ViewChild('menu') menu!: Menu;
 
   menuItems: MenuItem[] = [
@@ -58,8 +58,9 @@ export class NavBarComponent implements OnInit {
   }
   ngOnInit() {
     //initial theme
-    this._themeService.initialTheme();
+    //this._themeService.initialTheme();
   }
+  ngOnChanges() {}
   toggleDarkMode() {
     this._themeService.toggleTheme();
   }
