@@ -1,53 +1,48 @@
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
-import { LocalStorageService } from './local-storage.service';
+import { CookiesService } from './cookies.service';
 @Injectable({
   providedIn: 'root',
 })
 export class ThemeService {
   private readonly storageKey = 'app-theme';
-  private readonly currentTheme = 'light';
+  private  currentTheme = 'light';
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
-    private _LocalStorageService: LocalStorageService
+    private _CookiesService: CookiesService
   ) {}
-  // loadTheme(): Promise<void> {
-  //   return new Promise((resolve) => {
-  //     // Apply theme to <body> or <html>
-  //     this.initialTheme();
-  //     // Update state
-  //     resolve(); // let Angular continue bootstrapping
-  //   });
-  // }
-
-  setTheme(theme: 'light' | 'dark') {
+  setTheme(theme: 'light' | 'dark' = this.getTheme()) {
     this.setHtmlTheme(theme); // Apply to <html>
+    this._CookiesService.saveToCookies(this.storageKey, theme);
   }
   getTheme(): 'light' | 'dark' {
     return (
-      (this._LocalStorageService.getFromLocal(this.storageKey) as
+      (this._CookiesService.getFromCookies(this.storageKey) as
         | 'light'
         | 'dark') || this.currentTheme
     );
   }
-  initialTheme() {
-    console.log('theme');
-    const currentTheme = this.getTheme();
-    this.setTheme(currentTheme);
+  initialTheme(theme:string |null) {
+    if(theme==null) theme='light';
+    this.setHtmlTheme(theme);
+    this.currentTheme=theme;
   }
   toggleTheme() {
-    const newTheme =
-      this._LocalStorageService.getFromLocal(this.storageKey) === 'light'
+    let newTheme: 'light' | 'dark' =
+      this._CookiesService.getFromCookies(this.storageKey) === 'light'
         ? 'dark'
         : 'light';
+    if (this._CookiesService.getFromCookies(this.storageKey) == null) {
+      newTheme = 'light';
+    }
+
     this.setTheme(newTheme);
   }
 
   private setHtmlTheme(theme: string) {
     if (isPlatformBrowser(this.platformId)) {
-      this._LocalStorageService.saveToLocal(this.storageKey, theme);
       document.documentElement.setAttribute('theme', theme);
     }
   }

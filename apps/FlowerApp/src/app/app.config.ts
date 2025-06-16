@@ -16,13 +16,20 @@ import {
 } from '@angular/platform-browser';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { ThemeService } from './core/services/theme-service.service';
+import { CookieService } from 'ngx-cookie-service';
+import { CookiesService } from './core/services/cookies.service';
  
 export const appConfig: ApplicationConfig = {
   providers: [
+    CookieService,
     provideAppInitializer(() => {
       const _themeService = inject(ThemeService);
-      _themeService.initialTheme();
+      const _CookiesService = inject(CookiesService);
+      // _themeService.initialTheme();
+      return _themeService.initialTheme(_CookiesService.getFromCookies('app-theme'));
+      // return Promise.resolve();
     }),
+    
     provideClientHydration(withEventReplay()),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideHttpClient(withFetch()),

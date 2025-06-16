@@ -23,7 +23,7 @@ import { BadgeModule } from 'primeng/badge';
   templateUrl: './navBar.component.html',
   styleUrl: './navBar.component.scss',
 })
-export class NavBarComponent implements OnInit, OnChanges {
+export class NavBarComponent implements OnInit {
   @ViewChild('menu') menu!: Menu;
 
   menuItems: MenuItem[] = [
@@ -60,7 +60,7 @@ export class NavBarComponent implements OnInit, OnChanges {
     //initial theme
     //this._themeService.initialTheme();
   }
-  ngOnChanges() {}
+
   toggleDarkMode() {
     this._themeService.toggleTheme();
   }
