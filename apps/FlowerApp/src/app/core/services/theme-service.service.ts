@@ -1,6 +1,5 @@
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { DOCUMENT, isPlatformBrowser } from '@angular/common';
+ import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { CookiesService } from './cookies.service';
 @Injectable({
   providedIn: 'root',
@@ -10,7 +9,8 @@ export class ThemeService {
   private  currentTheme = 'light';
 
   constructor(
-    @Inject(PLATFORM_ID) private platformId: Object,
+    @Inject(DOCUMENT) private document: Document,
+    //@Inject(PLATFORM_ID) private platformId: Object,
     private _CookiesService: CookiesService
   ) {}
   setTheme(theme: 'light' | 'dark' = this.getTheme()) {
@@ -42,8 +42,8 @@ export class ThemeService {
   }
 
   private setHtmlTheme(theme: string) {
-    if (isPlatformBrowser(this.platformId)) {
-      document.documentElement.setAttribute('theme', theme);
-    }
+   // if (isPlatformBrowser(this.platformId)) {
+      this.document.documentElement.setAttribute('theme', theme);
+    //}
   }
 }

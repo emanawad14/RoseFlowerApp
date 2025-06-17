@@ -26,7 +26,8 @@ export const appConfig: ApplicationConfig = {
       const _themeService = inject(ThemeService);
       const _CookiesService = inject(CookiesService);
       // _themeService.initialTheme();
-      return _themeService.initialTheme(_CookiesService.getFromCookies('app-theme'));
+        _themeService.initialTheme(_CookiesService.getFromCookies('app-theme'));
+       return Promise.resolve();
       // return Promise.resolve();
     }),
     
