@@ -1,25 +1,25 @@
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
-import { LocalStorageService } from './local-storage.service';
+import { CookieUtils } from '../utills/cookie.utills';
 @Injectable({
   providedIn: 'root',
 })
 export class ThemeService {
   private readonly storageKey = 'app-theme';
   private readonly defaultTheme = 'light';
+  // Cookie utility instance
+  private cookieUtils = new CookieUtils();
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
-    private _LocalStorageService: LocalStorageService
+    @Inject(DOCUMENT) private document: Document
   ) {}
   setTheme(theme: 'light' | 'dark') {
     this.setHtmlTheme(theme); // Apply to <html>
   }
   getTheme(): 'light' | 'dark' {
     return (
-      (this._LocalStorageService.getFromLocal(this.storageKey) as
-        | 'light'
-        | 'dark') || this.defaultTheme
+      (this.cookieUtils.getCookie(this.storageKey) as 'light' | 'dark') ||
+      this.defaultTheme
     );
   }
   initialTheme() {
@@ -28,7 +28,7 @@ export class ThemeService {
   }
   toggleTheme() {
     const newTheme =
-      this._LocalStorageService.getFromLocal(this.storageKey) === 'light'
+      this.cookieUtils.getCookie(this.storageKey) === 'light'
         ? 'dark'
         : 'light';
     this.setTheme(newTheme);
@@ -36,8 +36,10 @@ export class ThemeService {
 
   private setHtmlTheme(theme: string) {
     if (isPlatformBrowser(this.platformId)) {
-      this._LocalStorageService.saveToLocal(this.storageKey, theme);
-      document.documentElement.setAttribute('theme', theme);
+      this.cookieUtils.setCookie(this.storageKey, theme);
+      // document.documentElement.classList.remove('light', 'dark');
+      // document.documentElement.classList.add(theme);
+      this.document.documentElement.setAttribute('theme', theme);
     }
   }
 }

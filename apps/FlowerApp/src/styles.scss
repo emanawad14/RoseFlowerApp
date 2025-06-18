@@ -12,6 +12,14 @@
     style: normal;
   }
 }
+// .light {
+//   --home-bg: #f9f9f9;
+// }
+
+// .dark {
+//   --home-bg: #18181b;
+// }
+
 [theme='light'] {
   --icon-sm: #ffff;
   --bg-icon-hover: #f82ba9;
@@ -42,7 +50,7 @@
   --bg-dark: #18181b;
   --bg-zink: #ffffff;
   --text-title: #160e4b;
-  --link-color:#160e4b;;
+  --link-color: #160e4b;
 }
 
 [theme='dark'] {
@@ -78,7 +86,7 @@
   --bg-dark: #18181b;
   --bg-zink: #27272a;
   --text-title: #ffa3b9;
-  --link-color:#A1A1AA;
+  --link-color: #a1a1aa;
 }
 html,
 body,
