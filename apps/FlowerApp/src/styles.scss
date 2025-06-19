@@ -13,14 +13,75 @@
   }
 }
 // .light {
-//   --home-bg: #f9f9f9;
+//  --icon-sm: #ffff;
+//   --bg-icon-hover: #f82ba9;
+//   --bg-icon: #f82ba9;
+//   --text-sm: #f05454;
+//   --line-color: #f82ba9;
+//   --btn-text: #ffffff;
+//   --secondary-text: #160e4b;
+//   --primary-text: #f82ba9;
+//   --primary-span: #f82ba9;
+//   --primary-color: #f82ba9;
+//   --secondary-color: #160e4b;
+//   --text-color: #333333;
+//   --bg-light-pink: #feedf7;
+//   --white-color: #ffff;
+//   --black-color: #000000;
+//   --purple-color: #8c52ff;
+//   --text-gray: #757f95;
+//   --text-zink: #27272a;
+//   --bg-pink: #feedf7;
+//   --home-bg: #ffff;
+//   --btn-shadow: #0000000d;
+//   --font-main: 'Inter', sans-serif;
+//   --highlight-pink: #ec4899;
+//   --third-color: #741c21;
+//   --icon-bg: #8c52ff;
+//   --text-p: #71717a;
+//   --bg-dark: #18181b;
+//   --bg-zink: #ffffff;
+//   --text-title: #160e4b;
+//   --link-color: #160e4b;
 // }
 
 // .dark {
-//   --home-bg: #18181b;
+//   --icon-sm: #cd2e33;
+//   --bg-icon-hover: #ffff;
+//   --bg-icon: #cd2e33;
+//   --text-sm: #ffc2d0;
+//   --line-color: #ff668b;
+//   --btn-text: #27272a;
+//   --primary-span: #d75458;
+//   --secondary-text: #ffc2d0;
+//   --primary-text: #fbeaea;
+
+//   --bg-color: #111827;
+//   // --text-color: #f9fafb;
+//   --bg-light-pink: #3f3f46;
+//   --white-color: #ffff;
+//   --primary-color: #ffc2d0;
+//   --secondary-color: #ffffff;
+//   --text-color: #333333;
+//   --black-color: #000000;
+//   --purple-color: #8c52ff;
+//   --text-gray: #a1a1aa;
+//   --text-zink: #fafafa;
+//   --bg-pink: #3f3f46;
+//   --home-bg: #27272a;
+//   --btn-shadow: #0000000d;
+//   --font-main: 'Inter', sans-serif;
+//   --highlight-pink: #ec4899;
+//   --third-color: #ffc2d0;
+//   --icon-bg: #cd2e33;
+//   --text-p: #a1a1aa;
+//   --bg-dark: #18181b;
+//   --bg-zink: #27272a;
+//   --text-title: #ffa3b9;
+//   --link-color: #a1a1aa;
 // }
 
-[theme='light'] {
+[data-theme='light'] {
   --icon-sm: #ffff;
   --bg-icon-hover: #f82ba9;
   --bg-icon: #f82ba9;
@@ -53,7 +114,7 @@
   --link-color: #160e4b;
 }
 
-[theme='dark'] {
+[data-theme='dark'] {
   --icon-sm: #cd2e33;
   --bg-icon-hover: #ffff;
   --bg-icon: #cd2e33;

@@ -58,7 +58,7 @@ export class NavBarComponent implements OnInit {
   }
   ngOnInit() {
     //initial theme
-    this._themeService.setTheme(this._themeService.getTheme());
+    this._themeService.initialTheme();
   }
   toggleDarkMode() {
     this._themeService.toggleTheme();

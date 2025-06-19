@@ -18,6 +18,7 @@
     "@angular/router": "~19.2.0",
     "@primeng/themes": "^19.1.2",
     "express": "^4.21.2",
+    "ngx-cookie-service-ssr": "^20.0.1",
     "ngx-owl-carousel-o": "^19.0.2",
     "primeflex": "^4.0.0",
     "primeicons": "^7.0.0",

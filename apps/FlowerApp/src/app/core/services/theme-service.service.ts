@@ -1,45 +1,56 @@
-import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
-import { DOCUMENT, isPlatformBrowser } from '@angular/common';
+import { inject, Inject, Injectable, signal } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 import { CookieUtils } from '../utills/cookie.utills';
+import { Theme } from '../../shared/types/theme.type';
+import { of, tap } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
 export class ThemeService {
   private readonly storageKey = 'app-theme';
-  private readonly defaultTheme = 'light';
+  private readonly currentTheme = signal<Theme>('light');
+  private readonly document = inject(DOCUMENT);
+
   // Cookie utility instance
   private cookieUtils = new CookieUtils();
-  constructor(
-    @Inject(PLATFORM_ID) private platformId: Object,
-    @Inject(DOCUMENT) private document: Document
-  ) {}
-  setTheme(theme: 'light' | 'dark') {
-    this.setHtmlTheme(theme); // Apply to <html>
+  constructor() {
+    this.setCurrentTheme(this.cookieUtils.getCookie(this.storageKey) as Theme);
   }
-  getTheme(): 'light' | 'dark' {
-    return (
-      (this.cookieUtils.getCookie(this.storageKey) as 'light' | 'dark') ||
-      this.defaultTheme
-    );
+  setTheme(theme: Theme) {
+    this.setHtmlTheme(theme); // Apply to <html>
+    this.setCurrentTheme(theme);
+  }
+  getTheme(): Theme {
+    return this.cookieUtils.getCookie(this.storageKey) as Theme;
   }
   initialTheme() {
     const currentTheme = this.getTheme();
+    console.log('current theme', currentTheme);
+
     this.setTheme(currentTheme);
+    this.cookieUtils.setCookie(this.storageKey, currentTheme);
+
+    return of(currentTheme).pipe(
+      tap(() => {
+        console.log(`Init Theme is  ==> ${currentTheme}`);
+      })
+    );
+    // this.setCurrentTheme(currentTheme as Theme);
+  }
+
+  setCurrentTheme(theme: Theme) {
+    this.currentTheme.set(theme);
   }
   toggleTheme() {
-    const newTheme =
-      this.cookieUtils.getCookie(this.storageKey) === 'light'
-        ? 'dark'
-        : 'light';
+    const currentTheme = this.cookieUtils.getCookie(this.storageKey) ?? 'light';
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
     this.setTheme(newTheme);
   }
 
   private setHtmlTheme(theme: string) {
-    if (isPlatformBrowser(this.platformId)) {
-      this.cookieUtils.setCookie(this.storageKey, theme);
-      // document.documentElement.classList.remove('light', 'dark');
-      // document.documentElement.classList.add(theme);
-      this.document.documentElement.setAttribute('theme', theme);
-    }
+    // this.document.documentElement.classList.remove('light', 'dark');
+    // this.document.documentElement.classList.add(theme);
+    this.document.documentElement.setAttribute('data-theme', theme);
+    this.cookieUtils.setCookie(this.storageKey, theme);
   }
 }
