@@ -7,6 +7,8 @@ import { Subscription } from 'rxjs';
 import { RatingModule } from 'primeng/rating';
 import { CardModule } from 'primeng/card';
 import { FormsModule } from '@angular/forms';
+import { TranslatePipe } from '@ngx-translate/core';
+import { MyTranslateService } from '../../../core/services/myTranslate/my-translate.service';
 
 @Component({
   selector: 'app-best',
@@ -16,6 +18,7 @@ import { FormsModule } from '@angular/forms';
     RatingModule,
     FormsModule,
     CardModule,
+    TranslatePipe
   ],
   templateUrl: './Best.component.html',
   styleUrl: './Best.component.scss',
@@ -23,19 +26,27 @@ import { FormsModule } from '@angular/forms';
 export class BestComponent implements OnInit, OnDestroy {
   bests: IItems[] = [];
 
-  // constructor(){}
+  constructor(public myTranslateService: MyTranslateService) {}
   private readonly homeServices = inject(HomeService);
   homeUnSubscribe: Subscription = new Subscription();
 
+  
+
   ngOnInit(): void {
-    this.getHomeScreens();
+
+     this.getHomeScreens();
+    const currentLang = this.myTranslateService.currentLang || 'en';
+    this.setNavText(currentLang);
+    
+    this.myTranslateService.onLangChange.subscribe((event) => {
+      this.setNavText(event.lang);
+    });
   }
 
   getHomeScreens() {
     this.homeUnSubscribe = this.homeServices.getHomeScreen().subscribe({
       next: (res) => {
         this.bests = res.bestSeller;
-        // console.log(res.bestSeller);
       },
       error: (err) => {
         console.log(err);
@@ -43,10 +54,36 @@ export class BestComponent implements OnInit, OnDestroy {
     });
   }
 
+
+ 
+
+   setNavText(lang: string) {
+    if (lang === 'ar') {
+      this.customOptions.rtl = true;
+      this.customOptions.navText = [
+        '<i class="pi pi-chevron-right text-lg"></i>',
+        '<i class="pi pi-chevron-left text-lg"></i>',
+      ];
+    } else {
+      this.customOptions.rtl = false;
+      this.customOptions.navText = [
+        '<i class="pi pi-chevron-left text-lg"></i>',
+        '<i class="pi pi-chevron-right text-lg"></i>',
+      ];
+    }
+
+
+  }
+
+
+
   customOptions: OwlOptions = {
     loop: true,
     margin: 2,
     mouseDrag: true,
+   rtl:true
+  ,
+
     touchDrag: true,
     pullDrag: false,
     dots: false,
@@ -69,6 +106,9 @@ export class BestComponent implements OnInit, OnDestroy {
     },
     nav: true,
   };
+
+
+
 
   ngOnDestroy(): void {
     this.homeUnSubscribe.unsubscribe();

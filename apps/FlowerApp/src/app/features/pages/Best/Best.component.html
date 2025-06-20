@@ -3,20 +3,33 @@
     class="container flex flex-wrap justify-content-between align-items-center"
   >
     <div class="content lg:w-3 md:w-6 sm:w-full p-2">
-      <h3 class="gift my-4">PREMIUM GIFTS</h3>
+      <h3 class="gift my-4">
+        {{ 'BestSeller.PREMIUM GIFTS' | translate }}
+      </h3>
+
       <h2 class="seller white-space-nowrap">
         Best <span class="text-primary-color ">Seller</span><br />
         <span class=" text-primary-color">Gifts</span> <span> And Products</span>
       </h2>
+
       <p class="paragraph my-4 flex flex-column white-space-nowrap">
-        <span>Recusandae tempora aut laborum</span>
-        <span>molestias veniam. A commodi sequi</span>
-        <span>accusantium ullam cupiditate. Neque</span>
-        <span>quidem qui et autem dolor dicta</span>
-        <span>necessitatibus ut ad.</span>
+        <span>{{ 'BestSeller.line1' | translate }}</span>
+        <span>{{ 'BestSeller.line2' | translate }}</span>
+        <span>{{ 'BestSeller.line3' | translate }}</span>
+        <span>{{ 'BestSeller.line4' | translate }}</span>
+        <span>{{ 'BestSeller.line5' | translate }}</span>
       </p>
-      <button class="btn mt-3 cursor-pointer">
-        Explore More <i class="pi pi-arrow-right ml-2"></i>
+
+      <button class="btn mt-3 cursor-pointer flex items-center">
+        {{ 'BestSeller.Explore More' | translate }}
+
+        <i
+          class="ml-2"
+          [ngClass]="{
+            'pi pi-arrow-right': myTranslateService.currentLang !== 'ar',
+            'pi pi-arrow-left': myTranslateService.currentLang === 'ar'
+          }"
+        ></i>
       </button>
     </div>
 

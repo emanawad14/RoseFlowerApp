@@ -1,19 +1,30 @@
-<button pButton type="button" class="p-button">
-  <span class="custom-label">{{ labelName }}</span>
+<!-- <button pButton type="button" class="p-button">
+  <span class="custom-label">{{ labelName}}</span>
   <span [class.hidden]="!displayIcon">
-    <svg
-      width="13"
-      height="13"
-      viewBox="0 0 13 13"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M12.299 7.00003C12.4597 6.80905 12.299 6.24829 12.299 6.00003C12.299 5.75176 12.4597 6.191 12.299 6.00003L7.29897 1.00003C7.1204 0.828152 7.53111 1.00003 7.29897 1.00003C7.06682 1.00003 6.47754 0.828152 6.29897 1.00003C6.13825 1.191 6.29897 1.75176 6.29897 2.00003C6.29897 2.24829 6.13825 2.80905 6.29897 3.00003L9.29897 6.00003H1.29897C1.04897 6.00003 0.459682 5.82815 0.298968 6.00003C0.138253 6.1719 0.298968 5.73267 0.298968 6.00003C0.298968 6.26739 0.138253 6.82815 0.298968 7.00003C0.459682 7.1719 1.04897 7.00003 1.29897 7.00003H9.29897L6.29897 10C6.13825 10.191 6.29897 10.7518 6.29897 11C6.29897 11.2483 6.13825 11.8091 6.29897 12C6.47754 12.1719 7.06682 12 7.29897 12C7.1204 12.1719 7.53111 12 7.29897 12L12.299 7.00003Z"
-        fill="currentColor"
-      />
-    </svg>
-    <!-- <img src="\images\arrow-right-svg.svg" alt="" class="text-blue-500" /> -->
+    <img src="/images/arrow-right-Icon.png" alt=""
+  /></span>
+</button>  -->
+
+<button pButton type="button" class="p-button flex items-center gap-2">
+  <span class="custom-label" *ngIf="translate.currentLang !== 'ar'">
+    {{ labelName }}
+  </span>
+
+  <span [class.hidden]="!displayIcon">
+    <img
+      src="/images/arrow-right-Icon.png"
+      alt=""
+      class="w-8 h-8 transition-transform duration-300"
+      [ngClass]="{
+        'order-first rotate-180': translate.currentLang === 'ar',
+        'order-last rotate-0': translate.currentLang !== 'ar'
+      }"
+    />
+  </span>
+
+  <span class="custom-label" *ngIf="translate.currentLang === 'ar'">
+    {{ labelName }}
   </span>
 </button>
+
 <!-- class="pi pi-arrow-right " -->

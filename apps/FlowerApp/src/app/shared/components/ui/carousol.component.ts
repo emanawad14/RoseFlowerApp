@@ -3,6 +3,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PrimaryBtnComponent } from './primary-btn.component';
 import { Gift } from '../../interfaces/gift';
+import { MyTranslateService } from '../../../core/services/myTranslate/my-translate.service';
 
 @Component({
   selector: 'app-carousol',
@@ -12,40 +13,66 @@ import { Gift } from '../../interfaces/gift';
   encapsulation: ViewEncapsulation.None,
 })
 export class CarousolComponent {
-  labelName = 'Shop Now';
-  giftsList: Gift[] = [
-    {
-      id: '1',
-      bgImg: '/images/slide1.jpg',
-      description:
-        'Culpa ducimus nesciunt aliquam non rerum esse recusandae omnis. Rerum optio dolores et.',
-      title: 'Best Gift Shop',
-      subTitle: 'Choose Perfect gifts From Us',
-    },
-    {
-      id: '2',
-      bgImg: '/images/slide2.jpg',
-      description:
-        'Culpa ducimus nesciunt aliquam non rerum esse recusandae omnis. Rerum optio dolores et.',
-      title: 'Best Gift Shop',
-      subTitle: 'Choose Perfectfts From Us',
-    },
-    {
-      id: '3',
-      bgImg: '/images/slide3.jpg',
-      description:
-        'Culpa ducimus nesciunt aliquam non rerum esse recusandae omnis. Rerum optio dolores et.',
-      title: 'Best Gift Shop',
-      subTitle: 'Choose Perfectfts From Us',
-    },
-    {
-      id: '4',
-      bgImg: '/images/slide4.jpg',
+ labelName = '';
 
-      description:
-        'Culpa ducimus nesciunt aliquam non rerum esse recusandae omnis. Rerum optio dolores et.',
-      title: 'Best Gift Shop',
-      subTitle: 'Choose Perfectfts From Us',
-    },
-  ];
+giftsList: Gift[] = [];
+
+constructor(private translate: MyTranslateService) {}
+
+ngOnInit(): void {
+  this.loadTranslations();
+  this.translate.onLangChange.subscribe(() => {
+    this.loadTranslations();
+  });
+}
+
+private loadTranslations(): void {
+  this.translate.get([
+    'GiftSlides.ShopNow',
+    'GiftSlides.Title1',
+    'GiftSlides.SubTitle1',
+    'GiftSlides.Description',
+
+    'GiftSlides.Title2',
+    'GiftSlides.SubTitle2',
+
+    'GiftSlides.Title3',
+    'GiftSlides.SubTitle3',
+
+    'GiftSlides.Title4',
+    'GiftSlides.SubTitle4'
+  ]).subscribe(translations => {
+    this.labelName = translations['GiftSlides.ShopNow'];
+    this.giftsList = [
+      {
+        id: '1',
+        bgImg: '/images/slide1.jpg',
+        title: translations['GiftSlides.Title1'],
+        subTitle: translations['GiftSlides.SubTitle1'],
+        description: translations['GiftSlides.Description']
+      },
+      {
+        id: '2',
+        bgImg: '/images/slide2.jpg',
+        title: translations['GiftSlides.Title2'],
+        subTitle: translations['GiftSlides.SubTitle2'],
+        description: translations['GiftSlides.Description']
+      },
+      {
+        id: '3',
+        bgImg: '/images/slide3.jpg',
+        title: translations['GiftSlides.Title3'],
+        subTitle: translations['GiftSlides.SubTitle3'],
+        description: translations['GiftSlides.Description']
+      },
+      {
+        id: '4',
+        bgImg: '/images/slide4.jpg',
+        title: translations['GiftSlides.Title4'],
+        subTitle: translations['GiftSlides.SubTitle4'],
+        description: translations['GiftSlides.Description']
+      }
+    ];
+  });
+}
 }
