@@ -21,7 +21,7 @@
             role="button"
             tabindex="0"
           >
-           {{'navbar.home' | translate}}
+            Home
           </a>
         </li>
         <li>
@@ -33,7 +33,7 @@
             role="button"
             tabindex="0"
           >
-            {{'navbar.categories' | translate}}
+            Categories
           </a>
         </li>
         <li>
@@ -45,7 +45,7 @@
             role="button"
             tabindex="0"
           >
-            {{'navbar.about' | translate}}
+            About
           </a>
         </li>
         <li>
@@ -57,7 +57,7 @@
             role="button"
             tabindex="0"
           >
-           {{'navbar.contact' | translate}}
+            Contact
           </a>
         </li>
       </ul>
@@ -89,52 +89,7 @@
             badgeSize="small"
           ></i>
         </button>
-
-
-
-      
-      
-        
-
-
-       <button
-       [class.hidden]="currentLanguage('en') "
-       pButton class="p-button-text text-pink-500" (click)="change('en')">
-           {{'navbar.arabic' | translate}}
-        </button>
-
-        <button
-        
-        [class.hidden]="currentLanguage('ar') "
-        pButton class="p-button-text text-pink-500"  (click)="change('ar')">
-          English
-        </button> 
-
-
-
-
-       
-
-
-
-
-        <!-- <button 
-          pButton 
-          class="p-button-text text-pink-500" 
-          (click)="languageToggle()"
-          >
-            <ng-container *ngIf="!langClick; else arabicText">
-           English
-            </ng-container>
-            <ng-template #arabicText>
-               {{'navbar.arabic' | translate}}
-          
-            
-           </ng-template>
-           </button> -->
-
-
-
+        <p-button label="Toggle Dark Mode" (onClick)="toggleDarkMode()" />
       </div>
     </div>
   </div>

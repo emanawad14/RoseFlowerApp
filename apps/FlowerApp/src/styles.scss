@@ -3,32 +3,6 @@
 @import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-
-
-
-html[dir='rtl'] {
-  text-align: right;
-  direction: rtl;
-}
-
-
-html[dir='ltr'] {
-  text-align: left;
-  direction: ltr;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
 * {
   padding: 0;
   margin: 0;
@@ -209,7 +183,7 @@ h4 {
     content: '';
     position: absolute; // absolute inside the h2
     bottom: -0.5rem; // move it just below the text
-    inset-inline-start: 0rem;// align to the left edge
+    left: 0; // align to the left edge
     width: 9.5rem; // how long the line is
     height: 2px; // thickness
     background-color: var(--line-color);
@@ -218,8 +192,8 @@ h4 {
     content: '';
     position: absolute; // absolute inside the h2
     bottom: -0.5rem; // move it just below the text
-    inset-inline-start: 0rem; // align to the left edge
-    width: 17rem;
+    left: 0; // align to the left edge
+    width: 13rem;
     height: 20px;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
