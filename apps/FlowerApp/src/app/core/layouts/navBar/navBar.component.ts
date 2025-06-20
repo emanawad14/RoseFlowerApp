@@ -1,5 +1,4 @@
-import { ThemeService } from './../../services/theme-service.service';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, inject, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
@@ -7,6 +6,9 @@ import { RippleModule } from 'primeng/ripple';
 import { MenuModule, Menu } from 'primeng/menu';
 import { MenuItem } from 'primeng/api';
 import { BadgeModule } from 'primeng/badge';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
+import { MyTranslateService } from '../../services/myTranslate/my-translate.service';
+import { ThemeService } from '../../services/theme-service.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -19,11 +21,36 @@ import { BadgeModule } from 'primeng/badge';
     RippleModule,
     MenuModule,
     BadgeModule,
+    TranslatePipe
   ],
   templateUrl: './navBar.component.html',
   styleUrl: './navBar.component.scss',
 })
-export class NavBarComponent implements OnInit {
+export class NavBarComponent {
+
+
+
+  
+   
+  private readonly myTranslate=inject(MyTranslateService);
+  private readonly TranslateService=inject(TranslateService);
+
+
+
+currentLanguage(lang:string):boolean{
+ return  this.TranslateService.currentLang  === lang
+}
+  
+  //************          language   ******************/ 
+  change(lang:string):void
+  {
+     this.myTranslate.changeTranslateLange(lang)
+  }
+
+
+  
+
+//**************************************************** */
   @ViewChild('menu') menu!: Menu;
 
   menuItems: MenuItem[] = [
