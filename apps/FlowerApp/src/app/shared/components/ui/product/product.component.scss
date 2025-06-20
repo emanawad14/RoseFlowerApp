@@ -1,22 +1,11 @@
 h2 {
-  color: black;
-}
-
-.avatar
-{
-   text-align: start;
-}
-
-h2::after {
-  content: '';
-  display: block;
-  width: 50px;
-  height: 3px;
-  background-color: #f82ba9;
-  margin-top: 8px;
+  color: var(--secondary-text);
 }
 
 .cover {
+  i{
+    color:var( --icon-sm);
+  }
   position: absolute;
   inset: 0;
   background-color: rgba(248, 43, 169, 0.5);
@@ -25,7 +14,7 @@ h2::after {
 }
 
 .cover span {
-  background-color: #f82ba9;
+  background-color: var(--bg-icon-hover);
 }
 
 .relative:hover .cover {
@@ -95,8 +84,10 @@ h2::after {
 
 /* Category Button Styles */
 .category-btn {
-  background-color: white;
-  color: black;
+      background-color: transparent;
+      color: var(--link-color);
+  // background-color: white;
+  // color: black;
   border: none;
   outline: none;
   white-space: nowrap;
@@ -109,8 +100,8 @@ h2::after {
 .category-btn:hover,
 .category-btn.active {
   padding-bottom: 0;
-  color: #f82ba9;
-  border-bottom: 3px solid #f82ba9;
+  color: var(--primary-color);
+  border-bottom: 3px solid var(--primary-color);
 }
 
 /* No Products Found Styles */
@@ -134,8 +125,8 @@ h2::after {
 
   .p-carousel-prev,
   .p-carousel-next {
-    color: #f82ba9;
-    border: 1px solid #f82ba9;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
     border-radius: 50%;
     width: 2rem;
     height: 2rem;
@@ -143,7 +134,7 @@ h2::after {
 
   .p-carousel-prev:hover,
   .p-carousel-next:hover {
-    background: #f82ba9;
+    background: var(--primary-color);
     color: white;
   }
 }
@@ -161,4 +152,21 @@ h2::after {
 ::ng-deep .p-carousel-items-content {
   overflow: hidden;
   white-space: nowrap;
+}
+.heading4 {
+  color: var(--secondary-text) !important;
+}
+.product-card {
+  span {
+    color: var(--text-sm) !important;
+  }
+}
+::ng-deep.p-card {
+  background: var(--bg-light-pink) !important;
+
+  /* color: var(--p-card-color); */
+  box-shadow: none !important;
+}
+::ng-deep.p-card-body {
+  background-color: var(--home-bg);
 }

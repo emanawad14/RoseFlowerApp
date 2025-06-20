@@ -10,7 +10,6 @@
       [numVisible]="5"
       [numScroll]="1"
       [circular]="true"
-      [autoplayInterval]="5000"
       [showNavigators]="true"
       [showIndicators]="false"
       styleClass="category-carousel"
@@ -47,17 +46,16 @@
       style="min-height: 300px"
     >
       <div class="text-center">
-        <i class="pi pi-inbox text-pink-500 text-5xl mb-3"></i>
-        <h3 class="text-pink-500 text-2xl font-medium">No Products Found</h3>
-        <p class="text-gray-600">Try selecting a different category</p>
+        <i class="pi pi-inbox text-primary-color text-5xl mb-3"></i>
+        <h3 class="text-primary-color text-2xl font-medium">
+          No Products Found
+        </h3>
+        <p class="paragraph-text">Try selecting a different category</p>
       </div>
     </div>
     } @else { @for(product of products; track product._id) {
     <div class="product-card p-5 w-full sm:w-6 md:w-4 lg:w-3">
-      <p-card
-        [style]="{ backgroundColor: 'white', color: 'black' }"
-        class="card-content w-full h-full shadow-1 border-round-3xl lg:text-2xl"
-      >
+      <p-card class="card-content w-full h-full border-round-3xl lg:text-2xl">
         <ng-template #header>
           <div class="relative">
             <img
@@ -71,10 +69,10 @@
               class="cover w-full h-full justify-content-around align-items-center absolute top-5 left-5 border-round-2xl"
             >
               <span class="icon p-4 border-circle cursor-pointer">
-                <i class="fa-regular fa-heart text-2xl text-white"></i>
+                <i class="fa-regular fa-heart text-2xl"></i>
               </span>
               <span class="icon p-4 border-circle cursor-pointer">
-                <i class="fa-regular fa-eye text-2xl text-white"></i>
+                <i class="fa-regular fa-eye text-2xl"></i>
               </span>
             </div>
           </div>
@@ -98,7 +96,7 @@
                 [stars]="5"
                 [readonly]="true"
               />
-              <span class="text-pinky font-bold text-xl pt-3">
+              <span class="font-bold text-xl pt-3">
                 {{ product.price | currency : 'USD' : 'symbol' : '1.2-2' }}
               </span>
             </div>

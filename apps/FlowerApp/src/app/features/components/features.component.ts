@@ -7,7 +7,7 @@ import { LangChangeEvent } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-features',
-  imports: [CommonModule,AvatarFeaturesComponent],
+  imports: [CommonModule, AvatarFeaturesComponent],
   templateUrl: './features.component.html',
   styleUrl: './features.component.scss',
 })

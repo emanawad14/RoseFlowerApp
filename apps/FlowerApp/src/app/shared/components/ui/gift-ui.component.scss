@@ -9,6 +9,7 @@
   background-repeat: no-repeat;
   
   .heading3 {
+    color:var(--secondary-color);
     font-size: 1.1em;
     line-height: 100%;
     letter-spacing: 0%;
@@ -21,7 +22,7 @@
     font-size: 1rem;
     line-height: 19px;
     text-transform: capitalize;
-    color: var(--primary-color);
+    color: var(--primary-span);
   }
 }
  

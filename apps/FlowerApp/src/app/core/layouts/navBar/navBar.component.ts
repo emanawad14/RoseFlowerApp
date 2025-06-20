@@ -8,6 +8,7 @@ import { MenuItem } from 'primeng/api';
 import { BadgeModule } from 'primeng/badge';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { MyTranslateService } from '../../services/myTranslate/my-translate.service';
+import { ThemeService } from '../../services/theme-service.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -74,12 +75,19 @@ currentLanguage(lang:string):boolean{
       routerLink: '/contact',
     },
   ];
-
+  constructor(private _themeService: ThemeService) {}
   /**
    * Toggles the mobile menu
    * @param event - The click event that triggered the toggle
    */
   toggleMenu(event: Event) {
     this.menu.toggle(event);
+  }
+  ngOnInit() {
+    //initial theme
+    this._themeService.initialTheme();
+  }
+  toggleDarkMode() {
+    this._themeService.toggleTheme();
   }
 }
