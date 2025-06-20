@@ -1,5 +1,5 @@
 import { inject } from '@angular/core';
-import { SsrCookieService } from 'ngx-cookie-service-ssr';
+import { CookieService } from 'ngx-cookie-ssr';
 
 /**
  * Cookie options interface
@@ -27,7 +27,7 @@ const DEFAULT_COOKIE_OPTIONS: CookieOptions = {
  * Cookie service for Angular 19 with SSR support
  */
 export class CookieUtils {
-  private readonly cookies = inject(SsrCookieService);
+  private readonly cookies = inject(CookieService);
 
   /**
    * Set a cookie
@@ -37,9 +37,9 @@ export class CookieUtils {
    */
   setCookie(name: string, value: string, options: CookieOptions = {}): void {
     const cookieOptions = { ...DEFAULT_COOKIE_OPTIONS, ...options };
-    this.cookies.set(name, value, cookieOptions);
+    this.cookies.set(name, value);
   }
-  getCookie(name: string): string {
+  getCookie(name: string): string  {
     return this.cookies.get(name);
   }
 

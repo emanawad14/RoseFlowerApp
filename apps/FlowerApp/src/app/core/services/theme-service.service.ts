@@ -21,15 +21,13 @@ export class ThemeService {
     this.setCurrentTheme(theme);
   }
   getTheme(): Theme {
-    return this.cookieUtils.getCookie(this.storageKey) as Theme;
+    return (this.cookieUtils.getCookie(this.storageKey) ??
+      ('light' as Theme)) as Theme;
   }
   initialTheme() {
     const currentTheme = this.getTheme();
     console.log('current theme', currentTheme);
-
     this.setTheme(currentTheme);
-    this.cookieUtils.setCookie(this.storageKey, currentTheme);
-
     return of(currentTheme).pipe(
       tap(() => {
         console.log(`Init Theme is  ==> ${currentTheme}`);
@@ -40,17 +38,19 @@ export class ThemeService {
 
   setCurrentTheme(theme: Theme) {
     this.currentTheme.set(theme);
+    //this.cookieUtils.setCookie(this.storageKey, theme);
   }
   toggleTheme() {
     const currentTheme = this.cookieUtils.getCookie(this.storageKey) ?? 'light';
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
     this.setTheme(newTheme);
+    this.cookieUtils.setCookie(this.storageKey, newTheme);
   }
 
   private setHtmlTheme(theme: string) {
     // this.document.documentElement.classList.remove('light', 'dark');
     // this.document.documentElement.classList.add(theme);
     this.document.documentElement.setAttribute('data-theme', theme);
-    this.cookieUtils.setCookie(this.storageKey, theme);
+    // this.cookieUtils.setCookie(this.storageKey, theme);
   }
 }

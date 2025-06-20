@@ -1,4 +1,4 @@
-import {
+ import {
   ApplicationConfig,
   provideAppInitializer,
   provideZoneChangeDetection,
@@ -8,16 +8,19 @@ import { appRoutes } from './app.routes';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeng/themes/aura';
+ 
 import {
+
   provideClientHydration,
   withEventReplay,
 } from '@angular/platform-browser';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { appInit } from './core/utills/app.utills';
- 
- 
+import { CookieService } from 'ngx-cookie-ssr';
+
 export const appConfig: ApplicationConfig = {
   providers: [
+  CookieService ,
     provideAppInitializer(() => appInit()),
     provideClientHydration(withEventReplay()),
     provideZoneChangeDetection({ eventCoalescing: true }),
