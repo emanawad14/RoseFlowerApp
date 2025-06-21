@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslatePipe } from '@ngx-translate/core';
 interface GalleryImage {
   src: string;
   alt?: string;
@@ -8,7 +9,7 @@ interface GalleryImage {
 }
 @Component({
   selector: 'app-gallary',
-  imports: [CommonModule],
+  imports: [CommonModule , TranslatePipe],
   templateUrl: './gallary.component.html',
   styleUrl: './gallary.component.scss',
 })

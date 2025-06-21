@@ -40,6 +40,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     //console.log('Home component initializing...');
     this.GetCatigorys();
+
+    
   }
 
   GetCatigorys() {

@@ -1,9 +1,8 @@
-import { ThemeService } from './core/services/theme-service.service';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NxWelcomeComponent } from './nx-welcome.component';
 import { ButtonModule } from 'primeng/button';
-import { Observable } from 'rxjs';
+
+
 
 @Component({
   imports: [RouterModule, ButtonModule],
@@ -13,5 +12,9 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent {
   title = 'FlowerApp';
-  constructor() {}
+
+
+
+
+  
 }
