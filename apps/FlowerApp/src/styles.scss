@@ -42,7 +42,8 @@
   --bg-dark: #18181b;
   --bg-zink: #ffffff;
   --text-title: #160e4b;
-  --link-color:#160e4b;;
+  --link-color: #160e4b;
+  --shadow-color: #00000026;
 }
 
 [theme='dark'] {
@@ -78,7 +79,8 @@
   --bg-dark: #18181b;
   --bg-zink: #27272a;
   --text-title: #ffa3b9;
-  --link-color:#A1A1AA;
+  --link-color: #a1a1aa;
+  --shadow-color: #00000026;
 }
 html,
 body,
@@ -105,7 +107,10 @@ app-root {
   font-family: 'Roboto';
   src: url('/fonts/Roboto-VariableFont_wdth,wght.ttf');
 }
-
+@font-face {
+  font-family: 'Jost';
+  src: url('/fonts/Jost-VariableFont_wght.ttf');
+}
 .pink-text {
   font-family: 'Inter';
   font-weight: 700;

@@ -1,1 +1,23 @@
-<p>productList works!</p>
+<app-nav-bar></app-nav-bar>
+<section id="product-list" class="m-5">
+  <div class="grid">
+    <!-- Filters -->
+    <div class="col-12">
+      <!-- Search by Name -->
+      <div class="bg-box mb-5 p-4">
+        <h3 class="mb-3">Search</h3>
+        <app-global-input [labelText]="'Search By the name'"></app-global-input>
+      </div>
+      <!-- Search By Category -->
+      <div class="bg-box mb-5 p-4">
+        <h3 class="mb-3">Category</h3>
+
+        <app-global-ckeckbox></app-global-ckeckbox>
+        <app-global-ckeckbox></app-global-ckeckbox>
+        <app-global-ckeckbox></app-global-ckeckbox>
+      </div>
+    </div>
+    <!-- Products  -->
+    <div class="col-6"></div>
+  </div>
+</section>
