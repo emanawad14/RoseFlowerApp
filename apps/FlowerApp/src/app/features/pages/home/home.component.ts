@@ -42,7 +42,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     //console.log('Home component initializing...');
     this.GetCatigorys();
-   // this._themeService.initialTheme();
   }
 
   GetCatigorys() {

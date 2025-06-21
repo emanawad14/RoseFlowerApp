@@ -24,11 +24,14 @@
           placeholder="Enter Your Email"
           class="input w-full pr-32 pl-4 py-3 border-round-3xl text-sm"
         />
-        <button
-          pButton
-          label="Subscribe →"
-          class="absolute top-0 right-0 h-full border-none border-round-3xl px-4 text-sm hover:bg-pink-600"
-        ></button>
+       <button
+  pButton
+  [label]="'footer.SubscribeArrow' | translate"
+  class="absolute top-0 right-0 h-full border-none border-round-3xl px-4 text-sm hover:bg-pink-600"
+  [class.right-0]="translate.currentLang !== 'ar'"
+  [class.left-0]="translate.currentLang === 'ar'"
+></button>
+
       </div>
     </div>
   </div>
