@@ -9,14 +9,12 @@ import { RatingModule } from 'primeng/rating';
 import { FormsModule } from '@angular/forms';
 import { Catigory } from '../../../../features/interfaces/catigory.FlowerApp';
 import { Carousel } from 'primeng/carousel';
-import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-product',
   standalone: true,
   imports: [
     CommonModule,
-    TranslatePipe,
     CardModule,
     ButtonModule,
     FormsModule,
