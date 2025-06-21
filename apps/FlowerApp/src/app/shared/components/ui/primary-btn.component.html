@@ -1,30 +1,7 @@
-<!-- <button pButton type="button" class="p-button">
+<button pButton type="button" class="p-button">
   <span class="custom-label">{{ labelName}}</span>
   <span [class.hidden]="!displayIcon">
     <img src="/images/arrow-right-Icon.png" alt=""
   /></span>
-</button>  -->
-
-<button pButton type="button" class="p-button flex items-center gap-2">
-  <span class="custom-label" *ngIf="translate.currentLang !== 'ar'">
-    {{ labelName }}
-  </span>
-
-  <span [class.hidden]="!displayIcon">
-    <img
-      src="/images/arrow-right-Icon.png"
-      alt=""
-      class="w-8 h-8 transition-transform duration-300"
-      [ngClass]="{
-        'order-first rotate-180': translate.currentLang === 'ar',
-        'order-last rotate-0': translate.currentLang !== 'ar'
-      }"
-    />
-  </span>
-
-  <span class="custom-label" *ngIf="translate.currentLang === 'ar'">
-    {{ labelName }}
-  </span>
 </button>
-
 <!-- class="pi pi-arrow-right " -->
