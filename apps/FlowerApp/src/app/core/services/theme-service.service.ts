@@ -8,26 +8,26 @@ import { of, tap } from 'rxjs';
 })
 export class ThemeService {
   private readonly storageKey = 'app-theme';
-  private readonly currentTheme = signal<Theme>('light');
+  // private readonly currentTheme = signal<Theme>('light');
   private readonly document = inject(DOCUMENT);
 
   // Cookie utility instance
   private cookieUtils = new CookieUtils();
-  constructor() {
-    this.setCurrentTheme(this.cookieUtils.getCookie(this.storageKey) as Theme);
-  }
+  constructor() {}
   setTheme(theme: Theme) {
     this.setHtmlTheme(theme); // Apply to <html>
-    this.setCurrentTheme(theme);
   }
-  getTheme(): Theme {
-    return (this.cookieUtils.getCookie(this.storageKey) ??
-      ('light' as Theme)) as Theme;
+  getTheme(): string {
+    return this.cookieUtils.getCookie(this.storageKey);
+    // ('light' as Theme)) as Theme;
   }
   initialTheme() {
     const currentTheme = this.getTheme();
-    console.log('current theme', currentTheme);
-    this.setTheme(currentTheme);
+    if (currentTheme) {
+      console.log('current theme', currentTheme);
+      this.setTheme(currentTheme as Theme);
+    }
+
     return of(currentTheme).pipe(
       tap(() => {
         console.log(`Init Theme is  ==> ${currentTheme}`);
@@ -36,11 +36,12 @@ export class ThemeService {
     // this.setCurrentTheme(currentTheme as Theme);
   }
 
-  setCurrentTheme(theme: Theme) {
-    this.currentTheme.set(theme);
-    //this.cookieUtils.setCookie(this.storageKey, theme);
-  }
+  // setCurrentTheme(theme: Theme) {
+  //   this.currentTheme.set(theme);
+  //   //this.cookieUtils.setCookie(this.storageKey, theme);
+  // }
   toggleTheme() {
+    // if(this.cookieUtils.getCookie(this.storageKey)=='') {currentTheme='litt'}
     const currentTheme = this.cookieUtils.getCookie(this.storageKey) ?? 'light';
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
     this.setTheme(newTheme);
