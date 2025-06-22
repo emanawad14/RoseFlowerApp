@@ -9,6 +9,7 @@ import { RatingModule } from 'primeng/rating';
 import { FormsModule } from '@angular/forms';
 import { Catigory } from '../../../../features/interfaces/catigory.FlowerApp';
 import { Carousel } from 'primeng/carousel';
+import { CustomProductComponent } from './productCustom/custom-product.component';
 
 @Component({
   selector: 'app-product',
@@ -20,6 +21,7 @@ import { Carousel } from 'primeng/carousel';
     FormsModule,
     RatingModule,
     Carousel,
+    CustomProductComponent,
   ],
   templateUrl: './product.component.html',
   styleUrl: './product.component.scss',

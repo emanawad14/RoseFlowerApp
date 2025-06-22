@@ -1,0 +1,992 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>@rose-flower/source documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">@rose-flower/source documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  ProductComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>apps/FlowerApp/src/app/shared/components/ui/product/product.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+                <code>OnDestroy</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-product</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>CommonModule</code>
+                            <code>CardModule</code>
+                            <code>ButtonModule</code>
+                            <code>FormsModule</code>
+                            <code>RatingModule</code>
+                            <code>Carousel</code>
+                                <code><a href="../components/CustomProductComponent.html" target="_self" >CustomProductComponent</a></code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./product.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./product.component.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_ProductService" >_ProductService</a>
+                            </li>
+                            <li>
+                                <a href="#activeCategory" >activeCategory</a>
+                            </li>
+                            <li>
+                                <a href="#carouselItems" >carouselItems</a>
+                            </li>
+                            <li>
+                                <a href="#products" >products</a>
+                            </li>
+                            <li>
+                                <a href="#sub" >sub</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#filterByCategory" >filterByCategory</a>
+                            </li>
+                            <li>
+                                <a href="#getAllproducts" >getAllproducts</a>
+                            </li>
+                            <li>
+                                <a href="#getProductsByCategory" >getProductsByCategory</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#categories" >categories</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="categories"></a>
+                        <b>categories</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Catigory.html" target="_self" >Catigory[]</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">apps/FlowerApp/src/app/shared/components/ui/product/product.component.ts:33</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="filterByCategory"></a>
+                    <span class="name">
+                        <span ><b>filterByCategory</b></span>
+                        <a href="#filterByCategory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>filterByCategory(categoryId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="42"
+                                    class="link-to-prism">apps/FlowerApp/src/app/shared/components/ui/product/product.component.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>categoryId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllproducts"></a>
+                    <span class="name">
+                        <span ><b>getAllproducts</b></span>
+                        <a href="#getAllproducts"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllproducts()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="51"
+                                    class="link-to-prism">apps/FlowerApp/src/app/shared/components/ui/product/product.component.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getProductsByCategory"></a>
+                    <span class="name">
+                        <span ><b>getProductsByCategory</b></span>
+                        <a href="#getProductsByCategory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getProductsByCategory(categoryId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="59"
+                                    class="link-to-prism">apps/FlowerApp/src/app/shared/components/ui/product/product.component.ts:59</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>categoryId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="69"
+                                    class="link-to-prism">apps/FlowerApp/src/app/shared/components/ui/product/product.component.ts:69</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="37"
+                                    class="link-to-prism">apps/FlowerApp/src/app/shared/components/ui/product/product.component.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_ProductService"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>_ProductService</b></span>
+                        <a href="#_ProductService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(ProductService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">apps/FlowerApp/src/app/shared/components/ui/product/product.component.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="activeCategory"></a>
+                    <span class="name">
+                        <span ><b>activeCategory</b></span>
+                        <a href="#activeCategory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;all&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">apps/FlowerApp/src/app/shared/components/ui/product/product.component.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="carouselItems"></a>
+                    <span class="name">
+                        <span ><b>carouselItems</b></span>
+                        <a href="#carouselItems"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">apps/FlowerApp/src/app/shared/components/ui/product/product.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="products"></a>
+                    <span class="name">
+                        <span ><b>products</b></span>
+                        <a href="#products"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Product.html" target="_self" >Product[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">apps/FlowerApp/src/app/shared/components/ui/product/product.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sub"></a>
+                    <span class="name">
+                        <span ><b>sub</b></span>
+                        <a href="#sub"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subscription</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">apps/FlowerApp/src/app/shared/components/ui/product/product.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, inject, Input, OnDestroy, OnInit } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { ButtonModule } from &#x27;primeng/button&#x27;;
+import { CardModule } from &#x27;primeng/card&#x27;;
+import { ProductService } from &#x27;../../../services/product.service&#x27;;
+import { Product } from &#x27;../../../../features/interfaces/products&#x27;;
+import { Subscription } from &#x27;rxjs&#x27;;
+import { RatingModule } from &#x27;primeng/rating&#x27;;
+import { FormsModule } from &#x27;@angular/forms&#x27;;
+import { Catigory } from &#x27;../../../../features/interfaces/catigory.FlowerApp&#x27;;
+import { Carousel } from &#x27;primeng/carousel&#x27;;
+import { CustomProductComponent } from &#x27;./productCustom/custom-product.component&#x27;;
+
+@Component({
+  selector: &#x27;app-product&#x27;,
+  standalone: true,
+  imports: [
+    CommonModule,
+    CardModule,
+    ButtonModule,
+    FormsModule,
+    RatingModule,
+    Carousel,
+    CustomProductComponent,
+  ],
+  templateUrl: &#x27;./product.component.html&#x27;,
+  styleUrl: &#x27;./product.component.scss&#x27;,
+})
+export class ProductComponent implements OnInit, OnDestroy {
+  private readonly _ProductService &#x3D; inject(ProductService);
+  sub!: Subscription;
+  products: Product[] &#x3D; [];
+  @Input() categories!: Catigory[];
+  activeCategory &#x3D; &#x27;all&#x27;;
+  carouselItems!: any[];
+
+  ngOnInit(): void {
+    this.getAllproducts();
+    this.carouselItems &#x3D; [&#x27;all&#x27;, ...this.categories];
+  }
+
+  filterByCategory(categoryId: string) {
+    this.activeCategory &#x3D; categoryId;
+    if (categoryId &#x3D;&#x3D;&#x3D; &#x27;all&#x27;) {
+      this.getAllproducts();
+    } else {
+      this.getProductsByCategory(categoryId);
+    }
+  }
+
+  getAllproducts() {
+    this.sub &#x3D; this._ProductService.getAllProducts().subscribe({
+      next: (response) &#x3D;&gt; {
+        this.products &#x3D; response.products;
+      },
+    });
+  }
+
+  getProductsByCategory(categoryId: string) {
+    this.sub &#x3D; this._ProductService
+      .getProductByCategoryId(categoryId)
+      .subscribe({
+        next: (response) &#x3D;&gt; {
+          this.products &#x3D; response.products;
+        },
+      });
+  }
+
+  ngOnDestroy(): void {
+    if (this.sub) {
+      this.sub.unsubscribe();
+    }
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;section class&#x3D;&quot;p-4&quot;&gt;
+  &lt;!-- Category Menu --&gt;
+  &lt;div class&#x3D;&quot;category-menu my-4&quot;&gt;
+    &lt;h2 class&#x3D;&quot;font-bold text-4xl my-5 head text-with-line-and-bg&quot;&gt;
+      popular items
+    &lt;/h2&gt;
+
+    &lt;p-carousel [value]&#x3D;&quot;carouselItems&quot; [numVisible]&#x3D;&quot;5&quot; [numScroll]&#x3D;&quot;1&quot; [circular]&#x3D;&quot;true&quot; [showNavigators]&#x3D;&quot;true&quot;
+      [showIndicators]&#x3D;&quot;false&quot; styleClass&#x3D;&quot;category-carousel&quot;&gt;
+      &lt;ng-template let-item pTemplate&#x3D;&quot;item&quot;&gt;
+        &lt;div class&#x3D;&quot;px-2&quot;&gt;
+          @if (item &#x3D;&#x3D;&#x3D; &#x27;all&#x27;) {
+          &lt;button class&#x3D;&quot;category-btn p-3 text-center&quot; [class.active]&#x3D;&quot;activeCategory &#x3D;&#x3D;&#x3D; &#x27;all&#x27;&quot;
+            (click)&#x3D;&quot;filterByCategory(&#x27;all&#x27;)&quot;&gt;
+            All Products
+          &lt;/button&gt;
+          } @else {
+          &lt;button class&#x3D;&quot;category-btn p-3 text-center&quot; [class.active]&#x3D;&quot;activeCategory &#x3D;&#x3D;&#x3D; item._id&quot;
+            (click)&#x3D;&quot;filterByCategory(item._id)&quot;&gt;
+            {{ item.name }}
+          &lt;/button&gt;
+          }
+        &lt;/div&gt;
+      &lt;/ng-template&gt;
+    &lt;/p-carousel&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Products Section --&gt;
+  &lt;div class&#x3D;&quot;section flex flex-wrap justify-content-start w-full my-3&quot;&gt;
+    @if (products.length &#x3D;&#x3D;&#x3D; 0) {
+    &lt;div class&#x3D;&quot;w-full flex align-items-center justify-content-center&quot; style&#x3D;&quot;min-height: 300px&quot;&gt;
+      &lt;div class&#x3D;&quot;text-center&quot;&gt;
+        &lt;i class&#x3D;&quot;pi pi-inbox text-primary-color text-5xl mb-3&quot;&gt;&lt;/i&gt;
+        &lt;h3 class&#x3D;&quot;text-primary-color text-2xl font-medium&quot;&gt;
+          No Products Found
+        &lt;/h3&gt;
+        &lt;p class&#x3D;&quot;paragraph-text&quot;&gt;Try selecting a different category&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    } @else { @for(product of products; track product._id) {
+    &lt;div class&#x3D;&quot;product-card p-6 w-full sm:w-6 md:w-4 lg:w-3&quot;&gt;
+      &lt;p-card class&#x3D;&quot;card-content w-full h-full border-round-3xl lg:text-2xl&quot;&gt;
+        &lt;ng-template #header&gt;
+          &lt;div class&#x3D;&quot;relative p-3&quot;&gt;
+            &lt;img [alt]&#x3D;&quot;product.title&quot; class&#x3D;&quot;border-round-2xl w-full h-24rem &quot; [src]&#x3D;&quot;product.imgCover&quot; /&gt;
+
+            &lt;!-- !cover on img of card --&gt;
+            &lt;div
+              class&#x3D;&quot;cover w-full h-full justify-content-around align-items-center absolute top-5 left-5 border-round-2xl&quot;&gt;
+              &lt;span class&#x3D;&quot;icon p-4 border-circle cursor-pointer&quot;&gt;
+                &lt;i class&#x3D;&quot;fa-regular fa-heart text-2xl&quot;&gt;&lt;/i&gt;
+              &lt;/span&gt;
+              &lt;span class&#x3D;&quot;icon p-4 border-circle cursor-pointer&quot;&gt;
+                &lt;i class&#x3D;&quot;fa-regular fa-eye text-2xl&quot;&gt;&lt;/i&gt;
+              &lt;/span&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/ng-template&gt;
+
+        &lt;ng-template #title&gt;
+          &lt;h4 class&#x3D;&quot;font-bold capitalize p-0 m-0 text-overflow-ellipsis overflow-hidden white-space-nowrap heading4&quot;&gt;
+            {{ product.title }}
+          &lt;/h4&gt;
+        &lt;/ng-template&gt;
+
+        &lt;ng-template #subtitle&gt;
+          &lt;div class&#x3D;&quot;flex justify-content-between align-items-center w-full my-0&quot;&gt;
+            &lt;div class&#x3D;&quot;card flex flex-column justify-content-center p-2&quot;&gt;
+              &lt;p-rating [(ngModel)]&#x3D;&quot;product.rateAvg&quot; [stars]&#x3D;&quot;5&quot; [readonly]&#x3D;&quot;true&quot; /&gt;
+              &lt;span class&#x3D;&quot;font-bold text-xl pt-3&quot;&gt;
+                {{ product.price | currency : &#x27;USD&#x27; : &#x27;symbol&#x27; : &#x27;1.2-2&#x27; }}
+              &lt;/span&gt;
+            &lt;/div&gt;
+            &lt;span class&#x3D;&quot;icon p-3 border-circle bg-bag-color cursor-pointer&quot;&gt;
+              &lt;i class&#x3D;&quot;pi pi-shopping-bag text-xl text-white&quot;&gt;&lt;/i&gt;
+            &lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/ng-template&gt;
+      &lt;/p-card&gt;
+    &lt;/div&gt;
+    } }
+  &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><section class="p-4">  <!-- Category Menu -->  <div class="category-menu my-4">    <h2 class="font-bold text-4xl my-5 head text-with-line-and-bg">      popular items    </h2>    <p-carousel [value]="carouselItems" [numVisible]="5" [numScroll]="1" [circular]="true" [showNavigators]="true"      [showIndicators]="false" styleClass="category-carousel">      <ng-template let-item pTemplate="item">        <div class="px-2">          @if (item === \'all\') {          <button class="category-btn p-3 text-center" [class.active]="activeCategory === \'all\'"            (click)="filterByCategory(\'all\')">            All Products          </button>          } @else {          <button class="category-btn p-3 text-center" [class.active]="activeCategory === item._id"            (click)="filterByCategory(item._id)">            {{ item.name }}          </button>          }        </div>      </ng-template>    </p-carousel>  </div>  <!-- Products Section -->  <div class="section flex flex-wrap justify-content-start w-full my-3">    @if (products.length === 0) {    <div class="w-full flex align-items-center justify-content-center" style="min-height: 300px">      <div class="text-center">        <i class="pi pi-inbox text-primary-color text-5xl mb-3"></i>        <h3 class="text-primary-color text-2xl font-medium">          No Products Found        </h3>        <p class="paragraph-text">Try selecting a different category</p>      </div>    </div>    } @else { @for(product of products; track product._id) {    <div class="product-card p-6 w-full sm:w-6 md:w-4 lg:w-3">      <p-card class="card-content w-full h-full border-round-3xl lg:text-2xl">        <ng-template #header>          <div class="relative p-3">            <img [alt]="product.title" class="border-round-2xl w-full h-24rem " [src]="product.imgCover" />            <!-- !cover on img of card -->            <div              class="cover w-full h-full justify-content-around align-items-center absolute top-5 left-5 border-round-2xl">              <span class="icon p-4 border-circle cursor-pointer">                <i class="fa-regular fa-heart text-2xl"></i>              </span>              <span class="icon p-4 border-circle cursor-pointer">                <i class="fa-regular fa-eye text-2xl"></i>              </span>            </div>          </div>        </ng-template>        <ng-template #title>          <h4 class="font-bold capitalize p-0 m-0 text-overflow-ellipsis overflow-hidden white-space-nowrap heading4">            {{ product.title }}          </h4>        </ng-template>        <ng-template #subtitle>          <div class="flex justify-content-between align-items-center w-full my-0">            <div class="card flex flex-column justify-content-center p-2">              <p-rating [(ngModel)]="product.rateAvg" [stars]="5" [readonly]="true" />              <span class="font-bold text-xl pt-3">                {{ product.price | currency : \'USD\' : \'symbol\' : \'1.2-2\' }}              </span>            </div>            <span class="icon p-3 border-circle bg-bag-color cursor-pointer">              <i class="pi pi-shopping-bag text-xl text-white"></i>            </span>          </div>        </ng-template>      </p-card>    </div>    } }  </div></section></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AvatarFeaturesComponent', 'selector': 'app-avatar-features'},{'name': 'BestComponent', 'selector': 'app-best'},{'name': 'CarousolComponent', 'selector': 'app-carousol'},{'name': 'CatigoryComponent', 'selector': 'app-catigory'},{'name': 'CustomProductComponent', 'selector': 'app-custom-product'},{'name': 'FeaturesComponent', 'selector': 'app-features'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'GallaryComponent', 'selector': 'app-gallary'},{'name': 'GiftUiComponent', 'selector': 'app-gift-ui'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ImageContainerComponent', 'selector': 'app-image-container'},{'name': 'NavBarComponent', 'selector': 'app-nav-bar'},{'name': 'NxWelcomeComponent', 'selector': 'app-nx-welcome'},{'name': 'PrimaryBtnComponent', 'selector': 'app-primary-btn'},{'name': 'ProductComponent', 'selector': 'app-product'},{'name': 'SpecialGiftsComponent', 'selector': 'app-special-gifts'},{'name': 'TrustedbyComponent', 'selector': 'app-trustedby'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'ProductComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ProductComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

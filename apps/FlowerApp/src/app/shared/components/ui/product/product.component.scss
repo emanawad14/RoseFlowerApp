@@ -3,14 +3,15 @@ h2 {
 }
 
 .cover {
-  i{
-    color:var( --icon-sm);
+  i {
+    color: var(--icon-sm);
   }
   position: absolute;
   inset: 0;
   background-color: rgba(248, 43, 169, 0.5);
   display: none;
   transition: display 0.8s ease;
+  overflow: hidden;
 }
 
 .cover span {
@@ -84,8 +85,8 @@ h2 {
 
 /* Category Button Styles */
 .category-btn {
-      background-color: transparent;
-      color: var(--link-color);
+  background-color: transparent;
+  color: var(--link-color);
   // background-color: white;
   // color: black;
   border: none;
