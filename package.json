@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "nx s FlowerApp  "
+    "start": "npx nx s FlowerApp"
   },
   "private": true,
   "dependencies": {
