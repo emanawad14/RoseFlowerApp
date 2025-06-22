@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "npx nx s -o FlowerApp  ",
     "compodoc": "npx nx compodoc -p tsconfig.doc.json",
     "docs": "npx compodoc -p tsconfig.base.json -d documentation"
+    "start": "npx nx s FlowerApp"
   },
   "private": true,
   "dependencies": {

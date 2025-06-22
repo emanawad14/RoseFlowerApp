@@ -63,6 +63,8 @@
       </ul>
 
       <!-- Icons - Always Visible -->
+
+
       <div class="flex gap-3 items-center">
         <!-- Menu Toggle (Mobile Only) -->
         <button
@@ -76,8 +78,15 @@
         <button pButton class="p-button-text text-pink-500">
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
+        <!-- Dark mode Button -->
+        <button pButton class="p-button-text btn-dark-mode"  (onClick)="toggleDarkMode()">
+          @if (darkMode) {
+          <i class="fa-solid fa-sun text-pink-500"></i>
+          }
+          @else {<i class="fa-solid fa-moon text-pink-500"></i> }
+        </button>
         <!-- Wishlist Button -->
-        <button pButton class="p-button-text text-pink-500">
+        <button pButton class="p-button-text text-pink-500 relative">
           <i class="fa-regular fa-heart" pBadge value="2" badgeSize="small"></i>
         </button>
         <!-- Shopping Cart Button -->
@@ -89,17 +98,39 @@
             badgeSize="small"
           ></i>
         </button>
-        <p-button label="Toggle Dark Mode" (onClick)="toggleDarkMode()" />
+        <!-- Language  Button -->
+        <button pButton class="p-button-text text-pink-500" (click)="languageToggle()">
+          @if (!langClick) {
+          <i>العربيه</i>
+          }
+          @else {<i>En</i>
+          }
+        </button>
+
+        <!-- Menu Toggle (Mobile Only) -->
+        <button pButton class="p-button-text text-pink-500 lg:hidden" (click)="showDialog('topleft')"
+          severity="secondary">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
       </div>
     </div>
   </div>
 
   <!-- Mobile Menu Popup -->
-  <p-menu
-    #menu
-    [popup]="true"
-    [model]="menuItems"
-    [appendTo]="'body'"
-    styleClass="w-full sm:w-48 mt-3"
-  ></p-menu>
+
+
+
+  <div class="card">
+    <p-dialog header="" [modal]="true" [(visible)]="visible" draggable="false" [position]="position"
+      [style]="{ width: '16rem', top: '1rem', right: '1rem' }">
+      <ng-template pTemplate="header">
+        <div class="flex items-center gap-1">
+          <img src="images/logo.png" alt="User Icon" class="w-6 h-6" />
+        </div>
+      </ng-template>
+      <p-menu #menu [model]="menuItems" [appendTo]="'body'" styleClass="w-full mt-2 border-0"></p-menu>
+    </p-dialog>
+  </div>
+
 </nav>

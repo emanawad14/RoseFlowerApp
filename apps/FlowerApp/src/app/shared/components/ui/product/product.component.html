@@ -1,9 +1,10 @@
 <section class="p-4">
   <!-- Category Menu -->
   <div class="category-menu my-4">
-    <h2 class="font-bold text-4xl my-5 head text-with-line-and-bg">
-      popular items
-    </h2>
+    <div class="header flex justify-content-between w-100 flex-wrap align-items-center">
+      <h2 class="font-bold text-4xl my-5 head text-with-line-and-bg heading3">
+        popular items
+      </h2>
 
     <p-carousel [value]="carouselItems" [numVisible]="5" [numScroll]="1" [circular]="true" [showNavigators]="true"
       [showIndicators]="false" styleClass="category-carousel">
@@ -44,6 +45,7 @@
           <div class="relative p-3">
             <img [alt]="product.title" class="border-round-2xl w-full h-24rem " [src]="product.imgCover" />
 
+
             <!-- !cover on img of card -->
             <div
               class="cover w-full h-full justify-content-around align-items-center absolute top-5 left-5 border-round-2xl">
@@ -67,6 +69,8 @@
           <div class="flex justify-content-between align-items-center w-full my-0">
             <div class="card flex flex-column justify-content-center p-2">
               <p-rating [(ngModel)]="product.rateAvg" [stars]="5" [readonly]="true" />
+
+              
               <span class="font-bold text-xl pt-3">
                 {{ product.price | currency : 'USD' : 'symbol' : '1.2-2' }}
               </span>
