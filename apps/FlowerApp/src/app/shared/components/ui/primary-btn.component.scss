@@ -1,6 +1,7 @@
   
 .p-button {
   background: var(--primary-color) !important;
+  color: var(--btn-text) !important;
   border:none;
   border-radius: 9.32px;
   padding: 10px 20px;
@@ -9,6 +10,10 @@
     box-shadow: none !important;
   }
 
+}
+ 
+svg {
+ color: var(--btn-text)!important;
 }
 .custom-label{
 /* Shop Now */
@@ -22,5 +27,5 @@ vertical-align: middle;
 text-transform: capitalize;
 
 /* color/White */
-color: #FFFFFF;
+color: var(--btn-text);
 }

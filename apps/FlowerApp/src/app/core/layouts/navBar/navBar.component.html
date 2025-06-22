@@ -1,47 +1,85 @@
 <!-- Main Navigation Bar -->
-<nav class="w-full shadow-1 bg-white">
+<nav class="w-full">
   <div class="container mx-auto p-4">
     <div class="flex align-items-center justify-content-between">
       <!-- Logo -->
-      <img src="images/logo.png" alt="Rose Flower Logo" height="50" class="flex-none">
+      <img
+        src="images/logo.png"
+        alt="Rose Flower Logo"
+        height="50"
+        class="flex-none"
+      />
 
       <!-- Desktop Navigation Links - Hidden on Mobile -->
       <ul class="hidden lg:flex list-none gap-4 m-0">
         <li>
-          <a pRipple routerLink="/home" routerLinkActive="text-pink-500"
-            class="text-900 hover:text-pink-500 no-underline cursor-pointer block heading4" role="button" tabindex="0">
+          <a
+            pRipple
+            routerLink="/home"
+            routerLinkActive="text-pink-500"
+            class="text-900 hover:text-pink-500 no-underline cursor-pointer block heading4"
+            role="button"
+            tabindex="0"
+          >
             Home
           </a>
         </li>
         <li>
-          <a pRipple routerLink="/categories" routerLinkActive="text-pink-500"
-            class="text-900 hover:text-pink-500 no-underline cursor-pointer block heading4" role="button" tabindex="0">
+          <a
+            pRipple
+            routerLink="/categories"
+            routerLinkActive="text-pink-500"
+            class="text-900 hover:text-pink-500 no-underline cursor-pointer block heading4"
+            role="button"
+            tabindex="0"
+          >
             Categories
           </a>
         </li>
         <li>
-          <a pRipple routerLink="/about" routerLinkActive="text-pink-500"
-            class="text-900 hover:text-pink-500 no-underline cursor-pointer block heading4" role="button" tabindex="0">
+          <a
+            pRipple
+            routerLink="/about"
+            routerLinkActive="text-pink-500"
+            class="text-900 hover:text-pink-500 no-underline cursor-pointer block heading4"
+            role="button"
+            tabindex="0"
+          >
             About
           </a>
         </li>
         <li>
-          <a pRipple routerLink="/contact" routerLinkActive="text-pink-500"
-            class="text-900 hover:text-pink-500 no-underline cursor-pointer block heading4" role="button" tabindex="0">
+          <a
+            pRipple
+            routerLink="/contact"
+            routerLinkActive="text-pink-500"
+            class="text-900 hover:text-pink-500 no-underline cursor-pointer block heading4"
+            role="button"
+            tabindex="0"
+          >
             Contact
           </a>
         </li>
       </ul>
 
       <!-- Icons - Always Visible -->
-      <div class="flex gap-2 items-center">
 
+
+      <div class="flex gap-3 items-center">
+        <!-- Menu Toggle (Mobile Only) -->
+        <button
+          pButton
+          class="p-button-text text-pink-500 lg:hidden"
+          (click)="toggleMenu($event)"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </button>
         <!-- Search Button -->
         <button pButton class="p-button-text text-pink-500">
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
         <!-- Dark mode Button -->
-        <button pButton class="p-button-text btn-dark-mode" (click)="darkModeToggle()">
+        <button pButton class="p-button-text btn-dark-mode"  (onClick)="toggleDarkMode()">
           @if (darkMode) {
           <i class="fa-solid fa-sun text-pink-500"></i>
           }
@@ -53,7 +91,12 @@
         </button>
         <!-- Shopping Cart Button -->
         <button pButton class="p-button-text text-pink-500">
-          <i class="fa-solid fa-bag-shopping" pBadge value="2" badgeSize="small"></i>
+          <i
+            class="fa-solid fa-bag-shopping"
+            pBadge
+            value="2"
+            badgeSize="small"
+          ></i>
         </button>
         <!-- Language  Button -->
         <button pButton class="p-button-text text-pink-500" (click)="languageToggle()">
@@ -69,13 +112,13 @@
           severity="secondary">
           <i class="fa-solid fa-bars"></i>
         </button>
+
       </div>
     </div>
   </div>
 
   <!-- Mobile Menu Popup -->
-  <p-menu #menu [popup]="true" [model]="menuItems" [appendTo]="'body'"
-    styleClass="w-full sm:w-48 mt-3 border-0"></p-menu>
+
 
 
   <div class="card">
@@ -89,4 +132,5 @@
       <p-menu #menu [model]="menuItems" [appendTo]="'body'" styleClass="w-full mt-2 border-0"></p-menu>
     </p-dialog>
   </div>
+
 </nav>

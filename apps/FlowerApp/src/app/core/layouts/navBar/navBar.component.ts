@@ -1,4 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
+import { ThemeService } from './../../services/theme-service.service';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
@@ -26,8 +27,10 @@ import { InputTextModule } from 'primeng/inputtext';
   templateUrl: './navBar.component.html',
   styleUrl: './navBar.component.scss',
 })
-export class NavBarComponent {
-  langClick = false;
+
+
+export class NavBarComponent implements OnInit {
+    langClick = false;
   darkMode = false;
   @ViewChild('menu') menu!: Menu;
 
@@ -57,7 +60,7 @@ export class NavBarComponent {
       styleClass: 'py-2 paragraph-text',
     },
   ];
-
+  constructor(private _themeService: ThemeService) {}
   /**
    * Toggles the mobile menu
    * @param event - The click event that triggered the toggle
@@ -100,5 +103,11 @@ export class NavBarComponent {
   }
   darkModeToggle() {
     this.darkMode = !this.darkMode;
+  ngOnInit() {
+    //initial theme
+    this._themeService.initialTheme();
+  }
+  toggleDarkMode() {
+    this._themeService.toggleTheme();
   }
 }

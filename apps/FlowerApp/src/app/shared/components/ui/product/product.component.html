@@ -6,24 +6,37 @@
         popular items
       </h2>
 
-      <div class="category flex flex-wrap justify-content-center align-items-start">
-        <button class="category-btn p-3 text-center" [class.active]="activeCategory === 'all'"
-          (click)="filterByCategory('all')">
-          All Products
-        </button>
-
-
-
-        @for (category of categories; track $index) {
-        @if(category.productsCount !==0)
-        {
-        <button class="category-btn p-3 text-center" [class.active]="activeCategory === category._id"
-          (click)="filterByCategory(category._id)">
-          {{ category.name }}
-        </button> }
-        }
-      </div>
-    </div>
+    <p-carousel
+      [value]="carouselItems"
+      [numVisible]="5"
+      [numScroll]="1"
+      [circular]="true"
+      [showNavigators]="true"
+      [showIndicators]="false"
+      styleClass="category-carousel"
+    >
+      <ng-template let-item pTemplate="item">
+        <div class="px-2">
+          @if (item === 'all') {
+          <button
+            class="category-btn p-3 text-center"
+            [class.active]="activeCategory === 'all'"
+            (click)="filterByCategory('all')"
+          >
+            All Products
+          </button>
+          } @else {
+          <button
+            class="category-btn p-3 text-center"
+            [class.active]="activeCategory === item._id"
+            (click)="filterByCategory(item._id)"
+          >
+            {{ item.name }}
+          </button>
+          }
+        </div>
+      </ng-template>
+    </p-carousel>
   </div>
 
   <!-- Products Section -->
@@ -31,15 +44,17 @@
     @if (products.length === 0) {
     <div class="w-full flex align-items-center justify-content-center" style="min-height: 300px">
       <div class="text-center">
-        <i class="pi pi-inbox text-pink-500 text-5xl mb-3"></i>
-        <h3 class="text-pink-500 text-2xl font-medium">No Products Found</h3>
-        <p class="text-gray-600">Try selecting a different category</p>
+        <i class="pi pi-inbox text-primary-color text-5xl mb-3"></i>
+        <h3 class="text-primary-color text-2xl font-medium">
+          No Products Found
+        </h3>
+        <p class="paragraph-text">Try selecting a different category</p>
       </div>
     </div>
     } @else { @for(product of products; track product._id) {
     <div class="product-card p-5 w-full sm:w-6 md:w-4 lg:w-3">
-      <p-card [style]="{ backgroundColor: 'white', color: 'black' }"
-        class="card-content w-full h-full shadow-1 border-round-3xl lg:text-2xl">
+
+      <p-card class="card-content w-full h-full border-round-3xl lg:text-2xl">
         <ng-template #header>
           <div class="relative">
             <img [alt]="product.title" class="border-round-2xl w-full h-20rem" [src]="product.imgCover" />
@@ -48,10 +63,10 @@
             <div
               class="cover w-full h-full justify-content-around align-items-center absolute top-5 left-5 border-round-2xl">
               <span class="icon p-4 border-circle cursor-pointer">
-                <i class="fa-regular fa-heart text-2xl text-white"></i>
+                <i class="fa-regular fa-heart text-2xl"></i>
               </span>
               <span class="icon p-4 border-circle cursor-pointer">
-                <i class="fa-regular fa-eye text-2xl text-white"></i>
+                <i class="fa-regular fa-eye text-2xl"></i>
               </span>
             </div>
           </div>
@@ -66,8 +81,13 @@
         <ng-template #subtitle>
           <div class="flex justify-content-between align-items-center w-full my-0">
             <div class="card flex flex-column justify-content-center p-2">
-              <p-rating [(ngModel)]="product.rateAvg" [stars]="5" [readonly]="true" />
-              <span class="text-pinky font-bold text-xl pt-3">
+
+              <p-rating
+                [(ngModel)]="product.rateAvg"
+                [stars]="5"
+                [readonly]="true"
+              />
+              <span class="font-bold text-xl pt-3">
                 {{ product.price | currency : 'USD' : 'symbol' : '1.2-2' }}
               </span>
             </div>

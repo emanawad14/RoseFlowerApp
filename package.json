@@ -4,7 +4,6 @@
   "license": "MIT",
   "scripts": {
     "start": "npx nx s FlowerApp"
-
   },
   "private": true,
   "dependencies": {
@@ -17,9 +16,9 @@
     "@angular/platform-browser-dynamic": "~19.2.0",
     "@angular/platform-server": "~19.2.0",
     "@angular/router": "~19.2.0",
-    "@angular/ssr": "~19.2.0",
     "@primeng/themes": "^19.1.2",
     "express": "^4.21.2",
+    "ngx-cookie-service-ssr": "^19.1.2",
     "ngx-owl-carousel-o": "^19.0.2",
     "primeflex": "^4.0.0",
     "primeicons": "^7.0.0",
@@ -34,6 +33,7 @@
     "@angular/cli": "~19.2.0",
     "@angular/compiler-cli": "~19.2.0",
     "@angular/language-service": "~19.2.0",
+    "@angular/ssr": "~19.2.0",
     "@eslint/js": "^9.8.0",
     "@nx/angular": "21.0.3",
     "@nx/devkit": "21.0.3",
