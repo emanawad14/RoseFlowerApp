@@ -1,8 +1,8 @@
 import { inject, Inject, Injectable, signal } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { CookieUtils } from '../utills/cookie.utills';
 import { Theme } from '../../shared/types/theme.type';
 import { of, tap } from 'rxjs';
+import { CookiesService } from './cookies.service';
 @Injectable({
   providedIn: 'root',
 })
@@ -12,13 +12,13 @@ export class ThemeService {
   private readonly document = inject(DOCUMENT);
 
   // Cookie utility instance
-  private cookieUtils = new CookieUtils();
+  private _CookiesService = inject(CookiesService);
   constructor() {}
   setTheme(theme: Theme) {
     this.setHtmlTheme(theme); // Apply to <html>
   }
   getTheme(): string {
-    return this.cookieUtils.getCookie(this.storageKey);
+    return this._CookiesService.getCookie(this.storageKey);
     // ('light' as Theme)) as Theme;
   }
   initialTheme() {
@@ -42,10 +42,10 @@ export class ThemeService {
   // }
   toggleTheme() {
     // if(this.cookieUtils.getCookie(this.storageKey)=='') {currentTheme='litt'}
-    const currentTheme = this.cookieUtils.getCookie(this.storageKey) ?? 'light';
+    const currentTheme = this._CookiesService.getCookie(this.storageKey) ?? 'light';
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
     this.setTheme(newTheme);
-    this.cookieUtils.setCookie(this.storageKey, newTheme);
+    this._CookiesService.setCookie(this.storageKey, newTheme);
   }
 
   private setHtmlTheme(theme: string) {
