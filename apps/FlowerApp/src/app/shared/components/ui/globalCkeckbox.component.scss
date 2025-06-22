@@ -7,9 +7,20 @@
   color: var(--text-gray);
 }
 p {
-  font-family: 'Jost'!important;
+  font-family: 'Jost' !important;
 }
- 
-.zx{
-    background-color: red;
+
+/* Change checked + hover color */
+::ng-deep .p-checkbox-checked .p-checkbox-box,
+.p-checkbox-box.p-highlight {
+  background: var(--primary-color) !important;
+  border: 1px solid var(--primary-color) !important;
+}
+/* Normal border (unchecked) */
+::ng-deep .p-checkbox .p-checkbox-box {
+  border: 1px solid var(--text-gray) !important;
+  border-radius: 3px !important;
+}
+::ng-deep .p-checkbox-checked .p-checkbox-box {
+  border: 1px solid var(--primary-color) !important;
 }

@@ -2,8 +2,9 @@ input {
   background: var(--bg-zink);
   text-transform: capitalize;
   border-radius: 20px;
+  border-color: none;
   color: var(--text-gray);
-  box-shadow: 0px 0px 4px 0px var(--shadow-color);
+  box-shadow: 0px 0px 4px 0px var(--shadow-color) !important;
   /* Search By the name */
   font-family: 'Inter';
   font-style: normal;
@@ -11,17 +12,7 @@ input {
   font-size: 12px;
 }
 
-::ng-deep .p-checkbox-checked .p-checkbox-box {
-  border-color: red;
-  background: red;
-   border: none;
-   :hover{
-     background: red;
-   }
+.p-inputtext:enabled:focus,
+.p-inputtext {
+  border: none;
 }
-.p-checkbox-box:hover{
-   background: red;
-}
-// .p-checkbox-input {
-//   border: none;
-// }
