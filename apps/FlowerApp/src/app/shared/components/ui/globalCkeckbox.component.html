@@ -1,15 +1,30 @@
-<div class="mb-2 flex justify-content-between label-text">
+<!-- <div class="mb-2 flex justify-content-between label-text">
   <div class="custom-checkbox">
     <p-checkbox
       [inputId]="labelText"
       checkboxIcon="null"
-      [value]="labelText"
-      name="sizes"
-      (onChange)="onchanged($event)"
+      [value]="value"
+      (onChange)="onChange($event)"
     />
     <label [for]="labelText" class="mx-2">{{ labelText }}</label>
   </div>
   <p>(8)</p>
-</div>
+</div> -->
 <!-- [(ngModel)]="selectedSizes"
       (onChange)="onchanged($event)" -->
+<!-- Global  checkboxs group -->
+@for(option of options ;track option.label;let i = $index; ){
+<div class="mb-2 flex justify-content-between label-text">
+  <div class="custom-checkbox">
+    <p-checkbox
+      [inputId]="option.label"
+      checkboxIcon="null"
+      [value]="option.value"
+      [(ngModel)]="selectedValues"
+      (onChange)="onCheckboxChange($event)"
+    ></p-checkbox>
+    <label [for]="option.label" class="mx-2">{{ option.label }}</label>
+  </div>
+  <p *ngIf="option.count !== undefined">({{ option.count }})</p>
+</div>
+}

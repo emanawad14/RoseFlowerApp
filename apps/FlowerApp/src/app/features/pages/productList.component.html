@@ -3,14 +3,13 @@
   <div class="grid">
     <!-- Filters -->
     <div class="col-12 md:col-4">
-      <form [formGroup]="filtersForm" (submit)="onSubmit()">
+      <form [formGroup]="filtersForm">
         <!-- Search by Name -->
         <div class="bg-box mb-5 p-4">
           <h3 class="mb-3">Search</h3>
           <app-global-input
             [labelText]="'Search By the name'"
             ngDefaultControl
-            (keyup)="onSubmit()"
             formControlName="title"
           ></app-global-input>
         </div>
@@ -18,15 +17,20 @@
         <div class="bg-box mb-5 p-4">
           <h3 class=" ">Category</h3>
           <div class="line mx-3 my-3"></div>
-          <!-- <app-global-ckeckbox></app-global-ckeckbox> -->
+          <app-global-ckeckbox
+            [options]="categoriesOptions"
+            [groupTitle]="'Category'"
+            formControlName="categories"
+          ></app-global-ckeckbox>
         </div>
         <!-- search by brands -->
         <div class="bg-box mb-5 p-4">
           <h3 class=" ">Brands</h3>
           <div class="line mx-3 my-3"></div>
           <app-global-ckeckbox
-            ngDefaultControl
-            [labelText]="'vv'"
+            [options]="brandsOptions"
+            [groupTitle]="'Brands'"
+            formControlName="brands"
           ></app-global-ckeckbox>
         </div>
         <!-- Search by price rating -->
@@ -38,7 +42,11 @@
         <div class="bg-box mb-5 p-4">
           <h3 class=" ">Sales</h3>
           <div class="line mx-3 my-3"></div>
-          <!-- <app-global-ckeckbox></app-global-ckeckbox> -->
+          <app-global-ckeckbox
+            [options]="salesOptions"
+            [groupTitle]="'Sales'"
+            formControlName="sales"
+          ></app-global-ckeckbox>
         </div>
         <!-- search by Rating -->
         <div class="bg-box mb-5 p-4">
@@ -50,19 +58,17 @@
         <div class="bg-box mb-5 p-4">
           <h3 class=" ">Sizes</h3>
           <div class="line mx-3 my-3"></div>
-          <div formArrayName="sizes">
-            @for(size of sizes ;track size.id;let i = $index; ){
-            <app-global-ckeckbox
-              ngDefaultControl
-              [labelText]="size.size"
-              formControlName="{{ i }}"
-              (checkboxSelected)="sizeSelected(size)"
-            ></app-global-ckeckbox>
-
-            }
-          </div>
+          <app-global-ckeckbox
+            [options]="sizeOptions"
+            [groupTitle]="'Sizes'"
+            formControlName="sizes"
+          ></app-global-ckeckbox>
         </div>
-        <button type="submit">Submit</button>
+
+        <div class="selected-filters mt-4">
+          <h4>Selected Filters:</h4>
+          <pre>{{ filtersForm.value | json }}</pre>
+        </div>
       </form>
     </div>
 
@@ -70,15 +76,3 @@
     <div class="col-6"></div>
   </div>
 </section>
-<!-- <div class="mb-2 flex justify-content-between label-text">
-              <div class="custom-checkbox">
-                <p-checkbox
-                  formControlName="{{i}}"
-                  [inputId]="size.size"
-                  checkboxIcon="null"
-                  [value]="size.size"
-                />
-                <label [for]="size.size" class="mx-2">{{ size.size }}</label>
-              </div>
-              <p>(8)</p>
-            </div> -->
