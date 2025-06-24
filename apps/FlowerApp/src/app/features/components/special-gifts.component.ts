@@ -15,7 +15,7 @@ import { TranslatePipe } from '@ngx-translate/core';
     GiftUiComponent,
     ImageContainerComponent,
     CarousolComponent,
-    TranslatePipe
+    
   ],
   templateUrl: './special-gifts.component.html',
   styleUrl: './special-gifts.component.scss',
