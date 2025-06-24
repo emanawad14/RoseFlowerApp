@@ -13,6 +13,7 @@ import { CarousolComponent } from '../../shared/components/ui/carousol.component
     GiftUiComponent,
     ImageContainerComponent,
     CarousolComponent,
+    TranslatePipe
   ],
   templateUrl: './special-gifts.component.html',
   styleUrl: './special-gifts.component.scss',
