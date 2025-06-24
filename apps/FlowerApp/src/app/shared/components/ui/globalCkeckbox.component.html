@@ -1,13 +1,15 @@
 <div class="mb-2 flex justify-content-between label-text">
   <div class="custom-checkbox">
     <p-checkbox
-      formControlName="city"
-      value="Home & Living"
-      inputId="Home & Living"
+      [inputId]="labelText"
       checkboxIcon="null"
-      checkbox.border.color="'red'"
+      [value]="labelText"
+      name="sizes"
+      (onChange)="onchanged($event)"
     />
-    <label for="Home & Living" class="ml-2">Home & Living</label>
+    <label [for]="labelText" class="mx-2">{{ labelText }}</label>
   </div>
   <p>(8)</p>
 </div>
+<!-- [(ngModel)]="selectedSizes"
+      (onChange)="onchanged($event)" -->

@@ -2,49 +2,83 @@
 <section id="product-list" class="m-5">
   <div class="grid">
     <!-- Filters -->
-    <div class="col-12 md:col-3">
-      <!-- Search by Name -->
-      <div class="bg-box mb-5 p-4">
-        <h3 class="mb-3">Search</h3>
-        <app-global-input [labelText]="'Search By the name'"></app-global-input>
-      </div>
-      <!-- Search By Category -->
-      <div class="bg-box mb-5 p-4">
-        <h3 class=" ">Category</h3>
-        <div class="line mx-3 my-3"></div>
-        <app-global-ckeckbox></app-global-ckeckbox>
-      </div>
-      <!-- search by brands -->
-      <div class="bg-box mb-5 p-4">
-        <h3 class=" ">Brands</h3>
-        <div class="line mx-3 my-3"></div>
-        <app-global-ckeckbox></app-global-ckeckbox>
-      </div>
-      <!-- Search by price rating -->
-      <div class="bg-box mb-5 p-4">
-        <h3 class=" ">Price Rating</h3>
-        <div class="line mx-3 my-3"></div>
-      </div>
-      <!-- search by Sales -->
-      <div class="bg-box mb-5 p-4">
-        <h3 class=" ">Sales</h3>
-        <div class="line mx-3 my-3"></div>
-        <app-global-ckeckbox></app-global-ckeckbox>
-      </div>
-      <!-- search by Rating -->
-      <div class="bg-box mb-5 p-4">
-        <h3 class=" ">Ratings</h3>
-        <div class="line mx-3 my-3"></div>
-        <app-global-ckeckbox></app-global-ckeckbox>
-      </div>
-      <!-- search by Sizes -->
-      <div class="bg-box mb-5 p-4">
-        <h3 class=" ">Sizes</h3>
-        <div class="line mx-3 my-3"></div>
-        <app-global-ckeckbox></app-global-ckeckbox>
-      </div>
+    <div class="col-12 md:col-4">
+      <form [formGroup]="filtersForm" (submit)="onSubmit()">
+        <!-- Search by Name -->
+        <div class="bg-box mb-5 p-4">
+          <h3 class="mb-3">Search</h3>
+          <app-global-input
+            [labelText]="'Search By the name'"
+            ngDefaultControl
+            (keyup)="onSubmit()"
+            formControlName="title"
+          ></app-global-input>
+        </div>
+        <!-- Search By Category -->
+        <div class="bg-box mb-5 p-4">
+          <h3 class=" ">Category</h3>
+          <div class="line mx-3 my-3"></div>
+          <!-- <app-global-ckeckbox></app-global-ckeckbox> -->
+        </div>
+        <!-- search by brands -->
+        <div class="bg-box mb-5 p-4">
+          <h3 class=" ">Brands</h3>
+          <div class="line mx-3 my-3"></div>
+          <app-global-ckeckbox
+            ngDefaultControl
+            [labelText]="'vv'"
+          ></app-global-ckeckbox>
+        </div>
+        <!-- Search by price rating -->
+        <div class="bg-box mb-5 p-4">
+          <h3 class=" ">Price Rating</h3>
+          <div class="line mx-3 my-3"></div>
+        </div>
+        <!-- search by Sales -->
+        <div class="bg-box mb-5 p-4">
+          <h3 class=" ">Sales</h3>
+          <div class="line mx-3 my-3"></div>
+          <!-- <app-global-ckeckbox></app-global-ckeckbox> -->
+        </div>
+        <!-- search by Rating -->
+        <div class="bg-box mb-5 p-4">
+          <h3 class=" ">Ratings</h3>
+          <div class="line mx-3 my-3"></div>
+          <!-- <app-global-ckeckbox></app-global-ckeckbox> -->
+        </div>
+        <!-- search by Sizes -->
+        <div class="bg-box mb-5 p-4">
+          <h3 class=" ">Sizes</h3>
+          <div class="line mx-3 my-3"></div>
+          <div formArrayName="sizes">
+            @for(size of sizes ;track size.id;let i = $index; ){
+            <app-global-ckeckbox
+              ngDefaultControl
+              [labelText]="size.size"
+              formControlName="{{ i }}"
+              (checkboxSelected)="sizeSelected(size)"
+            ></app-global-ckeckbox>
+
+            }
+          </div>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
     </div>
+
     <!-- Products  -->
     <div class="col-6"></div>
   </div>
 </section>
+<!-- <div class="mb-2 flex justify-content-between label-text">
+              <div class="custom-checkbox">
+                <p-checkbox
+                  formControlName="{{i}}"
+                  [inputId]="size.size"
+                  checkboxIcon="null"
+                  [value]="size.size"
+                />
+                <label [for]="size.size" class="mx-2">{{ size.size }}</label>
+              </div>
+              <p>(8)</p>
+            </div> -->
