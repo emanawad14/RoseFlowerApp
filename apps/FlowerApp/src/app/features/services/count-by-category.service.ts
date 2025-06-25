@@ -6,6 +6,7 @@ import { CountbycategoryResponse } from '../interfaces/countbycategory';
 import { CountByCategoryApiInterface } from './base/count-by-categoryAPI';
 import { CountbycategoryAdapter } from './adapter/count-by-category.adapter';
 import { CheckboxOption } from '../interfaces/checbox-options';
+import { FiltersAPIEEndpoints } from './enums/filters.api.endpoints';
 
 @Injectable({
   providedIn: 'root',
@@ -18,7 +19,7 @@ export class CountByCategoryService implements CountByCategoryApiInterface {
   getCountByCategory(): Observable<CheckboxOption[]> {
     return this._http
       .get<CountbycategoryResponse>(
-        `${environment.baseUrl}${environment.endpoints.countbycategory}`
+        `${environment.baseUrl}${FiltersAPIEEndpoints.GET_COUNT_BY_CATEGORY}`
       )
       .pipe(
         map((res: CountbycategoryResponse) =>

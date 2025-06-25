@@ -7,7 +7,7 @@ import { GlobalInputComponent } from '../../shared/components/ui/globalInput.com
 import { InputTextModule } from 'primeng/inputtext';
 import { CheckboxModule } from 'primeng/checkbox';
 import { CheckboxOption } from '../interfaces/checbox-options';
-import { Subscription } from 'rxjs';
+import { catchError, Subscription, throwError } from 'rxjs';
 import { CountByCategoryService } from '../services/count-by-category.service';
 import { OccasionService } from '../services/occasion.service';
 @Component({
@@ -70,7 +70,12 @@ export class ProductListComponent implements OnInit, OnDestroy {
     this.getBrands();
   }
   getCategoryByCount() {
-    const sub = this._CountByCategoryService.getCountByCategory().subscribe({
+    const sub = this._CountByCategoryService.getCountByCategory().pipe(
+    catchError(error => {
+      console.error('HTTP Error:', error); // 👈 full object
+      return throwError(() => error);      // rethrow or handle
+    })
+  ).subscribe({
       next: (res) => {
         console.log('res', res);
         this.categoriesOptions = res;
