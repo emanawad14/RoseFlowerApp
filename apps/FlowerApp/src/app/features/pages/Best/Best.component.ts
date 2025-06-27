@@ -7,6 +7,8 @@ import { Subscription } from 'rxjs';
 import { RatingModule } from 'primeng/rating';
 import { CardModule } from 'primeng/card';
 import { FormsModule } from '@angular/forms';
+import { TranslatePipe } from '@ngx-translate/core';
+import { PrimaryBtnComponent } from "../../../shared/components/ui/primary-btn.component";
 
 @Component({
   selector: 'app-best',
@@ -16,7 +18,9 @@ import { FormsModule } from '@angular/forms';
     RatingModule,
     FormsModule,
     CardModule,
-  ],
+    TranslatePipe,
+    PrimaryBtnComponent
+],
   templateUrl: './Best.component.html',
   styleUrl: './Best.component.scss',
 })
@@ -45,6 +49,7 @@ export class BestComponent implements OnInit, OnDestroy {
 
   customOptions: OwlOptions = {
     loop: true,
+    rtl:true,
     margin: 2,
     mouseDrag: true,
     touchDrag: true,
@@ -69,7 +74,21 @@ export class BestComponent implements OnInit, OnDestroy {
     },
     nav: true,
   };
-
+  setNavText(lang: string) {
+    if (lang === 'ar') {
+      this.customOptions.rtl = true;
+      this.customOptions.navText = [
+        '<i class="pi pi-chevron-right text-lg"></i>',
+        '<i class="pi pi-chevron-left text-lg"></i>',
+      ];
+    } else {
+      this.customOptions.rtl = false;
+      this.customOptions.navText = [
+        '<i class="pi pi-chevron-left text-lg"></i>',
+        '<i class="pi pi-chevron-right text-lg"></i>',
+      ];
+    }
+  }
   ngOnDestroy(): void {
     this.homeUnSubscribe.unsubscribe();
   }

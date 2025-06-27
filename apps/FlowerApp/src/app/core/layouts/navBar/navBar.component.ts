@@ -1,4 +1,4 @@
-import { ThemeService } from './../../services/theme-service.service';
+ import { ThemeService } from './../../services/theme-service.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
@@ -9,6 +9,8 @@ import { MenuItem } from 'primeng/api';
 import { BadgeModule } from 'primeng/badge';
 import { Dialog } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
+import { MyTranslateService } from '../../services/my-translate-service.service';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-nav-bar',
@@ -23,6 +25,7 @@ import { InputTextModule } from 'primeng/inputtext';
     BadgeModule,
     Dialog,
     InputTextModule,
+    TranslatePipe
   ],
   templateUrl: './navBar.component.html',
   styleUrl: './navBar.component.scss',
@@ -58,7 +61,10 @@ export class NavBarComponent implements OnInit {
       styleClass: 'py-2 paragraph-text',
     },
   ];
-  constructor(private _themeService: ThemeService) {}
+  constructor(
+    private _themeService: ThemeService,
+    private _MyTranslateService: MyTranslateService
+  ) {}
   /**
    * Toggles the mobile menu
    * @param event - The click event that triggered the toggle
@@ -106,6 +112,12 @@ export class NavBarComponent implements OnInit {
   languageToggle() {
     this.langClick = !this.langClick;
   }
+  changeLanguage(lang: string): void {
+    this._MyTranslateService.changeTranslateLange(lang);
+  }
+  currentLanguage(lang:string):boolean{
+ return  this._MyTranslateService.currentLang  === lang
+}
   darkModeToggle() {
     this.darkMode = !this.darkMode;
   }

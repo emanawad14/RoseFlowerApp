@@ -3,23 +3,37 @@
     class="container flex flex-wrap justify-content-between align-items-center"
   >
     <div class="content lg:w-3 md:w-6 sm:w-full p-2">
-      <h3 class="gift my-4">PREMIUM GIFTS</h3>
+      <h3 class="gift my-4">
+        {{ 'BestSeller.PREMIUM GIFTS' | translate }}
+      </h3>
+
       <h2 class="seller white-space-nowrap">
-        Best <span class="text-primary-color ">Seller</span><br />
-        <span class=" text-primary-color">Gifts</span> <span> And Products</span>
+        {{ 'BestSeller.Best' | translate }}
+        <span class="text-primary-color">{{
+          'BestSeller.Seller' | translate
+        }}</span
+        ><br />
+        <span class="text-primary-color">
+          {{ 'BestSeller.Gifts' | translate }}</span
+        >
+        <span> {{ 'BestSeller.AndProducts' | translate }}</span>
       </h2>
+
       <p class="paragraph my-4 flex flex-column white-space-nowrap">
-        <span>Recusandae tempora aut laborum</span>
-        <span>molestias veniam. A commodi sequi</span>
-        <span>accusantium ullam cupiditate. Neque</span>
-        <span>quidem qui et autem dolor dicta</span>
-        <span>necessitatibus ut ad.</span>
+        <span>{{ 'BestSeller.line1' | translate }}</span>
+        <span>{{ 'BestSeller.line2' | translate }}</span>
+        <span>{{ 'BestSeller.line3' | translate }}</span>
+        <span>{{ 'BestSeller.line4' | translate }}</span>
+        <span>{{ 'BestSeller.line5' | translate }}</span>
       </p>
 
-      <button class="btn mt-3 cursor-pointer">
+      <!-- <button class="btn mt-3 cursor-pointer">
         {{ 'BestSeller.Explore More' | translate }}
         <i class="pi pi-arrow-right ml-2"></i>
-      </button>
+      </button> -->
+      <app-primary-btn
+        [labelName]="'BestSeller.Explore More' | translate"
+      ></app-primary-btn>
     </div>
 
     <div class="carsoul p-3 relative overflow-hidden lg:w-9 md:w-6 sm:w-full">
@@ -48,7 +62,7 @@
                       [stars]="5"
                       [readonly]="true"
                     />
-                    <span class=" font-bold text-xl pt-3">
+                    <span class="font-bold text-xl pt-3">
                       {{ item.price | currency : 'USD' : 'symbol' : '1.2-2' }}
                     </span>
                   </div>

@@ -3,35 +3,40 @@
     <ul
       class="flex justify-content-center align-items-center flex-wrap gap-1 md:gap-8 mb-6"
     >
-      <li class="mx-2 md:mx-3">About Us</li>
-      <li class="mx-2 md:mx-3">Store Location</li>
-      <li class="mx-2 md:mx-3">Contact</li>
-      <li class="mx-2 md:mx-3">Delivery</li>
-      <li class="mx-2 md:mx-3">Policy</li>
-      <li class="mx-2 md:mx-3">FAQS</li>
+      <li class="mx-2 md:mx-3">{{ 'footer.AboutUs' | translate }}</li>
+      <li class="mx-2 md:mx-3">{{ 'footer.StoreLocation' | translate }}</li>
+      <li class="mx-2 md:mx-3">{{ 'footer.Contact' | translate }}</li>
+      <li class="mx-2 md:mx-3">{{ 'footer.Delivery' | translate }}</li>
+      <li class="mx-2 md:mx-3">{{ 'footer.Policy' | translate }}</li>
+      <li class="mx-2 md:mx-3">{{ 'footer.FAQS' | translate }}</li>
     </ul>
 
     <div class="mx-auto mt-5" style="max-width: 600px">
       <h2 class="get mb-2">
-        Get <span class="text-primary-color">20%</span> Off Discount Coupon
+        {{ 'footer.Get' | translate }}
+        <span class="text-pink-500">20%</span>
+        {{ 'footer.OffDiscountCoupon' | translate }}
       </h2>
-      <p class="paragraph mb-3">By Subscribe Our Newsletter</p>
+      <p class="paragraph mb-3">
+        {{ 'footer.BySubscribeOurNewsletter' | translate }}
+      </p>
 
       <div class="relative w-full mt-5">
         <input
           pInputText
           type="email"
-          placeholder="Enter Your Email"
+          [placeholder]="'footer.EnterYourEmail' | translate"
           class="input w-full pr-32 pl-4 py-3 border-round-3xl text-sm"
         />
-       <button
-  pButton
-  [label]="'footer.SubscribeArrow' | translate"
-  class="absolute top-0 right-0 h-full border-none border-round-3xl px-4 text-sm hover:bg-pink-600"
-  [class.right-0]="translate.currentLang !== 'ar'"
-  [class.left-0]="translate.currentLang === 'ar'"
-></button>
+        <button
+    
+          pButton
+          [label]="'footer.SubscribeArrow' | translate"
+          class="absolute top-0 right-0 h-full border-none border-round-3xl px-4 text-sm hover:bg-pink-600"
+          [class.right-0]="_TranslateService.currentLang !== 'ar'"
+          [class.left-0]="_TranslateService.currentLang === 'ar'"
 
+        > </button>
       </div>
     </div>
   </div>

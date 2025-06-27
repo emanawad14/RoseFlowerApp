@@ -1,0 +1,116 @@
+{
+  "navbar": {
+    "home": "الرئيسية",
+    "categories": "الفئات",
+    "about": "حول",
+    "contact": "اتصال",
+    "english": "الإنجليزية",
+    "arabic": "العربية"
+  },
+
+  "Best Gifts Shop": {
+    "Best Gift Shop": "أفضل متجر هدايا",
+    "Choose Perfect gifts From Us": "اختر الهدايا المثالية من عندنا",
+    "Culpa ducimus nesciunt aliquam non rerum esse recusandae omnis. Rerum optio dolores et.": "لوم بسبب الجهل أو الإهمال، بعض الأمور ليست كما تبدو. هناك خيارات وآلام أيضًا.",
+    "show Now": "تسوق الآن",
+    "Start $10.99": "ابتداءً من $10.99",
+    "Special Gifts Box For Your Love": "علبة هدايا خاصة لأحبّائك",
+    "Gifts Box": "علبة هدايا",
+    "Awesome Gifts Box Collectons": "مجموعات مذهلة من علب الهدايا",
+    "Occasion Gifts": "هدايا المناسبات",
+    "Best Occasion Gifts Collections": "أفضل مجموعات هدايا المناسبات",
+    "Combo Sets Gift Box Up To 50% Off": "مجموعات هدايا بخصم يصل إلى 50٪",
+    "Discover Now": "استكشف الآن"
+  },
+
+  "Features": {
+    "Free Delivery": "توصيل مجاني",
+    "Orders Over $120s": "للطلبات التي تزيد عن 120 دولارًا",
+    "Get Refund": "استرداد الأموال",
+    "Within 30 Days Returns": "إرجاع خلال 30 يومًا",
+    "Safe Payment": "دفع آمن",
+    "100% Secure Payment": "دفع آمن بنسبة 100%",
+    "24/7 Support": "دعم 24/7",
+    "Feel Free To Call Us": "لا تتردد في الاتصال بنا"
+  },
+  "BestSeller": {
+    "PREMIUM GIFTS": "هدايا مميزة",
+    "Best": "الأفضل",
+    "Seller": " مبيعًا",
+    "Gifts": "هدايا",
+    "AndProducts": "و منتجات",
+    "line1": "أوقات من المتاعب المؤقتة",
+    "line2": "وإزعاجات. شيء مريح يتبع",
+    "line3": "اتهامًا بعدم الرضا. ولا حتى",
+    "line4": "من قال إنه مؤلم، بل هو",
+    "line5": "ضروري.",
+    "Explore More": "استكشف المزيد"
+  },
+
+  "footer": {
+    "AboutUs": "من نحن",
+    "StoreLocation": "موقع المتجر",
+    "Contact": "اتصل بنا",
+    "Delivery": "التوصيل",
+    "Policy": "السياسة",
+    "FAQS": "الأسئلة الشائعة",
+    "Get": "احصل على",
+    "OffDiscountCoupon": "خصم كوبون",
+    "BySubscribeOurNewsletter": "بالاشتراك في نشرتنا الإخبارية",
+    "EnterYourEmail": "أدخل بريدك الإلكتروني",
+    "SubscribeArrow": "اشترك →"
+  },
+
+  "gallery": {
+    "OurGallery": "معرض الصور الخاص بنا",
+    "CheckGallery": "لنطلع على معرض الصور الخاص بنا",
+    "PhotoGallery": "معرض الصور"
+  },
+  "popular": {
+    "PopularItems": "عناصر شائعة"
+  },
+  "trust": {
+    "TrustedBy": "موثوق من قبل",
+    "Over": "أكثر من",
+    "Companies": "شركات",
+    "Number": "4.5 آلاف+"
+  },
+  "about": {
+    "Title": "من نحن",
+    "SubTitle": "نحن نقدم أفضل منتجات   ",
+    "ProductForYou": " عالية الجودة لك",
+    "Paragraph": "وقت مؤقت أو إزعاجات في العمل. متابعة مريحة للاتهامات من دون شك. ولا حتى من هو ولكن الألم يفرض الحاجة لذلك.",
+    "Gift": "الهدايا",
+    "Box": "علب",
+    "Discover": "اكتشف المزيد",
+    "Features": {
+      "Shipping": "تجربة شحن سلسة",
+      "Design": "تصميم عصري بأسعار معقولة",
+      "Price": "سعر تنافسي وسهولة في التسوق",
+      "Products": "نُصنع منتجات رائعة"
+    }
+  },
+
+  "GiftSlides": {
+    "ShopNow": "تسوق الآن",
+
+    "Title1": "أفضل متجر هدايا",
+    "SubTitle1": "اختر الهدايا المثالية منا",
+
+    "Title2": "أفضل متجر هدايا",
+    "SubTitle2": "اختر الهدايا المثالية منا",
+
+    "Title3": "أفضل متجر هدايا",
+    "SubTitle3": "اختر الهدايا المثالية منا",
+
+    "Title4": "أفضل متجر هدايا",
+    "SubTitle4": "اختر الهدايا المثالية منا",
+
+    "Description": "خطأ ناتج عن إهمال أو جهل، لكنه غير مبرر بالكامل. هناك خيارات للألم أيضاً."
+  },
+  "SpecialBox": {
+    "Price": "ابتداءً من 10.99 دولار",
+    "Heading": "علبة هدايا مميزة لمن تحب",
+    "Button": "تسوق الآن"
+  }
+}

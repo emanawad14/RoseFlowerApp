@@ -36,7 +36,6 @@ import { AboutComponent } from '../../components/about.component';
 })
 export class HomeComponent implements OnInit, OnDestroy {
   private readonly _catigory = inject(CatigoryService);
-  private readonly _themeService = inject(ThemeService);
   catigory: Catigory[] = [];
   sub!: Subscription;
 

@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-primary-btn',
   imports: [CommonModule, ButtonModule],
@@ -10,4 +11,5 @@ import { ButtonModule } from 'primeng/button';
 export class PrimaryBtnComponent {
   @Input({ required: true }) labelName!: string;
   @Input({ required: false }) displayIcon = true;
+  constructor(public translate: TranslateService ) {}
 }

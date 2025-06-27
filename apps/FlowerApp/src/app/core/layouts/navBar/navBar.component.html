@@ -21,7 +21,7 @@
             role="button"
             tabindex="0"
           >
-            Home
+            {{ 'navbar.home' | translate }}
           </a>
         </li>
         <li>
@@ -33,7 +33,7 @@
             role="button"
             tabindex="0"
           >
-            Categories
+            {{ 'navbar.categories' | translate }}
           </a>
         </li>
         <li>
@@ -45,7 +45,7 @@
             role="button"
             tabindex="0"
           >
-            About
+            {{ 'navbar.about' | translate }}
           </a>
         </li>
         <li>
@@ -57,7 +57,7 @@
             role="button"
             tabindex="0"
           >
-            Contact
+            {{ 'navbar.contact' | translate }}
           </a>
         </li>
       </ul>
@@ -77,11 +77,14 @@
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
         <!-- Dark mode Button -->
-        <button pButton class="p-button-text btn-dark-mode" (click)="darkModeToggle()">
+        <button
+          pButton
+          class="p-button-text btn-dark-mode"
+          (click)="darkModeToggle(); toggleDarkMode()"
+        >
           @if (darkMode) {
           <i class="fa-solid fa-sun text-pink-500"></i>
-          }
-          @else {<i class="fa-solid fa-moon text-pink-500"></i> }
+          } @else {<i class="fa-solid fa-moon text-pink-500"></i> }
         </button>
         <!-- Wishlist Button -->
         <button pButton class="p-button-text text-pink-500 relative">
@@ -97,14 +100,33 @@
           ></i>
         </button>
         <!-- Language  Button -->
-        <button pButton class="p-button-text text-pink-500" (click)="languageToggle()">
+        <!-- <button
+          pButton
+          class="p-button-text text-pink-500"
+          (click)="languageToggle()"
+        >
           @if (!langClick) {
           <i>العربيه</i>
+          } @else {<i>En</i>
           }
-          @else {<i>En</i>
-          }
+        </button> -->
+        <button
+          [class.hidden]="currentLanguage('en')"
+          pButton
+          class="p-button-text text-pink-500"
+          (click)="changeLanguage('en')"
+        >
+          {{ 'navbar.arabic' | translate }}
         </button>
-        <p-button label="Toggle Dark Mode" (onClick)="toggleDarkMode()" />
+
+        <button
+          [class.hidden]="currentLanguage('ar')"
+          pButton
+          class="p-button-text text-pink-500"
+          (click)="changeLanguage('ar')"
+        >
+          English
+        </button>
       </div>
     </div>
   </div>
@@ -117,19 +139,34 @@
     [appendTo]="'body'"
     styleClass="w-full sm:w-48 mt-3"
   ></p-menu>
-  <p-menu #menu [popup]="true" [model]="menuItems" [appendTo]="'body'"
-    styleClass="w-full sm:w-48 mt-3 border-0"></p-menu>
-
+  <p-menu
+    #menu
+    [popup]="true"
+    [model]="menuItems"
+    [appendTo]="'body'"
+    styleClass="w-full sm:w-48 mt-3 border-0"
+  ></p-menu>
 
   <div class="card">
-    <p-dialog header="" [modal]="true" [(visible)]="visible" draggable="false" [position]="position"
-      [style]="{ width: '16rem', top: '1rem', right: '1rem' }">
+    <p-dialog
+      header=""
+      [modal]="true"
+      [(visible)]="visible"
+      draggable="false"
+      [position]="position"
+      [style]="{ width: '16rem', top: '1rem', right: '1rem' }"
+    >
       <ng-template pTemplate="header">
         <div class="flex items-center gap-1">
           <img src="images/logo.png" alt="User Icon" class="w-6 h-6" />
         </div>
       </ng-template>
-      <p-menu #menu [model]="menuItems" [appendTo]="'body'" styleClass="w-full mt-2 border-0"></p-menu>
+      <p-menu
+        #menu
+        [model]="menuItems"
+        [appendTo]="'body'"
+        styleClass="w-full mt-2 border-0"
+      ></p-menu>
     </p-dialog>
   </div>
 </nav>

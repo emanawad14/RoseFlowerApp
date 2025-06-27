@@ -2,6 +2,10 @@
   <span class="custom-label">{{ labelName }}</span>
   <span [class.hidden]="!displayIcon">
     <svg
+     [ngClass]="{ 
+        'order-first rotate-180': translate.currentLang === 'ar',
+        'order-last rotate-0': translate.currentLang !== 'ar'
+      }"
       width="13"
       height="13"
       viewBox="0 0 13 13"

@@ -1,6 +1,6 @@
 <section class="grid my-5 mx-3 md:gap-3 md:gap-3">
   <div class="col-12 md:col-4 lg:col-5">
-    <div class="flex align-items-center flex-colum  md:flex-row gap-3">
+    <div class="flex align-items-center flex-colum md:flex-row gap-3">
       <div class=" ">
         <img src="/images/box-img.png " class="w-full object-cover" alt="" />
       </div>
@@ -11,39 +11,40 @@
     </div>
   </div>
 
-  <div class="about flex-1 col-12 lg:col-8  lg:col-7 px-3    ">
-    <h1 class="my-3 pink-text">About us</h1>
+  <div class="about flex-1 col-12 lg:col-8 lg:col-7 px-3">
+    <h1 class="my-3 pink-text">{{ 'about.Title' | translate }}</h1>
+
     <h2 class="my-3 heading3 lg:w-6">
-      We Provide Best And Quality <span class="text-primary-color">Gifts </span>
-      <span class="text-primary-color">Box</span> Product For You
+      {{ 'about.SubTitle' | translate }}
+      <span class="text-primary-color">{{ 'about.Gift' | translate }} </span>
+      <span class="text-primary-color">{{ 'about.Box' | translate }}</span>
+      {{ 'about.ProductForYou' | translate }}
     </h2>
     <p class="my-3 lg:w-7 paragraph-text">
-      Recusandae tempora aut laborum molestias veniam. A commodi sequi
-      accusantium ullam cupiditate. Neque quidem qui et autem dolor dicta
-      necessitatibus ut ad.
+      {{ 'about.Paragraph' | translate }}
     </p>
 
     <app-primary-btn
       [displayIcon]="true"
-      [labelName]="'discover more'"
+      [labelName]="'about.Discover' | translate"
     ></app-primary-btn>
 
     <div class="check md:w-10 w-full grid mt-2">
       <div class="col-12 md:col-6 flex align-items-center">
         <i class="pi pi-check p-2 border-circle"></i>
-        <p class="ml-2">Streamlined Shipping Experience</p>
+        <p class="ml-2">{{ 'about.Features.Shipping' | translate }}</p>
       </div>
       <div class="col-12 md:col-6 flex align-items-center">
         <i class="pi pi-check p-2 border-circle"></i>
-        <p class="ml-2">Affordable Modern Design</p>
+        <p class="ml-2">{{ 'about.Features.Design' | translate }}</p>
       </div>
       <div class="col-12 md:col-6 flex align-items-center">
         <i class="pi pi-check p-2 border-circle"></i>
-        <p class="ml-2">Competitive Price & Easy To Shop</p>
+        <p class="ml-2">{{ 'about.Features.Price' | translate }}</p>
       </div>
       <div class="col-12 md:col-6 flex align-items-center">
         <i class="pi pi-check p-2 border-circle"></i>
-        <p class="ml-2">We Made Awesome Products</p>
+        <p class="ml-2">{{ 'about.Features.Products' | translate }}</p>
       </div>
     </div>
   </div>

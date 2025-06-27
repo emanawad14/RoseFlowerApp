@@ -1,0 +1,116 @@
+{
+  "navbar": {
+    "home": "Home",
+    "categories": "Categories",
+    "about": "About",
+    "contact": "Contact",
+    "english": "English",
+    "arabic": "Arabic"
+  },
+
+  "Features": {
+    "Free Delivery": "Free Delivery",
+    "Orders Over $120s": "Orders Over $120s",
+    "Get Refund": "Get Refund",
+    "Within 30 Days Returns": "Within 30 Days Returns",
+    "Safe Payment": "Safe Payment",
+    "100% Secure Payment": "100% Secure Payment",
+    "24/7 Support": "24/7 Support",
+    "Feel Free To Call Us": "Feel Free To Call Us"
+  },
+  "Best Gifts Shop": {
+    "Best Gift Shop": "Best Gift Shop",
+    "Choose Perfect gifts From Us": "Choose Perfect gifts From Us",
+    "Culpa ducimus nesciunt aliquam non rerum esse recusandae omnis. Rerum optio dolores et.": "Culpa ducimus nesciunt aliquam non rerum esse recusandae omnis. Rerum optio dolores et.",
+    "show Now": "Show Now",
+    "Start $10.99": "Start $10.99",
+    "Special Gifts Box For Your Love": "Special Gifts Box For Your Love",
+    "Gifts Box": "Gifts Box",
+    "Awesome Gifts Box Collectons": "Awesome Gifts Box Collectons",
+    "Occasion Gifts": "Occasion Gifts",
+    "Best Occasion Gifts Collections": "Best Occasion Gifts Collections",
+    "Combo Sets Gift Box Up To 50% Off": "Combo Sets Gift Box Up To 50% Off",
+    "Discover Now": "Discover Now"
+  },
+
+  "BestSeller": {
+    "PREMIUM GIFTS": "PREMIUM GIFTS",
+    "Best": "Best",
+    "Seller": "Seller ",
+    "Gifts": "Gifts",
+    "AndProducts": "And Products",
+    "line1": "Recusandae tempora aut laborum",
+    "line2": "molestias veniam. A commodi sequi",
+    "line3": "accusantium ullam cupiditate. Neque",
+    "line4": "quidem qui et autem dolor dicta",
+    "line5": "necessitatibus ut ad.",
+    "Explore More": "Explore More"
+  },
+
+  "footer": {
+    "AboutUs": "About Us",
+    "StoreLocation": "Store Location",
+    "Contact": "Contact",
+    "Delivery": "Delivery",
+    "Policy": "Policy",
+    "FAQS": "FAQS",
+    "Get": "Get",
+    "OffDiscountCoupon": "Off Discount Coupon",
+    "BySubscribeOurNewsletter": "By Subscribe Our Newsletter",
+    "EnterYourEmail": "Enter Your Email",
+    "SubscribeArrow": "Subscribe →"
+  },
+  "gallery": {
+    "OurGallery": "Our Gallery",
+    "CheckGallery": "Let's Check Our Photo Gallery",
+    "PhotoGallery": "Photo Gallery"
+  },
+  "popular": {
+    "PopularItems": "Popular Items"
+  },
+
+  "trust": {
+    "TrustedBy": "Trusted By",
+    "Over": "Over",
+    "Companies": "Companies"
+  },
+  "about": {
+    "Title": "About us",
+    "SubTitle": "We Provide Best And Quality  Product For You",
+    "ProductForYou":" Product For You",
+    "Paragraph": "Recusandae tempora aut laborum molestias veniam. A commodi sequi accusantium ullam cupiditate. Neque quidem qui et autem dolor dicta necessitatibus ut ad.",
+    "Gift": "Gifts",
+    "Box": "Box",
+    "Discover": "discover more",
+    "Features": {
+      "Shipping": "Streamlined Shipping Experience",
+      "Design": "Affordable Modern Design",
+      "Price": "Competitive Price & Easy To Shop",
+      "Products": "We Made Awesome Products"
+    }
+  },
+
+  "GiftSlides": {
+    "ShopNow": "Shop Now",
+
+    "Title1": "Best Gift Shop",
+    "SubTitle1": "Choose Perfect gifts From Us",
+
+    "Title2": "Best Gift Shop",
+    "SubTitle2": "Choose Perfectfts From Us",
+
+    "Title3": "Best Gift Shop",
+    "SubTitle3": "Choose Perfectfts From Us",
+
+    "Title4": "Best Gift Shop",
+    "SubTitle4": "Choose Perfectfts From Us",
+
+    "Description": "Culpa ducimus nesciunt aliquam non rerum esse recusandae omnis. Rerum optio dolores et."
+  },
+
+  "SpecialBox": {
+    "Price": "Start $10.99",
+    "Heading": "Special Gifts Box For Your Love",
+    "Button": "Shop Now"
+  }
+}
