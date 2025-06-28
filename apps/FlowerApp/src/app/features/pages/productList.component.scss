@@ -17,3 +17,47 @@
   }
 }
  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.cover {
+  i{
+    color:var( --icon-sm);
+  }
+  position: absolute;
+  inset: 0;
+  background-color: rgba(248, 43, 169, 0.5);
+  display: none;
+  transition: display 0.8s ease;
+}
+
+.cover span {
+  background-color: var(--bg-icon-hover);
+}
+
+.relative:hover .cover {
+  display: flex;
+}
+
+::ng-deep .p-rating .p-rating-icon {
+  color: #ffd700 !important;
+  font-size: 1.2rem;
+  transition: color 0.2s;
+}
