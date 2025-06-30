@@ -1,7 +1,7 @@
 import { Route } from '@angular/router';
 
 export const appRoutes: Route[] = [
-  { path: '', redirectTo: 'product-list', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
    {
     path: 'product-list',
     loadComponent: () =>
@@ -16,12 +16,5 @@ export const appRoutes: Route[] = [
         (c) => c.HomeComponent
       ),
   },
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  {
-    path: 'home',
-    loadComponent: () =>
-      import('./features/pages/home/home.component').then(
-        (c) => c.HomeComponent
-      ),
-  },
+   
 ];
