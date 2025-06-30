@@ -2,7 +2,12 @@ import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavBarComponent } from '../../core/layouts/navBar/navBar.component';
 import { GlobalCkeckboxComponent } from '../../shared/components/ui/globalCkeckbox.component';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { GlobalInputComponent } from '../../shared/components/ui/globalInput.component';
 import { InputTextModule } from 'primeng/inputtext';
 import { CheckboxModule } from 'primeng/checkbox';
@@ -10,11 +15,9 @@ import { CheckboxOption } from '../interfaces/checbox-options';
 import { catchError, Subscription, throwError } from 'rxjs';
 import { CountByCategoryService } from '../services/count-by-category.service';
 import { OccasionService } from '../services/occasion.service';
-import { ProductComponent } from "../../shared/components/ui/product/product.component";
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { RatingModule } from 'primeng/rating';
-import { Carousel } from 'primeng/carousel';
 import { ProductService } from '../../shared/services/product.service';
 import { Product } from '../interfaces/products';
 @Component({
@@ -27,19 +30,11 @@ import { Product } from '../interfaces/products';
     GlobalInputComponent,
     InputTextModule,
     CheckboxModule,
-    ProductComponent,
-
-
-
-
-
-    
-        CardModule,
-        ButtonModule,
-        FormsModule,
-        RatingModule,
-        Carousel,
-],
+    CardModule,
+    ButtonModule,
+    FormsModule,
+    RatingModule,
+  ],
   templateUrl: './productList.component.html',
   styleUrl: './productList.component.scss',
 })
@@ -87,20 +82,23 @@ export class ProductListComponent implements OnInit, OnDestroy {
     this.getFiltersObject();
     this.getCategoryByCount();
     this.getBrands();
-    this.getAllproducts()
+    this.getAllproducts();
   }
   getCategoryByCount() {
-    const sub = this._CountByCategoryService.getCountByCategory().pipe(
-    catchError(error => {
-      console.error('HTTP Error:', error); // 👈 full object
-      return throwError(() => error);      // rethrow or handle
-    })
-  ).subscribe({
-      next: (res) => {
-        console.log('res', res);
-        this.categoriesOptions = res;
-      },
-    });
+    const sub = this._CountByCategoryService
+      .getCountByCategory()
+      .pipe(
+        catchError((error) => {
+          console.error('HTTP Error:', error); // 👈 full object
+          return throwError(() => error); // rethrow or handle
+        })
+      )
+      .subscribe({
+        next: (res) => {
+          console.log('res', res);
+          this.categoriesOptions = res;
+        },
+      });
     this.subscription.add(sub);
   }
   getBrands() {
@@ -111,6 +109,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
     });
     this.subscription.add(sub);
   }
+  ///get  filtersobject from form///////////////
   getFiltersObject() {
     const sub = this.filtersForm.valueChanges.subscribe((values) => {
       this.filteredObject = values;
@@ -121,36 +120,15 @@ export class ProductListComponent implements OnInit, OnDestroy {
     return this.filteredObject;
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   private readonly _ProductService = inject(ProductService);
+  private readonly _ProductService = inject(ProductService);
   sub!: Subscription;
   products: Product[] = [];
 
-   getAllproducts() {
+  getAllproducts() {
     this.sub = this._ProductService.getAllProducts().subscribe({
       next: (response) => {
         this.products = response.products;
         this.products = this.products.sort((a, b) => a.price - b.price);
-
       },
     });
   }

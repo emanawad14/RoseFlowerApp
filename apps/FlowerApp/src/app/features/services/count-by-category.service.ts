@@ -27,4 +27,5 @@ export class CountByCategoryService implements CountByCategoryApiInterface {
         )
       );
   }
+  
 }

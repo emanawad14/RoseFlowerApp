@@ -25,6 +25,7 @@
     ></p-checkbox>
     <label [for]="option.label" class="mx-2">{{ option.label }}</label>
   </div>
-  <p *ngIf="option.count !== undefined">({{ option.count }})</p>
+  <p>({{ option.count }})</p>
 </div>
 }
+ <!-- *ngIf="option.count !== undefined" -->
