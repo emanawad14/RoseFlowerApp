@@ -15,31 +15,37 @@
   .line {
     border: 1px solid #757f95;
   }
+  p {
+    color: var(--primary-color);
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0%;
+    vertical-align: middle;
+  }
 }
- 
 
+// ::ng-deep .p-slider-handle,
+// ::ng-deep .p-slider-range {
+//   background: var(--primary-color) !important;
+//   background-color: var(--primary-color) !important;
+//   border: none !important; /* 🚫 remove green border */
+// }
+// ::ng-deep .p-slider .p-slider-handle  {
+//    background-color: var(--primary-color) !important;
+//   border: none !important; /* 🚫 remove green border */
+// }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+::ng-deep .p-slider.p-slider-horizontal {
+  height: 6px;
+  border-radius: 4px;
+  color: var(--text-gray);
+}
 
 .cover {
-  i{
-    color:var( --icon-sm);
+  i {
+    color: var(--icon-sm);
   }
   position: absolute;
   inset: 0;

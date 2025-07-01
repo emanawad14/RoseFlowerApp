@@ -20,6 +20,7 @@ import { ButtonModule } from 'primeng/button';
 import { RatingModule } from 'primeng/rating';
 import { ProductService } from '../../shared/services/product.service';
 import { Product } from '../interfaces/products';
+import { SliderModule } from 'primeng/slider';
 @Component({
   selector: 'app-product-list',
   imports: [
@@ -34,6 +35,7 @@ import { Product } from '../interfaces/products';
     ButtonModule,
     FormsModule,
     RatingModule,
+    SliderModule,
   ],
   templateUrl: './productList.component.html',
   styleUrl: './productList.component.scss',
@@ -44,6 +46,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
   subscription = new Subscription();
   categoriesOptions: CheckboxOption[] = [];
   brandsOptions: CheckboxOption[] = [];
+  priceRange: number[] = [0, 80];
   // Size options array
   sizeOptions: CheckboxOption[] = [
     { label: 'Extra Small', value: 'XS', count: 12 },
@@ -71,6 +74,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
       brands: [[]],
       sizes: [[]],
       sales: [[]],
+      priceRange: [[]],
     });
   }
   ngOnDestroy(): void {
