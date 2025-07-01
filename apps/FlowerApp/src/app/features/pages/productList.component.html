@@ -6,7 +6,7 @@
       <form [formGroup]="filtersForm">
         <!-- Search by Name -->
         <div class="bg-box mb-5 p-4">
-          <h3 class="mb-3">Search</h3>
+          <h3 class="mb-3">{{ 'filters.Search' | translate }}</h3>
           <app-global-input
             [labelText]="'Search By the name'"
             ngDefaultControl
@@ -15,7 +15,7 @@
         </div>
         <!-- Search By Category -->
         <div class="bg-box mb-5 p-4">
-          <h3 class=" ">Category</h3>
+          <h3 class=" ">{{ 'filters.Category' | translate }}</h3>
           <div class="line mx-3 my-3"></div>
           <app-global-ckeckbox
             [options]="categoriesOptions"
@@ -25,7 +25,7 @@
         </div>
         <!-- search by brands -->
         <div class="bg-box mb-5 p-4">
-          <h3 class=" ">Brands</h3>
+          <h3 class=" ">{{ 'filters.Brands' | translate }}</h3>
           <div class="line mx-3 my-3"></div>
           <app-global-ckeckbox
             [options]="brandsOptions"
@@ -35,7 +35,7 @@
         </div>
         <!-- Search by price rating -->
         <div class="bg-box mb-5 p-4">
-          <h3 class=" ">Price Rating</h3>
+          <h3 class=" ">{{ 'filters.PriceRating' | translate }}</h3>
           <div class="line mx-3 my-3"></div>
           <p class="mt-5 mb-2">
             ${{ filtersForm.get('priceRange')?.value[0] }} - ${{
@@ -52,7 +52,7 @@
         </div>
         <!-- search by Sales -->
         <div class="bg-box mb-5 p-4">
-          <h3 class=" ">Sales</h3>
+          <h3 class=" ">{{ 'filters.Sales' | translate }}</h3>
           <div class="line mx-3 my-3"></div>
           <app-global-ckeckbox
             [options]="salesOptions"
@@ -62,7 +62,7 @@
         </div>
         <!-- search by Rating -->
         <div class="bg-box mb-5 p-4">
-          <h3 class=" ">Ratings</h3>
+          <h3 class=" ">{{ 'filters.Ratings' | translate }}</h3>
           <div class="line mx-3 my-3"></div>
           <!-- <app-global-ckeckbox></app-global-ckeckbox> -->
           <app-global-ckeckbox
@@ -74,7 +74,7 @@
         </div>
         <!-- search by Sizes -->
         <div class="bg-box mb-5 p-4">
-          <h3 class=" ">Sizes</h3>
+          <h3 class=" ">{{ 'filters.Sizes' | translate }}</h3>
           <div class="line mx-3 my-3"></div>
           <app-global-ckeckbox
             [options]="sizeOptions"

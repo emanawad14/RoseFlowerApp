@@ -21,6 +21,7 @@ import { RatingModule } from 'primeng/rating';
 import { ProductService } from '../../shared/services/product.service';
 import { Product } from '../interfaces/products';
 import { SliderModule } from 'primeng/slider';
+import { TranslatePipe } from '@ngx-translate/core';
 @Component({
   selector: 'app-product-list',
   imports: [
@@ -36,6 +37,7 @@ import { SliderModule } from 'primeng/slider';
     FormsModule,
     RatingModule,
     SliderModule,
+    TranslatePipe
   ],
   templateUrl: './productList.component.html',
   styleUrl: './productList.component.scss',

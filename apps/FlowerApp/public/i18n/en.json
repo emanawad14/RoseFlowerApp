@@ -77,7 +77,7 @@
   "about": {
     "Title": "About us",
     "SubTitle": "We Provide Best And Quality  Product For You",
-    "ProductForYou":" Product For You",
+    "ProductForYou": " Product For You",
     "Paragraph": "Recusandae tempora aut laborum molestias veniam. A commodi sequi accusantium ullam cupiditate. Neque quidem qui et autem dolor dicta necessitatibus ut ad.",
     "Gift": "Gifts",
     "Box": "Box",
@@ -112,5 +112,14 @@
     "Price": "Start $10.99",
     "Heading": "Special Gifts Box For Your Love",
     "Button": "Shop Now"
+  },
+  "filters": {
+    "Search": "Search",
+    "Category": "Category",
+    "Brands": "Brands",
+    "PriceRating": "Price Rating",
+    "Sales": "Sales",
+    "Sizes": "Sizes",
+    "Ratings": "Ratings"
   }
 }
