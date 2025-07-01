@@ -22,6 +22,7 @@ import { ProductService } from '../../shared/services/product.service';
 import { Product } from '../interfaces/products';
 import { SliderModule } from 'primeng/slider';
 import { TranslatePipe } from '@ngx-translate/core';
+import { SharedProductsComponent } from '../../shared/components/business/sharedProducts.component';
 @Component({
   selector: 'app-product-list',
   imports: [
@@ -37,8 +38,9 @@ import { TranslatePipe } from '@ngx-translate/core';
     FormsModule,
     RatingModule,
     SliderModule,
-    TranslatePipe
-  ],
+    TranslatePipe,
+    SharedProductsComponent
+],
   templateUrl: './productList.component.html',
   styleUrl: './productList.component.scss',
 })

@@ -7,8 +7,9 @@ import { Subscription } from 'rxjs';
 import { RatingModule } from 'primeng/rating';
 import { CardModule } from 'primeng/card';
 import { FormsModule } from '@angular/forms';
-import { TranslatePipe } from '@ngx-translate/core';
-import { PrimaryBtnComponent } from "../../../shared/components/ui/primary-btn.component";
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
+import { PrimaryBtnComponent } from '../../../shared/components/ui/primary-btn.component';
+import { MyTranslateService } from '../../../core/services/my-translate-service.service';
 
 @Component({
   selector: 'app-best',
@@ -19,20 +20,22 @@ import { PrimaryBtnComponent } from "../../../shared/components/ui/primary-btn.c
     FormsModule,
     CardModule,
     TranslatePipe,
-    PrimaryBtnComponent
-],
+    PrimaryBtnComponent,
+  ],
   templateUrl: './Best.component.html',
   styleUrl: './Best.component.scss',
 })
 export class BestComponent implements OnInit, OnDestroy {
   bests: IItems[] = [];
-
-  // constructor(){}
+  //lang: string = 'en';
+  constructor(public _TranslateService: MyTranslateService) {}
   private readonly homeServices = inject(HomeService);
   homeUnSubscribe: Subscription = new Subscription();
 
   ngOnInit(): void {
     this.getHomeScreens();
+    this.setNavText('en');
+    //this.lang = this._TranslateService.currentLang;
   }
 
   getHomeScreens() {
@@ -49,7 +52,7 @@ export class BestComponent implements OnInit, OnDestroy {
 
   customOptions: OwlOptions = {
     loop: true,
-    rtl:true,
+    rtl: true, // this.lang=='ar' ? true : false
     margin: 2,
     mouseDrag: true,
     touchDrag: true,

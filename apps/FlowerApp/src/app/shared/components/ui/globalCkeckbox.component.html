@@ -10,7 +10,7 @@
     ></p-checkbox>
     <label [for]="option.label" class="mx-3">
       @if(inputRatings==true){
-      <p-rating [(ngModel)]="option.value" [readonly]="true" />
+      <p-rating [(ngModel)]="option.value" [readonly]="true" class="ratting" />
       }@else { {{ option.label }}}
     </label>
   </div>

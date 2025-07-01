@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { SharedProductComponent } from './sharedProduct.component';
+import { SharedProductsComponent } from './sharedProducts.component';
 
-describe('SharedProductComponent', () => {
-  let component: SharedProductComponent;
-  let fixture: ComponentFixture<SharedProductComponent>;
+describe('SharedProductsComponent', () => {
+  let component: SharedProductsComponent;
+  let fixture: ComponentFixture<SharedProductsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SharedProductComponent],
+      imports: [SharedProductsComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(SharedProductComponent);
+    fixture = TestBed.createComponent(SharedProductsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

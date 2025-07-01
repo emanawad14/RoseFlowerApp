@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { Catigory } from '../../../../features/interfaces/catigory.FlowerApp';
 import { Carousel } from 'primeng/carousel';
 import { TranslatePipe } from '@ngx-translate/core';
+import { SharedProductsComponent } from '../../business/sharedProducts.component';
 
 @Component({
   selector: 'app-product',
@@ -21,7 +22,8 @@ import { TranslatePipe } from '@ngx-translate/core';
     FormsModule,
     RatingModule,
     Carousel,
-    TranslatePipe
+    TranslatePipe,
+    SharedProductsComponent,
   ],
   templateUrl: './product.component.html',
   styleUrl: './product.component.scss',

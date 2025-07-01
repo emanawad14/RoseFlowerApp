@@ -5,6 +5,7 @@ import {
   PLATFORM_ID,
   Renderer2,
   RendererFactory2,
+  signal,
 } from '@angular/core';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
@@ -14,6 +15,7 @@ import { Observable } from 'rxjs';
 })
 export class MyTranslateService {
   private render2: Renderer2;
+  private readonly currentLanguage = signal<string>('en');
 
   constructor(
     private _translaateServices: TranslateService,
@@ -33,7 +35,14 @@ export class MyTranslateService {
       this.changeDiraction();
     }
   }
-
+  setCurrentLang(lang: string) {
+    this.currentLanguage.set(lang);
+    //this.cookieUtils.setCookie(this.storageKey, theme);
+  }
+  geturrentLang() {
+    return this.currentLanguage();
+    //this.cookieUtils.setCookie(this.storageKey, theme);
+  }
   get(keys: string | string[]) {
     return this._translaateServices.get(keys);
   }
@@ -74,7 +83,7 @@ export class MyTranslateService {
 
   changeTranslateLange(lang: string): void {
     localStorage.setItem('lang', lang);
-
+    this.setCurrentLang(lang);
     this._translaateServices.use(lang);
 
     this.changeDiraction();
