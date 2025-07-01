@@ -1,0 +1,18 @@
+input {
+  background: var(--bg-zink);
+  text-transform: capitalize;
+  border-radius: 20px;
+  border-color: none;
+  color: var(--text-gray);
+  box-shadow: 0px 0px 4px 0px var(--shadow-color) !important;
+  /* Search By the name */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.p-inputtext:enabled:focus,
+.p-inputtext {
+  border: none;
+}

@@ -1,0 +1,63 @@
+#product-list {
+  .bg-box {
+    background: var(--bg-zink);
+    box-shadow: 0px 1px 10px 0px var(--btn-shadow);
+    border-radius: 20px;
+  }
+  h3 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 44px;
+    color: var(--text-title);
+  }
+  .line {
+    border: 1px solid #757f95;
+  }
+}
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.cover {
+  i{
+    color:var( --icon-sm);
+  }
+  position: absolute;
+  inset: 0;
+  background-color: rgba(248, 43, 169, 0.5);
+  display: none;
+  transition: display 0.8s ease;
+}
+
+.cover span {
+  background-color: var(--bg-icon-hover);
+}
+
+.relative:hover .cover {
+  display: flex;
+}
+
+::ng-deep .p-rating .p-rating-icon {
+  color: #ffd700 !important;
+  font-size: 1.2rem;
+  transition: color 0.2s;
+}

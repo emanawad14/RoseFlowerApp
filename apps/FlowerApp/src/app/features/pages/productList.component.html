@@ -1,0 +1,136 @@
+<app-nav-bar></app-nav-bar>
+<section id="product-list" class="m-5">
+  <div class="grid">
+    <!-- Filters -->
+    <div class="col-12 md:col-4">
+      <form [formGroup]="filtersForm">
+        <!-- Search by Name -->
+        <div class="bg-box mb-5 p-4">
+          <h3 class="mb-3">Search</h3>
+          <app-global-input
+            [labelText]="'Search By the name'"
+            ngDefaultControl
+            formControlName="title"
+          ></app-global-input>
+        </div>
+        <!-- Search By Category -->
+        <div class="bg-box mb-5 p-4">
+          <h3 class=" ">Category</h3>
+          <div class="line mx-3 my-3"></div>
+          <app-global-ckeckbox
+            [options]="categoriesOptions"
+            [groupTitle]="'Category'"
+            formControlName="categories"
+          ></app-global-ckeckbox>
+        </div>
+        <!-- search by brands -->
+        <div class="bg-box mb-5 p-4">
+          <h3 class=" ">Brands</h3>
+          <div class="line mx-3 my-3"></div>
+          <app-global-ckeckbox
+            [options]="brandsOptions"
+            [groupTitle]="'Brands'"
+            formControlName="brands"
+          ></app-global-ckeckbox>
+        </div>
+        <!-- Search by price rating -->
+        <div class="bg-box mb-5 p-4">
+          <h3 class=" ">Price Rating</h3>
+          <div class="line mx-3 my-3"></div>
+        </div>
+        <!-- search by Sales -->
+        <div class="bg-box mb-5 p-4">
+          <h3 class=" ">Sales</h3>
+          <div class="line mx-3 my-3"></div>
+          <app-global-ckeckbox
+            [options]="salesOptions"
+            [groupTitle]="'Sales'"
+            formControlName="sales"
+          ></app-global-ckeckbox>
+        </div>
+        <!-- search by Rating -->
+        <div class="bg-box mb-5 p-4">
+          <h3 class=" ">Ratings</h3>
+          <div class="line mx-3 my-3"></div>
+          <!-- <app-global-ckeckbox></app-global-ckeckbox> -->
+        </div>
+        <!-- search by Sizes -->
+        <div class="bg-box mb-5 p-4">
+          <h3 class=" ">Sizes</h3>
+          <div class="line mx-3 my-3"></div>
+          <app-global-ckeckbox
+            [options]="sizeOptions"
+            [groupTitle]="'Sizes'"
+            formControlName="sizes"
+          ></app-global-ckeckbox>
+        </div>
+
+        <div class="selected-filters mt-4">
+          <h4>Selected Filters:</h4>
+          <pre>{{ filtersForm.value | json }}</pre>
+        </div>
+      </form>
+    </div>
+
+    <!-- Products  -->
+  
+  <div class="col-12 md:col-8">
+  <div class="grid">
+    @for (product of products; track product._id) {
+      <div class="col-12 sm:col-6 md:col-4 lg:col-4 xl:col-4">
+        <p-card class="card-content w-full h-full border-round-3xl lg:text-2xl">
+          <ng-template #header>
+            <div class="relative">
+              <img
+                [alt]="product.title"
+                class="border-round-2xl w-full h-20rem"
+                [src]="product.imgCover"
+              />
+              <div
+                class="cover w-full h-full justify-content-around align-items-center absolute top-5 left-5 border-round-2xl"
+              >
+                <span class="icon p-4 border-circle cursor-pointer">
+                  <i class="fa-regular fa-heart text-2xl"></i>
+                </span>
+                <span class="icon p-4 border-circle cursor-pointer">
+                  <i class="fa-regular fa-eye text-2xl"></i>
+                </span>
+              </div>
+            </div>
+          </ng-template>
+
+          <ng-template #title>
+            <h4
+              class="font-bold capitalize p-0 m-0 text-overflow-ellipsis overflow-hidden white-space-nowrap heading4"
+            >
+              {{ product.title }}
+            </h4>
+          </ng-template>
+
+          <ng-template #subtitle>
+            <div
+              class="flex justify-content-between align-items-center w-full my-0"
+            >
+              <div class="card flex flex-column justify-content-center p-2">
+                <p-rating
+                  [(ngModel)]="product.rateAvg"
+                  [stars]="5"
+                  [readonly]="true"
+                />
+                <span class="font-bold text-xl pt-3">
+                  {{ product.price | currency : 'USD' : 'symbol' : '1.2-2' }}
+                </span>
+              </div>
+              <span class="icon p-3 border-circle bg-bag-color cursor-pointer">
+                <i class="pi pi-shopping-bag text-xl text-white"></i>
+              </span>
+            </div>
+          </ng-template>
+        </p-card>
+      </div>
+    }
+  </div>
+</div>
+
+  </div>
+</section>
