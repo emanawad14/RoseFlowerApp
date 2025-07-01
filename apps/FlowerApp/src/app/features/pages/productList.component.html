@@ -65,6 +65,12 @@
           <h3 class=" ">Ratings</h3>
           <div class="line mx-3 my-3"></div>
           <!-- <app-global-ckeckbox></app-global-ckeckbox> -->
+          <app-global-ckeckbox
+            [inputRatings]="true"
+            [options]="rateAvg"
+            [groupTitle]="'Ratings'"
+            formControlName="rateAvg"
+          ></app-global-ckeckbox>
         </div>
         <!-- search by Sizes -->
         <div class="bg-box mb-5 p-4">

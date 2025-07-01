@@ -1,12 +1,7 @@
-import {
-  Component,
-  EventEmitter,
-  forwardRef,
-  Input,
-  Output,
-} from '@angular/core';
+import { Component, forwardRef, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CheckboxChangeEvent, CheckboxModule } from 'primeng/checkbox';
+import { CheckboxModule } from 'primeng/checkbox';
+import { RatingModule } from 'primeng/rating';
 import {
   ControlValueAccessor,
   NG_VALUE_ACCESSOR,
@@ -17,7 +12,13 @@ import { CheckboxOption } from '../../../features/interfaces/checbox-options';
 
 @Component({
   selector: 'app-global-ckeckbox',
-  imports: [CommonModule, CheckboxModule, ReactiveFormsModule, FormsModule],
+  imports: [
+    CommonModule,
+    CheckboxModule,
+    ReactiveFormsModule,
+    FormsModule,
+    RatingModule,
+  ],
   templateUrl: './globalCkeckbox.component.html',
   styleUrl: './globalCkeckbox.component.scss',
   providers: [
@@ -55,6 +56,7 @@ export class GlobalCkeckboxComponent implements ControlValueAccessor {
     //this.disabled = isDisabled;
   }
   @Input() options: CheckboxOption[] = [];
+  @Input() inputRatings: boolean = false;
   @Input() groupTitle: string = '';
 
   // Handle checkbox change events
