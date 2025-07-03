@@ -28,6 +28,22 @@
   }
 }
 
+ 
+.product-card {
+  span {
+    color: var(--text-sm) !important;
+  }
+}
+::ng-deep.p-card {
+  background: var(--bg-light-pink) !important;
+
+  /* color: var(--p-card-color); */
+  box-shadow: none !important;
+}
+::ng-deep.p-card-body {
+  background-color: var(--home-bg);
+}
+
 
 .card {
   width: 302px;
