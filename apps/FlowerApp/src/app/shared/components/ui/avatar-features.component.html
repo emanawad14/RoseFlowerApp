@@ -1,4 +1,4 @@
-<div class="md:flex md:flex-row   gap-3 md:w-15rem">
+<div class="md:flex md:flex-row gap-3 md:w-15rem">
   <div class=" ">
     <!-- <p-avatar
       image="{{ feature.iconImg }}"
@@ -6,7 +6,7 @@
       size="xlarge"
       shape="circle"
     /> -->
-    <p-avatar class="avatar-style " size="xlarge" shape="circle">
+    <p-avatar class="avatar-style" size="xlarge" shape="circle">
       <svg
         width="28"
         height="31"
@@ -18,7 +18,10 @@
       </svg>
     </p-avatar>
   </div>
-  <div class="text-center md:text-left">
+  <div
+    class="text-center"
+    [ngClass]="currentLang === 'ar' ? ' md:text-right' : ' md:text-left'"
+  >
     <h3 class="heading4 pt-2 single-line">{{ feature.title }}</h3>
     <p class="paragraph-text mt-1 ml-0 single-line">{{ feature.desc }}</p>
   </div>
