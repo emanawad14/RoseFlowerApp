@@ -1,5 +1,5 @@
 .p-galleria-nav-button {
-  color: var( --text-gray);
+  color: var(--text-gray);
   background: var(--white-color);
   top: unset !important;
   bottom: 10px;
@@ -13,14 +13,10 @@
   border: none !important; /* pink border */
 }
 .caption-content {
-   position: absolute;
-  // top: 50%;
-  // transform: translateY(-50%);
+  position: absolute;
   left: 0;
-  // right: 0;
   max-width: 50%;
   width: 50% !important;
-  // background: none;
 
   .text-paragraph {
     font-family: 'Inter';
@@ -29,7 +25,7 @@
     font-size: 0.8em;
     //line-height: 28px;
 
-    color: var( --text-gray);
+    color: var(--text-gray);
     // display: -webkit-box;
     // -webkit-line-clamp: 3;
     // line-clamp: 4;
@@ -59,7 +55,7 @@
   }
 }
 
-/*ingicators*************/
+/*indicators*************/
 .p-galleria-inset-indicators.p-galleria-indicators-bottom
   .p-galleria-indicator-list {
   width: unset !important;
@@ -86,7 +82,7 @@
 }
 .p-galleria-nav-button {
   color: var(--text-gray) !important;
-  background-color:  var(--white-color) !important;
+  background-color: var(--white-color) !important;
 }
 .p-galleria-inset-indicators .p-galleria-indicator-button:hover {
   background: var(--primary-color);

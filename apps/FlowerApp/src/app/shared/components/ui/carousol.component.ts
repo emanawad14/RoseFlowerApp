@@ -1,9 +1,10 @@
 import { GalleriaModule } from 'primeng/galleria';
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PrimaryBtnComponent } from './primary-btn.component';
 import { Gift } from '../../interfaces/gift';
 import { MyTranslateService } from '../../../core/services/my-translate-service.service';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-carousol',
@@ -12,11 +13,10 @@ import { MyTranslateService } from '../../../core/services/my-translate-service.
   styleUrl: './carousol.component.scss',
   encapsulation: ViewEncapsulation.None,
 })
-export class CarousolComponent {
+export class CarousolComponent implements OnDestroy {
   labelName = '';
-
   giftsList: Gift[] = [];
-
+  private destroy$ = new Subject<void>();
   constructor(private translate: MyTranslateService) {}
 
   ngOnInit(): void {
@@ -43,6 +43,7 @@ export class CarousolComponent {
         'GiftSlides.Title4',
         'GiftSlides.SubTitle4',
       ])
+      .pipe(takeUntil(this.destroy$))
       .subscribe((translations) => {
         this.labelName = translations['GiftSlides.ShopNow'];
         this.giftsList = [
@@ -76,5 +77,10 @@ export class CarousolComponent {
           },
         ];
       });
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }
