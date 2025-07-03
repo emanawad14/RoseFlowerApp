@@ -12,6 +12,11 @@
     line-height: 44px;
     color: var(--text-title);
   }
+  .product-card {
+  span {
+    color: var(--text-sm) !important;
+  }
+}
   .line {
     border: 1px solid #757f95;
   }

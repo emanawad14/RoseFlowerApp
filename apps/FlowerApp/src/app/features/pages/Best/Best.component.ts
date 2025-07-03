@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { PrimaryBtnComponent } from '../../../shared/components/ui/primary-btn.component';
 import { MyTranslateService } from '../../../core/services/my-translate-service.service';
+import { ProductCartComponent } from '../../../shared/components/ui/productCart.component';
 
 @Component({
   selector: 'app-best',
@@ -21,6 +22,7 @@ import { MyTranslateService } from '../../../core/services/my-translate-service.
     CardModule,
     TranslatePipe,
     PrimaryBtnComponent,
+    ProductCartComponent
   ],
   templateUrl: './Best.component.html',
   styleUrl: './Best.component.scss',
