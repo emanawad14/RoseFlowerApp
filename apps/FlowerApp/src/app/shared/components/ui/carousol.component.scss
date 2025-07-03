@@ -3,18 +3,32 @@
   background: var(--white-color);
   top: unset !important;
   bottom: 10px;
+  //   width:17.891857147216797px ;
+  //  height: 17.891857147216797px;
 }
 .p-galleria-prev-button {
-  right: 59px;
+  position: absolute;
+  // inset-inline-end: 59;
+  right: 59px !important;
   left: unset !important;
 }
-
+.p-galleria-prev-button:dir(rtl) {
+  position: absolute;
+  left: 59px !important;
+  right: unset !important;
+}
+// .p-galleria-prev-button:dir(rtl) {
+//   left: 59px;
+//   transform: rotate(180deg);
+// }
 .p-galleria {
   border: none !important; /* pink border */
 }
 .caption-content {
   position: absolute;
   left: 0;
+  top: 50%;
+  transform: translateY(-50%);
   max-width: 50%;
   width: 50% !important;
 
@@ -24,26 +38,9 @@
     font-weight: 400;
     font-size: 0.8em;
     //line-height: 28px;
-
     color: var(--text-gray);
-    // display: -webkit-box;
-    // -webkit-line-clamp: 3;
-    // line-clamp: 4;
-    // -webkit-box-orient: vertical;
-    // overflow: hidden;
   }
 
-  // .title {
-  //   font-family: 'Inter';
-  //   font-style: normal;
-  //   font-weight: 700;
-  //   font-size: 0.9em;
-  //   line-height: 25px;
-  //   letter-spacing: 3.72778px;
-  //   text-transform: uppercase;
-  //   /* color/Persian Rose */
-  //   color: var(--primary-color);
-  // }
   h3 {
     font-family: 'Inter';
     font-style: normal;
@@ -88,14 +85,12 @@
   background: var(--primary-color);
 }
 /* hide indicators by default */
-.p-galleria-inset-indicators .p-galleria-indicator-list {
-  display: none;
-  /* show indicators from md breakpoint upward (768px+) */
-  @media (min-width: 950px) {
-    .p-galleria-inset-indicators .p-galleria-indicator-list {
-      display: flex;
 
-      //background: var(--p-galleria-inset-indicator-list-background);
-    }
+/* show indicators from md breakpoint upward (950px+) */
+@media (max-width: 480px) {
+  .p-galleria-inset-indicators .p-galleria-indicator-list {
+    display: none;
+
+    //background: var(--p-galleria-inset-indicator-list-background);
   }
 }
