@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { PrimaryBtnComponent } from '../../../shared/components/ui/primary-btn.component';
 import { MyTranslateService } from '../../../core/services/my-translate-service.service';
+import { ProductCartComponent } from '../../../shared/components/ui/productCart.component';
 
 @Component({
   selector: 'app-best',
@@ -21,62 +22,128 @@ import { MyTranslateService } from '../../../core/services/my-translate-service.
     CardModule,
     TranslatePipe,
     PrimaryBtnComponent,
+    ProductCartComponent
   ],
   templateUrl: './Best.component.html',
   styleUrl: './Best.component.scss',
 })
 export class BestComponent implements OnInit, OnDestroy {
-  bests: IItems[] = [];
-  //lang: string = 'en';
-  constructor(public _TranslateService: MyTranslateService) {}
-  private readonly homeServices = inject(HomeService);
+  // bests: IItems[] = [];
+ 
+  // constructor(public _TranslateService: MyTranslateService) {}
+  // private readonly homeServices = inject(HomeService);
+  // homeUnSubscribe: Subscription = new Subscription();
+
+  // ngOnInit(): void {
+  //   this.getHomeScreens();
+  //   this.setNavText('en');
+    
+  // }
+
+  // getHomeScreens() {
+  //   this.homeUnSubscribe = this.homeServices.getHomeScreen().subscribe({
+  //     next: (res) => {
+  //       this.bests = res.bestSeller;
+        
+  //     },
+  //     error: (err) => {
+  //       console.log(err);
+  //     },
+  //   });
+  // }
+
+  // customOptions: OwlOptions = {
+  //   loop: true,
+  //   rtl: true, 
+  //   margin: 2,
+  //   mouseDrag: true,
+  //   touchDrag: true,
+  //   pullDrag: false,
+  //   dots: false,
+  //   navSpeed: 700,
+  //   navText: [
+  //     '<i class="pi pi-chevron-left text-lg "></i>',
+  //     '<i class="pi pi-chevron-right text-lg"></i>',
+  //   ],
+  //   responsive: {
+  //     0: {
+  //       items: 1,
+  //     },
+  //     460: {
+  //       items: 2,
+  //     },
+
+  //     840: {
+  //       items: 3,
+  //     },
+  //   },
+  //   nav: true,
+  // };
+  // setNavText(lang: string) {
+  //   if (lang === 'ar') {
+  //     this.customOptions.rtl = true;
+  //     this.customOptions.navText = [
+  //       '<i class="pi pi-chevron-right text-lg"></i>',
+  //       '<i class="pi pi-chevron-left text-lg"></i>',
+  //     ];
+  //   } else {
+  //     this.customOptions.rtl = false;
+  //     this.customOptions.navText = [
+  //       '<i class="pi pi-chevron-left text-lg"></i>',
+  //       '<i class="pi pi-chevron-right text-lg"></i>',
+  //     ];
+  //   }
+  // }
+  // ngOnDestroy(): void {
+  //   this.homeUnSubscribe.unsubscribe();
+  // }
+
+
+
+
+   bests: IItems[] = [];
   homeUnSubscribe: Subscription = new Subscription();
+  langSub: Subscription = new Subscription();
 
-  ngOnInit(): void {
-    this.getHomeScreens();
-    this.setNavText('en');
-    //this.lang = this._TranslateService.currentLang;
-  }
+  constructor(public _TranslateService: MyTranslateService) {}
 
-  getHomeScreens() {
-    this.homeUnSubscribe = this.homeServices.getHomeScreen().subscribe({
-      next: (res) => {
-        this.bests = res.bestSeller;
-        // console.log(res.bestSeller);
-      },
-      error: (err) => {
-        console.log(err);
-      },
-    });
-  }
+  private readonly homeServices = inject(HomeService);
 
   customOptions: OwlOptions = {
     loop: true,
-    rtl: true, // this.lang=='ar' ? true : false
+    rtl: false, 
     margin: 2,
     mouseDrag: true,
     touchDrag: true,
     pullDrag: false,
     dots: false,
     navSpeed: 700,
-    navText: [
-      '<i class="pi pi-chevron-left text-lg "></i>',
-      '<i class="pi pi-chevron-right text-lg"></i>',
-    ],
+    navText: [],
     responsive: {
-      0: {
-        items: 1,
-      },
-      460: {
-        items: 2,
-      },
-
-      840: {
-        items: 3,
-      },
+      0: { items: 1 },
+      460: { items: 2 },
+      840: { items: 3 },
     },
     nav: true,
   };
+
+  ngOnInit(): void {
+    this.getHomeScreens();
+    this.setNavText(this._TranslateService.currentLang);
+    this.langSub = this._TranslateService.onLangChange.subscribe(() => {
+      this.setNavText(this._TranslateService.currentLang);
+    });
+  }
+
+  getHomeScreens() {
+    this.homeUnSubscribe = this.homeServices.getHomeScreen().subscribe({
+      next: (res) => {
+        this.bests = res.bestSeller;
+      },
+      error: (err) => console.log(err),
+    });
+  }
+
   setNavText(lang: string) {
     if (lang === 'ar') {
       this.customOptions.rtl = true;
@@ -92,7 +159,9 @@ export class BestComponent implements OnInit, OnDestroy {
       ];
     }
   }
+
   ngOnDestroy(): void {
     this.homeUnSubscribe.unsubscribe();
+    this.langSub.unsubscribe();
   }
 }

@@ -5,10 +5,11 @@ import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { FormsModule } from '@angular/forms';
 import { RatingModule } from 'primeng/rating';
+import { ProductCartComponent } from "../ui/productCart.component";
 
 @Component({
   selector: 'app-shared-products',
-  imports: [CommonModule, CardModule, ButtonModule, FormsModule, RatingModule],
+  imports: [CommonModule, CardModule, ButtonModule, FormsModule, RatingModule, ProductCartComponent],
   templateUrl: './sharedProducts.component.html',
   styleUrl: './sharedProducts.component.scss',
 })
