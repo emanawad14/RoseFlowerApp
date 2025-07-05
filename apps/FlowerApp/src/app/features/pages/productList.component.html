@@ -37,10 +37,8 @@
         <div class="bg-box mb-5 p-4">
           <h3 class=" ">{{ 'filters.PriceRating' | translate }}</h3>
           <div class="line mx-3 my-3"></div>
-          <p class="mt-5 mb-2">
-            ${{ filtersForm.get('priceRange')?.value[0] }} - ${{
-              filtersForm.get('priceRange')?.value[1]
-            }}
+          <p *ngIf="filtersForm.get('priceRange')?.value as priceRange">
+            ${{ priceRange[0] }} - ${{ priceRange[1] }}
           </p>
           <p-slider
             [(ngModel)]="priceRange"
@@ -91,7 +89,7 @@
 
     <!-- Products  -->
     <div class="md:col-9">
-      <app-shared-products [products]="products"></app-shared-products>
+      <app-shared-products [products]="productsList"></app-shared-products>
     </div>
   </div>
 </section>

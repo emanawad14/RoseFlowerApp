@@ -1,3 +1,5 @@
+import { EntityState } from "@ngrx/entity";
+
 export interface ProductResponse {
   message: string;
   metadata: Metadata;
@@ -31,4 +33,9 @@ export interface Product {
   isSuperAdmin: boolean;
   sold: number;
   id: string;
+}
+
+export interface ProductModel extends EntityState<Product>{
+  errorMsg:string,
+  isLoading: boolean
 }

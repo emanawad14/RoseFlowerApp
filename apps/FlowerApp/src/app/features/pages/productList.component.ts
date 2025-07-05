@@ -18,13 +18,20 @@ import { OccasionService } from '../services/occasion.service';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { RatingModule } from 'primeng/rating';
-import { ProductService } from '../../shared/services/product.service';
-import { Product } from '../interfaces/products';
 import { SliderModule } from 'primeng/slider';
 import { TranslatePipe } from '@ngx-translate/core';
 import { SharedProductsComponent } from '../../shared/components/business/sharedProducts.component';
+import { Store } from '@ngrx/store';
+import { Product } from '../interfaces/products';
+import { loadProducts } from '../../Store/actions/products.action';
+import {
+  getErrorMsg,
+  getProductsList,
+} from '../../Store/selectors/products.selectors';
+
 @Component({
   selector: 'app-product-list',
+  standalone: true,
   imports: [
     CommonModule,
     NavBarComponent,
@@ -39,13 +46,12 @@ import { SharedProductsComponent } from '../../shared/components/business/shared
     RatingModule,
     SliderModule,
     TranslatePipe,
-    SharedProductsComponent
-],
+    SharedProductsComponent,
+  ],
   templateUrl: './productList.component.html',
   styleUrl: './productList.component.scss',
 })
 export class ProductListComponent implements OnInit, OnDestroy {
-  filteredObject: any;
   filtersForm: FormGroup;
   subscription = new Subscription();
   categoriesOptions: CheckboxOption[] = [];
@@ -59,7 +65,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
     { label: '2', value: '2' },
     { label: '1', value: '1' },
   ];
-  // Size options array
+
   sizeOptions: CheckboxOption[] = [
     { label: 'Extra Small', value: 'XS' },
     { label: 'Small', value: 'S' },
@@ -68,13 +74,17 @@ export class ProductListComponent implements OnInit, OnDestroy {
     { label: 'Extra Large', value: 'XL' },
   ];
 
-  // Sales options array
   salesOptions: CheckboxOption[] = [
     { label: 'On Sale', value: 'On Sale', count: 42 },
     { label: 'In Stock', value: 'In Stock', count: 15 },
     { label: 'Out Of Stock', value: 'Out Of Stock', count: 28 },
     { label: 'Discount', value: 'Discount', count: 36 },
   ];
+
+  productsList: Product[] = [];
+  errorMsg = '';
+  store = inject(Store);
+
   constructor(
     private _fb: FormBuilder,
     private _CountByCategoryService: CountByCategoryService,
@@ -86,38 +96,39 @@ export class ProductListComponent implements OnInit, OnDestroy {
       brands: [[]],
       sizes: [[]],
       sales: [[]],
-      priceRange: [[]],
+      priceRange: [[0, 80]],
       rateAvg: [[]],
     });
   }
+
+  ngOnInit(): void {
+    this.getFiltersObject();
+    this.getCategoryByCount();
+    this.getBrands();
+    this.getAllProducts();
+  }
+
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
 
-  ngOnInit(): void {
-    // Subscribe to form value changes if needed
-    this.getFiltersObject();
-    this.getCategoryByCount();
-    this.getBrands();
-    this.getAllproducts();
-  }
   getCategoryByCount() {
     const sub = this._CountByCategoryService
       .getCountByCategory()
       .pipe(
         catchError((error) => {
-          console.error('HTTP Error:', error); // 👈 full object
-          return throwError(() => error); // rethrow or handle
+          console.error('HTTP Error:', error);
+          return throwError(() => error);
         })
       )
       .subscribe({
         next: (res) => {
-          console.log('res', res);
           this.categoriesOptions = res;
         },
       });
     this.subscription.add(sub);
   }
+
   getBrands() {
     const sub = this._OccasionService.getAllOccasions().subscribe({
       next: (res) => {
@@ -126,27 +137,26 @@ export class ProductListComponent implements OnInit, OnDestroy {
     });
     this.subscription.add(sub);
   }
-  ///get  filtersobject from form///////////////
+
   getFiltersObject() {
     const sub = this.filtersForm.valueChanges.subscribe((values) => {
-      this.filteredObject = values;
       console.log('Form values changed:', values);
-      // You can trigger filtering or other actions here
     });
     this.subscription.add(sub);
-    return this.filteredObject;
   }
 
-  private readonly _ProductService = inject(ProductService);
-  sub!: Subscription;
-  products: Product[] = [];
+  getAllProducts() {
+    this.store.dispatch(loadProducts());
 
-  getAllproducts() {
-    this.sub = this._ProductService.getAllProducts().subscribe({
-      next: (response) => {
-        this.products = response.products;
-        this.products = this.products.sort((a, b) => a.price - b.price);
-      },
+    const sub1 = this.store.select(getErrorMsg).subscribe((res) => {
+      this.errorMsg = res;
     });
+
+    const sub2 = this.store.select(getProductsList).subscribe((products) => {
+      this.productsList = products;
+    });
+
+    this.subscription.add(sub1);
+    this.subscription.add(sub2);
   }
 }

@@ -18,6 +18,10 @@ import { HttpClient, provideHttpClient, withFetch } from '@angular/common/http';
 import { appInit } from './core/utills/app.utills';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { provideStore } from '@ngrx/store';
+import { ProductsReducer } from './Store/reducers/products.reducer';
+import { provideEffects } from '@ngrx/effects';
+import { ProductsEffects } from './Store/effects/products.effects';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, '/i18n/', '.json');
 }
@@ -48,5 +52,9 @@ export const appConfig: ApplicationConfig = {
         },
       },
     }),
+    provideStore({
+      Products: ProductsReducer,
+    }),
+    provideEffects([ProductsEffects]),
   ],
 };

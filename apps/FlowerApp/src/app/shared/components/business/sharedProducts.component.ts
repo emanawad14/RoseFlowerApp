@@ -16,5 +16,5 @@ import { ProductCartComponent } from "../ui/productCart.component";
 export class SharedProductsComponent {
   @Input() products: Product[] = [];
   //grid col numbers
-  @Input() popularItems: boolean = false;
+  @Input() popularItems = false;
 }
