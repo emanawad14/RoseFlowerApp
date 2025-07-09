@@ -1,4 +1,5 @@
-import { Metadata } from "./products";
+import { Metadata } from '../../../interfaces/products';
+import { ErrorResponseDTO } from './error';
 
 export interface Occasion {
   _id: string;
@@ -10,9 +11,10 @@ export interface Occasion {
   isSuperAdmin: boolean;
   productsCount: number;
 }
+
 export interface OccasionResponseInterface {
   message: string;
-  metadata: Metadata;       
+  metadata: Metadata;
   occasions: Occasion[];
+  error: ErrorResponseDTO;
 }
- 

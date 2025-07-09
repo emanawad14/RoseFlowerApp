@@ -22,7 +22,9 @@ export class ThemeService {
     // ('light' as Theme)) as Theme;
   }
   initialTheme() {
-    const currentTheme = this.getTheme();
+    let currentTheme = this.getTheme();
+    //get '' if no theme
+    currentTheme = currentTheme == '' ? 'light' : currentTheme;
     if (currentTheme) {
       console.log('current theme', currentTheme);
       this.setTheme(currentTheme as Theme);
@@ -42,7 +44,8 @@ export class ThemeService {
   // }
   toggleTheme() {
     // if(this.cookieUtils.getCookie(this.storageKey)=='') {currentTheme='litt'}
-    const currentTheme = this._CookiesService.getCookie(this.storageKey) ?? 'light';
+    const currentTheme =
+      this._CookiesService.getCookie(this.storageKey) ?? 'light';
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
     this.setTheme(newTheme);
     this._CookiesService.setCookie(this.storageKey, newTheme);

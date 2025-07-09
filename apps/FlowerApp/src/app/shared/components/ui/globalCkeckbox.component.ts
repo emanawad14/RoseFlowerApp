@@ -8,7 +8,7 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
-import { CheckboxOption } from '../../../features/interfaces/checbox-options';
+import { CheckboxOption } from '../../../features/pages/product-list/interfaces/checbox-options';
 
 @Component({
   selector: 'app-global-ckeckbox',

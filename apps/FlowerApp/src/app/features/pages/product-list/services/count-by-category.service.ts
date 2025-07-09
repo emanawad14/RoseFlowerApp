@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from '../../../environments/environment';
-import { catchError, map, Observable, of } from 'rxjs';
+import { environment } from '../../../../../environments/environment';
+import { catchError, map, Observable, of, throwError } from 'rxjs';
 import { CountbycategoryResponse } from '../interfaces/countbycategory';
 import { CountByCategoryApiInterface } from './base/count-by-categoryAPI';
 import { CountbycategoryAdapter } from './adapter/count-by-category.adapter';
 import { CheckboxOption } from '../interfaces/checbox-options';
 import { FiltersAPIEEndpoints } from './enums/filters.api.endpoints';
+import { ErrorResponseDTO } from '../interfaces/error';
 
 @Injectable({
   providedIn: 'root',
@@ -24,8 +25,8 @@ export class CountByCategoryService implements CountByCategoryApiInterface {
       .pipe(
         map((res: CountbycategoryResponse) =>
           this._CountbycategoryAdapter.adapt(res)
-        )
+        ),
+        catchError((err: ErrorResponseDTO) => throwError(() => err))
       );
   }
-  
 }

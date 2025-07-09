@@ -1,11 +1,10 @@
 <div class="grid">
   @for(product of products ; track product._id){
   <div
-    class="col-12 product-card "
-    [ngClass]="{ ' md:col-3': popularItems, 'sm:col-4': popularItems,  ' md:col-4': !popularItems, 'sm:col-6': !popularItems, }"
+    class="col-12 product-card"
+    [class]="popularItems ? 'md:col-3 sm:col-4' : 'md:col-4 sm:col-6'"
   >
-   
-  <app-product-cart  [product]="product"></app-product-cart>
+    <app-product-cart [product]="product"></app-product-cart>
   </div>
   }
 </div>

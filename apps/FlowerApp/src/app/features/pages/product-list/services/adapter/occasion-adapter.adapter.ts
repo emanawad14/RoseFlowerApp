@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Adapter } from '../../../shared/interfaces/adapter';
 import { Occasion, OccasionResponseInterface } from '../../interfaces/occasion';
+import { Adapter } from 'apps/FlowerApp/src/app/shared/interfaces/adapter';
 import { CheckboxOption } from '../../interfaces/checbox-options';
 
 @Injectable({

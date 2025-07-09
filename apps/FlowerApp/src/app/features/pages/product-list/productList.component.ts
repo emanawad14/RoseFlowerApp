@@ -1,33 +1,35 @@
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavBarComponent } from '../../core/layouts/navBar/navBar.component';
-import { GlobalCkeckboxComponent } from '../../shared/components/ui/globalCkeckbox.component';
+import { NavBarComponent } from '../../../core/layouts/navBar/navBar.component';
+import { GlobalCkeckboxComponent } from '../../../shared/components/ui/globalCkeckbox.component';
 import {
   FormBuilder,
   FormGroup,
   FormsModule,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { GlobalInputComponent } from '../../shared/components/ui/globalInput.component';
+import { GlobalInputComponent } from '../../../shared/components/ui/globalInput.component';
 import { InputTextModule } from 'primeng/inputtext';
 import { CheckboxModule } from 'primeng/checkbox';
-import { CheckboxOption } from '../interfaces/checbox-options';
+import { CheckboxOption } from './interfaces/checbox-options';
 import { catchError, Subscription, throwError } from 'rxjs';
-import { CountByCategoryService } from '../services/count-by-category.service';
-import { OccasionService } from '../services/occasion.service';
+import { CountByCategoryService } from './services/count-by-category.service';
+import { OccasionService } from './services/occasion.service';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { RatingModule } from 'primeng/rating';
 import { SliderModule } from 'primeng/slider';
 import { TranslatePipe } from '@ngx-translate/core';
-import { SharedProductsComponent } from '../../shared/components/business/sharedProducts.component';
+import { SharedProductsComponent } from '../../../shared/components/business/sharedProducts.component';
 import { Store } from '@ngrx/store';
-import { Product } from '../interfaces/products';
-import { loadProducts } from '../../Store/actions/products.action';
+import { Product } from '../../interfaces/products';
+import { loadProducts } from '../../../Store/actions/products.action';
 import {
   getErrorMsg,
   getProductsList,
-} from '../../Store/selectors/products.selectors';
+} from '../../../Store/selectors/products.selectors';
+import { FooterComponent } from '../../../core/layouts/Footer/Footer.component';
+import { ErrorResponseDTO } from './interfaces/error';
 
 @Component({
   selector: 'app-product-list',
@@ -47,6 +49,7 @@ import {
     SliderModule,
     TranslatePipe,
     SharedProductsComponent,
+    FooterComponent,
   ],
   templateUrl: './productList.component.html',
   styleUrl: './productList.component.scss',
@@ -128,11 +131,14 @@ export class ProductListComponent implements OnInit, OnDestroy {
       });
     this.subscription.add(sub);
   }
-
+  ///occassions//////
   getBrands() {
     const sub = this._OccasionService.getAllOccasions().subscribe({
       next: (res) => {
         this.brandsOptions = res;
+      },
+      error: (err: ErrorResponseDTO) => {
+        console.log(err.message);
       },
     });
     this.subscription.add(sub);
@@ -140,7 +146,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
   getFiltersObject() {
     const sub = this.filtersForm.valueChanges.subscribe((values) => {
-      console.log('Form values changed:', values);
+      // console.log('Form values changed:', values);
     });
     this.subscription.add(sub);
   }

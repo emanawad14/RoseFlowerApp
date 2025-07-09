@@ -2,11 +2,17 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AvatarModule } from 'primeng/avatar';
 import { AvatarGroupModule } from 'primeng/avatargroup';
-import { PrimaryBtnComponent } from '../../shared/components/ui/primary-btn.component';
+import { PrimaryBtnComponent } from '../../../../shared/components/ui/primary-btn.component';
 import { TranslatePipe } from '@ngx-translate/core';
- @Component({
+@Component({
   selector: 'app-about',
-  imports: [CommonModule, AvatarModule, AvatarGroupModule, PrimaryBtnComponent,TranslatePipe],
+  imports: [
+    CommonModule,
+    AvatarModule,
+    AvatarGroupModule,
+    PrimaryBtnComponent,
+    TranslatePipe,
+  ],
   templateUrl: './about.component.html',
   styleUrl: './about.component.scss',
 })

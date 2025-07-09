@@ -4,7 +4,7 @@ import {
   HttpTestingController,
   HttpClientTestingModule,
 } from '@angular/common/http/testing';
-import { CountByCategoryService } from './count-by-category.service';
+import { CountByCategoryService } from '../../../services/count-by-category.service';
 import { CountbycategoryAdapter } from './adapter/count-by-category.adapter';
 import { CountbycategoryResponse } from '../interfaces/countbycategory';
 import { CheckboxOption } from '../interfaces/checbox-options';
