@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { CheckboxOption } from '../../../features/pages/product-list/interfaces/checbox-options';
 
 @Component({
-  selector: 'app-global-ckeckbox',
+  selector: 'app-global-ckeckbox-group',
   imports: [
     CommonModule,
     CheckboxModule,
@@ -19,17 +19,17 @@ import { CheckboxOption } from '../../../features/pages/product-list/interfaces/
     FormsModule,
     RatingModule,
   ],
-  templateUrl: './globalCkeckbox.component.html',
-  styleUrl: './globalCkeckbox.component.scss',
+  templateUrl: './global-ckeckbox-group.component.html',
+  styleUrl: './global-ckeckbox-group.component.scss',
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => GlobalCkeckboxComponent),
+      useExisting: forwardRef(() => GlobalCkeckboxGroupComponent),
       multi: true,
     },
   ],
 })
-export class GlobalCkeckboxComponent implements ControlValueAccessor {
+export class GlobalCkeckboxGroupComponent implements ControlValueAccessor {
   selectedValues: any[] = [];
   // ControlValueAccessor implementation
   private onChange: any = () => {};
@@ -60,17 +60,17 @@ export class GlobalCkeckboxComponent implements ControlValueAccessor {
   @Input() groupTitle: string = '';
 
   // Handle checkbox change events
-  onCheckboxChange(event: any): void {
-    // if (event.checked) {
-    //   if (!this.selectedValues.includes(option.value)) {
-    //     this.selectedValues.push(option.value);
-    //   }
-    // } else {
-    //   const index = this.selectedValues.indexOf(option.value);
-    //   if (index !== -1) {
-    //     this.selectedValues.splice(index, 1);
-    //   }
-    // }
+  onCheckboxChange(event: any, option: CheckboxOption): void {
+    if (event.checked) {
+      if (!this.selectedValues.includes(option.value)) {
+        this.selectedValues.push(option.value);
+      }
+    } else {
+      const index = this.selectedValues.indexOf(option.value);
+      if (index !== -1) {
+        this.selectedValues.splice(index, 1);
+      }
+    }
 
     this.onChange(this.selectedValues);
     this.onTouched();

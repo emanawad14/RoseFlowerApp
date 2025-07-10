@@ -6,7 +6,7 @@
       checkboxIcon="null"
       [value]="option.value"
       [(ngModel)]="selectedValues"
-      (onChange)="onCheckboxChange($event)"
+      (onChange)="onCheckboxChange($event, option)"
     ></p-checkbox>
     <label [for]="option.label" class="mx-3">
       @if(inputRatings==true){

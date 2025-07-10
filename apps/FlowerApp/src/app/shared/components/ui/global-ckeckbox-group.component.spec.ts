@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { GlobalCkeckboxComponent } from './globalCkeckbox.component';
+import { GlobalCkeckboxGroupComponent } from './global-ckeckbox-group.component';
 
 describe('GlobalCkeckboxComponent', () => {
-  let component: GlobalCkeckboxComponent;
-  let fixture: ComponentFixture<GlobalCkeckboxComponent>;
+  let component: GlobalCkeckboxGroupComponent;
+  let fixture: ComponentFixture<GlobalCkeckboxGroupComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [GlobalCkeckboxComponent],
+      imports: [GlobalCkeckboxGroupComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(GlobalCkeckboxComponent);
+    fixture = TestBed.createComponent(GlobalCkeckboxGroupComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

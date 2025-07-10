@@ -21,21 +21,21 @@
         <div class="bg-box mb-5 p-4">
           <h3 class=" ">{{ 'filters.Category' | translate }}</h3>
           <div class="line mx-3 my-3"></div>
-          <app-global-ckeckbox
+          <app-global-ckeckbox-group
             [options]="categoriesOptions"
             [groupTitle]="'Category'"
             formControlName="categories"
-          ></app-global-ckeckbox>
+          ></app-global-ckeckbox-group>
         </div>
         <!-- search by brands -->
         <div class="bg-box mb-5 p-4">
           <h3 class=" ">{{ 'filters.Brands' | translate }}</h3>
           <div class="line mx-3 my-3"></div>
-          <app-global-ckeckbox
+          <app-global-ckeckbox-group
             [options]="brandsOptions"
             [groupTitle]="'Brands'"
             formControlName="brands"
-          ></app-global-ckeckbox>
+          ></app-global-ckeckbox-group>
         </div>
         <!-- Search by price rating -->
         <div class="bg-box mb-5 p-4">
@@ -45,7 +45,6 @@
             ${{ priceRange[0] }} - ${{ priceRange[1] }}
           </p>
           <p-slider
-            [(ngModel)]="priceRange"
             [range]="true"
             styleClass="w-10 "
             formControlName="priceRange"
@@ -56,32 +55,32 @@
         <div class="bg-box mb-5 p-4">
           <h3 class=" ">{{ 'filters.Sales' | translate }}</h3>
           <div class="line mx-3 my-3"></div>
-          <app-global-ckeckbox
+          <app-global-ckeckbox-group
             [options]="salesOptions"
             [groupTitle]="'Sales'"
             formControlName="sales"
-          ></app-global-ckeckbox>
+          ></app-global-ckeckbox-group>
         </div>
         <!-- search by Rating -->
         <div class="bg-box mb-5 p-4">
           <h3 class=" ">{{ 'filters.Ratings' | translate }}</h3>
           <div class="line mx-3 my-3"></div>
-          <app-global-ckeckbox
+          <app-global-ckeckbox-group
             [inputRatings]="true"
             [options]="rateAvg"
             [groupTitle]="'Ratings'"
             formControlName="rateAvg"
-          ></app-global-ckeckbox>
+          ></app-global-ckeckbox-group>
         </div>
         <!-- search by Sizes -->
         <div class="bg-box mb-5 p-4">
           <h3 class=" ">{{ 'filters.Sizes' | translate }}</h3>
           <div class="line mx-3 my-3"></div>
-          <app-global-ckeckbox
+          <app-global-ckeckbox-group
             [options]="sizeOptions"
             [groupTitle]="'Sizes'"
             formControlName="sizes"
-          ></app-global-ckeckbox>
+          ></app-global-ckeckbox-group>
         </div>
 
         <div class="selected-filters mt-4">

@@ -1,7 +1,7 @@
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavBarComponent } from '../../../core/layouts/navBar/navBar.component';
-import { GlobalCkeckboxComponent } from '../../../shared/components/ui/globalCkeckbox.component';
+import { GlobalCkeckboxGroupComponent } from '../../../shared/components/ui/global-ckeckbox-group.component';
 import {
   FormBuilder,
   FormGroup,
@@ -30,7 +30,7 @@ import {
 } from '../../../Store/selectors/products.selectors';
 import { FooterComponent } from '../../../core/layouts/Footer/Footer.component';
 import { ErrorResponseDTO } from './interfaces/error';
-import { PrimaryBtnComponent } from "../../../shared/components/ui/primary-btn.component";
+import { PrimaryBtnComponent } from '../../../shared/components/ui/primary-btn.component';
 
 @Component({
   selector: 'app-product-list',
@@ -38,7 +38,6 @@ import { PrimaryBtnComponent } from "../../../shared/components/ui/primary-btn.c
   imports: [
     CommonModule,
     NavBarComponent,
-    GlobalCkeckboxComponent,
     ReactiveFormsModule,
     GlobalInputComponent,
     InputTextModule,
@@ -51,7 +50,8 @@ import { PrimaryBtnComponent } from "../../../shared/components/ui/primary-btn.c
     TranslatePipe,
     SharedProductsComponent,
     FooterComponent,
-    PrimaryBtnComponent
+    PrimaryBtnComponent,
+    GlobalCkeckboxGroupComponent
 ],
   templateUrl: './productList.component.html',
   styleUrl: './productList.component.scss',
