@@ -30,6 +30,7 @@ import {
 } from '../../../Store/selectors/products.selectors';
 import { FooterComponent } from '../../../core/layouts/Footer/Footer.component';
 import { ErrorResponseDTO } from './interfaces/error';
+import { PrimaryBtnComponent } from "../../../shared/components/ui/primary-btn.component";
 
 @Component({
   selector: 'app-product-list',
@@ -50,7 +51,8 @@ import { ErrorResponseDTO } from './interfaces/error';
     TranslatePipe,
     SharedProductsComponent,
     FooterComponent,
-  ],
+    PrimaryBtnComponent
+],
   templateUrl: './productList.component.html',
   styleUrl: './productList.component.scss',
 })
@@ -96,7 +98,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
     this.filtersForm = this._fb.group({
       title: [''],
       categories: [[]],
-      brands: this._fb.array([]),
+      brands: [[]],
       sizes: [[]],
       sales: [[]],
       priceRange: [[0, 80]],
@@ -113,15 +115,14 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
   // Reset the form to initial values
   resetForm(): void {
-    this.filtersForm.reset();
-    this.filtersForm = this._fb.group({
-      title: [''],
-      categories: [[]],
-      brands: this._fb.array([]),
-      sizes: [[]],
-      sales: [[]],
-      priceRange: [[0, 80]],
-      rateAvg: [[]],
+    this.filtersForm.setValue({
+      title: '',
+      categories: [],
+      brands: [],
+      sizes: [],
+      sales: [],
+      priceRange: [0, 80],
+      rateAvg: [],
     });
   }
 
