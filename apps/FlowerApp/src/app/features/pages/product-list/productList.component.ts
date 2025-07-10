@@ -1,8 +1,7 @@
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavBarComponent } from '../../../core/layouts/navBar/navBar.component';
-import { GlobalCkeckboxGroupComponent } from '../../../shared/components/ui/global-ckeckbox-group.component';
-import {
+ import {
   FormBuilder,
   FormGroup,
   FormsModule,
@@ -31,6 +30,7 @@ import {
 import { FooterComponent } from '../../../core/layouts/Footer/Footer.component';
 import { ErrorResponseDTO } from './interfaces/error';
 import { PrimaryBtnComponent } from '../../../shared/components/ui/primary-btn.component';
+import { GlobalCkeckboxGroupComponent } from './components/business/global-ckeckbox-group.component';
 
 @Component({
   selector: 'app-product-list',

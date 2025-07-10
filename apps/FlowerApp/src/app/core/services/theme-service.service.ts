@@ -26,13 +26,13 @@ export class ThemeService {
     //get '' if no theme
     currentTheme = currentTheme == '' ? 'light' : currentTheme;
     if (currentTheme) {
-      console.log('current theme', currentTheme);
+     // console.log('current theme', currentTheme);
       this.setTheme(currentTheme as Theme);
     }
 
     return of(currentTheme).pipe(
       tap(() => {
-        console.log(`Init Theme is  ==> ${currentTheme}`);
+        //console.log(`Init Theme is  ==> ${currentTheme}`);
       })
     );
     // this.setCurrentTheme(currentTheme as Theme);
