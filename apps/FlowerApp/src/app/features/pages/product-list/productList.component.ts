@@ -96,7 +96,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
     this.filtersForm = this._fb.group({
       title: [''],
       categories: [[]],
-      brands: [[]],
+      brands: this._fb.array([]),
       sizes: [[]],
       sales: [[]],
       priceRange: [[0, 80]],
@@ -109,6 +109,20 @@ export class ProductListComponent implements OnInit, OnDestroy {
     this.getCategoryByCount();
     this.getBrands();
     this.getAllProducts();
+  }
+
+  // Reset the form to initial values
+  resetForm(): void {
+    this.filtersForm.reset();
+    this.filtersForm = this._fb.group({
+      title: [''],
+      categories: [[]],
+      brands: this._fb.array([]),
+      sizes: [[]],
+      sales: [[]],
+      priceRange: [[0, 80]],
+      rateAvg: [[]],
+    });
   }
 
   ngOnDestroy(): void {

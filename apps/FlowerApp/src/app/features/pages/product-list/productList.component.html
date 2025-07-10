@@ -4,6 +4,7 @@
     <!-- Filters -->
     <div class="col-12 md:col-3">
       <form [formGroup]="filtersForm">
+        <button (click)="resetForm()" class="reset-button">Reset Form</button>
         <!-- Search by Name -->
         <div class="bg-box mb-5 p-4">
           <h3 class="mb-3">{{ 'filters.Search' | translate }}</h3>

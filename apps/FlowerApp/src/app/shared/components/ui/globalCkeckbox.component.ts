@@ -61,6 +61,17 @@ export class GlobalCkeckboxComponent implements ControlValueAccessor {
 
   // Handle checkbox change events
   onCheckboxChange(event: any): void {
+    // if (event.checked) {
+    //   if (!this.selectedValues.includes(option.value)) {
+    //     this.selectedValues.push(option.value);
+    //   }
+    // } else {
+    //   const index = this.selectedValues.indexOf(option.value);
+    //   if (index !== -1) {
+    //     this.selectedValues.splice(index, 1);
+    //   }
+    // }
+
     this.onChange(this.selectedValues);
     this.onTouched();
   }
