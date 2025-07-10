@@ -60,17 +60,17 @@ export class GlobalCkeckboxGroupComponent implements ControlValueAccessor {
   @Input() groupTitle: string = '';
 
   // Handle checkbox change events
-  onCheckboxChange(event: any, option: CheckboxOption): void {
-    if (event.checked) {
-      if (!this.selectedValues.includes(option.value)) {
-        this.selectedValues.push(option.value);
-      }
-    } else {
-      const index = this.selectedValues.indexOf(option.value);
-      if (index !== -1) {
-        this.selectedValues.splice(index, 1);
-      }
-    }
+  onCheckboxChange(event: any): void {
+    // if (event.checked) {
+    //   if (!this.selectedValues.includes(option._id)) {
+    //     this.selectedValues.push(option._id);
+    //   }
+    // } else {
+    //   const index = this.selectedValues.indexOf(option._id);
+    //   if (index !== -1) {
+    //     this.selectedValues.splice(index, 1);
+    //   }
+    // }
 
     this.onChange(this.selectedValues);
     this.onTouched();

@@ -7,6 +7,8 @@ import { ProductResponse } from '../../features/interfaces/products';
   providedIn: 'root',
 })
 export class ProductService {
+
+  
   private readonly _httpClient = inject(HttpClient);
   // constructor() { }
 

@@ -4,9 +4,9 @@
     <p-checkbox
       [inputId]="option.label"
       checkboxIcon="null"
-      [value]="option.value"
+      [value]="option._id"
       [(ngModel)]="selectedValues"
-      (onChange)="onCheckboxChange($event, option)"
+      (onChange)="onCheckboxChange($event)"
     ></p-checkbox>
     <label [for]="option.label" class="mx-3">
       @if(inputRatings==true){
