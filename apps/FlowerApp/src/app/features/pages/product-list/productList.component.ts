@@ -31,6 +31,7 @@ import { FooterComponent } from '../../../core/layouts/Footer/Footer.component';
 import { ErrorResponseDTO } from './interfaces/error';
 import { PrimaryBtnComponent } from '../../../shared/components/ui/primary-btn.component';
 import { GlobalCkeckboxGroupComponent } from './components/business/global-ckeckbox-group.component';
+import { FilteredObject } from './interfaces/filtered-object';
 
 @Component({
   selector: 'app-product-list',
@@ -62,7 +63,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
   subscription = new Subscription();
   categoriesOptions: CheckboxOption[] = [];
   brandsOptions: CheckboxOption[] = [];
-  priceRange: number[] = [0,1000];
+  priceRange: number[] = [0, 1000];
 
   rateAvg: CheckboxOption[] = [
     { _id: '5', label: '5', value: '5' },
@@ -167,10 +168,12 @@ export class ProductListComponent implements OnInit, OnDestroy {
   }
 
   getFiltersObject() {
-    const sub = this.filtersForm.valueChanges.subscribe((values) => {
-      this.getFilteredProducts(values);
-      // console.log('Form values changed:', values);
-    });
+    const sub = this.filtersForm.valueChanges.subscribe(
+      (values: FilteredObject) => {
+        this.getFilteredProducts(values);
+        // console.log('Form values changed:', values);
+      }
+    );
     this.subscription.add(sub);
   }
 
@@ -191,7 +194,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
     this.subscription.add(sub2);
   }
 
-  getFilteredProducts(filteredObject: any) {
+  getFilteredProducts(filteredObject: FilteredObject) {
     console.log('this.allProducts', this.allProducts);
     this.productsList = JSON.parse(JSON.stringify(this.allProducts)); //different object oR arrary!!
     this.productsList = this.productsList.filter((product) => {
@@ -216,17 +219,19 @@ export class ProductListComponent implements OnInit, OnDestroy {
       const matchesPrice =
         !filteredObject.priceRange?.length ||
         (product.price >= filteredObject.priceRange[0] &&
-          product.price <= filteredObject.priceRange[1]) ||
+          product.price <= filteredObject.priceRange[1]);
+      const matchPriceAfterDiscount =
+        !product.priceAfterDiscount ||
         (product.priceAfterDiscount >= filteredObject.priceRange[0] &&
           product.priceAfterDiscount <= filteredObject.priceRange[1]);
-
       // ✅ Return true only if ALL filters match
       return (
-        matchesTitle &&
-        matchesCategory &&
-        matchesBrand &&
-        matchesRating &&
-        matchesPrice
+        (matchesTitle &&
+          matchesCategory &&
+          matchesBrand &&
+          matchesRating &&
+          matchesPrice) ||
+        matchPriceAfterDiscount
       );
     });
   }
