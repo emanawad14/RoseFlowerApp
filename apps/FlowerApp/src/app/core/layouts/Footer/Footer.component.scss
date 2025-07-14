@@ -1,4 +1,6 @@
 footer {
+  // position: absolute;
+  // bottom: 0;
   .text-primary-color {
     color: var(--primary-text);
   }
@@ -9,7 +11,7 @@ footer {
   }
   button {
     background-color: var(--primary-color);
-   color: var(--btn-text) !important;
+    color: var(--btn-text) !important;
   }
 
   background-image: url('/images/image 35.png');
@@ -53,4 +55,3 @@ li {
 // .p-button-label{
 //   color: var(--btn-text) !important;
 // }
- 

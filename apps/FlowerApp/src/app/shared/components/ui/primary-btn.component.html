@@ -1,8 +1,14 @@
-<button pButton type="button" class="p-button">
+<button
+  pButton
+  type="button"
+  class="p-button h-auto"
+  [class.w-full]="widthFull"
+>
+  <ng-content></ng-content>
   <span class="custom-label">{{ labelName }}</span>
   <span [class.hidden]="!displayIcon">
     <svg
-     [ngClass]="{ 
+      [ngClass]="{
         'order-first rotate-180': translate.currentLang === 'ar',
         'order-last rotate-0': translate.currentLang !== 'ar'
       }"

@@ -10,6 +10,13 @@ export const appRoutes: Route[] = [
       ),
   },
   {
+    path: 'product-details/:id',
+    loadComponent: () =>
+      import('./features/pages/product-details/productDetail.component').then(
+        (c) => c.ProductDetailComponent
+      ),
+  },
+  {
     path: 'home',
     loadComponent: () =>
       import('./features/pages/home/home.component').then(

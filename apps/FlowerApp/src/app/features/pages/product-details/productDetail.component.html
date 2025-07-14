@@ -1,0 +1,160 @@
+<section id="product-details">
+  @if(product){
+  <div class="grid my-4 mx-5 md:gap-5">
+    <!-- product-images -->
+    <div class="col-12 md:col-5">
+      <p-galleria
+        [value]="productImages"
+        [responsiveOptions]="responsiveOptions"
+        [numVisible]="4"
+        [showThumbnailNavigators]="false"
+      >
+        <ng-template #item let-item>
+          <div
+            (click)="openImgDialog(item)"
+            class="cover-img h-23rem border-round-xl bg-cover bg-no-repeat bg-center w-full"
+            [ngStyle]="{
+                
+        'background-image': 'url(' + item + ')',
+        
+       
+      }"
+          ></div>
+        </ng-template>
+        <ng-template #thumbnail let-item>
+          <!-- <div
+            class="border-round-xl bg-cover bg-no-repeat bg-center h-10rem w-10rem"
+            [ngStyle]="{    
+        'background-image': 'url(' + item + ')',
+      }"
+          >
+            <img [src]="item" class="thumb-img" /> 
+          </div> -->
+          <!-- <div class="grid grid-nogutter justify-content-center"> -->
+          <img [src]="item" class="thumb-img" class="border-round-xl w-full" />
+          <!-- </div> -->
+        </ng-template>
+      </p-galleria>
+    </div>
+    <!-- product-details -->
+    <div class="col-12 md:col-5">
+      <div class="product-details flex flex-column gap-3 h-full">
+        <h3 class="product-title">{{ product.title }}</h3>
+        <div class="flex">
+          <span class="price">{{ product.price }} </span>
+          <span class="price-discount mx-1"
+            >{{ product.priceAfterDiscount }} EGP</span
+          >
+          @if(product.priceAfterDiscount){
+          <span class="discount"
+            >{{
+              ((product.price! - product.priceAfterDiscount!) / product.price) *
+                100 | number : '1.0-0'
+            }}% Off</span
+          >
+          }
+
+          <div
+            class="mx-3 stock flex align-items-center gap-1 px-3 border-round-2xl"
+          >
+            <svg
+              width="20"
+              height="21"
+              viewBox="0 0 20 21"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M10 18.8329V10.4996M10 10.4996L2.74167 6.33293M10 10.4996L17.2583 6.33293M6.25 4.05793L13.75 8.34959M9.16667 18.6079C9.42003 18.7542 9.70744 18.8312 10 18.8312C10.2926 18.8312 10.58 18.7542 10.8333 18.6079L16.6667 15.2746C16.9198 15.1285 17.13 14.9183 17.2763 14.6653C17.4225 14.4122 17.4997 14.1252 17.5 13.8329V7.16626C17.4997 6.87399 17.4225 6.58693 17.2763 6.33389C17.13 6.08086 16.9198 5.87073 16.6667 5.72459L10.8333 2.39126C10.58 2.24498 10.2926 2.16797 10 2.16797C9.70744 2.16797 9.42003 2.24498 9.16667 2.39126L3.33333 5.72459C3.08022 5.87073 2.86998 6.08086 2.72372 6.33389C2.57745 6.58693 2.5003 6.87399 2.5 7.16626V13.8329C2.5003 14.1252 2.57745 14.4122 2.72372 14.6653C2.86998 14.9183 3.08022 15.1285 3.33333 15.2746L9.16667 18.6079Z"
+                stroke="#71717A"
+                stroke-width="1.45833"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <span>{{ product.quantity }} left in stock</span>
+          </div>
+        </div>
+        <div class="line"></div>
+        <div class="rate flex align-items-center gap-2">
+          <svg
+            width="20"
+            height="21"
+            viewBox="0 0 20 21"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9.60404 2.41274C9.64056 2.33895 9.69697 2.27685 9.76692 2.23342C9.83686 2.19 9.91755 2.16699 9.99987 2.16699C10.0822 2.16699 10.1629 2.19 10.2328 2.23342C10.3028 2.27685 10.3592 2.33895 10.3957 2.41274L12.3207 6.3119C12.4475 6.56854 12.6347 6.79058 12.8662 6.95895C13.0977 7.12732 13.3666 7.237 13.6499 7.27857L17.9549 7.90857C18.0364 7.92039 18.1131 7.9548 18.1761 8.0079C18.2391 8.06101 18.2861 8.13069 18.3116 8.20908C18.337 8.28746 18.3401 8.37141 18.3204 8.45143C18.3006 8.53146 18.2589 8.60436 18.1999 8.6619L15.0865 11.6936C14.8812 11.8937 14.7276 12.1406 14.6389 12.4133C14.5502 12.6859 14.5291 12.976 14.5774 13.2586L15.3124 17.5419C15.3268 17.6234 15.318 17.7074 15.287 17.7841C15.2559 17.8609 15.204 17.9274 15.137 17.9761C15.07 18.0247 14.9907 18.0536 14.9081 18.0593C14.8255 18.0651 14.743 18.0475 14.6699 18.0086L10.8215 15.9852C10.568 15.8521 10.2859 15.7825 9.99946 15.7825C9.71306 15.7825 9.43094 15.8521 9.17737 15.9852L5.32987 18.0086C5.25681 18.0472 5.17437 18.0646 5.09191 18.0588C5.00946 18.0529 4.9303 18.024 4.86345 17.9754C4.7966 17.9268 4.74473 17.8604 4.71375 17.7838C4.68277 17.7071 4.67392 17.6233 4.68821 17.5419L5.42237 13.2594C5.47087 12.9767 5.44986 12.6864 5.36115 12.4136C5.27245 12.1408 5.11871 11.8937 4.91321 11.6936L1.79987 8.66274C1.74037 8.60526 1.6982 8.53223 1.67817 8.45197C1.65815 8.3717 1.66107 8.28742 1.6866 8.20873C1.71214 8.13004 1.75926 8.0601 1.8226 8.00689C1.88594 7.95367 1.96296 7.91932 2.04487 7.90774L6.34904 7.27857C6.63259 7.23732 6.90186 7.12778 7.13369 6.95939C7.36552 6.791 7.55296 6.5688 7.67987 6.3119L9.60404 2.41274Z"
+              fill="#FFA508"
+              stroke="#FFA508"
+              stroke-width="1.45833"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+
+          <span class="rate">Rating: {{ product.rateAvg }}/5</span>
+          <span class="ratings">({{ product.rateCount }} ratings)</span>
+        </div>
+        <div class="line"></div>
+        <p class="flex-grow-1">{{ product.description }}</p>
+        <!-- <div
+          class="quantity inline-flex align-items-center   gap-3"
+        >
+          <i class="pi pi-plus py-3 px-3 border-round-2xl"></i>
+          <input type="text" />
+          <i class="pi pi-minus py-3 px-3 border-round-2xl"></i>
+        </div> -->
+        <div class="add-to-cart flex gap-2">
+          <div
+            class="border-round-2xl py-1 px-3 love-product inline-flex align-items-center justify-content-center"
+          >
+            <svg
+              width="25"
+              height="26"
+              viewBox="0 0 25 26"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M14.0622 20.8125L12.4997 22.375L5.20801 15.0833C3.64551 13.5729 2.08301 11.75 2.08301 9.35417C2.08301 7.8347 2.68661 6.37746 3.76104 5.30303C4.83547 4.22861 6.2927 3.625 7.81217 3.625C9.64551 3.625 10.9372 4.14583 12.4997 5.70833C14.0622 4.14583 15.3538 3.625 17.1872 3.625C18.0272 3.62597 18.8568 3.81166 19.6171 4.16891C20.3774 4.52617 21.0498 5.04625 21.5867 5.69231C22.1237 6.33837 22.5119 7.0946 22.7241 7.90743C22.9362 8.72025 22.967 9.56978 22.8143 10.3958M15.6247 16.125H21.8747M18.7497 13V19.25"
+                stroke="currentColor"
+                stroke-width="1.75"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+
+          <app-primary-btn
+            [labelName]="'Add to Cart '"
+            [displayIcon]="false"
+            [widthFull]="true"
+            style="flex-grow: 1"
+            class="inline-flex align-items-center justify-content-center"
+          >
+            <i class="pi pi-shopping-cart" style="font-size: 1.5rem"></i>
+          </app-primary-btn>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  }
+</section>
+<!-- [containerStyle]="{ 'max-width': '400px', 'min-width': '300px' }" -->
+<!-- [containerStyle]="{ 'max-width': '100%' }" -->
+<!-- grid grid-nogutter justify-content-center -->
+<p-dialog
+  [(visible)]="displayDialog"
+  [modal]="true"
+  [style]="{ height: ' 80vh',  }"
+>
+  <img
+    [src]="selectedImageSrc"
+    alt="Selected Image"
+    width="100%"
+    height="90%"
+  />
+</p-dialog>

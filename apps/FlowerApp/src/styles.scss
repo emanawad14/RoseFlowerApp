@@ -53,6 +53,13 @@
   --text-title: #160e4b;
   --link-color: #160e4b;
   --shadow-color: #00000026;
+  --border-color: #00000014;
+  --line-color: #f4f4f5;
+  --p-color: #52525b;
+  --text-zink-500: #d4d4d8;
+  --blue-600: #155dfc;
+  --icon-text-reverse: #27272a;
+  --color-primary:#A6252A;
 }
 
 [data-theme='dark'] {
@@ -73,7 +80,7 @@
   --primary-color: #ffc2d0;
   --secondary-color: #ffffff;
   --text-color: #333333;
-  --black-color: #000000;
+  --black-color: #fafafa;
   --purple-color: #8c52ff;
   --text-gray: #a1a1aa;
   --text-zink: #fafafa;
@@ -90,6 +97,13 @@
   --text-title: #ffa3b9;
   --link-color: #a1a1aa;
   --shadow-color: #00000026;
+  --border-color: #a1a1aa;
+  --line-color: #3f3f46;
+  --p-color: #a1a1aa;
+  --text-zink-500: #71717a;
+  --blue-600: #50a2ff;
+  --icon-text-reverse: #ffff;
+   --color-primary:#A6252A;
 }
 html,
 body,
@@ -120,7 +134,15 @@ app-root {
   font-family: 'Jost';
   src: url('/fonts/Jost-VariableFont_wght.ttf');
 }
-.pink-text {
+@font-face {
+  font-family: 'Sarabun-SemiBold';
+  src: url('/fonts/Sarabun-SemiBold.ttf');
+}
+@font-face {
+  font-family: 'Sarabun-Regular';
+  src: url('/fonts/Sarabun-Regular.ttf');
+}
+Sarabun-SemiBold.ttf .pink-text {
   font-family: 'Inter';
   font-weight: 700;
   font-size: 16px;
@@ -221,4 +243,3 @@ h4 {
 .bg-bag-color {
   background-color: var(--icon-bg) !important;
 }
-

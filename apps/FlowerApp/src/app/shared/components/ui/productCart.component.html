@@ -1,48 +1,42 @@
-  <p-card class="card-content product-card w-full h-full   lg:text-2xl">
-      <ng-template #header>
-        <div class="relative    ">
-          <img
-            [alt]="product.title"
-            class="w-full  imgcover"
-            [src]="product.imgCover"
-          />
-          <div
-            class="cover w-full h-full justify-content-around align-items-center absolute top-5 left-5 right-5 bottom-5 border-round-2xl"
-          >
-            <span class="icon p-4 border-circle cursor-pointer">
-              <i class="fa-regular fa-heart text-2xl"></i>
-            </span>
-            <span class="icon p-4 border-circle cursor-pointer">
-              <i class="fa-regular fa-eye text-2xl"></i>
-            </span>
-          </div>
-        </div>
-      </ng-template>
+<p-card class="card-content product-card w-full h-full lg:text-2xl">
+  <ng-template #header>
+    <div class="relative">
+      <img
+        [alt]="product.title"
+        class="w-full imgcover"
+        [src]="product.imgCover"
+      />
+      <div
+        class="cover w-full h-full justify-content-around align-items-center absolute top-5 left-5 right-5 bottom-5 border-round-2xl"
+      >
+        <span class="icon p-4 border-circle cursor-pointer">
+          <i class="fa-regular fa-heart text-2xl"></i>
+        </span>
+        <span
+          class="icon p-4 border-circle cursor-pointer"
+          (click)="openProjectDetails(product._id)"
+        >
+          <i class="fa-regular fa-eye text-2xl"></i>
+        </span>
+      </div>
+    </div>
+  </ng-template>
 
-     
-       <h4
-        class="font-bold capitalize p-0 mt-3 text-overflow-ellipsis overflow-hidden white-space-nowrap heading4"
-                >
-                  {{ product.title }}
-       </h4>
+  <h4
+    class="font-bold capitalize p-0 mt-3 text-overflow-ellipsis overflow-hidden white-space-nowrap heading4"
+  >
+    {{ product.title }}
+  </h4>
 
-        <div
-                  class="flex justify-content-between align-items-center w-full my-3"
-                >
-                  <div class="flex flex-column justify-content-center p-2">
-                    <p-rating
-                      [(ngModel)]="product.rateAvg"
-                      [stars]="5"
-                      [readonly]="true"
-                    />
-                    <span class="font-bold text-xl pt-3">
-                      {{ product.price | currency : 'USD' : 'symbol' : '1.2-2' }}
-                    </span>
-                  </div>
-                  <span
-                    class="icon p-3 border-circle bg-bag-color cursor-pointer"
-                  >
-                    <i class="pi pi-shopping-bag text-xl text-white"></i>
-                  </span>
-         </div>
-    </p-card>
+  <div class="flex justify-content-between align-items-center w-full my-3">
+    <div class="flex flex-column justify-content-center p-2">
+      <p-rating [(ngModel)]="product.rateAvg" [stars]="5" [readonly]="true" />
+      <span class="font-bold text-xl pt-3">
+        {{ product.price | currency : 'USD' : 'symbol' : '1.2-2' }}
+      </span>
+    </div>
+    <span class="icon p-3 border-circle bg-bag-color cursor-pointer">
+      <i class="pi pi-shopping-bag text-xl text-white"></i>
+    </span>
+  </div>
+</p-card>

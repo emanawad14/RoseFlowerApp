@@ -1,8 +1,7 @@
 import { Product } from './../../interfaces/products';
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavBarComponent } from '../../../core/layouts/navBar/navBar.component';
-import {
+ import {
   FormBuilder,
   FormGroup,
   FormsModule,
@@ -27,8 +26,7 @@ import {
   getErrorMsg,
   getProductsList,
 } from '../../../Store/selectors/products.selectors';
-import { FooterComponent } from '../../../core/layouts/Footer/Footer.component';
-import { ErrorResponseDTO } from './interfaces/error';
+ import { ErrorResponseDTO } from './interfaces/error';
 import { PrimaryBtnComponent } from '../../../shared/components/ui/primary-btn.component';
 import { GlobalCkeckboxGroupComponent } from './components/business/global-ckeckbox-group.component';
 import { FilteredObject } from './interfaces/filtered-object';
@@ -38,7 +36,7 @@ import { FilteredObject } from './interfaces/filtered-object';
   standalone: true,
   imports: [
     CommonModule,
-    NavBarComponent,
+
     ReactiveFormsModule,
     GlobalInputComponent,
     InputTextModule,
@@ -50,7 +48,7 @@ import { FilteredObject } from './interfaces/filtered-object';
     SliderModule,
     TranslatePipe,
     SharedProductsComponent,
-    FooterComponent,
+
     PrimaryBtnComponent,
     GlobalCkeckboxGroupComponent,
   ],

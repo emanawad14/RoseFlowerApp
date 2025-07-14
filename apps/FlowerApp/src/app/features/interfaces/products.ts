@@ -1,4 +1,4 @@
-import { EntityState } from "@ngrx/entity";
+import { EntityState } from '@ngrx/entity';
 
 export interface ProductResponse {
   message: string;
@@ -23,7 +23,7 @@ export interface Product {
   imgCover: string;
   images: string[];
   price: number;
-  priceAfterDiscount: number;
+  priceAfterDiscount?: number;
   quantity: number;
   category: string;
   occasion: string;
@@ -35,7 +35,7 @@ export interface Product {
   id: string;
 }
 
-export interface ProductModel extends EntityState<Product>{
-  errorMsg:string,
-  isLoading: boolean
+export interface ProductModel extends EntityState<Product> {
+  errorMsg: string;
+  isLoading: boolean;
 }

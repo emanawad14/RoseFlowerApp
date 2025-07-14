@@ -1,31 +1,30 @@
-  
 .p-button {
+  color: var(--btn-text);
   background: var(--primary-color) !important;
   color: var(--btn-text) !important;
-  border:none;
+  border: none;
   border-radius: 9.32px;
   padding: 10px 20px;
-    &:hover {
+  &:hover {
     border: none !important;
     box-shadow: none !important;
   }
-
 }
- 
+
 svg {
- color: var(--btn-text)!important;
+  color: var(--btn-text) !important;
 }
-.custom-label{
-/* Shop Now */
- font-family: 'Inter';
-font-weight: 600;
-font-size: 12px;
-line-height: 100%;
-letter-spacing: 0%;
-text-align: center;
-vertical-align: middle;
-text-transform: capitalize;
+.custom-label {
+  /* Shop Now */
+  font-family: 'Inter';
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  vertical-align: middle;
+  text-transform: capitalize;
 
-/* color/White */
-color: var(--btn-text);
+  /* color/White */
+  color: var(--btn-text);
 }

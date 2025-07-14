@@ -11,5 +11,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class PrimaryBtnComponent {
   @Input({ required: true }) labelName!: string;
   @Input({ required: false }) displayIcon = true;
-  constructor(public translate: TranslateService ) {}
+  @Input({ required: false }) widthFull = false;
+
+  constructor(public translate: TranslateService) {}
 }
