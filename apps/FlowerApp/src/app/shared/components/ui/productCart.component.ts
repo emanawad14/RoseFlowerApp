@@ -22,7 +22,7 @@ export class ProductCartComponent {
   @Input() product!: Product;
   constructor(private _Router: Router) {}
 
-  openProjectDetails(productId: string) {
+  openProductDetails(productId: string) {
     this._Router.navigate(['/product-details', productId]);
   }
 }

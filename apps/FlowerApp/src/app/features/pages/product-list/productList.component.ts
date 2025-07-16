@@ -228,7 +228,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
           matchesCategory &&
           matchesBrand &&
           matchesRating &&
-          matchesPrice) ||
+          matchesPrice) &&
         matchPriceAfterDiscount
       );
     });

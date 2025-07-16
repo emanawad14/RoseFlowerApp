@@ -6,13 +6,13 @@
       <p-galleria
         [value]="productImages"
         [responsiveOptions]="responsiveOptions"
-        [numVisible]="4"
+        [numVisible]="6"
         [showThumbnailNavigators]="false"
       >
         <ng-template #item let-item>
           <div
             (click)="openImgDialog(item)"
-            class="cover-img h-23rem border-round-xl bg-cover bg-no-repeat bg-center w-full"
+            class="h-23rem border-round-xl bg-cover bg-no-repeat bg-center w-full"
             [ngStyle]="{
                 
         'background-image': 'url(' + item + ')',
@@ -31,7 +31,7 @@
             <img [src]="item" class="thumb-img" /> 
           </div> -->
           <!-- <div class="grid grid-nogutter justify-content-center"> -->
-          <img [src]="item" class="thumb-img" class="border-round-xl w-full" />
+          <img [src]="item" class="border-round-xl w-full" />
           <!-- </div> -->
         </ng-template>
       </p-galleria>
@@ -99,13 +99,7 @@
         </div>
         <div class="line"></div>
         <p class="flex-grow-1">{{ product.description }}</p>
-        <!-- <div
-          class="quantity inline-flex align-items-center   gap-3"
-        >
-          <i class="pi pi-plus py-3 px-3 border-round-2xl"></i>
-          <input type="text" />
-          <i class="pi pi-minus py-3 px-3 border-round-2xl"></i>
-        </div> -->
+        <!-- <app-product-quantity class="w-2 "/> -->
         <div class="add-to-cart flex gap-2">
           <div
             class="border-round-2xl py-1 px-3 love-product inline-flex align-items-center justify-content-center"

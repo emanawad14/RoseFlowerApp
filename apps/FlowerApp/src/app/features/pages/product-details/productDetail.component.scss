@@ -1,7 +1,4 @@
 #product-details {
-  .cover-img {
-    border: 1px solid var(--border-color) !important;
-  }
   .product-details {
     font-family: 'Sarabun-Regular';
 
@@ -104,19 +101,19 @@
     }
   }
 }
-.quantity i {
-  background-color: var(--primary-text);
-}
+
 
 // ::ng-deep .p-galleria-thumbnail-items {
 //   display: flex;
 //   gap: 10px; // space between thumbnails
 //   justify-content: center;
 // }
+//
 
 ::ng-deep .p-galleria-thumbnail-item img {
   // margin-right: 10px;
-  width: 91px;
+  // width: 91px;
+
   height: 111px;
   object-fit: cover;
 }
@@ -124,6 +121,7 @@
   // background-color: aqua;
   // border-radius: 10px;
   //  aspect-ratio: 1 / 1;
+
   opacity: 1 !important;
   justify-content: space-between !important;
 }

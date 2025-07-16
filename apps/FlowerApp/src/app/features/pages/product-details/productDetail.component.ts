@@ -3,18 +3,22 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../../shared/services/product.service';
 import { Product } from '../../interfaces/products';
-import {
-  ProductDetailsDTO,
-  ProductImage,
-} from './interfaces/product.interface';
+import { ProductDetailsDTO } from './interfaces/product.interface';
 import { GalleriaModule } from 'primeng/galleria';
 import { Dialog } from 'primeng/dialog';
 import { PrimaryBtnComponent } from '../../../shared/components/ui/primary-btn.component';
 import { Subscription } from 'rxjs';
+import { ProductQuantityComponent } from '../../../shared/components/ui/productQuantity.component';
 
 @Component({
   selector: 'app-product-detail',
-  imports: [CommonModule, GalleriaModule, Dialog, PrimaryBtnComponent],
+  imports: [
+    CommonModule,
+    GalleriaModule,
+    Dialog,
+    PrimaryBtnComponent,
+    ProductQuantityComponent,
+  ],
   templateUrl: './productDetail.component.html',
   styleUrl: './productDetail.component.scss',
 })
