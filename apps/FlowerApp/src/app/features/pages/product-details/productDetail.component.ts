@@ -8,8 +8,8 @@ import { GalleriaModule } from 'primeng/galleria';
 import { Dialog } from 'primeng/dialog';
 import { PrimaryBtnComponent } from '../../../shared/components/ui/primary-btn.component';
 import { Subscription } from 'rxjs';
-import { ProductQuantityComponent } from '../../../shared/components/ui/productQuantity.component';
-
+import { ProductReviewComponent } from "./components/productReview.component";
+ 
 @Component({
   selector: 'app-product-detail',
   imports: [
@@ -17,8 +17,8 @@ import { ProductQuantityComponent } from '../../../shared/components/ui/productQ
     GalleriaModule,
     Dialog,
     PrimaryBtnComponent,
-    ProductQuantityComponent,
-  ],
+    ProductReviewComponent
+],
   templateUrl: './productDetail.component.html',
   styleUrl: './productDetail.component.scss',
 })

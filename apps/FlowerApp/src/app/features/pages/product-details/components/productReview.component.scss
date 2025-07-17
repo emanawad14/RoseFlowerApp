@@ -1,0 +1,82 @@
+::ng-deep .p-rating .p-rating-icon {
+  color: var(--star-color) !important;
+  font-size: 1.2rem;
+  transition: color 0.2s;
+}
+#product-review {
+  .user {
+    color: var(--btn-text);
+    background-color: var(--primary-color);
+  }
+  font-family: 'Sarabun-Regular';
+  font-style: normal;
+  h3 {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 100%;
+    /* Zinc/zinc-800 */
+    color: var(--text-zink);
+  }
+  h1,
+  .text-sm {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+
+    /* Zinc/zinc-800 */
+    color: var(--icon-text-reverse);
+  }
+  .rate-avg {
+    font-weight: 700;
+    font-size: 1em;
+    line-height: 39px;
+    /* identical to box height */
+    /* Zinc/zinc-800 */
+    color: var(--text-zink);
+    .ratings {
+      font-weight: 500;
+      font-size: 1em;
+      line-height: 100%;
+      /* identical to box height */
+
+      /* Blue/blue-600 */
+      color: var(--text-p);
+      /* 4.5 (8 ratings) */
+    }
+  }
+}
+/* Hide scrollbar for WebKit browsers (Chrome, Safari) */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+.hide-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.reviews {
+  font-family: 'Sarabun-Regular';
+  .review {
+    h5 {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 100%;
+
+      color: var(--black-color);
+    }
+    span {
+      /* Primary/Medium/primary-medium-sm */
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 100%;
+      /* identical to box height, or 14px */
+
+      /* Zinc/zinc-400 */
+      color: var(--text-gray-reverse);
+    }
+  }
+}
