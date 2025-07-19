@@ -224,7 +224,7 @@ h4 {
     content: '';
     position: absolute; // absolute inside the h2
     bottom: -0.5rem; // move it just below the text
-    left: 0; // align to the left edge
+    inset-inline-start: 0; // align to the left edge
     width: 9.5rem; // how long the line is
     height: 2px; // thickness
     background-color: var(--third-color);
@@ -233,7 +233,7 @@ h4 {
     content: '';
     position: absolute; // absolute inside the h2
     bottom: -0.5rem; // move it just below the text
-    left: 0; // align to the left edge
+    inset-inline-start: 0; // align to the left edge
     width: 13rem;
     height: 20px;
     border-top-right-radius: 20px;

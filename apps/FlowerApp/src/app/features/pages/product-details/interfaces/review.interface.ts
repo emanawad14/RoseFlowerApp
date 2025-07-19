@@ -3,6 +3,6 @@ export interface Review {
   userName: string;
   title: string;
   description: string;
-  rateAvg: string;
+  rateAvg: number;
   date: string;
 }

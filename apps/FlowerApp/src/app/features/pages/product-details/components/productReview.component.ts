@@ -28,7 +28,7 @@ export class ProductReviewComponent {
         'I ordered this bouquet for a special occasion, and it absolutely exceeded my expectations! The flowers were fresh, beautifully arranged, and exactly as pictured—if not better. The color combination was stunning and gave off such a luxurious vibe. Even the wrapping was elegant and ' +
         "thoughtful Delivery was right on time, and the bouquet arrived in perfect condition. The recipient was genuinely touched and couldn't stop admiring it. Highly recommend for anyone looking to make a lasting impression. Will definitely order again!",
 
-      rateAvg: '5',
+      rateAvg:4.5,
       date: '2025-07-05T11:30:17.866Z',
     },
     {
@@ -39,7 +39,7 @@ export class ProductReviewComponent {
         'I ordered this bouquet for a special occasion, and it absolutely exceeded my expectations! The flowers were fresh, beautifully arranged, and exactly as pictured—if not better. The color combination was stunning and gave off such a luxurious vibe. Even the wrapping was elegant and ' +
         "thoughtful Delivery was right on time, and the bouquet arrived in perfect condition. The recipient was genuinely touched and couldn't stop admiring it. Highly recommend for anyone looking to make a lasting impression. Will definitely order again!",
 
-      rateAvg: '3',
+      rateAvg: 3.2,
       date: 'Apr 7, 2025',
     },
   ];
