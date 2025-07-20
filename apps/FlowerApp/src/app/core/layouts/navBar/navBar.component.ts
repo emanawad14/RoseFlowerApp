@@ -1,4 +1,4 @@
- import { ThemeService } from './../../services/theme-service.service';
+import { ThemeService } from './../../services/theme-service.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
@@ -25,7 +25,7 @@ import { TranslatePipe } from '@ngx-translate/core';
     BadgeModule,
     Dialog,
     InputTextModule,
-    TranslatePipe
+    TranslatePipe,
   ],
   templateUrl: './navBar.component.html',
   styleUrl: './navBar.component.scss',
@@ -115,9 +115,9 @@ export class NavBarComponent implements OnInit {
   changeLanguage(lang: string): void {
     this._MyTranslateService.changeTranslateLange(lang);
   }
-  currentLanguage(lang:string):boolean{
- return  this._MyTranslateService.currentLang  === lang
-}
+  currentLanguage(lang: string): boolean {
+    return this._MyTranslateService.currentLang === lang;
+  }
   darkModeToggle() {
     this.darkMode = !this.darkMode;
   }

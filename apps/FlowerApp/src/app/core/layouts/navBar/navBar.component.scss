@@ -5,12 +5,19 @@ ul li a {
   // font-size: 1rem;
   line-height: 24px;
   align-items: center;
+  color: var(--text-gray);
 }
+
 nav {
   // position: sticky;
   top: 0;
   z-index: 1000;
   overflow: visible;
+  .nav__Icons {
+    button {
+      color: var(--primary-color);
+    }
+  }
 }
 
 .logo img {
@@ -22,7 +29,7 @@ a {
 }
 
 a:hover {
-  color: var(--primary-color);
+  color: var(--primary-color) !important;
 }
 
 :host ::ng-deep {
@@ -49,7 +56,7 @@ a:hover {
 
 /* Custom badge styling */
 :host ::ng-deep .p-badge {
-  background-color: #ec4899 !important;
+  background-color: var(--primary-color) !important;
   color: #ffffff !important;
   border-radius: 50%;
   width: 1.2rem;
@@ -67,6 +74,5 @@ a:hover {
 }
 
 :host ::ng-deep .p-dialog-content {
-  padding: .5rem !important;
+  padding: 0.5rem !important;
 }
-

@@ -4,7 +4,7 @@
     <div class="flex align-items-center justify-content-between">
       <!-- Logo -->
       <img
-        src="images/logo.png"
+        src="images/newLogo.png"
         alt="Rose Flower Logo"
         height="50"
         class="flex-none"
@@ -16,8 +16,8 @@
           <a
             pRipple
             routerLink="/home"
-            routerLinkActive="text-pink-500"
-            class="text-900 hover:text-pink-500 no-underline cursor-pointer block heading4"
+            routerLinkActive="text-primary-color"
+            class="no-underline cursor-pointer block"
             role="button"
             tabindex="0"
           >
@@ -28,8 +28,8 @@
           <a
             pRipple
             routerLink="/product-list"
-            routerLinkActive="text-pink-500"
-            class="text-900 hover:text-pink-500 no-underline cursor-pointer block heading4"
+            routerLinkActive="text-primary-color"
+            class="no-underline cursor-pointer block"
             role="button"
             tabindex="0"
           >
@@ -40,8 +40,8 @@
           <a
             pRipple
             routerLink="/about"
-            routerLinkActive="text-pink-500"
-            class="text-900 hover:text-pink-500 no-underline cursor-pointer block heading4"
+            routerLinkActive="text-primary-color"
+            class="no-underline cursor-pointer block"
             role="button"
             tabindex="0"
           >
@@ -52,8 +52,8 @@
           <a
             pRipple
             routerLink="/contact"
-            routerLinkActive="text-pink-500"
-            class="text-900 hover:text-pink-500 no-underline cursor-pointer block heading4"
+            routerLinkActive="text-primary-color"
+            class="no-underline cursor-pointer block"
             role="button"
             tabindex="0"
           >
@@ -63,17 +63,17 @@
       </ul>
 
       <!-- Icons - Always Visible -->
-      <div class="flex gap-2 items-center">
+      <div class="nav__Icons flex gap-2 items-center">
         <!-- Menu Toggle (Mobile Only) -->
         <button
           pButton
-          class="p-button-text text-pink-500 lg:hidden"
+          class="p-button-text lg:hidden"
           (click)="toggleMenu($event)"
         >
           <i class="fa-solid fa-bars"></i>
         </button>
         <!-- Search Button -->
-        <button pButton class="p-button-text text-pink-500">
+        <button pButton class="p-button-text">
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
         <!-- Dark mode Button -->
@@ -83,15 +83,15 @@
           (click)="darkModeToggle(); toggleDarkMode()"
         >
           @if (darkMode) {
-          <i class="fa-solid fa-sun text-pink-500"></i>
-          } @else {<i class="fa-solid fa-moon text-pink-500"></i> }
+          <i class="fa-solid fa-sun"></i>
+          } @else {<i class="fa-solid fa-moon"></i> }
         </button>
         <!-- Wishlist Button -->
-        <button pButton class="p-button-text text-pink-500 relative">
+        <button pButton class="p-button-text relative">
           <i class="fa-regular fa-heart" pBadge value="2" badgeSize="small"></i>
         </button>
         <!-- Shopping Cart Button -->
-        <button pButton class="p-button-text text-pink-500">
+        <button pButton class="p-button-text">
           <i
             class="fa-solid fa-bag-shopping"
             pBadge
@@ -102,7 +102,7 @@
         <!-- Language  Button -->
         <!-- <button
           pButton
-          class="p-button-text text-pink-500"
+          class="p-button-text "
           (click)="languageToggle()"
         >
           @if (!langClick) {
@@ -113,7 +113,7 @@
         <button
           [class.hidden]="currentLanguage('en')"
           pButton
-          class="p-button-text text-pink-500"
+          class="p-button-text"
           (click)="changeLanguage('en')"
         >
           {{ 'navbar.arabic' | translate }}
@@ -122,7 +122,7 @@
         <button
           [class.hidden]="currentLanguage('ar')"
           pButton
-          class="p-button-text text-pink-500"
+          class="p-button-text"
           (click)="changeLanguage('ar')"
         >
           English

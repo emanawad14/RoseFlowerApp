@@ -22,19 +22,20 @@
   --p-slider-handle-hover-background: var(--primary-color) !important;
 }
 [data-theme='light'] {
+  --nav-text-color: #ffc2d0;
   --icon-sm: #ffff;
-  --bg-icon-hover: #f82ba9;
-  --bg-icon: #f82ba9;
+  --bg-icon-hover: #e6507380;
+  --bg-icon: #ff668b;
   --text-sm: #f05454;
-  --line-color: #f82ba9;
+  --line-color: #e65073;
   --btn-text: #ffffff;
-  --secondary-text: #160e4b;
+  --secondary-text: #a6252a;
   --primary-text: #f82ba9;
   --primary-span: #f82ba9;
-  --primary-color: #f82ba9;
-  --secondary-color: #160e4b;
+  --primary-color: #a6252a;
+  --secondary-color: #a6252a;
   --text-color: #333333;
-  --bg-light-pink: #feedf7;
+  --bg-light-pink: #fbeaea;
   --white-color: #ffff;
   --black-color: #000000;
   --purple-color: #8c52ff;
@@ -46,21 +47,23 @@
   --font-main: 'Inter', sans-serif;
   --highlight-pink: #ec4899;
   --third-color: #741c21;
-  --icon-bg: #8c52ff;
+  --icon-bg: #a6252a;
   --text-p: #71717a;
   --bg-dark: #18181b;
   --bg-zink: #ffffff;
-  --text-title: #160e4b;
-  --link-color: #160e4b;
+  --text-title: #27272a;
+  // --text-title: #160e4b;
+  //--link-color: #160e4b;
   --shadow-color: #00000026;
   --border-color: #00000014;
-  --line-color: #f4f4f5;
+  // --line-color: #f4f4f5;
   --p-color: #52525b;
   --text-zink-500: #d4d4d8;
   --blue-600: #155dfc;
   --icon-text-reverse: #27272a;
-  --color-primary:#A6252A;
-  --bg-light:#FBEAEA;
+  --color-primary: #a6252a;
+  --bg-light: #fbeaea;
+  --primary-btn-color: #a6252a;
 }
 
 [data-theme='dark'] {
@@ -94,17 +97,19 @@
   --text-p: #a1a1aa;
   --bg-dark: #18181b;
   --bg-zink: #27272a;
-  --text-title: #ffa3b9;
-  --link-color: #a1a1aa;
+  --text-title: #fafafa;
+  // --text-title: #ffa3b9;
+  // --link-color: #a1a1aa;
   --shadow-color: #00000026;
   --border-color: #a1a1aa;
-  --line-color: #3f3f46;
+  // --line-color: #3f3f46;
   --p-color: #a1a1aa;
   --text-zink-500: #71717a;
   --blue-600: #50a2ff;
   --icon-text-reverse: #ffff;
-   --color-primary:#A6252A;
-    --bg-light:#FBEAEA;
+  --color-primary: #a6252a;
+  --bg-light: #fbeaea;
+  --primary-btn-color: #ffc2d0;
 }
 html,
 body,
