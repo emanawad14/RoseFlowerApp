@@ -9,6 +9,7 @@ import { Dialog } from 'primeng/dialog';
 import { PrimaryBtnComponent } from '../../../shared/components/ui/primary-btn.component';
 import { Subscription } from 'rxjs';
 import { ProductReviewComponent } from "./components/productReview.component";
+import { RelatedProductsComponent } from "./components/relatedProducts.component";
  
 @Component({
   selector: 'app-product-detail',
@@ -17,7 +18,8 @@ import { ProductReviewComponent } from "./components/productReview.component";
     GalleriaModule,
     Dialog,
     PrimaryBtnComponent,
-    ProductReviewComponent
+    ProductReviewComponent,
+    RelatedProductsComponent
 ],
   templateUrl: './productDetail.component.html',
   styleUrl: './productDetail.component.scss',
