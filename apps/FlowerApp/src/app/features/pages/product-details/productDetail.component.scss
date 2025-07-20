@@ -12,7 +12,7 @@
       /* Zinc/zinc-800 */
       color: var(--text-zink);
     }
-  
+
     p {
       /* Primary/Regular/primary-regular-base */
       font-family: 'Sarabun-Regular';
@@ -99,15 +99,6 @@
     }
   }
 }
-
-
-// ::ng-deep .p-galleria-thumbnail-items {
-//   display: flex;
-//   gap: 10px; // space between thumbnails
-//   justify-content: center;
-// }
-//
-
 ::ng-deep .p-galleria-thumbnail-item img {
   // margin-right: 10px;
   // width: 91px;
