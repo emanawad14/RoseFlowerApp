@@ -1,4 +1,4 @@
-<section  id="product-details">
+<section id="product-details">
   @if(product){
   <div class="grid my-4 mx-5 md:gap-5">
     <!-- product-images -->
@@ -152,7 +152,9 @@
     height="90%"
   />
 </p-dialog>
-<app-product-review/>
-@defer (on timer(40s)) {
-  <app-related-products></app-related-products>
+<app-product-review />
+@defer (on viewport) {
+<app-related-products></app-related-products>
+} @placeholder {
+<div>related-products placeholder</div>
 }
