@@ -5,6 +5,9 @@
   margin: auto;
   gap: 40px;
   max-width: 1080px;
+  .trust-number {
+    color: var(--bg-icon);
+  }
 }
 .text-primary-color {
   color: var(--primary-span);

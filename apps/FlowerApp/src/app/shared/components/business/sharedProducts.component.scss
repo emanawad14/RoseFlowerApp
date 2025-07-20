@@ -28,7 +28,6 @@
   }
 }
 
-
 .card {
   width: 302px;
   height: 82.8px;
@@ -45,14 +44,14 @@
 }
 
 .title {
-  color: var( --third-color);
+  color: var(--third-color);
   font-weight: 600;
   font-size: 17px;
   font-family: 'Inter', sans-serif;
 }
 
 .bag {
-  background-color: var( --third-color);
+  background-color: var(--third-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -65,27 +64,18 @@
   color: var(--white-color);
 }
 
-
-
-
-
-
-
-
-
-
-::ng-deep .owl-carousel.owl-drag .owl-item{
- color:var( --text-sm) !important; 
+::ng-deep .owl-carousel.owl-drag .owl-item {
+  color: var(--text-sm) !important;
 }
-.heading4{
-   color:var(--secondary-text) !important; 
+.heading4 {
+  color: var(--secondary-text) !important;
 }
-.text-primary-color{
-  color:var(--bg-icon)
+.text-primary-color {
+  color: var(--bg-icon);
 }
 
 .gift {
-  color: var(  --bg-icon);
+  color: var(--bg-icon);
   font-weight: 700;
   font-size: 17px;
   letter-spacing: 2px;
@@ -109,12 +99,12 @@
 }
 
 .btn {
-  background-color: var( --primary-color);
+  background-color: var(--primary-color);
   border-radius: 10px;
   padding: 10px 20px;
-  border: 1px solid var( --primary-color);
+  border: 1px solid var(--primary-color);
   box-shadow: 0px 0px 40px 5px var(--btn-shadow);
-  color: var( --btn-text);
+  color: var(--btn-text);
   font-size: 16px;
 }
 
@@ -134,14 +124,14 @@
 }
 
 .title {
-  color: var( --third-color);
+  color: var(--third-color);
   font-weight: 600;
   font-size: 17px;
   font-family: 'Inter', sans-serif;
 }
 
 .bag {
-  background-color: var( --third-color);
+  background-color: var(--third-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -171,7 +161,7 @@
 }
 
 ::ng-deep .owl-nav i {
-  background-color: var( --bg-icon) !important;
+  background-color: var(--icon-bg) !important;
   border: none !important;
   width: 38px;
   height: 38px;
