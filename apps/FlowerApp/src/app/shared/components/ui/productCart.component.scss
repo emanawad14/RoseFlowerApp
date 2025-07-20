@@ -29,35 +29,31 @@
   }
 }
 
-.product-card {
-  span {
-    color: var(--text-sm) !important;
-  }
-}
 ::ng-deep.p-card {
-  background: var(--bg-light-pink) !important;
+  background: none;
 
   /* color: var(--p-card-color); */
   box-shadow: none !important;
 }
 ::ng-deep.p-card-body {
   background-color: var(--home-bg);
+  padding: 0 !important;
 }
 
-.card {
-  width: 302px;
-  height: 82.8px;
-  justify-content: space-between;
-  padding: 16px 16px;
-}
+// .card {
+//   width: 302px;
+//   height: 82.8px;
+//   justify-content: space-between;
+//   padding: 16px 16px;
+// }
 
-.imgcover {
-  width: 302px;
-  height: 272px;
-  border-radius: 20px;
-  background-color: var(--bg-light-pink);
-  padding: 20px 20px 30px 20px;
-}
+// .imgcover {
+//   width: 302px;
+//   height: 272px;
+//   border-radius: 20px;
+//   background-color: var(--bg-light-pink);
+//   padding: 20px 20px 30px 20px;
+// }
 
 .title {
   color: var(--third-color);
@@ -80,9 +76,6 @@
   color: var(--white-color);
 }
 
-::ng-deep .owl-carousel.owl-drag .owl-item {
-  color: var(--text-sm) !important;
-}
 .heading4 {
   color: var(--secondary-text) !important;
 }
@@ -131,14 +124,6 @@
   padding: 16px 16px;
 }
 
-.imgcover {
-  width: 302px;
-  height: 272px;
-  border-radius: 20px;
-  background-color: var(--bg-light-pink);
-  padding: 20px 20px 30px 20px;
-}
-
 .title {
   color: var(--third-color);
   font-weight: 600;
@@ -159,49 +144,6 @@
 .bag i {
   color: var(--white-color);
 }
-
-::ng-deep .owl-nav {
-  position: absolute;
-  top: 30%;
-  left: 0%;
-  width: 100%;
-  display: flex !important;
-  justify-content: space-between;
-  padding: 0 -2px;
-  z-index: 10;
-}
-
-::ng-deep .owl-theme .owl-nav [class*='owl-'] {
-  background: none !important;
-  margin: 0px !important;
-}
-
-::ng-deep .owl-nav i {
-  background-color: var(--icon-bg) !important;
-  border: none !important;
-  width: 38px;
-  height: 38px;
-  border-radius: 19px;
-  padding: 7px 12.12px 8px 12.12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--white-color);
-}
-
-/* mohamed Abozeid */
-// h2 {
-//   //color: black;
-// }
-
-// h2::after {
-//   content: '';
-//   display: block;
-//   width: 50px;
-//   height: 3px;
-//   background-color: var(--primary-color);
-//   margin-top: 8px;
-// }
 
 .cover {
   position: absolute;
@@ -235,110 +177,10 @@
   transition: color 0.2s;
 }
 
-/* Category Menu Styles */
-::ng-deep .p-tabmenu {
-  background: transparent;
-  border: none;
-}
-
-::ng-deep .p-tabmenu .p-tabmenu-nav {
-  background: transparent;
-  border: none;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  padding: 0.5rem;
-}
-
-::ng-deep .p-tabmenu .p-tabmenu-nav .p-tabmenuitem {
-  margin: 0;
-}
-
-::ng-deep .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link {
-  background: transparent;
-  border: none;
-  border-radius: 0.5rem;
-  transition: all 0.2s;
-}
-
-::ng-deep
-  .p-tabmenu
-  .p-tabmenu-nav
-  .p-tabmenuitem
-  .p-menuitem-link:not(.p-disabled):focus {
-  box-shadow: none;
-}
-
-@media screen and (max-width: 576px) {
-  ::ng-deep .p-tabmenu .p-tabmenu-nav {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  ::ng-deep .p-tabmenu .p-tabmenu-nav .p-tabmenuitem {
-    margin: 0.25rem 0;
-  }
-}
-
-/* Category Button Styles */
-.category-btn {
-  background-color: var(--white-color);
-  color: var(--primary-color);
-  border: 1px solid var(--primary-color);
-  border-radius: 0.5rem;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.category-btn:hover,
-.category-btn.active {
-  background-color: var(--primary-color);
-  color: var(--white-color);
-}
-
 /* No Products Found Styles */
 .pi-inbox {
   display: block;
   margin-bottom: 1rem;
-}
-
-:host ::ng-deep .category-carousel {
-  .p-carousel-container {
-    padding: 0.5rem;
-  }
-
-  .p-carousel-items-container {
-    padding: 0.5rem 0;
-  }
-
-  .p-carousel-items-content {
-    overflow: visible;
-  }
-
-  .p-carousel-prev,
-  .p-carousel-next {
-    color: var(--primary-color);
-    border: 1px solid var(--primary-color);
-    border-radius: 50%;
-    width: 2rem;
-    height: 2rem;
-  }
-
-  .p-carousel-prev:hover,
-  .p-carousel-next:hover {
-    background: var(--primary-color);
-    color: white;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  :host ::ng-deep .category-carousel {
-    .p-carousel-prev,
-    .p-carousel-next {
-      width: 1.5rem;
-      height: 1.5rem;
-    }
-  }
 }
 
 .cover {

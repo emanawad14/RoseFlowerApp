@@ -2,40 +2,40 @@ h2 {
   color: var(--secondary-text);
 }
 
-.cover {
-  i {
-    color: var(--icon-sm);
-  }
-  position: absolute;
-  inset: 0;
-  background-color: rgba(248, 43, 169, 0.5);
-  display: none;
-  transition: display 0.8s ease;
-}
+// .cover {
+//   i {
+//     color: var(--icon-sm);
+//   }
+//   position: absolute;
+//   inset: 0;
+//   background-color: rgba(248, 43, 169, 0.5);
+//   display: none;
+//   transition: display 0.8s ease;
+// }
 
-.cover span {
-  background-color: var(--bg-icon-hover);
-}
+// .cover span {
+//   background-color: var(--bg-icon-hover);
+// }
 
-.relative:hover .cover {
-  display: flex;
-}
+// .relative:hover .cover {
+//   display: flex;
+// }
 
-::ng-deep .p-rating {
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-}
+// ::ng-deep .p-rating {
+//   display: flex;
+//   align-items: center;
+//   gap: 0.25rem;
+// }
 
-::ng-deep .p-rating .p-rating-item {
-  cursor: default;
-}
+// ::ng-deep .p-rating .p-rating-item {
+//   cursor: default;
+// }
 
-::ng-deep .p-rating .p-rating-icon {
-  color: #ffd700 !important;
-  font-size: 1.2rem;
-  transition: color 0.2s;
-}
+// ::ng-deep .p-rating .p-rating-icon {
+//   color: #ffd700 !important;
+//   font-size: 1.2rem;
+//   transition: color 0.2s;
+// }
 
 /* Category Menu Styles */
 ::ng-deep .p-tabmenu {
@@ -156,17 +156,4 @@ h2 {
 .heading4 {
   color: var(--secondary-text) !important;
 }
-.product-card {
-  span {
-    color: var(--text-sm) !important;
-  }
-}
-::ng-deep.p-card {
-  background: var(--bg-light-pink) !important;
-
-  /* color: var(--p-card-color); */
-  box-shadow: none !important;
-}
-::ng-deep.p-card-body {
-  background-color: var(--home-bg);
-}
+ 
