@@ -34,31 +34,35 @@ export class NavBarComponent implements OnInit {
   langClick = false;
   darkMode = false;
   @ViewChild('menu') menu!: Menu;
-
   menuItems: MenuItem[] = [
     {
       label: 'Home',
       // icon: 'fa-solid fa-home text-pink-500',
       routerLink: '/home',
       styleClass: 'py-2 paragraph-text',
+
+      routerLinkActive: 'text-primary-color',
     },
     {
       label: 'Categories',
       // icon: 'fa-solid fa-list text-pink-500',
-      routerLink: '/categories',
+      routerLink: '/product-list',
       styleClass: 'py-2 paragraph-text',
+      routerLinkActive: 'text-primary-color',
     },
     {
       label: 'About',
       // icon: 'fa-solid fa-circle-info text-pink-500',
       routerLink: '/about',
       styleClass: 'py-2 paragraph-text',
+      routerLinkActive: 'text-primary-color',
     },
     {
       label: 'Contact',
       // icon: 'fa-solid fa-envelope text-pink-500',
       routerLink: '/contact',
       styleClass: 'py-2 paragraph-text',
+      routerLinkActive: 'text-primary-color',
     },
   ];
   constructor(

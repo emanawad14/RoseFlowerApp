@@ -23,4 +23,5 @@ export const appRoutes: Route[] = [
         (c) => c.HomeComponent
       ),
   },
+
 ];

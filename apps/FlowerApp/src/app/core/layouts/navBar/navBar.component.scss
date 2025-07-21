@@ -28,10 +28,15 @@ a {
   transition: color 0.3s;
 }
 
-a:hover {
+a:hover, ::ng-deep .p-menu-item-link-active {
   color: var(--primary-color) !important;
 }
-
+::ng-deep .p-menu-list{
+background:var(--home-bg);
+}
+::ng-deep .p-menu-overlay{
+  border: none;
+}
 :host ::ng-deep {
   .p-button.p-button-text {
     padding: 0.5rem;

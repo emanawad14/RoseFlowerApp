@@ -250,7 +250,7 @@ h4 {
   }
 }
 .text-primary-color {
-  color: var(--primary-color);
+  color: var(--primary-color) !important;
 }
 .bg-bag-color {
   background-color: var(--icon-bg) !important;
