@@ -31,7 +31,7 @@ export class RelatedProductsComponent {
   customOptions: OwlOptions = {
     loop: true,
     rtl: false,
-    margin: 3,
+    margin: 16,
     mouseDrag: true,
     touchDrag: true,
     pullDrag: false,
