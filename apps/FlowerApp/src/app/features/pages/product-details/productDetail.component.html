@@ -154,7 +154,7 @@
 </p-dialog>
 <app-product-review />
 @defer (on viewport) {
-<app-related-products></app-related-products>
+<app-related-products [products]="relatedProducts"></app-related-products>
 } @placeholder {
 <div>related-products placeholder</div>
 }

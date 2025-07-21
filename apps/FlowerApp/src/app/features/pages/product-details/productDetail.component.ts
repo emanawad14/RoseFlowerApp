@@ -3,14 +3,17 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../../shared/services/product.service';
 import { Product } from '../../interfaces/products';
-import { ProductDetailsDTO } from './interfaces/product.interface';
+import {
+  ProductDetailsDTO,
+  RelatedProductsDTO,
+} from './interfaces/product.interface';
 import { GalleriaModule } from 'primeng/galleria';
 import { Dialog } from 'primeng/dialog';
 import { PrimaryBtnComponent } from '../../../shared/components/ui/primary-btn.component';
 import { Subscription } from 'rxjs';
-import { ProductReviewComponent } from "./components/productReview.component";
-import { RelatedProductsComponent } from "./components/relatedProducts.component";
- 
+import { ProductReviewComponent } from './components/productReview.component';
+import { RelatedProductsComponent } from './components/relatedProducts.component';
+
 @Component({
   selector: 'app-product-detail',
   imports: [
@@ -19,13 +22,14 @@ import { RelatedProductsComponent } from "./components/relatedProducts.component
     Dialog,
     PrimaryBtnComponent,
     ProductReviewComponent,
-    RelatedProductsComponent
-],
+    RelatedProductsComponent,
+  ],
   templateUrl: './productDetail.component.html',
   styleUrl: './productDetail.component.scss',
 })
 export class ProductDetailComponent implements OnInit, OnDestroy {
   productImages: string[] = [];
+  relatedProducts: Product[] = [];
 
   responsiveOptions: any[] = [
     {
@@ -69,7 +73,20 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
         },
       });
       this.subs.push(sub);
+      this.getRelatedProducts(productId);
     }
+  }
+
+  getRelatedProducts(productId: string) {
+    const sub = this._ProductService
+      .getRelatedProductsById(productId)
+      .subscribe({
+        next: (res: RelatedProductsDTO) => {
+          // console.log(res.relatedProducts);
+          this.relatedProducts = res.relatedProducts;
+        },
+      });
+    this.subs.push(sub);
   }
   displayDialog = false;
   selectedImageSrc: string = '';

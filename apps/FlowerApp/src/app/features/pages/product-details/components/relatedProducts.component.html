@@ -3,32 +3,32 @@
 
       <div class="">
       <owl-carousel-o [options]="customOptions" class="w-full">
-        @for (item of bests; track $index) {
+        @for (product of products; track $index) {
         <ng-container>
           <ng-template carouselSlide>
             <div class="p-4 border-round relative w-full">
               <div class="card-content p-3 bg-slate-500">
                 <img
-                  [src]="item.imgCover"
-                  [alt]="item.title"
+                  [src]="product.imgCover"
+                  [alt]="product.title"
                   class="imgcover w-full"
                 />
                 <h4
                   class="font-bold capitalize p-0 mt-3 text-overflow-ellipsis overflow-hidden white-space-nowrap heading4"
                 >
-                  {{ item.title }}
+                  {{ product.title }}
                 </h4>
                 <div
                   class="flex justify-content-between align-items-center w-full my-3"
                 >
                   <div class="flex flex-column justify-content-center p-2">
                     <p-rating
-                      [(ngModel)]="item.rateAvg"
+                      [(ngModel)]="product.rateAvg"
                       [stars]="5"
                       [readonly]="true"
                     />
                     <span class="font-bold text-xl pt-3">
-                      {{ item.price | currency : 'USD' : 'symbol' : '1.2-2' }}
+                      {{ product.price | currency : 'USD' : 'symbol' : '1.2-2' }}
                     </span>
                   </div>
                   <span

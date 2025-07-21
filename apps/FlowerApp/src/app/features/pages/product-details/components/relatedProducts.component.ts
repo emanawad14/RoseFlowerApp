@@ -1,36 +1,30 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BestComponent } from "../../home/components/Best/Best.component";
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { RatingModule } from 'primeng/rating';
 import { FormsModule } from '@angular/forms';
 import { CardModule } from 'primeng/card';
-import { HomeService } from '../../../services/home/home.service';
 import { MyTranslateService } from 'apps/FlowerApp/src/app/core/services/my-translate-service.service';
 import { Subscription } from 'rxjs';
-import { IItems } from '../../../interfaces/i-items';
+import { Product } from '../../../interfaces/products';
 
 @Component({
   selector: 'app-related-products',
-  imports: [CommonModule, CarouselModule,
-      RatingModule,
-      FormsModule,
-      CardModule
-      
-      ],
+  imports: [
+    CommonModule,
+    CarouselModule,
+    RatingModule,
+    FormsModule,
+    CardModule,
+  ],
   templateUrl: './relatedProducts.component.html',
   styleUrl: './relatedProducts.component.scss',
 })
 export class RelatedProductsComponent {
-
-
-   bests: IItems[] = [];
-  homeUnSubscribe: Subscription = new Subscription();
+  @Input({ required: true }) products: Product[] = [];
   langSub: Subscription = new Subscription();
 
   constructor(public _TranslateService: MyTranslateService) {}
-
-  private readonly homeServices = inject(HomeService);
 
   customOptions: OwlOptions = {
     loop: true,
@@ -43,36 +37,26 @@ export class RelatedProductsComponent {
     navSpeed: 700,
     navText: [],
     responsive: {
-    0: {
-      items: 1,
+      0: {
+        items: 1,
+      },
+      768: {
+        items: 4,
+      },
+      1024: {
+        items: 4,
+      },
+      1280: {
+        items: 4,
+      },
     },
-    768: {
-      items: 4,
-    },
-    1024: {
-      items: 4,
-    },
-    1280: {
-      items: 4,
-    },
-  },
     nav: true,
   };
 
   ngOnInit(): void {
-    this.getHomeScreens();
     this.setNavText(this._TranslateService.currentLang);
     this.langSub = this._TranslateService.onLangChange.subscribe(() => {
       this.setNavText(this._TranslateService.currentLang);
-    });
-  }
-
-  getHomeScreens() {
-    this.homeUnSubscribe = this.homeServices.getHomeScreen().subscribe({
-      next: (res) => {
-        this.bests = res.bestSeller;
-      },
-      error: (err) => console.log(err),
     });
   }
 
@@ -93,7 +77,6 @@ export class RelatedProductsComponent {
   }
 
   ngOnDestroy(): void {
-    this.homeUnSubscribe.unsubscribe();
     this.langSub.unsubscribe();
   }
 }
