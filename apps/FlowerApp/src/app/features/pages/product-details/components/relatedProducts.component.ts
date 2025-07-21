@@ -7,6 +7,7 @@ import { CardModule } from 'primeng/card';
 import { MyTranslateService } from 'apps/FlowerApp/src/app/core/services/my-translate-service.service';
 import { Subscription } from 'rxjs';
 import { Product } from '../../../interfaces/products';
+import { ProductCartComponent } from "apps/FlowerApp/src/app/shared/components/ui/productCart.component";
 
 @Component({
   selector: 'app-related-products',
@@ -16,7 +17,8 @@ import { Product } from '../../../interfaces/products';
     RatingModule,
     FormsModule,
     CardModule,
-  ],
+    ProductCartComponent
+],
   templateUrl: './relatedProducts.component.html',
   styleUrl: './relatedProducts.component.scss',
 })
