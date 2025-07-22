@@ -1,4 +1,4 @@
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="loginForm">
   <div class="flex flex-column gap-3">
     <h3 class="text-center">Welcome back!</h3>
     <div class="line"></div>
@@ -73,6 +73,7 @@
       [labelName]="'Login'"
       [displayIcon]="false"
       [widthFull]="true"
+      (btnClick)="onSubmit()"
     ></app-primary-btn>
     <div class="line"></div>
     <p class="text-center text-sm">

@@ -15,8 +15,8 @@ import { ErrorComponent } from '../../../shared/components/ui/error/error.compon
 import { AuthApiService } from '../../../shared/auth/auth-api.service';
 import { TokenService } from '../../services/token.service';
 import { LoginDTO } from '../../../shared/auth/interfaces/login.dto';
-import { PrimaryBtnComponent } from "../../../shared/components/ui/primary-btn.component";
-import { GlobalInputComponent } from "../../../shared/components/ui/globalInput.component";
+import { PrimaryBtnComponent } from '../../../shared/components/ui/primary-btn.component';
+import { GlobalInputComponent } from '../../../shared/components/ui/globalInput.component';
 
 @Component({
   selector: 'app-login',
@@ -30,8 +30,8 @@ import { GlobalInputComponent } from "../../../shared/components/ui/globalInput.
     ErrorComponent,
     RouterModule,
     PrimaryBtnComponent,
-    GlobalInputComponent
-],
+    GlobalInputComponent,
+  ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })

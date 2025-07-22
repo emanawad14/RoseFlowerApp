@@ -12,11 +12,10 @@ export class PrimaryBtnComponent {
   @Input({ required: true }) labelName!: string;
   @Input({ required: false }) displayIcon = true;
   @Input({ required: false }) widthFull = false;
- @Output() btnClick=new EventEmitter();
+  @Output() btnClick = new EventEmitter(false);
   constructor(public translate: TranslateService) {}
 
-
-  dispatchClick(){
-
+  dispatchClick() {
+    this.btnClick.emit(true);
   }
 }
