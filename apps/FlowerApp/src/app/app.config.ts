@@ -22,11 +22,14 @@ import { provideStore } from '@ngrx/store';
 import { ProductsReducer } from './Store/reducers/products.reducer';
 import { provideEffects } from '@ngrx/effects';
 import { ProductsEffects } from './Store/effects/products.effects';
+import { BASEURL } from './shared/auth/base-url-injection';
+import { environment } from '../environments/environment';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, '/i18n/', '.json');
 }
 export const appConfig: ApplicationConfig = {
   providers: [
+    { provide: BASEURL, useValue: environment.baseUrl },
     provideAppInitializer(() => appInit()),
     provideClientHydration(withEventReplay()),
     importProvidersFrom(

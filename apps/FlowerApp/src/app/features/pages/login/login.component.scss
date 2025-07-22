@@ -1,0 +1,22 @@
+form {
+  h3 {
+    font-family: 'Edwardian Script ITC';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 57px;
+    /* Maroon/maroon-700 */
+    color: var(--maroon-700);
+  }
+  a {
+    /* Primary/Semi-Bold/primary-semibold-sm */
+    font-family: 'Sarabun-Regular';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 100%;
+
+    /* Maroon/maroon-700 */
+    color: var(--maroon-700);
+  }
+}

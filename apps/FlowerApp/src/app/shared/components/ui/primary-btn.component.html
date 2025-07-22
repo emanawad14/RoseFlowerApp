@@ -3,6 +3,7 @@
   type="button"
   class="p-button h-auto"
   [class.w-full]="widthFull"
+  (click)="dispatchClick()"
 >
   <ng-content></ng-content>
   <span class="custom-label">{{ labelName }}</span>

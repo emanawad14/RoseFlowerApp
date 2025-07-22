@@ -1,0 +1,87 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <div class="flex flex-column gap-3">
+    <h3 class="text-center">Welcome back!</h3>
+    <div class="line"></div>
+    <!-- <input
+    type="text"
+    pInputText
+    formControlName="email"
+    placeholder="email"
+    class="mb-3"
+    inputStyleClass="w-full"
+    [class]="{ 'ng-invalid ng-dirty': !loginForm.controls.email.valid }"
+  /> -->
+    <span class="input-label">Email</span>
+    <app-global-input
+      [labelText]="'user@example.com'"
+      formControlName="email"
+      [class]="{ 'ng-invalid ng-dirty': !loginForm.controls.email.valid }"
+    ></app-global-input>
+
+    @if(loginForm.controls['email'].invalid &&
+    loginForm.controls['email'].touched ){
+    @if(loginForm.get('email')?.errors?.['required']){
+    <app-error [errorMessages]="['email is required']"></app-error>
+    } @if(loginForm.get('email')?.errors?.['email']){
+    <app-error [errorMessages]="['email not valid']"></app-error>
+    } }
+    <span class="input-label">Password</span>
+    <app-global-input
+      [labelText]="'********'"
+      formControlName="password"
+      [class]="{ 'ng-invalid ng-dirty': !loginForm.controls.email.valid }"
+    ></app-global-input>
+    <!-- <p-password
+    [class]="{ 'ng-invalid ng-dirty': !loginForm.controls.password.valid }"
+    class="w-full mb-3"
+    inputStyleClass="w-full"
+    [toggleMask]="true"
+    placeholder="password"
+    [feedback]="false"
+    formControlName="password"
+  /> -->
+    @if(loginForm.controls['password'].invalid &&
+    loginForm.controls['password'].touched ){
+    @if(loginForm.get('password')?.errors?.['required']){
+    <app-error [errorMessages]="['password is required']"></app-error>
+    } @if(loginForm.get('password')?.errors?.['pattern']){
+    <app-error
+      [errorMessages]="[
+        'password length should be at min 6 chars . With upper case letter and a number at least with special character'
+      ]"
+    ></app-error>
+    } }
+    <a
+      [routerLink]="['/auth/forget-password']"
+      routerLinkActive="router-link-active"
+      class="w-full mb-3"
+      >Forgot your password?</a
+    >
+
+    <!-- <p-button
+    class="w-full block my-3"
+    [style]="{ width: '100%' }"
+    type="submit"
+    label="Sign in"
+    [rounded]="true"
+    [disabled]="loginForm.invalid"
+  /> -->
+    <!-- <button  [disabled]="loginForm.invalid" class="btn-start text-white-alpha-90 py-3" type="submit"  >Sign in</button> -->
+
+    <app-primary-btn
+      class="mb-3"
+      [labelName]="'Login'"
+      [displayIcon]="false"
+      [widthFull]="true"
+    ></app-primary-btn>
+    <div class="line"></div>
+    <p class="text-center text-sm">
+      Don’t have an account yet?
+      <a [routerLink]="['/auth/signup']">Create one now!</a>
+    </p>
+
+    @if(backendError){
+    <app-error [errorMessages]="[backendError]"></app-error>
+    }
+  </div>
+</form>
