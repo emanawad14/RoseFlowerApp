@@ -4,7 +4,10 @@ import { Observable } from 'rxjs';
 import { ProductResponse } from '../../features/interfaces/products';
 import { environment } from '../environments/enviroment';
 import { ProductDetailEndpoints } from '../../features/pages/product-details/enum/product-detail.endpoints';
-import { ProductDetailsDTO } from '../../features/pages/product-details/interfaces/product.interface';
+import {
+  ProductDetailsDTO,
+  RelatedProductsDTO,
+} from '../../features/pages/product-details/interfaces/product.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -27,6 +30,12 @@ export class ProductService {
   getProductById(_id: string): Observable<ProductDetailsDTO> {
     return this._httpClient.get<ProductDetailsDTO>(
       `${environment.baseUrl}${ProductDetailEndpoints.GET_PRODUCT_BY_ID}/${_id}`
+    );
+  }
+
+  getRelatedProductsById(_id: string): Observable<RelatedProductsDTO> {
+    return this._httpClient.get<RelatedProductsDTO>(
+      `${environment.baseUrl}${ProductDetailEndpoints.GET_RELATED_PRODUCTS_BY_ID}/${_id}`
     );
   }
 }
