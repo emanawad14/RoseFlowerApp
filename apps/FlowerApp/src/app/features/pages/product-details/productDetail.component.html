@@ -152,4 +152,9 @@
     height="90%"
   />
 </p-dialog>
-<app-product-review/>
+<app-product-review />
+@defer (on viewport) {
+<app-related-products [products]="relatedProducts"></app-related-products>
+} @placeholder {
+<div>related-products placeholder</div>
+}
