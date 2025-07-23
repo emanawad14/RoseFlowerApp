@@ -15,8 +15,9 @@ import { ErrorComponent } from '../../../shared/components/ui/error/error.compon
 import { AuthApiService } from '../../../shared/auth/auth-api.service';
 import { TokenService } from '../../services/token.service';
 import { LoginDTO } from '../../../shared/auth/interfaces/login.dto';
-import { PrimaryBtnComponent } from "../../../shared/components/ui/primary-btn.component";
-import { GlobalInputComponent } from "../../../shared/components/ui/globalInput.component";
+import { PrimaryBtnComponent } from '../../../shared/components/ui/primary-btn.component';
+import { GlobalInputComponent } from '../../../shared/components/ui/globalInput.component';
+import { AuthService } from '../../../shared/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -42,7 +43,8 @@ export class LoginComponent {
   constructor(
     private _authApiService: AuthApiService,
     private _tokenService: TokenService,
-    private _router: Router
+    private _router: Router,
+    private _AuthService:AuthService
   ) {}
   backendError: string | undefined | null = '';
   loginForm = new FormGroup({
@@ -63,6 +65,7 @@ export class LoginComponent {
           console.log(res);
           if (res.message == 'success') {
             this._tokenService.setToken(res.token);
+            this._AuthService.setUser(res.user)
             this._router.navigate(['/home']);
           } else {
             this.backendError = res.error?.message;

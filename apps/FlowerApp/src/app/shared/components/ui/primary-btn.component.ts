@@ -12,8 +12,7 @@ export class PrimaryBtnComponent {
   @Input({ required: true }) labelName!: string;
   @Input({ required: false }) displayIcon = true;
   @Input({ required: false }) widthFull = false;
-  @Input() type: 'button' | 'submit' = 'button'; // النوع الافتراضي button
-  @Output() btnClick = new EventEmitter();
+  @Input() type: 'button' | 'submit' = 'button'; 
   constructor(public translate: TranslateService) {}
 
 
