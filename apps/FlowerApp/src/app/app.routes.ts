@@ -2,20 +2,13 @@ import { Route } from '@angular/router';
 import { MainLayoutComponent } from './shared/components/ui/main-layout.component';
 
 export const appRoutes: Route[] = [
-  // {
-  //   path: '',
-  //   redirectTo: 'home',
-  //   pathMatch: 'full',
-
-  //   loadComponent: () =>
-  //     import('./shared/components/ui/main-layout.component').then(
-  //       (c) => c.MainLayoutComponent
-  //     ),
-  //   children: [],
-  // },
   {
     path: '',
-    component: MainLayoutComponent, // has <app-nav-bar> and <app-footer>
+    // component: MainLayoutComponent, // has <app-nav-bar> and <app-footer>
+    loadComponent: () =>
+      import('./shared/components/ui/main-layout.component').then(
+        (c) => c.MainLayoutComponent
+      ),
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' }, // default route
       {

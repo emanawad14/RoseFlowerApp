@@ -4,14 +4,14 @@ export interface LoginResponseDTO {
   message: string;
   token: string;
   user: UserDTO;
-  error: ErrorResponseDTO | null;
+  error?: string  ;
 }
 
 export interface LoginAdapterRes {
   message: string;
   token: string;
   user: UserDTO;
-  error: ErrorResponseDTO | null;
+  error?: string ;
 }
 export interface UserDTO {
   _id: string;

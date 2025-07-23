@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@angular/core';
 import { AuthApiInterface } from './base/authApi';
-import { catchError, map, Observable, of } from 'rxjs';
+import { catchError, map, Observable, of, throwError } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { AuthEndPoints } from './enums/AuthApi.endpoint';
 import { AuthLoginApiAdapter } from './adapter/auth-login-api-adapter.service';
@@ -21,6 +21,7 @@ import { ResetPasswordAdapter } from './adapter/reset-password.service';
 import { LogoutAdapterRes } from './interfaces/logoutRes.dto';
 import { LogoutAdapter } from './adapter/logout.service';
 import { BASEURL } from './base-url-injection';
+import { ErrorMessage } from './interfaces/error.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -44,8 +45,9 @@ export class AuthApiService implements AuthApiInterface {
     return this._httpClient
       .post(this.getFullEndPointUrl(AuthEndPoints.LOGIN), data)
       .pipe(
-        map((res: any) => this._authLoginApiAdapter.adapt(res)),
-        catchError((err) => of(err))
+        map((res: any) => this._authLoginApiAdapter.adapt(res))
+        // catchError((err) => of(err))
+        //catchError((err: ErrorMessage) => throwError(() => err))
       );
   }
   register(data: RegisterDTO): Observable<RegisterAdapterRes> {

@@ -18,6 +18,8 @@ import { LoginDTO } from '../../../shared/auth/interfaces/login.dto';
 import { PrimaryBtnComponent } from '../../../shared/components/ui/primary-btn.component';
 import { GlobalInputComponent } from '../../../shared/components/ui/globalInput.component';
 import { AuthService } from '../../../shared/services/auth.service';
+import { ErrorResponseDTO } from '../product-list/interfaces/error';
+import { ErrorMessage } from '../../../shared/auth/interfaces/error.interface';
 
 @Component({
   selector: 'app-login',
@@ -32,8 +34,8 @@ import { AuthService } from '../../../shared/services/auth.service';
     RouterModule,
     PrimaryBtnComponent,
     GlobalInputComponent,
-    PrimaryBtnComponent
-],
+    PrimaryBtnComponent,
+  ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
@@ -44,9 +46,9 @@ export class LoginComponent {
     private _authApiService: AuthApiService,
     private _tokenService: TokenService,
     private _router: Router,
-    private _AuthService:AuthService
+    private _AuthService: AuthService
   ) {}
-  backendError: string | undefined | null = '';
+  backendError: string='';
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [
@@ -62,15 +64,21 @@ export class LoginComponent {
       .pipe(takeUntil(this.destroy$))
       .subscribe({
         next: (res) => {
-          console.log(res);
+          console.log(res.error);
           if (res.message == 'success') {
             this._tokenService.setToken(res.token);
-            this._AuthService.setUser(res.user)
+            this._AuthService.setUser(res.user);
             this._router.navigate(['/home']);
-          } else {
-            this.backendError = res.error?.message;
-          }
+          } 
+          // else {
+          //   this.backendError?.push(res.error!);
+          // }
         },
+        error:(err)=>{
+          console.log(err.error['error']);
+          
+          this.backendError=err.error['error'];
+        }
       });
     console.warn(this.loginForm.value);
   }
