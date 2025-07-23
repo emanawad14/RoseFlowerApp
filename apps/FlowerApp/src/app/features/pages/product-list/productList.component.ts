@@ -48,7 +48,6 @@ import { FilteredObject } from './interfaces/filtered-object';
     SliderModule,
     TranslatePipe,
     SharedProductsComponent,
-
     PrimaryBtnComponent,
     GlobalCkeckboxGroupComponent,
   ],

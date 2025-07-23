@@ -1,4 +1,3 @@
-import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Adapter } from '../interfaces/adapter';
 import { LoginAdapterRes, LoginResponseDTO } from '../interfaces/loginRes.dto';
@@ -7,7 +6,6 @@ import { LoginAdapterRes, LoginResponseDTO } from '../interfaces/loginRes.dto';
   providedIn: 'root',
 })
 export class AuthLoginApiAdapter implements Adapter {
-  constructor() {}
   adapt(data: LoginResponseDTO): LoginAdapterRes {
     return {
       message: data.message,

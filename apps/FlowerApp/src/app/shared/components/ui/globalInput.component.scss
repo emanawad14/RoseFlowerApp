@@ -1,18 +1,26 @@
 input {
-  background: var(--bg-zink);
+  background: #52525B !important;
   text-transform: capitalize;
-  border-radius: 20px;
-  border-color: none;
-  color: var(--text-gray);
-  box-shadow: 0px 0px 4px 0px var(--shadow-color) !important;
-  /* Search By the name */
+  border-radius: 10px !important;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
+  outline: none !important;
+  border: none !important;
+  padding: 15px !important;
+  color: #fff;
 }
 
-.p-inputtext:enabled:focus,
-.p-inputtext {
-  border: none;
+input:focus {
+  background: #52525B !important;
 }
+
+input::placeholder {
+  color: #A1A1AA;
+}
+
+// .p-inputtext:enabled:focus {
+//   border: none;
+//   background: #52525B !important;
+// }

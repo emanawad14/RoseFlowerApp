@@ -30,12 +30,13 @@ import { GlobalInputComponent } from "../../../shared/components/ui/globalInput.
     ErrorComponent,
     RouterModule,
     PrimaryBtnComponent,
-    GlobalInputComponent
+    GlobalInputComponent,
+    PrimaryBtnComponent
 ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   private destroy$ = new Subject<void>();
 
   constructor(
@@ -53,7 +54,6 @@ export class LoginComponent implements OnInit {
       ),
     ]),
   });
-  ngOnInit(): void {}
   onSubmit() {
     this._authApiService
       .login(this.loginForm.value as LoginDTO)

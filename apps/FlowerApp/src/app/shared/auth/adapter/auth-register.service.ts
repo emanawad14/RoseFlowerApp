@@ -9,7 +9,6 @@ import {
   providedIn: 'root',
 })
 export class AuthRegisterAdapterer implements Adapter {
-  constructor() {}
 
   adapt(data: RegisterResponseDTO): RegisterAdapterRes {
     return {

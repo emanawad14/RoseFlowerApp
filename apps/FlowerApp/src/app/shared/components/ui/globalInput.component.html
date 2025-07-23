@@ -1,9 +1,15 @@
-<input
-  pInputText
-  type="text"
-  [placeholder]="labelText"
-  class="border-round-3xl py-3 px-4 w-full"
-  (input)="handleInputChange($event)"
-  [value]="value"
-/>
-<!-- [formControlName]="formControlName" -->
+<div class="input-wrapper">
+  <label [for]="id">
+    {{labelText}}
+  </label>
+  <input
+    [id]="id"
+    [type]="type"
+    class="border-round-3xl w-full"
+    [placeholder]="placeholder"
+    [disabled]="isDisabled"
+    [value]="value"
+    (input)="handleInput($event)"
+    (blur)="onTouched()"
+  />
+</div>
