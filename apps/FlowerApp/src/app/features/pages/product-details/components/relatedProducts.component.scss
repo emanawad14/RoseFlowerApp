@@ -1,0 +1,28 @@
+::ng-deep .owl-nav {
+  position: absolute;
+  top: 30%;
+  left: 0%;
+  width: 100%;
+  display: flex !important;
+  justify-content: space-between;
+  padding: 0 -2px;
+  z-index: 10;
+}
+
+::ng-deep .owl-theme .owl-nav [class*='owl-'] {
+  background: none !important;
+  margin: 0px !important;
+}
+
+::ng-deep .owl-nav i {
+  background-color: var(--bg-icon) !important;
+  border: none !important;
+  width: 38px;
+  height: 38px;
+  border-radius: 19px;
+  padding: 7px 12.12px 8px 12.12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white-color);
+}
