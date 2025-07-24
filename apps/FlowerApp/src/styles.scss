@@ -20,8 +20,12 @@
   --p-slider-handle-focus-ring-color: transparent !important;
   --p-slider-range-background: var(--primary-color) !important;
   --p-slider-handle-hover-background: var(--primary-color) !important;
+  --p-menu-background: var(--home-bg) !important;
+  --p-menu-border-color: var(--home-bg) !important;
 }
 [data-theme='light'] {
+  --maroon-700: #741c21;
+  --zink-700: #3f3f46;
   --nav-text-color: #ffc2d0;
   --icon-sm: #ffff;
   --bg-icon-hover: #e6507380;
@@ -70,6 +74,8 @@
 }
 
 [data-theme='dark'] {
+  --maroon-700: #ffa3b9;
+  --zink-700: #fafafa;
   --icon-sm: #cd2e33;
   --bg-icon-hover: #ffff;
   --bg-icon: #cd2e33;
@@ -101,11 +107,11 @@
   --bg-dark: #18181b;
   --bg-zink: #27272a;
   --text-title: #fafafa;
-  // --text-title: #ffa3b9;
+  //--text-title: #ffa3b9;
   // --link-color: #a1a1aa;
   --shadow-color: #00000026;
   --border-color: #a1a1aa;
-   --line-color: #3f3f46;
+  --line-color: #3f3f46;
   --p-color: #a1a1aa;
   --text-zink-500: #71717a;
   --blue-600: #50a2ff;
@@ -164,6 +170,15 @@ Sarabun-SemiBold.ttf .pink-text {
   text-transform: uppercase;
   color: var(--primary-span);
 }
+.input-label {
+  font-family: 'Inter';
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: var(--text-zink);
+}
 
 .heading3 {
   font-family: 'Inter';
@@ -190,6 +205,10 @@ h4 {
   align-items: center;
   /* color/Violet */
   color: var(--secondary-color);
+}
+a {
+  text-decoration: none;
+  cursor: pointer;
 }
 .paragraph-text {
   /* Title/Semantic/Link */

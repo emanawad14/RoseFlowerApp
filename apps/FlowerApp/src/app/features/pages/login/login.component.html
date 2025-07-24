@@ -1,0 +1,74 @@
+<form
+  [formGroup]="loginForm"
+  (ngSubmit)="onSubmit()"
+  class="flex flex-column gap-3"
+>
+  <h3 class="text-center">Welcome back!</h3>
+  <div class="line"></div>
+
+  <!-- Email Input -->
+  <label for="email" class="input-label">Email</label>
+  <app-global-input
+    id="email"
+    type="email"
+    placeholder="user@example.com"
+    formControlName="email"
+    [class.ng-invalid]="
+      loginForm.controls['email'].invalid && loginForm.controls['email'].touched
+    "
+  ></app-global-input>
+
+  <!-- Email Errors -->
+  <app-field-error
+    [control]="loginForm.get('email')"
+    [fieldName]="'email'"
+  ></app-field-error>
+
+  <!-- Password Input -->
+  <label for="password" class="input-label">Password</label>
+  <app-global-input
+    id="password"
+    type="password"
+    placeholder="********"
+    formControlName="password"
+    [class.ng-invalid]="
+      loginForm.controls['password'].invalid &&
+      loginForm.controls['password'].touched
+    "
+  ></app-global-input>
+
+  <!-- Password Errors -->
+  <app-field-error
+    [control]="loginForm.get('password')"
+    [fieldName]="'password'"
+  ></app-field-error>
+
+  <!-- Forgot Password Link -->
+  <a [routerLink]="['/auth/forget-password']" class="w-full mb-3 text-sm text-right">
+    Forgot your password?
+  </a>
+
+  <!-- Submit Button -->
+  <app-primary-btn
+    [disabled]="loginForm.invalid"
+    type="submit"
+    class="mb-3"
+    [labelName]="'Login'"
+    [displayIcon]="false"
+    [widthFull]="true"
+  ></app-primary-btn>
+
+  <!-- Divider -->
+  <div class="line"></div>
+
+  <!-- Sign up redirect -->
+  <p class="text-center text-sm">
+    Don't have an account yet?
+    <a [routerLink]="['/auth/signup']">Create one now!</a>
+  </p>
+
+  <!-- Backend Error -->
+  @if (backendError.length>0) {
+  <app-error [errorMessages]="[backendError]"></app-error>
+  }
+</form>

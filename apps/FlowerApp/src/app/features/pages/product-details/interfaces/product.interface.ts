@@ -9,10 +9,3 @@ export interface ProductImage {
   cover?: string;
   images?: string[];
 }
-
-
-export interface RelatedProductsDTO {
-  message: string;
-  count: number;
-  relatedProducts:Product[];
-}

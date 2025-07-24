@@ -1,28 +1,31 @@
-import { Component, forwardRef, Input, Output } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { InputTextModule } from 'primeng/inputtext';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
+import { Component, forwardRef, Input } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'app-global-input',
-  imports: [CommonModule, InputTextModule, ReactiveFormsModule],
   templateUrl: './globalInput.component.html',
-  styleUrl: './globalInput.component.scss',
-   providers: [
+  styleUrls: ['./globalInput.component.scss'],
+  providers: [
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => GlobalInputComponent),
       multi: true,
     },
   ],
+  standalone: true,
 })
 export class GlobalInputComponent implements ControlValueAccessor {
-  @Input({ required: true }) labelText: string = '';
-  //@Input({ required: true }) formControlName: string = '';
+  @Input() id = '';
+  @Input() type = 'text';
+  @Input() placeholder = '';
+  @Input() labelText = '';
+  isPasswordVisible = false;
+  value = '';
+  isDisabled = false;
 
-  value: string = '';
-  onChange: (_: any) => void = () => {};
-  onTouched: () => void = () => {};
+  onChange = (val: string) => void 0;
+  onTouched = () => void 0;
+
   writeValue(value: any): void {
     this.value = value ?? '';
   }
@@ -35,14 +38,17 @@ export class GlobalInputComponent implements ControlValueAccessor {
     this.onTouched = fn;
   }
 
-  setDisabledState?(isDisabled: boolean): void {
-   // throw new Error('Method not implemented.');
+  setDisabledState(isDisabled: boolean): void {
+    this.isDisabled = isDisabled;
   }
 
-  // Example event handler
-  handleInputChange(event: Event): void {
-    const newValue = (event.target as HTMLInputElement).value;
-    this.value = newValue;
-    this.onChange(newValue);
+  handleInput(event: Event): void {
+    const inputValue = (event.target as HTMLInputElement).value;
+    this.value = inputValue;
+    this.onChange(inputValue);
+  }
+
+  togglePassword(){
+    this.isPasswordVisible = ! this.isPasswordVisible
   }
 }

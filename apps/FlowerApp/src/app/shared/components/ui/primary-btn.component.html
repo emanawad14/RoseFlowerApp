@@ -1,8 +1,10 @@
 <button
+  [disabled]="disabled"
   pButton
-  type="button"
-  class="p-button h-auto"
+  [type]="type"
+  class="p-button h-auto py-3"
   [class.w-full]="widthFull"
+  (click)="dispatchClick()"
 >
   <ng-content></ng-content>
   <span class="custom-label">{{ labelName }}</span>
@@ -23,7 +25,5 @@
         fill="currentColor"
       />
     </svg>
-    <!-- <img src="\images\arrow-right-svg.svg" alt="" class="text-blue-500" /> -->
   </span>
 </button>
-<!-- class="pi pi-arrow-right " -->

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { TranslateService } from '@ngx-translate/core';
@@ -12,6 +12,13 @@ export class PrimaryBtnComponent {
   @Input({ required: true }) labelName!: string;
   @Input({ required: false }) displayIcon = true;
   @Input({ required: false }) widthFull = false;
-
+  @Input({ required: false }) disabled = false;
+  @Output() btnClicked = new EventEmitter(false);
+  @Input() type: 'button' | 'submit' = 'button';
   constructor(public translate: TranslateService) {}
+
+  dispatchClick() {
+    console.log('clicked');
+    this.btnClicked.emit(true);
+  }
 }
