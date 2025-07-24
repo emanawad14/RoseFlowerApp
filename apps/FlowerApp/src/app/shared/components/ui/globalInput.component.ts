@@ -19,7 +19,7 @@ export class GlobalInputComponent implements ControlValueAccessor {
   @Input() type = 'text';
   @Input() placeholder = '';
   @Input() labelText = '';
-
+  isPasswordVisible = false;
   value = '';
   isDisabled = false;
 
@@ -46,5 +46,9 @@ export class GlobalInputComponent implements ControlValueAccessor {
     const inputValue = (event.target as HTMLInputElement).value;
     this.value = inputValue;
     this.onChange(inputValue);
+  }
+
+  togglePassword(){
+    this.isPasswordVisible = ! this.isPasswordVisible
   }
 }

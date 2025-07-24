@@ -2,14 +2,24 @@
   <label [for]="id" class="input-label">
     {{labelText}}
   </label>
-  <input
-    [id]="id"
-    [type]="type"
-    class="border-round-3xl w-full"
-    [placeholder]="placeholder"
-    [disabled]="isDisabled"
+  <div class="input-container">
+    <input
+    [type]="isPasswordVisible ? 'text' : type"
     [value]="value"
     (input)="handleInput($event)"
     (blur)="onTouched()"
-  />
+    [placeholder]="placeholder"
+    />
+
+    @if (type === 'password') {
+      <img
+      role="button"
+      tabindex="0"
+      (click)="togglePassword()"
+      (keydown.enter)="togglePassword()"
+      [src]="isPasswordVisible ? 'images/auth/eye-slash-icon.svg' : 'images/auth/eye-icon.svg'"
+      alt="Toggle password visibility"
+      />
+    }
+  </div>
 </div>
