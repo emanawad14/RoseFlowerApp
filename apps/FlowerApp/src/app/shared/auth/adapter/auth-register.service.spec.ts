@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { AuthRegisterAdapter } from './auth-register.service';
+import { AuthRegisterAdapterer } from './auth-register.service';
 
 describe('AuthRegisterService', () => {
-  let service: AuthRegisterAdapter;
+  let service: AuthRegisterAdapterer;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(AuthRegisterAdapter);
+    service = TestBed.inject(AuthRegisterAdapterer);
   });
 
   it('should be created', () => {

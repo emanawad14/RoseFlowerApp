@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { AuthEndPoints } from './enums/AuthApi.endpoint';
 import { AuthLoginApiAdapter } from './adapter/auth-login-api-adapter.service';
 import { LoginDTO } from './interfaces/login.dto';
-import { LoginAdapterRes } from './interfaces/loginRes.dto';
+import { LoginAdapterRes, LoginResponseDTO } from './interfaces/loginRes.dto';
 import { RegisterDTO } from './interfaces/register.dto';
 import { RegisterAdapterRes } from './interfaces/registerRes.dto';
 import { AuthRegisterAdapterer } from './adapter/auth-register.service';
@@ -45,7 +45,7 @@ export class AuthApiService implements AuthApiInterface {
     return this._httpClient
       .post(this.getFullEndPointUrl(AuthEndPoints.LOGIN), data)
       .pipe(
-        map((res: any) => this._authLoginApiAdapter.adapt(res))
+        map((res) => this._authLoginApiAdapter.adapt(res as LoginResponseDTO))
         // catchError((err) => of(err))
         //catchError((err: ErrorMessage) => throwError(() => err))
       );
