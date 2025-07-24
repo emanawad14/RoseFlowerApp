@@ -13,11 +13,12 @@ export class PrimaryBtnComponent {
   @Input({ required: false }) displayIcon = true;
   @Input({ required: false }) widthFull = false;
   @Input({ required: false }) disabled = false;
-
+  @Output() btnClicked = new EventEmitter(false);
   @Input() type: 'button' | 'submit' = 'button';
   constructor(public translate: TranslateService) {}
 
-  // dispatchClick(){
-  //   console.log('object')
-  // }
+  dispatchClick() {
+    console.log('clicked');
+    this.btnClicked.emit(true);
+  }
 }

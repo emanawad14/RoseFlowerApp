@@ -19,6 +19,7 @@ import { PrimaryBtnComponent } from '../../../shared/components/ui/primary-btn.c
 import { GlobalInputComponent } from '../../../shared/components/ui/globalInput.component';
 import { AuthService } from '../../../shared/services/auth.service';
 import { LoginDTO } from 'auth-api/src/lib/auth-api/interfaces/login.dto';
+import { FieldErrorComponent } from "../../../shared/components/business/fieldError/field-error.component";
 
 @Component({
   selector: 'app-login',
@@ -34,7 +35,8 @@ import { LoginDTO } from 'auth-api/src/lib/auth-api/interfaces/login.dto';
     PrimaryBtnComponent,
     GlobalInputComponent,
     PrimaryBtnComponent,
-  ],
+    FieldErrorComponent
+],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
