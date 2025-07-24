@@ -1,3 +1,4 @@
+ import { AuthApiService } from '@rose-flower/auth-api';
 import { InputTextModule } from 'primeng/inputtext';
 import { Component, OnInit } from '@angular/core';
 import {
@@ -13,12 +14,11 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { ErrorComponent } from '../../../shared/components/ui/error/error.component';
-import { AuthApiService } from '../../../shared/auth/auth-api.service';
 import { TokenService } from '../../services/token.service';
-import { LoginDTO } from '../../../shared/auth/interfaces/login.dto';
 import { PrimaryBtnComponent } from '../../../shared/components/ui/primary-btn.component';
 import { GlobalInputComponent } from '../../../shared/components/ui/globalInput.component';
 import { AuthService } from '../../../shared/services/auth.service';
+import { LoginDTO } from 'auth-api/src/lib/auth-api/interfaces/login.dto';
 
 @Component({
   selector: 'app-login',

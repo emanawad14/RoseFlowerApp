@@ -1,6 +1,6 @@
 import { Injectable, signal } from '@angular/core';
-import { UserDTO } from '../auth/interfaces/loginRes.dto';
-import { CookiesService } from '../../core/services/cookies.service';
+ import { CookiesService } from '../../core/services/cookies.service';
+import { UserDTO } from 'auth-api/src/lib/auth-api/interfaces/loginRes.dto';
 
 @Injectable({
   providedIn: 'root',
