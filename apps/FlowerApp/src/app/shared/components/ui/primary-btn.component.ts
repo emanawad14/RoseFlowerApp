@@ -12,11 +12,12 @@ export class PrimaryBtnComponent {
   @Input({ required: true }) labelName!: string;
   @Input({ required: false }) displayIcon = true;
   @Input({ required: false }) widthFull = false;
-  @Input() type: 'button' | 'submit' = 'button'; 
+  @Input({ required: false }) disabled = false;
+
+  @Input() type: 'button' | 'submit' = 'button';
   constructor(public translate: TranslateService) {}
 
-
-  dispatchClick(){
-    console.log('object')
-  }
+  // dispatchClick(){
+  //   console.log('object')
+  // }
 }

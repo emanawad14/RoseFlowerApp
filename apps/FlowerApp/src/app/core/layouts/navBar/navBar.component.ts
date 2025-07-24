@@ -1,5 +1,5 @@
 import { ThemeService } from './../../services/theme-service.service';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, signal, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
@@ -33,7 +33,8 @@ import { MenubarModule } from 'primeng/menubar';
   styleUrl: './navBar.component.scss',
 })
 export class NavBarComponent implements OnInit {
-  userDate?: UserDTO;
+  userData = signal<UserDTO | null>(null);
+
   langClick = false;
   darkMode = false;
   userItems: MenuItem[] | undefined;
@@ -89,7 +90,7 @@ export class NavBarComponent implements OnInit {
   setUserMenueItems() {
     this.userItems = [
       {
-        label: `${this.userDate?.firstName}${this.userDate?.lastName}`,
+        label: `${this.userData()?.firstName}${this.userData()?.lastName}`,
 
         items: [
           {
@@ -146,8 +147,8 @@ export class NavBarComponent implements OnInit {
   }
 
   getUserData() {
-    this.userDate = this._AuthService.getUser();
-    console.log(this.userDate);
+    this.userData.set(this._AuthService.getUser());
+    console.log(this.userData());
   }
   toggleDarkMode() {
     this._themeService.toggleTheme();

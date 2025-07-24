@@ -1,12 +1,5 @@
-import {
-  Component,
-  forwardRef,
-  Input
-} from '@angular/core';
-import {
-  ControlValueAccessor,
-  NG_VALUE_ACCESSOR
-} from '@angular/forms';
+import { Component, forwardRef, Input } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'app-global-input',
@@ -31,7 +24,7 @@ export class GlobalInputComponent implements ControlValueAccessor {
   isDisabled = false;
 
   onChange = (val: string) => void 0;
-  onTouched = () => void 0;;
+  onTouched = () => void 0;
 
   writeValue(value: any): void {
     this.value = value ?? '';

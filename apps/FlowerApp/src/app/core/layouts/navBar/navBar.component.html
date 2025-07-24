@@ -12,7 +12,7 @@
 
   <!-- Icons - Always Visible -->
   <div class="nav__Icons flex align-items-center">
-    @if(userDate!=undefined){
+    @if(userData() ){
     <p-menu
       #menu
       [model]="userItems"
@@ -25,7 +25,7 @@
     >
       <div class="flex flex-column">
         <span>Hello</span>
-        <h3 class="mt-1 mx-1">{{ userDate.firstName }}</h3>
+        <h3 class="mt-1 mx-1">{{ userData()?.firstName }}</h3>
       </div>
 
       <svg

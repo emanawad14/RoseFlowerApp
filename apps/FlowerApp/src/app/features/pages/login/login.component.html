@@ -58,6 +58,7 @@
 
   <!-- Submit Button -->
   <app-primary-btn
+    [disabled]="loginForm.invalid"
     type="submit"
     class="mb-3"
     [labelName]="'Login'"
