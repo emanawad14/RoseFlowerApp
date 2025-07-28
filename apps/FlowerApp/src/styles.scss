@@ -24,6 +24,7 @@
   --p-menu-border-color: var(--home-bg) !important;
 }
 [data-theme='light'] {
+  --zinc-50: #fafafa;
   --maroon-700: #741c21;
   --zink-700: #3f3f46;
   --nav-text-color: #ffc2d0;
@@ -74,6 +75,8 @@
 }
 
 [data-theme='dark'] {
+  --nav-text-color: #501419;
+  --zinc-50: #27272a;
   --maroon-700: #ffa3b9;
   --zink-700: #fafafa;
   --icon-sm: #cd2e33;
@@ -270,6 +273,23 @@ a {
 }
 .text-primary-color {
   color: var(--primary-color) !important;
+  // text-decoration: underline !important;
+}
+// .nav-active{
+//   color: var(--nav-text-color) !important;
+// }
+.nav-active {
+   color: var(--nav-text-color) !important;
+  display: inline-block;
+  &::after {
+    content: '';
+    position: absolute; // absolute inside the h2
+    bottom: -0.9rem; // move it just below the text
+    inset-inline-start: 0; // align to the left edge
+    width: 100%; // how long the line is
+    height: 2px; // thickness
+    background-color: var(--nav-text-color);
+  }
 }
 .bg-bag-color {
   background-color: var(--icon-bg) !important;

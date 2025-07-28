@@ -11,7 +11,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { MyTranslateService } from '../../services/my-translate-service.service';
 import { TranslatePipe } from '@ngx-translate/core';
 import { AuthService } from '../../../shared/services/auth.service';
- 
+
 import { MenubarModule } from 'primeng/menubar';
 import { UserDTO } from 'auth-api/src/lib/auth-api/interfaces/loginRes.dto';
 @Component({
@@ -38,6 +38,7 @@ export class NavBarComponent implements OnInit {
   langClick = false;
   darkMode = false;
   userItems: MenuItem[] | undefined;
+
   // @ViewChild('menu') menu!: Menu;
   // menuItems: MenuItem[] = [
   //   {
