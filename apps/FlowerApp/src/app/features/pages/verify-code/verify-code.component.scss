@@ -1,0 +1,25 @@
+form {
+  h3 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 57px;
+    color: var(--black-color);
+  }
+  a {
+    color: var(--black-color);
+  }
+  p {
+    a {
+      /* Primary/Semi-Bold/primary-semibold-sm */
+      font-family: 'Sarabun-Regular';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 100%;
+
+      /* Maroon/maroon-700 */
+      color: var(--maroon-700);
+    }
+  }
+}

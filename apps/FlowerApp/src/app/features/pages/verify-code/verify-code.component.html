@@ -1,0 +1,54 @@
+<form
+  [formGroup]="verifyCodeForm"
+  (ngSubmit)="verifyCode()"
+  class="flex flex-column gap-3"
+>
+  <h3>Enter the OTP Code</h3>
+  <!-- <p>We have sent a 6-digit code to user@example.com Edit</p> -->
+  <div class="line"></div>
+
+  <app-global-input
+    id="verificationCode"
+    type="text"
+    placeholder="Enter Number"
+    formControlName="resetCode"
+    [class.ng-invalid]="
+      verifyCodeForm.controls['resetCode'].invalid &&
+      verifyCodeForm.controls['resetCode'].touched
+    "
+  ></app-global-input>
+
+  <!-- Email Errors -->
+  <app-field-error
+    [control]="verifyCodeForm.get('resetCode')"
+    [fieldName]="'resetCode'"
+  ></app-field-error>
+
+  <!-- Forgot Password Link -->
+  <a [routerLink]="['/auth/forget-password']" class="w-full mb-3 text-right">
+    Send a new code
+  </a>
+
+  <!-- Submit Button -->
+  <app-primary-btn
+    [disabled]="verifyCodeForm.invalid"
+    type="submit"
+    class="mb-3"
+    [labelName]="'Verify OTP'"
+    [displayIcon]="false"
+    [widthFull]="true"
+  ></app-primary-btn>
+
+  <!-- Divider -->
+  <div class="line"></div>
+
+  <p class="text-center text-sm">
+    Need help?
+    <a [routerLink]="['/auth/signup']">Contact us</a>
+  </p>
+
+  <!-- Backend Error -->
+  @if (backendError.length>0) {
+  <app-error [errorMessages]="[backendError]"></app-error>
+  }
+</form>

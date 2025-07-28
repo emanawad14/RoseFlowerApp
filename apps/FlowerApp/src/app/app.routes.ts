@@ -56,13 +56,13 @@ export const appRoutes: Route[] = [
       //       (e) => e.RegisterComponent
       //     ),
       // },
-      // {
-      //   path: 'forget-password',
-      //   loadComponent: () =>
-      //     import('./core/pages/forget-password/forget-password.component').then(
-      //       (e) => e.ForgetPasswordComponent
-      //     ),
-      // },
+      {
+        path: 'forget-password',
+        loadComponent: () =>
+          import(
+            './features/pages/forget-password/forget-password.component'
+          ).then((e) => e.ForgetPasswordComponent),
+      },
       // {
       //   path: 'verify-code',
       //   loadComponent: () =>

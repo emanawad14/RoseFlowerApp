@@ -1,4 +1,4 @@
- import { AuthApiService } from '@rose-flower/auth-api';
+import { AuthApiService } from '@rose-flower/auth-api';
 import { InputTextModule } from 'primeng/inputtext';
 import { Component, OnInit } from '@angular/core';
 import {
@@ -11,7 +11,7 @@ import {
 import { PasswordModule } from 'primeng/password';
 import { ButtonModule } from 'primeng/button';
 import { CommonModule } from '@angular/common';
-import { Router, RouterModule } from '@angular/router';
+import { Router, RouterLink, RouterModule } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { ErrorComponent } from '../../../shared/components/ui/error/error.component';
 import { TokenService } from '../../services/token.service';
@@ -19,7 +19,7 @@ import { PrimaryBtnComponent } from '../../../shared/components/ui/primary-btn.c
 import { GlobalInputComponent } from '../../../shared/components/ui/globalInput.component';
 import { AuthService } from '../../../shared/services/auth.service';
 import { LoginDTO } from 'auth-api/src/lib/auth-api/interfaces/login.dto';
-import { FieldErrorComponent } from "../../../shared/components/business/fieldError/field-error.component";
+import { FieldErrorComponent } from '../../../shared/components/business/fieldError/field-error.component';
 
 @Component({
   selector: 'app-login',
@@ -35,8 +35,9 @@ import { FieldErrorComponent } from "../../../shared/components/business/fieldEr
     PrimaryBtnComponent,
     GlobalInputComponent,
     PrimaryBtnComponent,
-    FieldErrorComponent
-],
+    FieldErrorComponent,
+    RouterLink,
+  ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
