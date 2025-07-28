@@ -14,6 +14,7 @@ import { AuthService } from '../../../shared/services/auth.service';
 
 import { MenubarModule } from 'primeng/menubar';
 import { UserDTO } from 'auth-api/src/lib/auth-api/interfaces/loginRes.dto';
+import { GlobalInputComponent } from "../../../shared/components/ui/globalInput.component";
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
@@ -28,7 +29,8 @@ import { UserDTO } from 'auth-api/src/lib/auth-api/interfaces/loginRes.dto';
     InputTextModule,
     TranslatePipe,
     MenubarModule,
-  ],
+    GlobalInputComponent
+],
   templateUrl: './navBar.component.html',
   styleUrl: './navBar.component.scss',
 })

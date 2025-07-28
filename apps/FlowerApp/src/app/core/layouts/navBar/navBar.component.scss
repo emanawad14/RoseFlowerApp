@@ -4,7 +4,7 @@
     font-family: 'Sarabun-Regular';
     font-style: normal;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 0.5rem;
     line-height: 100%;
     /* Zinc/zinc-500 */
     color: var(--text-p);
@@ -14,7 +14,7 @@
     font-family: 'Sarabun-Regular';
     font-style: normal;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 0.9em;
     line-height: 100%;
     color: var(--maroon-700);
     inset-inline-start: 10px;
@@ -60,7 +60,24 @@ nav {
   overflow: visible;
   .nav__Icons {
     button {
-      color: var(--primary-color);
+      color: var(--black-color);
+    }
+  }
+  svg {
+    color: var(--maroon-700);
+  }
+  .location {
+    font-family: 'Sarabun-Regular';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.7em;
+    line-height: 100%;
+
+    /* Zinc/zinc-500 */
+    color: var(--text-p);
+
+    span {
+      color: var(--maroon-700);
     }
   }
 }
@@ -107,10 +124,6 @@ a:hover,
     color: var(--primary-color);
   }
 
-  .p-badge {
-    background: var(--primary-color);
-  }
-
   // Make sure wishlist button has relative positioning
   .p-button.p-button-text:has(.Wishlist-num) {
     position: relative;
@@ -119,17 +132,19 @@ a:hover,
 
 /* Custom badge styling */
 :host ::ng-deep .p-badge {
-  background-color: var(--primary-color) !important;
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-badge) !important;
   color: #ffffff !important;
   border-radius: 50%;
-  width: 1.2rem;
-  height: 1.2rem;
+  width: 1rem;
+  height: 1rem;
   line-height: 1.2rem;
   font-size: 0.6rem;
   z-index: 1000;
-  position: absolute;
-  top: -9px !important;
-  right: -1px !important;
+  // position: absolute;
+  // top: -9px !important;
+  // right: -1px !important;
 }
 
 .btn-dark-mode {

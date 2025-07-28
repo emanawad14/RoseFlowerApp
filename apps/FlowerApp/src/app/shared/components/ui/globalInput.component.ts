@@ -19,6 +19,7 @@ export class GlobalInputComponent implements ControlValueAccessor {
   @Input() type = 'text';
   @Input() placeholder = '';
   @Input() labelText = '';
+  @Input() search=false;
   isPasswordVisible = false;
   value = '';
   isDisabled = false;

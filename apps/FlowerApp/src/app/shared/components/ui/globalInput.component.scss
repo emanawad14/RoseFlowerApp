@@ -1,9 +1,9 @@
 .input-container {
   position: relative;
-  margin-top: 20px;
+  // margin-top: 20px;
   input {
     width: 100%;
-    background: #52525B !important;
+    background: #52525b !important;
     text-transform: capitalize;
     border-radius: 10px !important;
     font-family: 'Inter';
@@ -12,23 +12,33 @@
     font-size: 12px;
     outline: none !important;
     border: none !important;
-    padding: 15px !important;
+    padding:15px 25px !important;
+
     color: #fff;
     &::placeholder {
-      color: #A1A1AA;
+      //inset-inline-start: 15px;
+      color: #a1a1aa;
     }
     &:focus {
-      background: #52525B !important;
+      background: #52525b !important;
     }
   }
   img {
     width: 15px;
     position: absolute;
     top: 50%;
-    right: 15px;
+    //right: 15px;
+    inset-inline-end: 15px;
     width: 25px;
     transform: translateY(-50%);
     cursor: pointer;
   }
+  svg {
+    position: absolute;
+    top: 50%;
+    inset-inline-start: 0;
+    transform: translateY(-50%);
+    // margin-inline-end: 20px;
+     margin: 0 5px;
+  }
 }
-

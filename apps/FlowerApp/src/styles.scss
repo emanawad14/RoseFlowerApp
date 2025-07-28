@@ -24,6 +24,7 @@
   --p-menu-border-color: var(--home-bg) !important;
 }
 [data-theme='light'] {
+  --bg-badge: #dc2626;
   --zinc-50: #fafafa;
   --maroon-700: #741c21;
   --zink-700: #3f3f46;
@@ -75,6 +76,7 @@
 }
 
 [data-theme='dark'] {
+  --bg-badge: #ef4444;
   --nav-text-color: #501419;
   --zinc-50: #27272a;
   --maroon-700: #ffa3b9;
@@ -279,7 +281,7 @@ a {
 //   color: var(--nav-text-color) !important;
 // }
 .nav-active {
-   color: var(--nav-text-color) !important;
+  color: var(--nav-text-color) !important;
   display: inline-block;
   &::after {
     content: '';
