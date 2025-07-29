@@ -22,6 +22,7 @@
   --p-slider-handle-hover-background: var(--primary-color) !important;
   --p-menu-background: var(--home-bg) !important;
   --p-menu-border-color: var(--home-bg) !important;
+  --p-menu-item-focus-background: none !important;
 }
 [data-theme='light'] {
   --bg-badge: #dc2626;
@@ -280,19 +281,7 @@ a {
 // .nav-active{
 //   color: var(--nav-text-color) !important;
 // }
-.nav-active {
-  color: var(--nav-text-color) !important;
-  display: inline-block;
-  &::after {
-    content: '';
-    position: absolute; // absolute inside the h2
-    bottom: -0.9rem; // move it just below the text
-    inset-inline-start: 0; // align to the left edge
-    width: 100%; // how long the line is
-    height: 2px; // thickness
-    background-color: var(--nav-text-color);
-  }
-}
+
 .bg-bag-color {
   background-color: var(--icon-bg) !important;
 }

@@ -1,7 +1,6 @@
 <!-- Main Navigation Bar -->
 <nav
-  class="my-3 mx-3 flex gap-2 flex-row align-items-stretch justify-content-center flex-wrap"
-
+  class="my-3 mx-3 flex gap-2 flex-column md:flex-row align-items-stretch justify-content-center flex-wrap"
 >
   <!-- Logo -->
   <div class="flex align-items-center gap-2">
@@ -44,7 +43,7 @@
   ></app-global-input>
 
   <!-- Icons - Always Visible -->
-  <div class="nav__Icons flex align-items-center   ">
+  <div class="nav__Icons flex align-items-center gap-1">
     @if(userData() ){
     <p-menu
       #menu
@@ -58,7 +57,7 @@
     >
       <div class="flex flex-column">
         <span>Hello</span>
-        <h3 class="mt-1 mx-1">{{ userData()?.firstName }}</h3>
+        <h3 class="mt-1">{{ userData()?.firstName }}</h3>
       </div>
 
       <svg
@@ -98,7 +97,7 @@
       <span class="login"> Login</span>
     </button>
     }
-    <div class="line h-full  "></div>
+    <div class="line h-full"></div>
     <!-- Menu Toggle (Mobile Only) -->
     <!-- <button
           pButton
@@ -120,7 +119,7 @@
     <button pButton class="p-button-text">
       <i class="pi pi-bell" pBadge value="2" badgeSize="small"></i>
     </button>
-
+    <div class="line h-full"></div>
     <button
       pButton
       class="p-button-text btn-dark-mode"
@@ -130,7 +129,7 @@
       <i class="fa-solid fa-sun"></i>
       } @else {<i class="fa-solid fa-moon"></i> }
     </button>
-    <div class="line h-full"></div>
+
     <button
       pButton
       [class.hidden]="currentLanguage('en')"
@@ -154,15 +153,15 @@
 </nav>
 
 <!--   Navigation Links -   -->
-<div class="navigation py-3">
+<div class="navigation">
   <ul
-    class="list-none flex md:gap-5 gap-1 md:justify-content-center text-center"
+    class="list-none flex gap-5 md:justify-content-center align-items-center text-center"
   >
     <li>
       <a
         routerLink="/home"
         routerLinkActive="nav-active "
-        class="no-underline cursor-pointer block"
+        class="no-underline cursor-pointer"
         role="button"
         tabindex="0"
       >
@@ -174,7 +173,7 @@
       <a
         routerLink="/product "
         routerLinkActive="nav-active "
-        class="no-underline cursor-pointer block"
+        class="no-underline cursor-pointer"
         role="button"
         tabindex="0"
       >
@@ -186,7 +185,7 @@
       <a
         routerLink="/product-list"
         routerLinkActive="nav-active "
-        class="no-underline cursor-pointer block"
+        class="no-underline cursor-pointer"
         role="button"
         tabindex="0"
       >
@@ -198,7 +197,7 @@
       <a
         routerLink="/product-listt"
         routerLinkActive="nav-active "
-        class="no-underline cursor-pointer block"
+        class="no-underline cursor-pointer"
         role="button"
         tabindex="0"
       >
@@ -211,7 +210,7 @@
       <a
         routerLink="/about"
         routerLinkActive="nav-active "
-        class="no-underline cursor-pointer block"
+        class="no-underline cursor-pointer"
         role="button"
         tabindex="0"
       >
@@ -223,7 +222,7 @@
       <a
         routerLink="/ff"
         routerLinkActive="nav-active "
-        class="no-underline cursor-pointer block"
+        class="no-underline cursor-pointer"
         role="button"
         tabindex="0"
       >

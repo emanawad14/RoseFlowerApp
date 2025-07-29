@@ -23,23 +23,41 @@
 .navigation {
   background-color: var(--maroon-700);
   ul li a {
+    display: flex; /* Flexbox for vertical + horizontal alignment */
+    align-items: center; /* Vertically center content */
+    justify-content: center;
+    gap: 1rem;
+    position: relative;
     font-family: 'Sarabun-Regular';
     font-style: normal;
     font-weight: 500;
     font-size: 1em;
     line-height: 100%;
     color: var(--zinc-50);
+    height: 44px;
   }
-  li {
-    position: relative;
+  .nav-active {
+    color: var(--nav-text-color) !important;
+    //display: inline-flex;
+
+    &::after {
+      content: '';
+      position: absolute; // absolute inside the h2
+      bottom: 0px; // move it just below the text
+      inset-inline-start: 0; // align to the left edge
+      width: 100%; // how long the line is
+      height: 2px; // thickness
+      background-color: var(--nav-text-color);
+    }
   }
 
   // Responsive styles
   @media (max-width: 768px) {
     ul {
       overflow-x: auto;
-      justify-content: flex-start;
+      //  justify-content: flex-start;
       -webkit-overflow-scrolling: touch; // Smooth scrolling on iOS
+      gap: 10px;
 
       &::-webkit-scrollbar {
         display: none; // Hide scrollbar on webkit browsers
