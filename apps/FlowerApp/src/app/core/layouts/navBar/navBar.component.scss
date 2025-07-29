@@ -4,7 +4,7 @@
     font-family: 'Sarabun-Regular';
     font-style: normal;
     font-weight: 400;
-    font-size: 0.5rem;
+    font-size: 0.7rem;
     line-height: 100%;
     /* Zinc/zinc-500 */
     color: var(--text-p);
@@ -14,7 +14,7 @@
     font-family: 'Sarabun-Regular';
     font-style: normal;
     font-weight: 500;
-    font-size: 0.9em;
+    font-size: 1em;
     line-height: 100%;
     color: var(--maroon-700);
     inset-inline-start: 10px;
@@ -102,7 +102,7 @@ a:hover,
   color: var(--maroon-700) !important;
 }
 .p-menu-item:not(.p-disabled) .p-menu-item-content:hover {
-  background: none !important;
+  background: var(--primary-color) !important;
 }
 // ::ng-deep .p-menu-list {
 //   background: var(--bg-pink);
