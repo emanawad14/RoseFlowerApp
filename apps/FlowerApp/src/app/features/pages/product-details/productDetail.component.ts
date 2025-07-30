@@ -30,6 +30,7 @@ import { RelatedProductsComponent } from './components/relatedProducts.component
 export class ProductDetailComponent implements OnInit, OnDestroy {
   productImages: string[] = [];
   relatedProducts: Product[] = [];
+  productId!: string;
 
   responsiveOptions: any[] = [
     {
@@ -57,23 +58,33 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.getProduct();
+    const sub = this._ActivatedRoute.params.subscribe((params) => {
+      this.productId = params['id']; // example: /product-details/123
+      this.getProduct();
+    });
+    this.subs.push(sub);
   }
 
   getProduct() {
-    const productId = this._ActivatedRoute.snapshot.paramMap.get('id');
-    if (productId) {
-      const sub = this._ProductService.getProductById(productId).subscribe({
-        next: (res: ProductDetailsDTO) => {
-          this.product = res.product;
-          this.productImages = [
-            this.product?.imgCover!,
-            ...this.product?.images!,
-          ];
-        },
-      });
+    //  const productId = this._ActivatedRoute.snapshot.paramMap.get('id');
+    // Subscribing to route parameters
+
+    //  this.subs.push(sub);
+    if (!this.productId) return;
+    if (this.productId) {
+      const sub = this._ProductService
+        .getProductById(this.productId)
+        .subscribe({
+          next: (res: ProductDetailsDTO) => {
+            this.product = res.product;
+            this.productImages = [
+              this.product?.imgCover!,
+              ...this.product?.images!,
+            ];
+          },
+        });
       this.subs.push(sub);
-      this.getRelatedProducts(productId);
+      this.getRelatedProducts(this.productId);
     }
   }
 

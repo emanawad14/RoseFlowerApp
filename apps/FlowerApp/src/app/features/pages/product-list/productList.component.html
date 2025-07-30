@@ -12,7 +12,7 @@
         <div class="bg-box mb-5 p-4 mt-2">
           <h3 class="mb-3">{{ 'filters.Search' | translate }}</h3>
           <app-global-input
-            [labelText]="'Search By the name'"
+            [placeholder]="'Search By the name'"
             formControlName="title"
           ></app-global-input>
         </div>
@@ -82,10 +82,10 @@
           ></app-global-ckeckbox-group>
         </div>
 
-        <div class="selected-filters mt-4">
+        <!-- <div class="selected-filters mt-4">
           <h4>Selected Filters:</h4>
           <pre>{{ filtersForm.value | json }}</pre>
-        </div>
+        </div> -->
       </form>
     </div>
 

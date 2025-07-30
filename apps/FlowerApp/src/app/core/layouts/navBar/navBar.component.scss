@@ -1,19 +1,10 @@
-ul li a {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 600;
-  // font-size: 1rem;
-  line-height: 24px;
-  align-items: center;
-  color: var(--text-gray);
-}
 .nav__Icons {
   span {
     /* Primary/Regular/primary-regular-xs */
     font-family: 'Sarabun-Regular';
     font-style: normal;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 0.7rem;
     line-height: 100%;
     /* Zinc/zinc-500 */
     color: var(--text-p);
@@ -23,10 +14,60 @@ ul li a {
     font-family: 'Sarabun-Regular';
     font-style: normal;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 1em;
     line-height: 100%;
     color: var(--maroon-700);
     inset-inline-start: 10px;
+  }
+}
+.navigation {
+  background-color: var(--maroon-700);
+  ul li a {
+    display: flex; /* Flexbox for vertical + horizontal alignment */
+    align-items: center; /* Vertically center content */
+    justify-content: center;
+    gap: 1rem;
+    position: relative;
+    font-family: 'Sarabun-Regular';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1em;
+    line-height: 100%;
+    color: var(--zinc-50);
+    height: 44px;
+  }
+  .nav-active {
+    color: var(--nav-text-color) !important;
+    //display: inline-flex;
+
+    &::after {
+      content: '';
+      position: absolute; // absolute inside the h2
+      bottom: 0px; // move it just below the text
+      inset-inline-start: 0; // align to the left edge
+      width: 100%; // how long the line is
+      height: 2px; // thickness
+      background-color: var(--nav-text-color);
+    }
+  }
+
+  // Responsive styles
+  @media (max-width: 768px) {
+    ul {
+      overflow-x: auto;
+      //  justify-content: flex-start;
+      -webkit-overflow-scrolling: touch; // Smooth scrolling on iOS
+      gap: 10px;
+
+      &::-webkit-scrollbar {
+        display: none; // Hide scrollbar on webkit browsers
+      }
+    }
+
+    li {
+      //padding: 0 1rem;
+      white-space: nowrap;
+    }
   }
 }
 
@@ -37,7 +78,24 @@ nav {
   overflow: visible;
   .nav__Icons {
     button {
-      color: var(--primary-color);
+      color: var(--black-color);
+    }
+  }
+  svg {
+    color: var(--maroon-700);
+  }
+  .location {
+    font-family: 'Sarabun-Regular';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.7em;
+    line-height: 100%;
+
+    /* Zinc/zinc-500 */
+    color: var(--text-p);
+
+    span {
+      color: var(--maroon-700);
     }
   }
 }
@@ -52,7 +110,7 @@ a {
 
 a:hover,
 ::ng-deep .p-menu-item-link-active {
-  color: var(--primary-color) !important;
+  color: var(--nav-text-color) !important;
 }
 ::ng-deep .p-menu-item-icon,
 ::ng-deep .p-menu-item-link {
@@ -62,7 +120,7 @@ a:hover,
   color: var(--maroon-700) !important;
 }
 .p-menu-item:not(.p-disabled) .p-menu-item-content:hover {
-  background: none !important;
+  background: var(--primary-color) !important;
 }
 // ::ng-deep .p-menu-list {
 //   background: var(--bg-pink);
@@ -84,10 +142,6 @@ a:hover,
     color: var(--primary-color);
   }
 
-  .p-badge {
-    background: var(--primary-color);
-  }
-
   // Make sure wishlist button has relative positioning
   .p-button.p-button-text:has(.Wishlist-num) {
     position: relative;
@@ -96,17 +150,19 @@ a:hover,
 
 /* Custom badge styling */
 :host ::ng-deep .p-badge {
-  background-color: var(--primary-color) !important;
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-badge) !important;
   color: #ffffff !important;
   border-radius: 50%;
-  width: 1.2rem;
-  height: 1.2rem;
+  width: 1rem;
+  height: 1rem;
   line-height: 1.2rem;
   font-size: 0.6rem;
   z-index: 1000;
-  position: absolute;
-  top: -9px !important;
-  right: -1px !important;
+  // position: absolute;
+  // top: -9px !important;
+  // right: -1px !important;
 }
 
 .btn-dark-mode {

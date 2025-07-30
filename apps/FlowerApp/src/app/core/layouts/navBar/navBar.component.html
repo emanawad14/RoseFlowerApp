@@ -1,17 +1,49 @@
 <!-- Main Navigation Bar -->
-<nav class="mx-2 md:mx-5 my-5 flex flex-row justify-content-between">
+<nav
+  class="my-3 mx-3 flex gap-2 flex-column md:flex-row align-items-stretch justify-content-center flex-wrap"
+>
   <!-- Logo -->
-  <div>
+  <div class="flex align-items-center gap-2">
     <img
       src="images/newLogo.png"
       alt="Rose Flower Logo"
       height="50"
       class="flex-none"
     />
+    @if(userData() ){
+    <span class="location">
+      Deliver to:
+      <span class="flex align-items-center">
+        <svg
+          width="21"
+          height="20"
+          viewBox="0 0 21 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M15.4748 7.75296C15.3262 6.04099 14.5222 4.45256 13.2306 3.31907C11.939 2.18558 10.2597 1.59459 8.5429 1.66941C6.82612 1.74423 5.20454 2.47908 4.01649 3.72064C2.82843 4.96219 2.16568 6.61455 2.1665 8.33296C2.1665 12.2413 6.23901 16.3013 8.01817 17.8896M18.3148 13.8546C18.6468 13.5227 18.8333 13.0724 18.8333 12.603C18.8333 12.1335 18.6468 11.6833 18.3148 11.3513C17.9829 11.0193 17.5326 10.8328 17.0632 10.8328C16.5937 10.8328 16.1435 11.0193 15.8115 11.3513L12.4698 14.6946C12.2717 14.8926 12.1267 15.1374 12.0482 15.4063L11.3507 17.798C11.3298 17.8697 11.3285 17.9457 11.347 18.018C11.3656 18.0904 11.4032 18.1564 11.456 18.2093C11.5089 18.2621 11.5749 18.2997 11.6473 18.3183C11.7196 18.3368 11.7956 18.3355 11.8673 18.3146L14.259 17.6171C14.5279 17.5386 14.7727 17.3936 14.9707 17.1955L18.3148 13.8546ZM11.3332 8.33296C11.3332 9.71367 10.2139 10.833 8.83317 10.833C7.45246 10.833 6.33317 9.71367 6.33317 8.33296C6.33317 6.95225 7.45246 5.83296 8.83317 5.83296C10.2139 5.83296 11.3332 6.95225 11.3332 8.33296Z"
+            stroke="currentcolor"
+            stroke-width="1.125"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+        Cairo
+      </span>
+    </span>
+
+    }
   </div>
 
+  <app-global-input
+    class="md:flex-grow-1 flex-1"
+    [placeholder]="'What awesome gift are you looking for?'"
+    [search]="true"
+  ></app-global-input>
+
   <!-- Icons - Always Visible -->
-  <div class="nav__Icons flex align-items-center">
+  <div class="nav__Icons flex align-items-center gap-1">
     @if(userData() ){
     <p-menu
       #menu
@@ -25,7 +57,7 @@
     >
       <div class="flex flex-column">
         <span>Hello</span>
-        <h3 class="mt-1 mx-1">{{ userData()?.firstName }}</h3>
+        <h3 class="mt-1">{{ userData()?.firstName }}</h3>
       </div>
 
       <svg
@@ -65,7 +97,7 @@
       <span class="login"> Login</span>
     </button>
     }
-    <div class="line h-full mx-1"></div>
+    <div class="line h-full"></div>
     <!-- Menu Toggle (Mobile Only) -->
     <!-- <button
           pButton
@@ -77,22 +109,17 @@
 
     <!-- Wishlist Button -->
     <button pButton class="p-button-text relative">
-      <i class="fa-regular fa-heart" pBadge value="2" badgeSize="small"></i>
+      <i class="fa-regular fa-heart"></i>
     </button>
     <!-- Shopping Cart Button -->
-    <button pButton class="p-button-text">
-      <i
-        class="fa-solid fa-bag-shopping"
-        pBadge
-        value="2"
-        badgeSize="small"
-      ></i>
+    <button pButton class="p-button-text" routerLink="/cart">
+      <i class="pi pi-shopping-cart" pBadge value="8" badgeSize="small"></i>
     </button>
     <!-- Notification -->
     <button pButton class="p-button-text">
       <i class="pi pi-bell" pBadge value="2" badgeSize="small"></i>
     </button>
-
+    <div class="line h-full"></div>
     <button
       pButton
       class="p-button-text btn-dark-mode"
@@ -102,130 +129,106 @@
       <i class="fa-solid fa-sun"></i>
       } @else {<i class="fa-solid fa-moon"></i> }
     </button>
-    <div class="line h-full"></div>
+
     <button
+      pButton
       [class.hidden]="currentLanguage('en')"
       pButton
-      class="p-button-text"
+      class="p-button-text text-sm"
       (click)="changeLanguage('en')"
     >
       {{ 'navbar.arabic' | translate }}
     </button>
 
     <button
+      pButton
       [class.hidden]="currentLanguage('ar')"
       pButton
-      class="p-button-text"
+      class="p-button-text text-sm"
       (click)="changeLanguage('ar')"
     >
       English
     </button>
   </div>
-
-  <!-- Mobile Menu Popup -->
-  <!-- <p-menu
-    #menu
-    [popup]="true"
-    [model]="menuItems"
-    [appendTo]="'body'"
-    styleClass="w-full sm:w-48 mt-3"
-  ></p-menu> -->
-  <!-- <p-menu
-    #menu
-    [popup]="true"
-    [model]="menuItems"
-    [appendTo]="'body'"
-    styleClass="w-full sm:w-48 mt-3 border-0"
-  ></p-menu> -->
-
-  <!-- <div class="card">
-    <p-dialog
-      header=""
-      [modal]="true"
-      [(visible)]="visible"
-      draggable="false"
-      [position]="position"
-      [style]="{ width: '16rem', top: '1rem', right: '1rem' }"
-    >
-      <ng-template pTemplate="header">
-        <div class="flex items-center gap-1">
-          <img src="images/logo.png" alt="User Icon" class="w-6 h-6" />
-        </div>
-      </ng-template>
-      <p-menu
-        #menu
-        [model]="menuItems"
-        [appendTo]="'body'"
-        styleClass="w-full mt-2 border-0"
-      ></p-menu>
-    </p-dialog>
-  </div> -->
 </nav>
 
-<!-- Desktop Navigation Links - Hidden on Mobile -->
-<ul class="flex align-items-center justify-content-center list-none gap-4 m-0">
-  <li>
-    <a
-      pRipple
-      routerLink="/home"
-      routerLinkActive="text-primary-color"
-      class="no-underline cursor-pointer block"
-      role="button"
-      tabindex="0"
-    >
-      {{ 'navbar.home' | translate }}
-    </a>
-  </li>
-  <li>
-    <a
-      pRipple
-      routerLink="/product-list"
-      routerLinkActive="text-primary-color"
-      class="no-underline cursor-pointer block"
-      role="button"
-      tabindex="0"
-    >
-      {{ 'navbar.categories' | translate }}
-    </a>
-  </li>
-  <li>
-    <a
-      pRipple
-      routerLink="/about"
-      routerLinkActive="text-primary-color"
-      class="no-underline cursor-pointer block"
-      role="button"
-      tabindex="0"
-    >
-      {{ 'navbar.about' | translate }}
-    </a>
-  </li>
-  <li>
-    <a
-      pRipple
-      routerLink="/ff"
-      routerLinkActive="text-primary-color"
-      class="no-underline cursor-pointer block"
-      role="button"
-      tabindex="0"
-    >
-      {{ 'navbar.contact' | translate }}
-    </a>
-  </li>
-</ul>
-<!-- Search Button -->
-<!-- <button pButton class="p-button-text">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </button> -->
-<!-- Language  Button -->
-<!-- <button
-          pButton
-          class="p-button-text "
-          (click)="languageToggle()"
-        >
-          @if (!langClick) {
-          <i>العربيه</i>
-          } @else {<i>En</i>
-          }
-        </button> -->
-<!-- Dark mode Button -->
+<!--   Navigation Links -   -->
+<div class="navigation">
+  <ul
+    class="list-none flex gap-5 md:justify-content-center align-items-center text-center"
+  >
+    <li>
+      <a
+        routerLink="/home"
+        routerLinkActive="nav-active "
+        class="no-underline cursor-pointer"
+        role="button"
+        tabindex="0"
+      >
+        <i class="pi pi-home" style="font-size: 1rem"></i>
+        {{ 'navbar.home' | translate }}
+      </a>
+    </li>
+    <li>
+      <a
+        routerLink="/product "
+        routerLinkActive="nav-active "
+        class="no-underline cursor-pointer"
+        role="button"
+        tabindex="0"
+      >
+        <i class="pi pi-gift"></i>
+        {{ 'navbar.products' | translate }}
+      </a>
+    </li>
+    <li>
+      <a
+        routerLink="/product-list"
+        routerLinkActive="nav-active "
+        class="no-underline cursor-pointer"
+        role="button"
+        tabindex="0"
+      >
+        <i class="pi pi-clone"></i>
+        {{ 'navbar.categories' | translate }}
+      </a>
+    </li>
+    <li>
+      <a
+        routerLink="/product-listt"
+        routerLinkActive="nav-active "
+        class="no-underline cursor-pointer"
+        role="button"
+        tabindex="0"
+      >
+        <i class="pi pi-clone"></i>
+        occasions
+        <!-- {{ 'navbar.occasions' | translate }} -->
+      </a>
+    </li>
+    <li>
+      <a
+        routerLink="/about"
+        routerLinkActive="nav-active "
+        class="no-underline cursor-pointer"
+        role="button"
+        tabindex="0"
+      >
+        <i class="pi pi-info-circle"></i>
+        {{ 'navbar.about' | translate }}
+      </a>
+    </li>
+    <li>
+      <a
+        routerLink="/ff"
+        routerLinkActive="nav-active "
+        class="no-underline cursor-pointer"
+        role="button"
+        tabindex="0"
+      >
+        <i class="pi pi-headphones"></i>
+        {{ 'navbar.contact' | translate }}
+      </a>
+    </li>
+  </ul>
+</div>

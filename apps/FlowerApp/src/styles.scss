@@ -22,8 +22,11 @@
   --p-slider-handle-hover-background: var(--primary-color) !important;
   --p-menu-background: var(--home-bg) !important;
   --p-menu-border-color: var(--home-bg) !important;
+  --p-menu-item-focus-background: none !important;
 }
 [data-theme='light'] {
+  --bg-badge: #dc2626;
+  --zinc-50: #fafafa;
   --maroon-700: #741c21;
   --zink-700: #3f3f46;
   --nav-text-color: #ffc2d0;
@@ -74,6 +77,9 @@
 }
 
 [data-theme='dark'] {
+  --bg-badge: #ef4444;
+  --nav-text-color: #501419;
+  --zinc-50: #27272a;
   --maroon-700: #ffa3b9;
   --zink-700: #fafafa;
   --icon-sm: #cd2e33;
@@ -270,7 +276,12 @@ a {
 }
 .text-primary-color {
   color: var(--primary-color) !important;
+  // text-decoration: underline !important;
 }
+// .nav-active{
+//   color: var(--nav-text-color) !important;
+// }
+
 .bg-bag-color {
   background-color: var(--icon-bg) !important;
 }

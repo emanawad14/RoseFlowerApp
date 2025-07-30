@@ -32,6 +32,22 @@ export const appRoutes: Route[] = [
             (c) => c.ProductListComponent
           ),
       },
+      {
+        path: 'cart',
+        loadComponent: () =>
+          import('./features/pages/cart/layouts/cartLayout.component').then(
+            (c) => c.CartLayoutComponent
+          ),
+        children: [
+          {
+            path: '',
+            loadComponent: () =>
+              import('./features/pages/cart/components/cart.component').then(
+                (c) => c.CartComponent
+              ),
+          }, // default route
+        ],
+      },
     ],
   },
   {
