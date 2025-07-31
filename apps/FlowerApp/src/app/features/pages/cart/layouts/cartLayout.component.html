@@ -1,10 +1,52 @@
-<div class="grid">
-  <div class="col-8">
+<div class="grid m-0 mx-5 mt-5">
+  <div class="md:col-8 col-12">
     <router-outlet></router-outlet>
   </div>
 
-  <div class="col-4">
+  <div class="md:col-4 flex flex-column gap-2 summary-section">
     <!-- Summary -->
+    <h3 class="mb-2">Summary</h3>
+    <div class="flex flex-row justify-content-between gap-2">
+      <app-global-input [placeholder]="'Coupon Code'" class="flex-1" />
+      <app-primary-btn [labelName]="'Apply Coupon'" [displayIcon]="false"
+        ><svg
+          width="24"
+          height="25"
+          viewBox="0 0 24 25"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M9 9.5H9.01M15 9.5L9 15.5M15 15.5H15.01M2 9.5C2.79565 9.5 3.55871 9.81607 4.12132 10.3787C4.68393 10.9413 5 11.7043 5 12.5C5 13.2956 4.68393 14.0587 4.12132 14.6213C3.55871 15.1839 2.79565 15.5 2 15.5V17.5C2 18.0304 2.21071 18.5391 2.58579 18.9142C2.96086 19.2893 3.46957 19.5 4 19.5H20C20.5304 19.5 21.0391 19.2893 21.4142 18.9142C21.7893 18.5391 22 18.0304 22 17.5V15.5C21.2044 15.5 20.4413 15.1839 19.8787 14.6213C19.3161 14.0587 19 13.2956 19 12.5C19 11.7043 19.3161 10.9413 19.8787 10.3787C20.4413 9.81607 21.2044 9.5 22 9.5V7.5C22 6.96957 21.7893 6.46086 21.4142 6.08579C21.0391 5.71071 20.5304 5.5 20 5.5H4C3.46957 5.5 2.96086 5.71071 2.58579 6.08579C2.21071 6.46086 2 6.96957 2 7.5V9.5Z"
+            stroke="currentColor"
+            stroke-width="1.45833"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </app-primary-btn>
+    </div>
+    <div
+      class="h-15rem flex align-items-center justify-content-center coupon-area"
+    >
+      No coupons applied
+    </div>
+    <div class="flex flex-row justify-content-between mb-2">
+      <h4>Total</h4>
+      <h4>125 EGP</h4>
+    </div>
+    <app-primary-btn
+      [labelName]="'Checkout'"
+      [widthFull]="true"
+    ></app-primary-btn>
   </div>
 </div>
 <!-- bset Seller section -->
+@defer (on viewport) {
+<app-related-products
+  [products]="bestSellerProducts"
+  [sectionTitle]="'Products You May Like'"
+></app-related-products>
+} @placeholder {
+<div>related-products placeholder</div>
+}

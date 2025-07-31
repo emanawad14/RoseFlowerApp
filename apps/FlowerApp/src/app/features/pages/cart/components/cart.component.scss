@@ -1,0 +1,112 @@
+.product-cart {
+  p {
+    color: var(--text-gray-reverse);
+    font-family: 'Sarabun-Regular';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.9em;
+    line-height: 100%;
+  }
+  svg {
+    color: var(--btn-text) !important;
+  }
+  padding: 20px;
+  /* Zinc/zinc-200 */
+  border: 1px solid var(--line-color);
+  border-radius: 12px;
+  .border-top {
+    border-top: 1px solid var(--line-color);
+  }
+  .title {
+    font-family: 'Sarabun-Regular';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1em;
+    line-height: 100%;
+
+    /* Maroon/maroon-700 */
+    color: var(--maroon-700);
+  }
+
+  .price {
+    /* Primary/Semi-Bold/primary-semibold-3xl */
+    font-family: 'Sarabun-Regular';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.5em;
+    line-height: 100%;
+
+    /* Zinc/zinc-800 */
+    color: var(--text-zink);
+    .currency {
+      font-family: 'Sarabun-Regular';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 0.9em;
+      /* (×1) 199.50 EGP */
+
+      font-size: 16px;
+      line-height: 100%;
+
+      /* Zinc/zinc-800 */
+      color: var(--text-zink);
+    }
+    .xprice {
+      font-family: 'Sarabun-Regular';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 100%;
+
+      /* Maroon/maroon-600 */
+      color: var(--secondary-text);
+    }
+  }
+
+  .product-quantity {
+    svg {
+      background-color: var(--bg-light);
+      width: 3rem;
+      height: 3rem;
+      opacity: 1;
+      padding: 10px 16px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .svg-btn {
+      background-color: var(--bg-light);
+      border-radius: 10px;
+      cursor: pointer;
+      padding: 10px 16px;
+    }
+    input {
+      width: 100px !important;
+      height: 2rem;
+    }
+  }
+}
+h3 {
+  font-family: 'Sarabun-Regular';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2.3em;
+  line-height: 100%;
+
+  /* Zinc/zinc-800 */
+  color: var(--text-zink);
+}
+.product-number {
+  /* 6 products */
+  /* Primary/Medium/primary-medium-base */
+  font-family: 'Sarabun-Regular';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.8em;
+  line-height: 100%;
+
+  /* Zinc/zinc-400 */
+  color: var(--text-gray-reverse);
+}
+svg {
+  color: var(--btn-text) !important;
+}

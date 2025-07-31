@@ -3,7 +3,7 @@
   // margin-top: 20px;
   input {
     width: 100%;
-    background: #52525b !important;
+    background: var(--input-bg) !important;
     text-transform: capitalize;
     border-radius: 10px !important;
     font-family: 'Inter';
@@ -11,16 +11,16 @@
     font-weight: 400;
     font-size: 12px;
     outline: none !important;
-    border: none !important;
-    padding:15px 25px !important;
+    border: 1px solid var(--text-zink-500) !important;
+    padding: 15px 25px !important;
 
-    color: #fff;
+    color: var(--text-gray-reverse);
     &::placeholder {
       //inset-inline-start: 15px;
-      color: #a1a1aa;
+      color: var(--text-gray-reverse);
     }
     &:focus {
-      background: #52525b !important;
+      background: var(--input-bg) !important;
     }
   }
   img {
@@ -39,6 +39,6 @@
     inset-inline-start: 0;
     transform: translateY(-50%);
     // margin-inline-end: 20px;
-     margin: 0 5px;
+    margin: 0 5px;
   }
 }

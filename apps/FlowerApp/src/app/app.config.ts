@@ -14,7 +14,12 @@ import {
   provideClientHydration,
   withEventReplay,
 } from '@angular/platform-browser';
-import { HttpClient, provideHttpClient, withFetch } from '@angular/common/http';
+import {
+  HttpClient,
+  provideHttpClient,
+  withFetch,
+  withInterceptors,
+} from '@angular/common/http';
 import { appInit } from './core/utills/app.utills';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -22,8 +27,9 @@ import { provideStore } from '@ngrx/store';
 import { ProductsReducer } from './Store/reducers/products.reducer';
 import { provideEffects } from '@ngrx/effects';
 import { ProductsEffects } from './Store/effects/products.effects';
- import { environment } from '../environments/environment';
+import { environment } from '../environments/environment';
 import { BASEURL } from '@rose-flower/auth-api';
+import { addTokenInterceptor } from './core/interceptors/add-token.interceptor';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, '/i18n/', '.json');
 }
@@ -43,7 +49,7 @@ export const appConfig: ApplicationConfig = {
     ),
 
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideHttpClient(withFetch()),
+    provideHttpClient(withFetch(), withInterceptors([addTokenInterceptor])),
     provideRouter(appRoutes),
     provideAnimationsAsync(),
     providePrimeNG({

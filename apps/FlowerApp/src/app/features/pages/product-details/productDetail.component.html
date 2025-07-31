@@ -127,6 +127,7 @@
             [widthFull]="true"
             style="flex-grow: 1"
             class="inline-flex align-items-center justify-content-center"
+            [disabled]="product.quantity <= 0"
           >
             <i class="pi pi-shopping-cart" style="font-size: 1.5rem"></i>
           </app-primary-btn>

@@ -38,4 +38,5 @@ export class ProductService {
       `${environment.baseUrl}${ProductDetailEndpoints.GET_RELATED_PRODUCTS_BY_ID}/${_id}`
     );
   }
+  
 }

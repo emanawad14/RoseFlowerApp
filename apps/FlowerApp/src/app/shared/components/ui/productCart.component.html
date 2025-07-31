@@ -1,6 +1,7 @@
 <p-card class="card-content product-card w-full h-full lg:text-2xl">
   <ng-template #header>
     <div class="relative">
+      <!-- <span>OUT OF STOCK</span> -->
       <img
         [alt]="product.title"
         class="w-full h-18rem border-round-2xl"
@@ -38,6 +39,7 @@
       </span>
     </div>
     <span
+      [class]="{ 'opacity-10': product.quantity <= 0 }"
       class="icon p-3 border-circle h-3rem w-3rem flex align-items-center justify-content-center bg-bag-color cursor-pointer"
     >
       <!-- <i class="pi pi-shopping-bag text-xl text-white"></i> -->
