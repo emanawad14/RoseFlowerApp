@@ -22,17 +22,7 @@
           ></div>
         </ng-template>
         <ng-template #thumbnail let-item>
-          <!-- <div
-            class="border-round-xl bg-cover bg-no-repeat bg-center h-10rem w-10rem"
-            [ngStyle]="{    
-        'background-image': 'url(' + item + ')',
-      }"
-          >
-            <img [src]="item" class="thumb-img" /> 
-          </div> -->
-          <!-- <div class="grid grid-nogutter justify-content-center"> -->
           <img [src]="item" class="border-round-xl w-full" />
-          <!-- </div> -->
         </ng-template>
       </p-galleria>
     </div>
@@ -40,19 +30,22 @@
     <div class="col-12 md:col-5">
       <div class="product-details flex flex-column gap-3 h-full">
         <h3 class="product-title">{{ product.title }}</h3>
-        <div class="flex">
-          <span class="price">{{ product.price }} </span>
-          <span class="price-discount mx-1"
-            >{{ product.priceAfterDiscount }} EGP</span
-          >
-          @if(product.priceAfterDiscount){
-          <span class="discount"
-            >{{
-              ((product.price! - product.priceAfterDiscount!) / product.price) *
-                100 | number : '1.0-0'
-            }}% Off</span
-          >
-          }
+        <div class="flex flex-column md:flex-row">
+          <div>
+            <span class="price">{{ product.price }} </span>
+            <span class="price-discount mx-1"
+              >{{ product.priceAfterDiscount }} EGP</span
+            >
+            @if(product.priceAfterDiscount){
+            <span class="discount"
+              >{{
+                ((product.price! - product.priceAfterDiscount!) /
+                  product.price) *
+                  100 | number : '1.0-0'
+              }}% Off</span
+            >
+            }
+          </div>
 
           <div
             class="mx-3 stock flex align-items-center gap-1 px-3 border-round-2xl"
@@ -128,6 +121,7 @@
             style="flex-grow: 1"
             class="inline-flex align-items-center justify-content-center"
             [disabled]="product.quantity <= 0"
+            (btnClicked)="addProductToCart(product._id)"
           >
             <i class="pi pi-shopping-cart" style="font-size: 1.5rem"></i>
           </app-primary-btn>

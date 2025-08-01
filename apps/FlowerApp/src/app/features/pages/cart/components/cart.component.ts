@@ -3,14 +3,13 @@ import { CommonModule } from '@angular/common';
 import { PrimaryBtnComponent } from 'apps/FlowerApp/src/app/shared/components/ui/primary-btn.component';
 import { GlobalInputComponent } from 'apps/FlowerApp/src/app/shared/components/ui/globalInput.component';
 import { Router } from '@angular/router';
-import { ProductQuantityComponent } from 'apps/FlowerApp/src/app/shared/components/ui/productQuantity.component';
-@Component({
+ @Component({
   selector: 'app-cart',
   imports: [
     CommonModule,
     PrimaryBtnComponent,
     GlobalInputComponent,
-    ProductQuantityComponent,
+     
   ],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss',
