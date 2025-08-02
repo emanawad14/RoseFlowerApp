@@ -1,10 +1,9 @@
 .p-button {
-  color: var(--btn-text);
-  background: var(--primary-btn-color) !important;
-  color: var(--btn-text) !important;
+  // background: var(--primary-btn-color) !important;
+  //color: var( --btn-text) !important;
   border: none;
   border-radius: 9.32px;
-  //padding: 15px 20px;
+  // padding: 15px 20px;
 
   &:hover {
     border: none !important;
@@ -27,5 +26,5 @@ svg {
   text-transform: capitalize;
 
   /* color/White */
-  color: var(--btn-text);
+  // color: var(--btn-text);
 }

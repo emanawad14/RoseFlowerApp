@@ -15,6 +15,8 @@ export class PrimaryBtnComponent {
   @Input({ required: false }) disabled = false;
   @Output() btnClicked = new EventEmitter(false);
   @Input() type: 'button' | 'submit' = 'button';
+  @Input() backgroundColor: string = ' var(--primary-btn-color)';
+  @Input() colorText: string = 'var( --btn-text)';
   constructor(public translate: TranslateService) {}
 
   dispatchClick() {

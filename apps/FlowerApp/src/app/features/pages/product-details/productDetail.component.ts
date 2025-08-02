@@ -13,6 +13,7 @@ import { PrimaryBtnComponent } from '../../../shared/components/ui/primary-btn.c
 import { Subscription } from 'rxjs';
 import { ProductReviewComponent } from './components/productReview.component';
 import { RelatedProductsComponent } from './components/relatedProducts.component';
+import { CartService } from '../cart/services/cart.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -54,7 +55,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
   product?: Product;
   constructor(
     private _ActivatedRoute: ActivatedRoute,
-    private _ProductService: ProductService
+    private _ProductService: ProductService,
+    private _CartService: CartService
   ) {}
 
   ngOnInit(): void {
@@ -66,10 +68,6 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
   }
 
   getProduct() {
-    //  const productId = this._ActivatedRoute.snapshot.paramMap.get('id');
-    // Subscribing to route parameters
-
-    //  this.subs.push(sub);
     if (!this.productId) return;
     if (this.productId) {
       const sub = this._ProductService
@@ -99,6 +97,16 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       });
     this.subs.push(sub);
   }
+  addProductToCart(productId: string) {
+    this._CartService
+      .addProductToCart({ product: productId, quantity: 1 })
+      .subscribe({
+        next: (res) => {
+          console.log(res);
+        },
+      });
+  }
+
   displayDialog = false;
   selectedImageSrc: string = '';
 

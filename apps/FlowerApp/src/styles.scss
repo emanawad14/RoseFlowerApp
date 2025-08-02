@@ -34,7 +34,7 @@
   --bg-icon-hover: #e6507380;
   --bg-icon: #ff668b;
   --text-sm: #f05454;
-  --line-color: #e65073;
+  // --line-color: #e65073;
   --btn-text: #ffffff;
   --secondary-text: #a6252a;
   --primary-text: #f82ba9;
@@ -63,7 +63,7 @@
   //--link-color: #160e4b;
   --shadow-color: #00000026;
   --border-color: #00000014;
-  --line-color: #f4f4f5;
+  --line-color: #e4e4e7;
   --p-color: #52525b;
   --text-zink-500: #d4d4d8;
   --blue-600: #155dfc;
@@ -74,6 +74,7 @@
   --color-primary: #a6252a;
   --bg-light: #fbeaea;
   --primary-btn-color: #a6252a;
+  --input-bg: #ffffff;
 }
 
 [data-theme='dark'] {
@@ -86,7 +87,7 @@
   --bg-icon-hover: #ffff;
   --bg-icon: #cd2e33;
   --text-sm: #ffc2d0;
-  --line-color: #ff668b;
+  // --line-color: #ff668b;
   --btn-text: #27272a;
   --primary-span: #d75458;
   --secondary-text: #ffc2d0;
@@ -128,11 +129,13 @@
   --text-gray-reverse: #71717a;
   --color-primary: #a6252a;
   --primary-btn-color: #ffc2d0;
+  --input-bg: #52525b;
 }
 html,
 body,
 app-root {
   background-color: var(--home-bg);
+  font-family: 'Sarabun-Regular';
 }
 ::-webkit-scrollbar {
   width: 4px;
@@ -298,4 +301,25 @@ p {
 
   /* Zinc/zinc-600 */
   color: var(--p-color);
+}
+.rate {
+  font-family: 'Sarabun-Regular';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1em;
+  line-height: 21px;
+  /* identical to box height */
+
+  color: var(--black-color);
+}
+.ratings {
+  font-family: 'Sarabun-Regular';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1em;
+  line-height: 21px;
+  /* identical to box height */
+
+  /* Blue/blue-600 */
+  color: var(--blue-600);
 }

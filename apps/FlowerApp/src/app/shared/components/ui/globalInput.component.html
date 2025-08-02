@@ -27,7 +27,7 @@
       (input)="handleInput($event)"
       (blur)="onTouched()"
       [placeholder]="placeholder"
-     
+      [disabled]="isDisabled"
     />
 
     @if (type === 'password') {

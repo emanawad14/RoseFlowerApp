@@ -36,7 +36,6 @@ import { FilteredObject } from './interfaces/filtered-object';
   standalone: true,
   imports: [
     CommonModule,
-
     ReactiveFormsModule,
     GlobalInputComponent,
     InputTextModule,

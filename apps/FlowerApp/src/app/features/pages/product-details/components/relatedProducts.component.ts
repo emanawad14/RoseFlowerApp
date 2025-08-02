@@ -7,7 +7,7 @@ import { CardModule } from 'primeng/card';
 import { MyTranslateService } from 'apps/FlowerApp/src/app/core/services/my-translate-service.service';
 import { Subscription } from 'rxjs';
 import { Product } from '../../../interfaces/products';
-import { ProductCartComponent } from "apps/FlowerApp/src/app/shared/components/ui/productCart.component";
+import { ProductCartComponent } from 'apps/FlowerApp/src/app/shared/components/ui/productCart.component';
 
 @Component({
   selector: 'app-related-products',
@@ -17,14 +17,15 @@ import { ProductCartComponent } from "apps/FlowerApp/src/app/shared/components/u
     RatingModule,
     FormsModule,
     CardModule,
-    ProductCartComponent
-],
+    ProductCartComponent,
+  ],
   templateUrl: './relatedProducts.component.html',
   styleUrl: './relatedProducts.component.scss',
 })
 export class RelatedProductsComponent {
   @Input({ required: true }) products: Product[] = [];
   langSub: Subscription = new Subscription();
+  @Input() sectionTitle: string = 'Related Products';
 
   constructor(public _TranslateService: MyTranslateService) {}
 
