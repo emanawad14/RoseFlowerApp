@@ -13,7 +13,8 @@ import { PrimaryBtnComponent } from '../../../shared/components/ui/primary-btn.c
 import { Subscription } from 'rxjs';
 import { ProductReviewComponent } from './components/productReview.component';
 import { RelatedProductsComponent } from './components/relatedProducts.component';
-import { CartService } from '../cart/services/cart.service';
+import { Store } from '@ngrx/store';
+import { cartActions } from '../cart/store/actions';
 
 @Component({
   selector: 'app-product-detail',
@@ -56,7 +57,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
   constructor(
     private _ActivatedRoute: ActivatedRoute,
     private _ProductService: ProductService,
-    private _CartService: CartService
+    private store: Store
   ) {}
 
   ngOnInit(): void {
@@ -98,13 +99,9 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     this.subs.push(sub);
   }
   addProductToCart(productId: string) {
-    this._CartService
-      .addProductToCart({ product: productId, quantity: 1 })
-      .subscribe({
-        next: (res) => {
-          console.log(res);
-        },
-      });
+    this.store.dispatch(
+      cartActions.addProductToCard({ product: productId, quantity: 1 })
+    );
   }
 
   displayDialog = false;

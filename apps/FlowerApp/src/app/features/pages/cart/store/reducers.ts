@@ -5,6 +5,7 @@ import { cartActions } from './actions';
 const initialState: cartStateInterface = {
   isLoading: false,
   error: null,
+  numberOfCartItems: 0,
   data: null,
 };
 export const cartFeature = createFeature({
@@ -18,9 +19,26 @@ export const cartFeature = createFeature({
     on(cartActions['getProducts-in-cart-success'], (state, action) => ({
       ...state,
       isLoading: false,
+      numberOfCartItems: action.numOfCartItems,
       data: action,
     })),
     on(cartActions['getProducts-in-cart-failure'], (state) => ({
+      ...state,
+      isLoading: false,
+    })),
+
+    //add to cart
+    on(cartActions.addProductToCard, (state) => ({
+      ...state,
+      isLoading: true,
+    })),
+    on(cartActions['addProducts-in-cart-success'], (state, action) => ({
+      ...state,
+      isLoading: false,
+      numberOfCartItems: action.numOfCartItems,
+      data: action,
+    })),
+    on(cartActions['addProducts-in-cart-failure'], (state) => ({
       ...state,
       isLoading: false,
     }))
@@ -32,4 +50,5 @@ export const {
   selectIsLoading, //  selector for `loading` property
   selectError, // selector for `error` property
   selectData: selectCartProductData, // feature selector
+  selectNumberOfCartItems,
 } = cartFeature;

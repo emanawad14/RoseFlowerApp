@@ -113,7 +113,12 @@
     </button>
     <!-- Shopping Cart Button -->
     <button pButton class="p-button-text" routerLink="/cart">
-      <i class="pi pi-shopping-cart" pBadge value="8" badgeSize="small"></i>
+      <i
+        class="pi pi-shopping-cart"
+        pBadge
+        [value]="(numberOfCartItems$ | async) ?? 0"
+        badgeSize="small"
+      ></i>
     </button>
     <!-- Notification -->
     <button pButton class="p-button-text">

@@ -43,7 +43,11 @@
       class="icon p-3 border-circle h-3rem w-3rem flex align-items-center justify-content-center bg-bag-color cursor-pointer"
     >
       <!-- <i class="pi pi-shopping-bag text-xl text-white"></i> -->
-      <i class="pi pi-shopping-cart text-white" style="font-size: 1.5rem"></i>
+      <i
+        class="pi pi-shopping-cart text-white"
+        style="font-size: 1.5rem"
+        (click)="addProductToCart(product._id)"
+      ></i>
     </span>
   </div>
 </p-card>

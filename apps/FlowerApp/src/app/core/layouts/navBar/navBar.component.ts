@@ -14,7 +14,10 @@ import { AuthService } from '../../../shared/services/auth.service';
 
 import { MenubarModule } from 'primeng/menubar';
 import { UserDTO } from 'auth-api/src/lib/auth-api/interfaces/loginRes.dto';
-import { GlobalInputComponent } from "../../../shared/components/ui/globalInput.component";
+import { GlobalInputComponent } from '../../../shared/components/ui/globalInput.component';
+import { Store } from '@ngrx/store';
+import { selectNumberOfCartItems } from '../../../features/pages/cart/store/reducers';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
@@ -29,8 +32,8 @@ import { GlobalInputComponent } from "../../../shared/components/ui/globalInput.
     InputTextModule,
     TranslatePipe,
     MenubarModule,
-    GlobalInputComponent
-],
+    GlobalInputComponent,
+  ],
   templateUrl: './navBar.component.html',
   styleUrl: './navBar.component.scss',
 })
@@ -40,55 +43,20 @@ export class NavBarComponent implements OnInit {
   langClick = false;
   darkMode = false;
   userItems: MenuItem[] | undefined;
-
-  // @ViewChild('menu') menu!: Menu;
-  // menuItems: MenuItem[] = [
-  //   {
-  //     label: 'Home',
-  //     // icon: 'fa-solid fa-home text-pink-500',
-  //     routerLink: '/home',
-  //     styleClass: 'py-2 paragraph-text',
-  //     routerLinkActive: 'text-primary-color',
-  //   },
-  //   {
-  //     label: 'Categories',
-  //     // icon: 'fa-solid fa-list text-pink-500',
-  //     routerLink: '/product-list',
-  //     styleClass: 'py-2 paragraph-text',
-  //     routerLinkActive: 'text-primary-color',
-  //   },
-  //   {
-  //     label: 'About',
-  //     // icon: 'fa-solid fa-circle-info text-pink-500',
-  //     routerLink: '/about',
-  //     styleClass: 'py-2 paragraph-text',
-  //     routerLinkActive: 'text-primary-color',
-  //   },
-  //   {
-  //     label: 'Contact',
-  //     // icon: 'fa-solid fa-envelope text-pink-500',
-  //     routerLink: '/contact',
-  //     styleClass: 'py-2 paragraph-text',
-  //     routerLinkActive: 'text-primary-color',
-  //   },
-  // ];
+  numberOfCartItems$!: Observable<number>;
   constructor(
     private _themeService: ThemeService,
     private _MyTranslateService: MyTranslateService,
-    private _AuthService: AuthService
+    private _AuthService: AuthService,
+    private store: Store
   ) {}
-  /**
-   * Toggles the mobile menu
-   * @param event - The click event that triggered the toggle
-   */
-  // toggleMenu(event: Event) {
-  //   this.menu.toggle(event);
-  // }
+
   ngOnInit() {
     //initial theme
     this._themeService.initialTheme();
     this.getUserData();
     this.setUserMenueItems();
+    this.numberOfCartItems$ = this.store.select(selectNumberOfCartItems);
   }
   setUserMenueItems() {
     this.userItems = [
@@ -156,35 +124,6 @@ export class NavBarComponent implements OnInit {
   toggleDarkMode() {
     this._themeService.toggleTheme();
   }
-
-  // visible = false;
-
-  // position:
-  //   | 'left'
-  //   | 'right'
-  //   | 'top'
-  //   | 'bottom'
-  //   | 'center'
-  //   | 'topleft'
-  //   | 'topright'
-  //   | 'bottomleft'
-  //   | 'bottomright' = 'topleft';
-
-  // showDialog(
-  //   position:
-  //     | 'left'
-  //     | 'right'
-  //     | 'top'
-  //     | 'bottom'
-  //     | 'center'
-  //     | 'topleft'
-  //     | 'topright'
-  //     | 'bottomleft'
-  //     | 'bottomright'
-  // ) {
-  //   this.position = 'topleft';
-  //   this.visible = true;
-  // }
 
   languageToggle() {
     this.langClick = !this.langClick;
