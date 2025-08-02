@@ -3,6 +3,7 @@ import {
   importProvidersFrom,
   provideAppInitializer,
   provideZoneChangeDetection,
+  isDevMode,
 } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { appRoutes } from './app.routes';
@@ -23,13 +24,20 @@ import {
 import { appInit } from './core/utills/app.utills';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { provideStore } from '@ngrx/store';
+import { provideState, provideStore } from '@ngrx/store';
 import { ProductsReducer } from './Store/reducers/products.reducer';
 import { provideEffects } from '@ngrx/effects';
 import { ProductsEffects } from './Store/effects/products.effects';
 import { environment } from '../environments/environment';
 import { BASEURL } from '@rose-flower/auth-api';
 import { addTokenInterceptor } from './core/interceptors/add-token.interceptor';
+import { provideStoreDevtools } from '@ngrx/store-devtools';
+import {
+  cartFeature,
+  cartFeatureKey,
+  cartReducer,
+} from './features/pages/cart/store/reducers';
+import * as cartEffects from './features/pages/cart/store/effects';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, '/i18n/', '.json');
 }
@@ -47,7 +55,6 @@ export const appConfig: ApplicationConfig = {
         },
       })
     ),
-
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideHttpClient(withFetch(), withInterceptors([addTokenInterceptor])),
     provideRouter(appRoutes),
@@ -63,7 +70,18 @@ export const appConfig: ApplicationConfig = {
     }),
     provideStore({
       Products: ProductsReducer,
+      // cart:cartReducer
     }),
+    provideState(cartFeatureKey, cartReducer),
+    provideStore(),
+    provideEffects(cartEffects),
     provideEffects([ProductsEffects]),
+
+    provideStoreDevtools({
+      maxAge: 25,
+      logOnly: !isDevMode(),
+      autoPause: true,
+      traceLimit: 75,
+    }),
   ],
 };

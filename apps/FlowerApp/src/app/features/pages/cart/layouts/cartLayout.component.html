@@ -33,7 +33,7 @@
     </div>
     <div class="flex flex-row justify-content-between mb-2">
       <h4>Total</h4>
-      <h4>125 EGP</h4>
+      <h4>{{ totalPrice$ | async }} EGP</h4>
     </div>
     <app-primary-btn
       [labelName]="'Checkout'"
