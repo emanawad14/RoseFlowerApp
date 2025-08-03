@@ -41,6 +41,23 @@ export const cartFeature = createFeature({
     on(cartActions['addProducts-in-cart-failure'], (state) => ({
       ...state,
       isLoading: false,
+    })),
+
+    //delete product
+     on(cartActions.deleteProductFromCard, (state) => ({
+      ...state,
+      isLoading: true,
+      
+    })),
+    on(cartActions['deleteProductFromCard-success'], (state, action) => ({
+      ...state,
+      isLoading: false,
+      numberOfCartItems: action.numOfCartItems,
+      data: action,
+    })),
+    on(cartActions['deleteProductFromCard-failure'], (state) => ({
+      ...state,
+      isLoading: false,
     }))
   ),
 });

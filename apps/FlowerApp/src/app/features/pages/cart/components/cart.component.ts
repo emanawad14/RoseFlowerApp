@@ -20,7 +20,7 @@ import { AddToCartResponseDTO } from '../interfaces/addToCartResponse.interface'
 })
 export class CartComponent implements OnInit {
   data$!: Observable<{
-    getProductsCartResponse: AddToCartResponseDTO|null;
+    getProductsCartResponse: AddToCartResponseDTO | null;
     isLoading: boolean;
     error: any;
   }>;
@@ -34,9 +34,14 @@ export class CartComponent implements OnInit {
     });
 
     this.store.dispatch(cartActions['getLogged-User-Cart']());
-   }
+  }
   goToProductsListPage() {
     this._router.navigate(['/product-list']);
+  }
+  removeFromCart(productId: string) {
+    this.store.dispatch(
+      cartActions.deleteProductFromCard({ product: productId })
+    );
   }
   decrementPrice() {
     console.log('decrement');

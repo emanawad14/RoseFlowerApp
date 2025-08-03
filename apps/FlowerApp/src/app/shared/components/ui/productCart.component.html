@@ -46,7 +46,7 @@
       <i
         class="pi pi-shopping-cart text-white"
         style="font-size: 1.5rem"
-        (click)="addProductToCart(product._id)"
+        (click)="product.quantity > 0 && addProductToCart(product._id)"
       ></i>
     </span>
   </div>

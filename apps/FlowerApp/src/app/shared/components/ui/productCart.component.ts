@@ -30,6 +30,7 @@ export class ProductCartComponent {
 
 
     addProductToCart(productId: string) {
+      
       this.store.dispatch(
         cartActions.addProductToCard({ product: productId, quantity: 1 })
       );

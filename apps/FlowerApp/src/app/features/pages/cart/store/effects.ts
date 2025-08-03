@@ -47,3 +47,23 @@ export const addProductToCartEffect = createEffect(
   },
   { functional: true }
 );
+export const deleteProductFromCartEffect = createEffect(
+  (actions$ = inject(Actions), cartService = inject(CartService)) => {
+    return actions$.pipe(
+      ofType(cartActions.deleteProductFromCard),
+      switchMap(({ product }) => {
+        return cartService.deleteSpecificProduct(product).pipe(
+          map((deleteProductResponse: AddToCartResponseDTO) => {
+            return cartActions['deleteProductFromCard-success'](
+              deleteProductResponse
+            );
+          }),
+          catchError(() => {
+            return of(cartActions['deleteProductFromCard-failure']());
+          })
+        );
+      })
+    );
+  },
+  { functional: true }
+);

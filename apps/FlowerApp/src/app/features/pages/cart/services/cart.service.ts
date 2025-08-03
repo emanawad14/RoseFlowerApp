@@ -3,7 +3,10 @@ import { Injectable } from '@angular/core';
 import { environment } from 'apps/FlowerApp/src/environments/environment';
 import { AddToCartRequestInterface } from '../interfaces/addToCarRequest.interface';
 import { AddToCartResponseDTO } from '../interfaces/addToCartResponse.interface';
-import { deleteCartResponseDTO, UpdateQuantityRequest } from '../interfaces/updateProductQuantity.interface';
+import {
+  deleteCartResponseDTO,
+  UpdateQuantityRequest,
+} from '../interfaces/updateProductQuantity.interface';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -12,22 +15,24 @@ import { Observable } from 'rxjs';
 export class CartService {
   constructor(private _http: HttpClient) {}
   url = `${environment.baseUrl}/api/v1/cart`;
-  addProductToCart(data: AddToCartRequestInterface):Observable<AddToCartResponseDTO> {
-   return this._http.post<AddToCartResponseDTO>(this.url, data);
+  addProductToCart(
+    data: AddToCartRequestInterface
+  ): Observable<AddToCartResponseDTO> {
+    return this._http.post<AddToCartResponseDTO>(this.url, data);
   }
   getLoggedUserCart() {
-  return  this._http.get<AddToCartResponseDTO>(this.url);
+    return this._http.get<AddToCartResponseDTO>(this.url);
   }
   updateSpecificCartQuantity(data: UpdateQuantityRequest, productId: string) {
     const url = `${environment.baseUrl}/api/v1/cart/${productId}`;
-   return this._http.put<AddToCartResponseDTO>(url, data);
+    return this._http.put<AddToCartResponseDTO>(url, data);
   }
   deleteSpecificProduct(productId: string) {
     const url = `${environment.baseUrl}/api/v1/cart/${productId}`;
-    this._http.delete<AddToCartResponseDTO>(url);
+    return this._http.delete<AddToCartResponseDTO>(url);
   }
 
   deleteCart() {
-    this._http.delete<deleteCartResponseDTO>(this.url);
+    return this._http.delete<deleteCartResponseDTO>(this.url);
   }
 }
