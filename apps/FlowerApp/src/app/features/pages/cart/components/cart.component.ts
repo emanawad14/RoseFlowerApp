@@ -24,7 +24,7 @@ export class CartComponent implements OnInit {
     getProductsCartResponse: AddToCartResponseDTO | null;
     isLoading: boolean;
     error: any;
-    numberOfItemsInCart:number
+    numberOfItemsInCart: number;
   }>;
 
   constructor(private _router: Router, private store: Store) {}
@@ -33,7 +33,7 @@ export class CartComponent implements OnInit {
       getProductsCartResponse: this.store.select(selectCartProductData),
       isLoading: this.store.select(selectIsLoading),
       error: this.store.select(selectError),
-      numberOfItemsInCart:this.store.select(selectNumberOfCartItems)
+      numberOfItemsInCart: this.store.select(selectNumberOfCartItems),
     });
 
     this.store.dispatch(cartActions['getLogged-User-Cart']());
@@ -49,11 +49,15 @@ export class CartComponent implements OnInit {
   removeCart() {
     this.store.dispatch(cartActions.deleteCart());
   }
-  decrementPrice() {
-    console.log('decrement');
-  }
-  incrementPrice(product: any) {
-    console.log('increment');
-    //.quantity++;
+
+  changeProductQuantity(productId: string, quantity: number) {
+    console.log('increment', productId);
+
+    this.store.dispatch(
+      cartActions.updateProductQuantityFromCard({
+        product: productId,
+        quantity: quantity,
+      })
+    );
   }
 }

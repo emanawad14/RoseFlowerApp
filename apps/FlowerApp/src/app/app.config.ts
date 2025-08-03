@@ -33,7 +33,6 @@ import { BASEURL } from '@rose-flower/auth-api';
 import { addTokenInterceptor } from './core/interceptors/add-token.interceptor';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import {
-  cartFeature,
   cartFeatureKey,
   cartReducer,
 } from './features/pages/cart/store/reducers';
@@ -73,7 +72,7 @@ export const appConfig: ApplicationConfig = {
       // cart:cartReducer
     }),
     provideState(cartFeatureKey, cartReducer),
-    provideStore(),
+    //provideStore(),
     provideEffects(cartEffects),
     provideEffects([ProductsEffects]),
 
@@ -82,6 +81,7 @@ export const appConfig: ApplicationConfig = {
       logOnly: !isDevMode(),
       autoPause: true,
       traceLimit: 75,
+      trace: true,
     }),
   ],
 };

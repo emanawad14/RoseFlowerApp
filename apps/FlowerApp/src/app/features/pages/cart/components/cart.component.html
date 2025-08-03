@@ -12,6 +12,7 @@
       [labelName]="'Clear Cart'"
       [displayIcon]="false"
       [colorText]="'#A6252A'"
+      [disabled]="data.numberOfItemsInCart == 0"
       (btnClicked)="removeCart()"
     >
       <svg
@@ -35,7 +36,7 @@
   <div class="product-cart mb-3">
     @if(data.isLoading){ isLoading.............................. }
     @if(data.error){ Error.................................... }
-    @if(data.numberOfItemsInCart==0 ){
+    @if(!data.numberOfItemsInCart){
     <div
       class="min-h-18rem flex flex-column align-items-center justify-content-center py-4"
     >
@@ -123,12 +124,15 @@
           class="svg-btn flex align-items-center justify-content-center  h-full"
         > -->
           <svg
+            [class]="{ unclickable: product.quantity == 1 }"
             width="21"
             height="21"
             viewBox="0 0 21 21"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            (click)="decrementPrice()"
+            (click)="
+              changeProductQuantity(product.product._id, product.quantity - 1)
+            "
           >
             <path
               d="M4.66699 10.5H16.3337"
@@ -147,12 +151,17 @@
           </div>
 
           <svg
+            [class]="{
+              unclickable: product.quantity == product.product.quantity
+            }"
             width="21"
             height="21"
             viewBox="0 0 21 21"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            (click)="incrementPrice(product)"
+            (click)="
+              changeProductQuantity(product.product._id, product.quantity + 1)
+            "
           >
             <path
               d="M4.66699 10.5003H16.3337M10.5003 4.66699V16.3337"

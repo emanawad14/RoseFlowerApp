@@ -1,4 +1,5 @@
 export interface UpdateQuantityRequest {
+  product: string;
   quantity: number;
 }
 

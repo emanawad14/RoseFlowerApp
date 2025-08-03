@@ -1,7 +1,10 @@
 import { createActionGroup, emptyProps, props } from '@ngrx/store';
 import { AddToCartResponseDTO } from '../interfaces/addToCartResponse.interface';
 import { AddToCartRequestInterface } from '../interfaces/addToCarRequest.interface';
-import { deleteCartResponseDTO } from '../interfaces/updateProductQuantity.interface';
+import {
+  deleteCartResponseDTO,
+  UpdateQuantityRequest,
+} from '../interfaces/updateProductQuantity.interface';
 
 export const cartActions = createActionGroup({
   source: 'cart',
@@ -24,5 +27,10 @@ export const cartActions = createActionGroup({
     deleteCart: emptyProps(),
     'deleteCart-success ': props<deleteCartResponseDTO>(),
     'deleteCart-failure ': emptyProps(),
+    
+    //update quantity specific product
+    updateProductQuantityFromCard: props<UpdateQuantityRequest>(),
+    'updateProductQuantity-success ': props<AddToCartResponseDTO>(),
+    'updateProductQuantity-failure ': emptyProps(),
   },
 });

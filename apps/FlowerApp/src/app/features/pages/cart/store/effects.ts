@@ -86,3 +86,25 @@ export const deleteCartEffect = createEffect(
   },
   { functional: true }
 );
+export const updateProductQuantityEffect = createEffect(
+  (actions$ = inject(Actions), cartService = inject(CartService)) => {
+    return actions$.pipe(
+      ofType(cartActions.updateProductQuantityFromCard),
+      switchMap(({ product, quantity }) => {
+        return cartService
+          .updateSpecificCartQuantity({ product, quantity })
+          .pipe(
+            map((updateQuantityResponse: AddToCartResponseDTO) => {
+              return cartActions['updateProductQuantity-success'](
+                updateQuantityResponse
+              );
+            }),
+            catchError(() => {
+              return of(cartActions['updateProductQuantity-failure']());
+            })
+          );
+      })
+    );
+  },
+  { functional: true }
+);

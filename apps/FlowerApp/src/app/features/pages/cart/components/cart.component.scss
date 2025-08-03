@@ -64,6 +64,10 @@
   }
 
   .product-quantity {
+    .unclickable {
+      pointer-events: none;
+      opacity: 0.5; /* Optional: visually indicate it's disabled */
+    }
     svg {
       background-color: var(--bg-light);
       width: 3rem;

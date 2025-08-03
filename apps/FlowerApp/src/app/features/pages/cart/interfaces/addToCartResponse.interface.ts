@@ -2,6 +2,8 @@ export interface AddToCartResponseDTO {
   message: string;
   numOfCartItems: number;
   cart: CartOrderDTO;
+ 
+ 
 }
 
 export interface CartOrderDTO {
