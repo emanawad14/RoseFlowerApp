@@ -5,6 +5,7 @@ import { cartActions } from './actions';
 import { catchError, map, of, switchMap } from 'rxjs';
 import { AddToCartResponseDTO } from '../interfaces/addToCartResponse.interface';
 import { AddToCartRequestInterface } from '../interfaces/addToCarRequest.interface';
+import { deleteCartResponseDTO } from '../interfaces/updateProductQuantity.interface';
 
 export const getLoggedUserCartEffect = createEffect(
   (actions$ = inject(Actions), cartService = inject(CartService)) => {
@@ -60,6 +61,24 @@ export const deleteProductFromCartEffect = createEffect(
           }),
           catchError(() => {
             return of(cartActions['deleteProductFromCard-failure']());
+          })
+        );
+      })
+    );
+  },
+  { functional: true }
+);
+export const deleteCartEffect = createEffect(
+  (actions$ = inject(Actions), cartService = inject(CartService)) => {
+    return actions$.pipe(
+      ofType(cartActions.deleteCart),
+      switchMap(() => {
+        return cartService.deleteCart().pipe(
+          map((deleteCartResponse: deleteCartResponseDTO) => {
+            return cartActions['deleteCart-success'](deleteCartResponse);
+          }),
+          catchError(() => {
+            return of(cartActions['deleteCart-failure']());
           })
         );
       })

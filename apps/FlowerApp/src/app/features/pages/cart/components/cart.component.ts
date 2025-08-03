@@ -9,6 +9,7 @@ import {
   selectCartProductData,
   selectError,
   selectIsLoading,
+  selectNumberOfCartItems,
 } from '../store/reducers';
 import { cartActions } from '../store/actions';
 import { AddToCartResponseDTO } from '../interfaces/addToCartResponse.interface';
@@ -23,6 +24,7 @@ export class CartComponent implements OnInit {
     getProductsCartResponse: AddToCartResponseDTO | null;
     isLoading: boolean;
     error: any;
+    numberOfItemsInCart:number
   }>;
 
   constructor(private _router: Router, private store: Store) {}
@@ -31,6 +33,7 @@ export class CartComponent implements OnInit {
       getProductsCartResponse: this.store.select(selectCartProductData),
       isLoading: this.store.select(selectIsLoading),
       error: this.store.select(selectError),
+      numberOfItemsInCart:this.store.select(selectNumberOfCartItems)
     });
 
     this.store.dispatch(cartActions['getLogged-User-Cart']());
@@ -42,6 +45,9 @@ export class CartComponent implements OnInit {
     this.store.dispatch(
       cartActions.deleteProductFromCard({ product: productId })
     );
+  }
+  removeCart() {
+    this.store.dispatch(cartActions.deleteCart());
   }
   decrementPrice() {
     console.log('decrement');

@@ -8,8 +8,10 @@ export interface CartOrderDTO {
   user: string;
   cartItems: CartItem[];
   _id: string;
-  appliedCoupons: [];
+  appliedCoupons?: [];
   totalPrice: number;
+  discount: number;
+  totalPriceAfterDiscount: number;
   createdAt: string;
   updatedAt: string;
   __v: number;

@@ -4,7 +4,7 @@
     <div class="flex align-items-end gap-1">
       <h3>Cart</h3>
       <span class="product-number"
-        >{{ data.getProductsCartResponse?.numOfCartItems }} products</span
+        >{{ data.numberOfItemsInCart }} products</span
       >
     </div>
     <app-primary-btn
@@ -12,6 +12,7 @@
       [labelName]="'Clear Cart'"
       [displayIcon]="false"
       [colorText]="'#A6252A'"
+      (btnClicked)="removeCart()"
     >
       <svg
         width="20"
@@ -34,7 +35,7 @@
   <div class="product-cart mb-3">
     @if(data.isLoading){ isLoading.............................. }
     @if(data.error){ Error.................................... }
-    @if(data.getProductsCartResponse?.cart?.cartItems?.length==0 ){
+    @if(data.numberOfItemsInCart==0 ){
     <div
       class="min-h-18rem flex flex-column align-items-center justify-content-center py-4"
     >
