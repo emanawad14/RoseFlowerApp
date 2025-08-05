@@ -1,0 +1,14 @@
+<div class="card flex justify-center gap-2">
+  <p-toast />
+  <p-confirmdialog>
+    <ng-template #message let-message>
+      <div
+        class="flex flex-column align-items-center justify-content-center w-full"
+      >
+        <img src="/images/deleteIcon.png" alt="" />
+        <p>{{ message.message }}</p>
+        <span class="my-3">This action is permanent and cannot be undone.</span>
+      </div>
+    </ng-template>
+  </p-confirmdialog>
+</div>

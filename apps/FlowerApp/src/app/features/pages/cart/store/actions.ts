@@ -10,27 +10,27 @@ export const cartActions = createActionGroup({
   source: 'cart',
   events: {
     //Get
-    'Get Logged-User-Cart': emptyProps(),
-    'Get products-in-cart-success ': props<AddToCartResponseDTO>(),
-    'Get products-in-cart-failure ': emptyProps(),
+    'Get Logged User Cart': emptyProps(),
+    'Get products in cart success': props<AddToCartResponseDTO>(),
+    'Get products in cart failure': emptyProps(),
     //add
     AddProductToCard: props<AddToCartRequestInterface>(),
-    'Add products-in-cart-success ': props<AddToCartResponseDTO>(),
-    'Add products-in-cart-failure ': emptyProps(),
+    'Add products in cart success': props<AddToCartResponseDTO>(),
+    'Add products in cart failure': emptyProps(),
     //Delete specific product
 
     deleteProductFromCard: props<{ product: string }>(),
-    ' deleteProductFromCard-success ': props<AddToCartResponseDTO>(),
-    ' deleteProductFromCard-failure ': emptyProps(),
+    ' delete Product From Card success ': props<AddToCartResponseDTO>(),
+    ' delete Product From Card failure ': emptyProps(),
 
     //Delete cart
     deleteCart: emptyProps(),
-    'deleteCart-success ': props<deleteCartResponseDTO>(),
-    'deleteCart-failure ': emptyProps(),
-    
+    'delete Cart success ': props<deleteCartResponseDTO>(),
+    'delete Cart failure ': emptyProps(),
+
     //update quantity specific product
     updateProductQuantityFromCard: props<UpdateQuantityRequest>(),
-    'updateProductQuantity-success ': props<AddToCartResponseDTO>(),
-    'updateProductQuantity-failure ': emptyProps(),
+    'update Product Quantity success ': props<AddToCartResponseDTO>(),
+    'update Product Quantity failure ': emptyProps(),
   },
 });

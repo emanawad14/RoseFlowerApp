@@ -115,6 +115,7 @@
           </div>
 
           <app-primary-btn
+            [loading]="(data$ | async)?.addToCartLoading ?? false"
             [labelName]="'Add to Cart '"
             [displayIcon]="false"
             [widthFull]="true"

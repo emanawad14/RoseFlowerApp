@@ -7,40 +7,45 @@ const initialState: cartStateInterface = {
   error: null,
   numberOfCartItems: 0,
   data: null,
+  addToCartLoading: false,
+  addToCartProductId: null,
 };
 export const cartFeature = createFeature({
   name: 'cart',
   reducer: createReducer(
     initialState,
-    on(cartActions['getLogged-User-Cart'], (state) => ({
+    on(cartActions['getLoggedUserCart'], (state) => ({
       ...state,
       isLoading: true,
     })),
-    on(cartActions['getProducts-in-cart-success'], (state, action) => ({
+    on(cartActions['getProductsInCartSuccess'], (state, action) => ({
       ...state,
       isLoading: false,
       numberOfCartItems: action.numOfCartItems,
       data: action,
     })),
-    on(cartActions['getProducts-in-cart-failure'], (state) => ({
+    on(cartActions['getProductsInCartFailure'], (state) => ({
       ...state,
       isLoading: false,
     })),
 
     //add to cart
-    on(cartActions.addProductToCard, (state) => ({
+    on(cartActions.addProductToCard, (state, { product }) => ({
       ...state,
-      isLoading: true,
+      addToCartLoading: true,
+      addToCartProductId: product,
     })),
-    on(cartActions['addProducts-in-cart-success'], (state, action) => ({
+    on(cartActions['addProductsInCartSuccess'], (state, action) => ({
       ...state,
-      isLoading: false,
+      addToCartLoading: false,
+      addToCartProductId: null,
       numberOfCartItems: action.numOfCartItems,
       data: action,
     })),
-    on(cartActions['addProducts-in-cart-failure'], (state) => ({
+    on(cartActions['addProductsInCartFailure'], (state) => ({
       ...state,
-      isLoading: false,
+      addToCartLoading: false,
+      addToCartProductId: null,
     })),
 
     //delete product
@@ -48,13 +53,13 @@ export const cartFeature = createFeature({
       ...state,
       isLoading: true,
     })),
-    on(cartActions['deleteProductFromCard-success'], (state, action) => ({
+    on(cartActions['deleteProductFromCardSuccess'], (state, action) => ({
       ...state,
       isLoading: false,
       numberOfCartItems: action.numOfCartItems,
       data: action,
     })),
-    on(cartActions['deleteProductFromCard-failure'], (state) => ({
+    on(cartActions['deleteProductFromCardFailure'], (state) => ({
       ...state,
       isLoading: false,
     })),
@@ -63,13 +68,13 @@ export const cartFeature = createFeature({
       ...state,
       isLoading: true,
     })),
-    on(cartActions['deleteCart-success'], (state, action) => ({
+    on(cartActions['deleteCartSuccess'], (state, action) => ({
       ...state,
       isLoading: false,
       numberOfCartItems: 0,
       data: null,
     })),
-    on(cartActions['deleteCart-failure'], (state) => ({
+    on(cartActions['deleteCartFailure'], (state) => ({
       ...state,
       isLoading: false,
     })),
@@ -78,13 +83,13 @@ export const cartFeature = createFeature({
       ...state,
       isLoading: true,
     })),
-    on(cartActions['updateProductQuantity-success'], (state, action) => ({
+    on(cartActions['updateProductQuantitySuccess'], (state, action) => ({
       ...state,
       isLoading: false,
       numberOfCartItems: action.numOfCartItems,
       data: action,
     })),
-    on(cartActions['updateProductQuantity-failure'], (state) => ({
+    on(cartActions['updateProductQuantityFailure'], (state) => ({
       ...state,
       isLoading: false,
     }))
@@ -97,4 +102,6 @@ export const {
   selectError, // selector for `error` property
   selectData: selectCartProductData, // feature selector
   selectNumberOfCartItems,
+  selectAddToCartLoading,
+  selectAddToCartProductId,
 } = cartFeature;

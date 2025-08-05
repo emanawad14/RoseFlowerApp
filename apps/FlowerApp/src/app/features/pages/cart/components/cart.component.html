@@ -33,19 +33,12 @@
     </app-primary-btn>
   </div>
 
-  <div class="product-cart mb-3">
-    @if(data.isLoading){ isLoading.............................. }
-    @if(data.error){ Error.................................... }
-    @if(!data.numberOfItemsInCart){
-    <div
-      class="min-h-18rem flex flex-column align-items-center justify-content-center py-4"
-    >
-      <img src="/images/no-cart.png" alt="no-cart" width="250" height="214" />
-
-      <p>Your cart is empty, wanna try shopping?</p>
-    </div>
-    }@else{ @for(product of data.getProductsCartResponse?.cart?.cartItems ;
-    track product._id ;let first=$first){
+  <div class="product-cart relative mb-3 min-h-18rem">
+    @if(data.isLoading){
+    <app-loading></app-loading> } @if(data.error){
+    Error.................................... } @for(product of
+    data.getProductsCartResponse?.cart?.cartItems ; track product._id ;let
+    first=$first){
 
     <div
       class="flex flex-column md:flex-row justify-content-between mb-3 gap-2 pt-2"
@@ -101,7 +94,9 @@
           [labelName]="'Remove'"
           [widthFull]="false"
           [displayIcon]="false"
-          (btnClicked)="removeFromCart(product.product._id)"
+          (btnClicked)="
+            removeFromCart(product.product._id, product.product.title)
+          "
           ><svg
             width="20"
             height="20"
@@ -175,7 +170,15 @@
         <!-- <app-global-input /> -->
       </div>
     </div>
-    } }
+    } @empty {
+    <div
+      class="min-h-18rem flex flex-column align-items-center justify-content-center py-4"
+    >
+      <img src="/images/no-cart.png" alt="no-cart" width="250" height="214" />
+
+      <p>Your cart is empty, wanna try shopping?</p>
+    </div>
+    }
   </div>
 
   }
@@ -200,3 +203,14 @@
     </svg>
   </app-primary-btn>
 </ng-container>
+<app-confirm-dialog></app-confirm-dialog>
+<!-- <p-toast /> -->
+<!-- @if(!data.numberOfItemsInCart){
+    <div
+      class="min-h-18rem flex flex-column align-items-center justify-content-center py-4"
+    >
+      <img src="/images/no-cart.png" alt="no-cart" width="250" height="214" />
+
+      <p>Your cart is empty, wanna try shopping?</p>
+    </div>
+    }@else{ -->

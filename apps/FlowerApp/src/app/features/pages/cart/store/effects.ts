@@ -2,24 +2,23 @@ import { inject } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { CartService } from '../services/cart.service';
 import { cartActions } from './actions';
-import { catchError, map, of, switchMap } from 'rxjs';
+import { catchError, map, of, switchMap, tap } from 'rxjs';
 import { AddToCartResponseDTO } from '../interfaces/addToCartResponse.interface';
 import { AddToCartRequestInterface } from '../interfaces/addToCarRequest.interface';
 import { deleteCartResponseDTO } from '../interfaces/updateProductQuantity.interface';
+import { ToastService } from 'apps/FlowerApp/src/app/shared/services/toast.service';
 
 export const getLoggedUserCartEffect = createEffect(
   (actions$ = inject(Actions), cartService = inject(CartService)) => {
     return actions$.pipe(
-      ofType(cartActions['getLogged-User-Cart']),
+      ofType(cartActions['getLoggedUserCart']),
       switchMap(() => {
         return cartService.getLoggedUserCart().pipe(
           map((loggedUserREsponse: AddToCartResponseDTO) => {
-            return cartActions['getProducts-in-cart-success'](
-              loggedUserREsponse
-            );
+            return cartActions['getProductsInCartSuccess'](loggedUserREsponse);
           }),
           catchError(() => {
-            return of(cartActions['getProducts-in-cart-failure']());
+            return of(cartActions['getProductsInCartFailure']());
           })
         );
       })
@@ -35,12 +34,10 @@ export const addProductToCartEffect = createEffect(
       switchMap(({ product, quantity }) => {
         return cartService.addProductToCart({ product, quantity }).pipe(
           map((addProductResponse: AddToCartResponseDTO) => {
-            return cartActions['addProducts-in-cart-success'](
-              addProductResponse
-            );
+            return cartActions['addProductsInCartSuccess'](addProductResponse);
           }),
           catchError(() => {
-            return of(cartActions['addProducts-in-cart-failure']());
+            return of(cartActions['addProductsInCartFailure']());
           })
         );
       })
@@ -55,12 +52,12 @@ export const deleteProductFromCartEffect = createEffect(
       switchMap(({ product }) => {
         return cartService.deleteSpecificProduct(product).pipe(
           map((deleteProductResponse: AddToCartResponseDTO) => {
-            return cartActions['deleteProductFromCard-success'](
+            return cartActions['deleteProductFromCardSuccess'](
               deleteProductResponse
             );
           }),
           catchError(() => {
-            return of(cartActions['deleteProductFromCard-failure']());
+            return of(cartActions['deleteProductFromCardFailure']());
           })
         );
       })
@@ -75,10 +72,10 @@ export const deleteCartEffect = createEffect(
       switchMap(() => {
         return cartService.deleteCart().pipe(
           map((deleteCartResponse: deleteCartResponseDTO) => {
-            return cartActions['deleteCart-success'](deleteCartResponse);
+            return cartActions['deleteCartSuccess'](deleteCartResponse);
           }),
           catchError(() => {
-            return of(cartActions['deleteCart-failure']());
+            return of(cartActions['deleteCartFailure']());
           })
         );
       })
@@ -95,16 +92,26 @@ export const updateProductQuantityEffect = createEffect(
           .updateSpecificCartQuantity({ product, quantity })
           .pipe(
             map((updateQuantityResponse: AddToCartResponseDTO) => {
-              return cartActions['updateProductQuantity-success'](
+              return cartActions['updateProductQuantitySuccess'](
                 updateQuantityResponse
               );
             }),
             catchError(() => {
-              return of(cartActions['updateProductQuantity-failure']());
+              return of(cartActions['updateProductQuantityFailure']());
             })
           );
       })
     );
   },
   { functional: true }
+);
+export const addProductToCartSuccess = createEffect(
+  (actions$ = inject(Actions), toastService = inject(ToastService)) =>
+    actions$.pipe(
+      ofType(cartActions['addProductsInCartSuccess']),
+      tap(() => {
+        toastService.showSuccess('Product added to cart');
+      })
+    ),
+  { functional: true, dispatch: false }
 );

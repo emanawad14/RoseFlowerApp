@@ -18,6 +18,7 @@ import { GlobalInputComponent } from '../../../shared/components/ui/globalInput.
 import { Store } from '@ngrx/store';
 import { selectNumberOfCartItems } from '../../../features/pages/cart/store/reducers';
 import { Observable } from 'rxjs';
+import { cartActions } from '../../../features/pages/cart/store/actions';
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
@@ -56,6 +57,8 @@ export class NavBarComponent implements OnInit {
     this._themeService.initialTheme();
     this.getUserData();
     this.setUserMenueItems();
+    //get cart
+    this.store.dispatch(cartActions['getLoggedUserCart']());
     this.numberOfCartItems$ = this.store.select(selectNumberOfCartItems);
   }
   setUserMenueItems() {

@@ -5,6 +5,7 @@
   class="p-button h-auto py-2"
   [class.w-full]="widthFull"
   (click)="dispatchClick()"
+  [loading]="loading"
   [style]="{
     'background-color': backgroundColor || 'var(--primary-btn-bg)',
   }"

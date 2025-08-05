@@ -1,3 +1,4 @@
+import { MessageService } from 'primeng/api';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
@@ -10,12 +11,30 @@ import {
 import { GalleriaModule } from 'primeng/galleria';
 import { Dialog } from 'primeng/dialog';
 import { PrimaryBtnComponent } from '../../../shared/components/ui/primary-btn.component';
-import { Subscription } from 'rxjs';
+import {
+  combineLatest,
+  map,
+  Observable,
+  of,
+  pairwise,
+  startWith,
+  Subject,
+  Subscription,
+  take,
+  takeUntil,
+} from 'rxjs';
 import { ProductReviewComponent } from './components/productReview.component';
 import { RelatedProductsComponent } from './components/relatedProducts.component';
 import { Store } from '@ngrx/store';
 import { cartActions } from '../cart/store/actions';
-
+import {
+  selectAddToCartLoading,
+  selectCartProductData,
+  selectError,
+  selectNumberOfCartItems,
+} from '../cart/store/reducers';
+import { ToastModule } from 'primeng/toast';
+import { CartStates } from '../cart/interfaces/getProductsCartState.interface';
 @Component({
   selector: 'app-product-detail',
   imports: [
@@ -25,6 +44,7 @@ import { cartActions } from '../cart/store/actions';
     PrimaryBtnComponent,
     ProductReviewComponent,
     RelatedProductsComponent,
+    ToastModule,
   ],
   templateUrl: './productDetail.component.html',
   styleUrl: './productDetail.component.scss',
@@ -33,7 +53,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
   productImages: string[] = [];
   relatedProducts: Product[] = [];
   productId!: string;
-
+  // addProductLoading$: Observable<boolean> = of(false);
   responsiveOptions: any[] = [
     {
       breakpoint: '1300px',
@@ -54,18 +74,66 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
   ];
   subs: Subscription[] = [];
   product?: Product;
+  private destroy$ = new Subject<void>();
+
+  data$!: Observable<CartStates>;
+  //private destroy$ = new Subject<void>();
+
   constructor(
     private _ActivatedRoute: ActivatedRoute,
     private _ProductService: ProductService,
-    private store: Store
+    private store: Store,
+    // private actions$: Actions,
+    private MessageService: MessageService
   ) {}
-
+  // get safeLoading(): boolean {
+  //   // If Angular has not emitted yet, treat as false
+  //   let value: boolean | null = null;
+  //   const sub = this.addProductLoading$.subscribe((v) => (value = v));
+  //   this.subs.push(sub);
+  //   return value ?? false;
+  // }
   ngOnInit(): void {
     const sub = this._ActivatedRoute.params.subscribe((params) => {
       this.productId = params['id']; // example: /product-details/123
       this.getProduct();
     });
     this.subs.push(sub);
+
+    this.data$ = combineLatest({
+      // getProductsCartResponse: this.store.select(selectCartProductData),
+      addToCartLoading: this.store.select(selectAddToCartLoading),
+      error: this.store.select(selectError),
+      numberOfItemsInCart: this.store.select(selectNumberOfCartItems),
+    });
+    // Watch loading state and error to detect success/failure
+    this.store
+      .select(selectAddToCartLoading)
+      .pipe(startWith(false), pairwise(), takeUntil(this.destroy$))
+      .subscribe(([prev, curr]) => {
+        // When loading turns from true -> false
+        if (prev === true && curr === false) {
+          this.store
+            .select(selectError)
+            .pipe(take(1))
+            .subscribe((error) => {
+              if (error) {
+                this.MessageService.add({
+                  severity: 'error',
+                  summary: 'Error',
+                  detail: 'Failed to add to cart',
+                });
+              } else {
+                this.MessageService.add({
+                  severity: 'success',
+                  summary: 'Success',
+                  detail: 'Product added to cart',
+                });
+              }
+            });
+        }
+      });
+    //  this.addProductLoading$ = this.store.select(selectIsLoading);
   }
 
   getProduct() {
@@ -102,6 +170,21 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     this.store.dispatch(
       cartActions.addProductToCard({ product: productId, quantity: 1 })
     );
+
+    // this.actions$
+    //   .pipe(
+    //     ofType(cartActions['addProducts-in-cart-success']),
+    //     takeUntil(this.destroy$)
+    //   )
+    //   .subscribe({
+    //     next: (response: AddToCartResponseDTO) => {
+    //       this.MessageService.add({
+    //         severity: 'success',
+    //         summary: 'success',
+    //         detail: 'Product added to cart.',
+    //       });
+    //     },
+    //   });
   }
 
   displayDialog = false;
@@ -113,5 +196,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
   }
   ngOnDestroy(): void {
     this.subs.forEach((sub) => sub.unsubscribe());
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }

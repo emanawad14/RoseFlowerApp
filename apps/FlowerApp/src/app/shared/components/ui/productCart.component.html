@@ -38,11 +38,21 @@
         {{ product.price | currency : 'USD' : 'symbol' : '1.2-2' }}
       </span>
     </div>
+
     <span
       [class]="{ 'opacity-10': product.quantity <= 0 }"
-      class="icon p-3 border-circle h-3rem w-3rem flex align-items-center justify-content-center bg-bag-color cursor-pointer"
+      class="icon p-3 border-circle h-3rem w-3rem flex align-items-center justify-content-center bg-bag-color cursor-pointer relative"
     >
-      <!-- <i class="pi pi-shopping-bag text-xl text-white"></i> -->
+      @if((data$|async)?.addToCartLoading&& (data$|async)?.addToCartProductId
+      === product._id){
+      <app-loading></app-loading> }
+      <!-- <ng-container
+        *ngIf="
+          clickedProductId === product._id && (data$ | async)?.addToCartLoading
+        "
+      >
+        <app-loading></app-loading>
+      </ng-container> -->
       <i
         class="pi pi-shopping-cart text-white"
         style="font-size: 1.5rem"

@@ -2,7 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { MessageService } from 'primeng/api';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ToastService {
   private messageService = inject(MessageService);
@@ -12,7 +12,7 @@ export class ToastService {
       severity: 'success',
       summary: title,
       detail: message,
-      life: 3000
+      life: 3000,
     });
   }
 
@@ -21,7 +21,7 @@ export class ToastService {
       severity: 'error',
       summary: title,
       detail: message,
-      life: 5000
+      life: 5000,
     });
   }
 
@@ -30,7 +30,7 @@ export class ToastService {
       severity: 'info',
       summary: title,
       detail: message,
-      life: 3000
+      life: 3000,
     });
   }
 
@@ -39,10 +39,12 @@ export class ToastService {
       severity: 'warn',
       summary: title,
       detail: message,
-      life: 4000
+      life: 4000,
     });
   }
-
+  clearAll() {
+    this.messageService.clear();
+  }
   // Specific toast methods for common operations
   showAssociateAdded() {
     this.showSuccess('Associate added successfully!', 'Associate Added');
@@ -57,7 +59,10 @@ export class ToastService {
   }
 
   showAssociateLoadError() {
-    this.showError('Failed to load associates. Please try again.', 'Load Error');
+    this.showError(
+      'Failed to load associates. Please try again.',
+      'Load Error'
+    );
   }
 
   showFormError() {
@@ -65,6 +70,9 @@ export class ToastService {
   }
 
   showNetworkError() {
-    this.showError('Network error. Please check your connection.', 'Network Error');
+    this.showError(
+      'Network error. Please check your connection.',
+      'Network Error'
+    );
   }
 }
