@@ -27,9 +27,8 @@ export class CartLayoutComponent implements OnInit, OnDestroy {
   cartData$!: Observable<AddToCartResponseDTO | null>;
   totalPrice$!: Observable<number>;
   bestSellerProducts: IItems[] = [];
-  private readonly _homeServices = inject(HomeService);
   bestSellerProductsSub: Subscription = new Subscription();
-  constructor(private store: Store) {}
+  constructor(private store: Store, private _homeServices: HomeService) {}
 
   ngOnInit(): void {
     this.getBsetSellerProducts();
