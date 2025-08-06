@@ -4,9 +4,9 @@ import { CartService } from '../services/cart.service';
 import { cartActions } from './actions';
 import { catchError, map, of, switchMap, tap } from 'rxjs';
 import { AddToCartResponseDTO } from '../interfaces/addToCartResponse.interface';
-import { AddToCartRequestInterface } from '../interfaces/addToCarRequest.interface';
 import { deleteCartResponseDTO } from '../interfaces/updateProductQuantity.interface';
 import { ToastService } from 'apps/FlowerApp/src/app/shared/services/toast.service';
+import { MessageService } from 'primeng/api';
 
 export const getLoggedUserCartEffect = createEffect(
   (actions$ = inject(Actions), cartService = inject(CartService)) => {
@@ -105,7 +105,7 @@ export const updateProductQuantityEffect = createEffect(
   },
   { functional: true }
 );
-export const addProductToCartSuccess = createEffect(
+export const addProductToCartSuccessDisplayMsg = createEffect(
   (actions$ = inject(Actions), toastService = inject(ToastService)) =>
     actions$.pipe(
       ofType(cartActions['addProductsInCartSuccess']),

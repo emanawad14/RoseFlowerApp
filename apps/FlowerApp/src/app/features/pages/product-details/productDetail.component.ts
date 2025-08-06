@@ -11,30 +11,19 @@ import {
 import { GalleriaModule } from 'primeng/galleria';
 import { Dialog } from 'primeng/dialog';
 import { PrimaryBtnComponent } from '../../../shared/components/ui/primary-btn.component';
-import {
-  combineLatest,
-  map,
-  Observable,
-  of,
-  pairwise,
-  startWith,
-  Subject,
-  Subscription,
-  take,
-  takeUntil,
-} from 'rxjs';
+import { combineLatest, Observable, Subject, Subscription } from 'rxjs';
 import { ProductReviewComponent } from './components/productReview.component';
 import { RelatedProductsComponent } from './components/relatedProducts.component';
 import { Store } from '@ngrx/store';
 import { cartActions } from '../cart/store/actions';
 import {
   selectAddToCartLoading,
-  selectCartProductData,
   selectError,
   selectNumberOfCartItems,
 } from '../cart/store/reducers';
 import { ToastModule } from 'primeng/toast';
 import { CartStates } from '../cart/interfaces/getProductsCartState.interface';
+import { ToastService } from '../../../shared/services/toast.service';
 @Component({
   selector: 'app-product-detail',
   imports: [
@@ -84,7 +73,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     private _ProductService: ProductService,
     private store: Store,
     // private actions$: Actions,
-    private MessageService: MessageService
+    private MessageService: MessageService,
+    private toastService: ToastService
   ) {}
   // get safeLoading(): boolean {
   //   // If Angular has not emitted yet, treat as false
@@ -106,34 +96,6 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       error: this.store.select(selectError),
       numberOfItemsInCart: this.store.select(selectNumberOfCartItems),
     });
-    // Watch loading state and error to detect success/failure
-    this.store
-      .select(selectAddToCartLoading)
-      .pipe(startWith(false), pairwise(), takeUntil(this.destroy$))
-      .subscribe(([prev, curr]) => {
-        // When loading turns from true -> false
-        if (prev === true && curr === false) {
-          this.store
-            .select(selectError)
-            .pipe(take(1))
-            .subscribe((error) => {
-              if (error) {
-                this.MessageService.add({
-                  severity: 'error',
-                  summary: 'Error',
-                  detail: 'Failed to add to cart',
-                });
-              } else {
-                this.MessageService.add({
-                  severity: 'success',
-                  summary: 'Success',
-                  detail: 'Product added to cart',
-                });
-              }
-            });
-        }
-      });
-    //  this.addProductLoading$ = this.store.select(selectIsLoading);
   }
 
   getProduct() {
@@ -170,21 +132,6 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     this.store.dispatch(
       cartActions.addProductToCard({ product: productId, quantity: 1 })
     );
-
-    // this.actions$
-    //   .pipe(
-    //     ofType(cartActions['addProducts-in-cart-success']),
-    //     takeUntil(this.destroy$)
-    //   )
-    //   .subscribe({
-    //     next: (response: AddToCartResponseDTO) => {
-    //       this.MessageService.add({
-    //         severity: 'success',
-    //         summary: 'success',
-    //         detail: 'Product added to cart.',
-    //       });
-    //     },
-    //   });
   }
 
   displayDialog = false;

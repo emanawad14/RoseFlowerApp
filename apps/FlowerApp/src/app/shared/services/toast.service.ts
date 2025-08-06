@@ -5,14 +5,14 @@ import { MessageService } from 'primeng/api';
   providedIn: 'root',
 })
 export class ToastService {
-  private messageService = inject(MessageService);
-
+  // private messageService = inject(MessageService);
+  constructor(private messageService: MessageService) {}
   showSuccess(message: string, title = 'Success') {
     this.messageService.add({
       severity: 'success',
       summary: title,
       detail: message,
-      life: 3000,
+      //life: 3000,
     });
   }
 
@@ -21,7 +21,7 @@ export class ToastService {
       severity: 'error',
       summary: title,
       detail: message,
-      life: 5000,
+      // life: 5000,
     });
   }
 
@@ -30,7 +30,7 @@ export class ToastService {
       severity: 'info',
       summary: title,
       detail: message,
-      life: 3000,
+      //life: 3000,
     });
   }
 
@@ -39,7 +39,7 @@ export class ToastService {
       severity: 'warn',
       summary: title,
       detail: message,
-      life: 4000,
+      // life: 4000,
     });
   }
   clearAll() {

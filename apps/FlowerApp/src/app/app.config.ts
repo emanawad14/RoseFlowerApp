@@ -40,6 +40,7 @@ import * as cartEffects from './features/pages/cart/store/effects';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { provideAnimations } from '@angular/platform-browser/animations';
+import { ToastService } from './shared/services/toast.service';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, '/i18n/', '.json');
@@ -47,8 +48,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 export const appConfig: ApplicationConfig = {
   providers: [
     MessageService,
-    importProvidersFrom(ToastModule), // necessary
-    provideAnimations(), // 👈 Required for Toast to work!
+    ToastModule,
 
     { provide: BASEURL, useValue: environment.baseUrl },
     provideAppInitializer(() => appInit()),
