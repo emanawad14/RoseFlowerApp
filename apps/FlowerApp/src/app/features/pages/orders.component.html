@@ -22,13 +22,26 @@
             <div class="text-xl ">
               Total Price:
               <span class="text-900 font-bold">{{ order.totalPrice }} EGP</span>
+             
+              @if (order.isPaid ==false) 
+              {
+               
+                 <span 
+                 
+                 class="bg-green-500 text-white px-2 py-1 px-3 border-round">
+                  <i class="pi pi-check" style="font-size: 1rem"></i>  
+               Paid 
+              
+              </span>
+              }
+
             </div>
          <div class="flex align-items-center gap-3 mt-2">
-          <span class="text-sm font-semibold text-gray-700">Status :</span>
+    <span class="text-sm font-semibold text-gray-700">Status :</span>
 
   <span
     [ngClass]="{
-      'bg-blue-100 text-blue-800': order.state === 'In Progress',
+      'bg-blue-600 text-white': order.state === 'pending',
       'bg-green-100 text-green-800': order.state === 'Done',
       'bg-red-100 text-red-800': order.state === 'Canceled'
     }"
@@ -56,7 +69,7 @@
               <span class="font-bold">Delivery Status:</span>
               <span
                 [ngClass]="{
-                  'text-yellow-500': order.state === 'In Progress',
+                  'text-yellow-500': order.state === 'InProgress',
                   'text-green-500': order.state === 'Done',
                   'text-red-500': order.state === 'Canceled'
                 }"
@@ -85,7 +98,8 @@
         <div class="flex flex-column gap-6">
           <span class="font-medium text-sm">{{ item.product.title }}</span>
           <span class="text-xs text-500">
-            ⭐ {{ item.product.rateAvg }}/5 ({{ item.product.rateCount }} ratings)
+            <i class="pi pi-star-fill  text-yellow-600" style="font-size: 1rem" ></i>
+            {{ item.product.rateAvg }}/5 ({{ item.product.rateCount }} ratings)
           </span>
           <span class="font-bold gap-4 text-sm">
           (× {{ item.quantity }})  
