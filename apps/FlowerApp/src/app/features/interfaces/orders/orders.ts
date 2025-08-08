@@ -1,3 +1,4 @@
+import { IItems } from "../i-items";
 
  export interface Orders {
   _id: string;
@@ -41,4 +42,12 @@ interface Product {
   isSuperAdmin: boolean;
   sold: number;
   id: string;
+}
+
+export interface orderResponse
+{
+    message: string;
+   orders:Orders[]
+    metaData: string;
+    products:Product[]
 }

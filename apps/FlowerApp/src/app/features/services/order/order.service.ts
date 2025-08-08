@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { orderResponse } from '../../interfaces/orders/orders';
+import { environment } from 'apps/FlowerApp/src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +12,8 @@ export class OrderService {
   constructor() { }
   private readonly http=inject(HttpClient);
 
-  getUserOrders():Observable<any>
+  getUserOrders():Observable<orderResponse>
   {
-     return this.http.get(`https://flower.elevateegy.com/api/v1/orders`);
+     return this.http.get<orderResponse>(`${environment.baseUrl}/api/v1/orders`);
   }
 }
