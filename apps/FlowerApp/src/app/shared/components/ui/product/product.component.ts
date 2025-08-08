@@ -11,6 +11,7 @@ import { Catigory } from '../../../../features/interfaces/catigory.FlowerApp';
 import { Carousel } from 'primeng/carousel';
 import { TranslatePipe } from '@ngx-translate/core';
 import { SharedProductsComponent } from '../../business/sharedProducts.component';
+import { OrdersComponent } from "apps/FlowerApp/src/app/features/pages/orders.component";
 
 @Component({
   selector: 'app-product',
@@ -24,7 +25,8 @@ import { SharedProductsComponent } from '../../business/sharedProducts.component
     Carousel,
     TranslatePipe,
     SharedProductsComponent,
-  ],
+    OrdersComponent
+],
   templateUrl: './product.component.html',
   styleUrl: './product.component.scss',
 })

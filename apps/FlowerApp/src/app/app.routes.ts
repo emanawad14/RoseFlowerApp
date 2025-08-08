@@ -26,6 +26,14 @@ export const appRoutes: Route[] = [
           ),
       },
       {
+        path: 'myOrders',
+        loadComponent: () =>
+          import('./features/pages/orders.component').then(
+            (c) => c.OrdersComponent
+          ),
+      },
+
+      {
         path: 'product-list',
         loadComponent: () =>
           import('./features/pages/product-list/productList.component').then(

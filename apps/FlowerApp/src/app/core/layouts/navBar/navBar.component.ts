@@ -111,7 +111,8 @@ export class NavBarComponent implements OnInit {
           {
             label: 'My Orders',
             icon: 'pi pi-save',
-            routerLink: '',
+            
+            routerLink: '/myOrders',
           },
           {
             separator: true,
