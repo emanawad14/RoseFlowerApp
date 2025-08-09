@@ -29,21 +29,16 @@ import { CartStates } from '../interfaces/getProductsCartState.interface';
   ],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss',
-  providers: [MessageService],
 })
 export class CartComponent implements OnInit {
   data$!: Observable<CartStates>;
   @ViewChild(ConfirmDialogComponent) confirmDialog!: ConfirmDialogComponent;
-  constructor(
-    private _router: Router,
-    private store: Store,
-    private _MessageService: MessageService
-  ) {}
+  constructor(private _router: Router, private store: Store) {}
   ngOnInit(): void {
     this.data$ = combineLatest({
       getProductsCartResponse: this.store.select(selectCartProductData),
       isLoading: this.store.select(selectIsLoading),
-      error: this.store.select(selectError),
+      // error: this.store.select(selectError),
       numberOfItemsInCart: this.store.select(selectNumberOfCartItems),
     });
 
@@ -56,7 +51,7 @@ export class CartComponent implements OnInit {
     this.confirmDialog.confirmDialog(`Will remove ${productName}`, () => {
       // confirmed: handle deletion logic
       this.store.dispatch(
-        cartActions.deleteProductFromCard({ product: productId })
+        cartActions.deleteProductFromCart({ product: productId })
       );
 
       // this._MessageService.add({
@@ -90,7 +85,7 @@ export class CartComponent implements OnInit {
     console.log('increment', productId);
 
     this.store.dispatch(
-      cartActions.updateProductQuantityFromCard({
+      cartActions.updateProductQuantityFromCart({
         product: productId,
         quantity: quantity,
       })

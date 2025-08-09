@@ -6,7 +6,6 @@ import { catchError, map, of, switchMap, tap } from 'rxjs';
 import { AddToCartResponseDTO } from '../interfaces/addToCartResponse.interface';
 import { deleteCartResponseDTO } from '../interfaces/updateProductQuantity.interface';
 import { ToastService } from 'apps/FlowerApp/src/app/shared/services/toast.service';
-import { MessageService } from 'primeng/api';
 
 export const getLoggedUserCartEffect = createEffect(
   (actions$ = inject(Actions), cartService = inject(CartService)) => {
@@ -17,8 +16,8 @@ export const getLoggedUserCartEffect = createEffect(
           map((loggedUserREsponse: AddToCartResponseDTO) => {
             return cartActions['getProductsInCartSuccess'](loggedUserREsponse);
           }),
-          catchError(() => {
-            return of(cartActions['getProductsInCartFailure']());
+          catchError(({ error }) => {
+            return of(cartActions['getProductsInCartFailure']({ error }));
           })
         );
       })
@@ -30,14 +29,16 @@ export const getLoggedUserCartEffect = createEffect(
 export const addProductToCartEffect = createEffect(
   (actions$ = inject(Actions), cartService = inject(CartService)) => {
     return actions$.pipe(
-      ofType(cartActions['addProductToCard']),
+      ofType(cartActions['addProductToCart']),
       switchMap(({ product, quantity }) => {
         return cartService.addProductToCart({ product, quantity }).pipe(
           map((addProductResponse: AddToCartResponseDTO) => {
             return cartActions['addProductsInCartSuccess'](addProductResponse);
           }),
-          catchError(() => {
-            return of(cartActions['addProductsInCartFailure']());
+          catchError(({ error }) => {
+            return of(
+              cartActions['addProductsInCartFailure']({ error: error })
+            );
           })
         );
       })
@@ -48,16 +49,16 @@ export const addProductToCartEffect = createEffect(
 export const deleteProductFromCartEffect = createEffect(
   (actions$ = inject(Actions), cartService = inject(CartService)) => {
     return actions$.pipe(
-      ofType(cartActions.deleteProductFromCard),
+      ofType(cartActions.deleteProductFromCart),
       switchMap(({ product }) => {
         return cartService.deleteSpecificProduct(product).pipe(
           map((deleteProductResponse: AddToCartResponseDTO) => {
-            return cartActions['deleteProductFromCardSuccess'](
+            return cartActions['deleteProductFromCartSuccess'](
               deleteProductResponse
             );
           }),
-          catchError(() => {
-            return of(cartActions['deleteProductFromCardFailure']());
+          catchError(({ error }) => {
+            return of(cartActions['deleteProductFromCartFailure']({ error }));
           })
         );
       })
@@ -74,8 +75,8 @@ export const deleteCartEffect = createEffect(
           map((deleteCartResponse: deleteCartResponseDTO) => {
             return cartActions['deleteCartSuccess'](deleteCartResponse);
           }),
-          catchError(() => {
-            return of(cartActions['deleteCartFailure']());
+          catchError(({ error }) => {
+            return of(cartActions['deleteCartFailure']({ error }));
           })
         );
       })
@@ -86,7 +87,7 @@ export const deleteCartEffect = createEffect(
 export const updateProductQuantityEffect = createEffect(
   (actions$ = inject(Actions), cartService = inject(CartService)) => {
     return actions$.pipe(
-      ofType(cartActions.updateProductQuantityFromCard),
+      ofType(cartActions.updateProductQuantityFromCart),
       switchMap(({ product, quantity }) => {
         return cartService
           .updateSpecificCartQuantity({ product, quantity })
@@ -96,8 +97,8 @@ export const updateProductQuantityEffect = createEffect(
                 updateQuantityResponse
               );
             }),
-            catchError(() => {
-              return of(cartActions['updateProductQuantityFailure']());
+            catchError(({ error }) => {
+              return of(cartActions['updateProductQuantityFailure']({ error }));
             })
           );
       })
@@ -111,6 +112,24 @@ export const addProductToCartSuccessDisplayMsg = createEffect(
       ofType(cartActions['addProductsInCartSuccess']),
       tap(() => {
         toastService.showSuccess('Product added to cart');
+      })
+    ),
+  { functional: true, dispatch: false }
+);
+export const addProductToCartFailureDisplayMsg = createEffect(
+  (actions$ = inject(Actions), toastService = inject(ToastService)) =>
+    actions$.pipe(
+      ofType(
+        cartActions.addProductsInCartFailure,
+        cartActions.deleteCartFailure,
+        cartActions.deleteProductFromCartFailure,
+        cartActions.getProductsInCartFailure,
+        cartActions.updateProductQuantityFailure
+      ),
+      tap(({ error }) => {
+        // console.log(error);
+
+        toastService.showError(error.error);
       })
     ),
   { functional: true, dispatch: false }

@@ -49,7 +49,6 @@ export const appConfig: ApplicationConfig = {
   providers: [
     MessageService,
     ToastModule,
-
     { provide: BASEURL, useValue: environment.baseUrl },
     provideAppInitializer(() => appInit()),
     provideClientHydration(withEventReplay()),
@@ -80,10 +79,7 @@ export const appConfig: ApplicationConfig = {
       // cart:cartReducer
     }),
     provideState(cartFeatureKey, cartReducer),
-    //provideStore(),
-    provideEffects(cartEffects),
-    provideEffects([ProductsEffects]),
-
+    provideEffects([ProductsEffects, cartEffects]),
     provideStoreDevtools({
       maxAge: 25,
       logOnly: !isDevMode(),

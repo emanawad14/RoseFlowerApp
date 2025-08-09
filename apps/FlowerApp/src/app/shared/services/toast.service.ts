@@ -12,16 +12,16 @@ export class ToastService {
       severity: 'success',
       summary: title,
       detail: message,
-      //life: 3000,
+      life: 3000,
     });
   }
 
-  showError(message: string, title = 'Error') {
+  showError(message: string = 'Something Wrong', title = 'Error') {
     this.messageService.add({
       severity: 'error',
       summary: title,
       detail: message,
-      // life: 5000,
+      life: 5000,
     });
   }
 
@@ -30,7 +30,7 @@ export class ToastService {
       severity: 'info',
       summary: title,
       detail: message,
-      //life: 3000,
+      // life: 3000,
     });
   }
 

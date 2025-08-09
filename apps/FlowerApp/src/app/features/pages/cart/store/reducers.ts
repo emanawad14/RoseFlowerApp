@@ -1,6 +1,7 @@
 import { createFeature, createReducer, on } from '@ngrx/store';
 import { cartStateInterface } from '../interfaces/getProductsCartState.interface';
 import { cartActions } from './actions';
+import { error } from 'console';
 
 const initialState: cartStateInterface = {
   isLoading: false,
@@ -24,13 +25,14 @@ export const cartFeature = createFeature({
       numberOfCartItems: action.numOfCartItems,
       data: action,
     })),
-    on(cartActions['getProductsInCartFailure'], (state) => ({
+    on(cartActions['getProductsInCartFailure'], (state, action) => ({
       ...state,
       isLoading: false,
+      error: action.error,
     })),
 
     //add to cart
-    on(cartActions.addProductToCard, (state, { product }) => ({
+    on(cartActions.addProductToCart, (state, { product }) => ({
       ...state,
       addToCartLoading: true,
       addToCartProductId: product,
@@ -42,26 +44,28 @@ export const cartFeature = createFeature({
       numberOfCartItems: action.numOfCartItems,
       data: action,
     })),
-    on(cartActions['addProductsInCartFailure'], (state) => ({
+    on(cartActions['addProductsInCartFailure'], (state, action) => ({
       ...state,
       addToCartLoading: false,
       addToCartProductId: null,
+      error: action.error,
     })),
 
     //delete product
-    on(cartActions.deleteProductFromCard, (state) => ({
+    on(cartActions.deleteProductFromCart, (state) => ({
       ...state,
       isLoading: true,
     })),
-    on(cartActions['deleteProductFromCardSuccess'], (state, action) => ({
+    on(cartActions['deleteProductFromCartSuccess'], (state, action) => ({
       ...state,
       isLoading: false,
       numberOfCartItems: action.numOfCartItems,
       data: action,
     })),
-    on(cartActions['deleteProductFromCardFailure'], (state) => ({
+    on(cartActions['deleteProductFromCartFailure'], (state, action) => ({
       ...state,
       isLoading: false,
+      error: action.error,
     })),
     //delete cart
     on(cartActions.deleteCart, (state) => ({
@@ -74,12 +78,13 @@ export const cartFeature = createFeature({
       numberOfCartItems: 0,
       data: null,
     })),
-    on(cartActions['deleteCartFailure'], (state) => ({
+    on(cartActions['deleteCartFailure'], (state, action) => ({
       ...state,
       isLoading: false,
+      error: action.error,
     })),
     //update specific product quantity in cart
-    on(cartActions.updateProductQuantityFromCard, (state) => ({
+    on(cartActions.updateProductQuantityFromCart, (state) => ({
       ...state,
       isLoading: true,
     })),
@@ -89,9 +94,10 @@ export const cartFeature = createFeature({
       numberOfCartItems: action.numOfCartItems,
       data: action,
     })),
-    on(cartActions['updateProductQuantityFailure'], (state) => ({
+    on(cartActions['updateProductQuantityFailure'], (state, action) => ({
       ...state,
       isLoading: false,
+      error: action.error,
     }))
   ),
 });

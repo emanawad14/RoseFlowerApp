@@ -35,10 +35,10 @@
 
   <div class="product-cart relative mb-3 min-h-18rem">
     @if(data.isLoading){
-    <app-loading></app-loading> } @if(data.error){
-    Error.................................... } @for(product of
-    data.getProductsCartResponse?.cart?.cartItems ; track product._id ;let
-    first=$first){
+    <app-loading></app-loading> }
+    <!-- @if(data.error){ {{ data.error.error }} } -->
+    @for(product of data.getProductsCartResponse?.cart?.cartItems ; track
+    product._id ;let first=$first){
 
     <div
       class="flex flex-column md:flex-row justify-content-between mb-3 gap-2 pt-2"

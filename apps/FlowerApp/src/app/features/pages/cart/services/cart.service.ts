@@ -23,9 +23,11 @@ export class CartService {
   getLoggedUserCart() {
     return this._http.get<AddToCartResponseDTO>(this.url);
   }
-  updateSpecificCartQuantity(data: UpdateQuantityRequest ) {
+  updateSpecificCartQuantity(data: UpdateQuantityRequest) {
     const url = `${environment.baseUrl}/api/v1/cart/${data.product}`;
-    return this._http.put<AddToCartResponseDTO>(url, {quantity:data.quantity});
+    return this._http.put<AddToCartResponseDTO>(url, {
+      quantity: data.quantity,
+    });
   }
   deleteSpecificProduct(productId: string) {
     const url = `${environment.baseUrl}/api/v1/cart/${productId}`;

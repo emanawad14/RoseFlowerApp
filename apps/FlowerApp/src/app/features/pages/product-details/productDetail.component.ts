@@ -63,11 +63,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
   ];
   subs: Subscription[] = [];
   product?: Product;
-  private destroy$ = new Subject<void>();
-
   data$!: Observable<CartStates>;
-  //private destroy$ = new Subject<void>();
-
   constructor(
     private _ActivatedRoute: ActivatedRoute,
     private _ProductService: ProductService,
@@ -130,7 +126,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
   }
   addProductToCart(productId: string) {
     this.store.dispatch(
-      cartActions.addProductToCard({ product: productId, quantity: 1 })
+      cartActions.addProductToCart({ product: productId, quantity: 1 })
     );
   }
 
@@ -143,7 +139,5 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
   }
   ngOnDestroy(): void {
     this.subs.forEach((sub) => sub.unsubscribe());
-    this.destroy$.next();
-    this.destroy$.complete();
   }
 }

@@ -5,6 +5,7 @@ import {
   deleteCartResponseDTO,
   UpdateQuantityRequest,
 } from '../interfaces/updateProductQuantity.interface';
+import { ErrorResponseInterface } from 'apps/FlowerApp/src/app/shared/interfaces/errorResponce.interface';
 
 export const cartActions = createActionGroup({
   source: 'cart',
@@ -12,25 +13,24 @@ export const cartActions = createActionGroup({
     //Get
     'Get Logged User Cart': emptyProps(),
     'Get products in cart success': props<AddToCartResponseDTO>(),
-    'Get products in cart failure': emptyProps(),
+    'Get products in cart failure':  props<{error:ErrorResponseInterface}>(),
     //add
-    AddProductToCard: props<AddToCartRequestInterface>(),
+    AddProductToCart: props<AddToCartRequestInterface>(),
     'Add products in cart success': props<AddToCartResponseDTO>(),
-    'Add products in cart failure': emptyProps(),
+    'Add products in cart failure': props<{error:ErrorResponseInterface}>(),
     //Delete specific product
 
-    deleteProductFromCard: props<{ product: string }>(),
-    ' delete Product From Card success ': props<AddToCartResponseDTO>(),
-    ' delete Product From Card failure ': emptyProps(),
+    deleteProductFromCart: props<{ product: string }>(),
+    ' delete Product From Cart success ': props<AddToCartResponseDTO>(),
+    ' delete Product From Cart failure ': props<{error:ErrorResponseInterface}>(),
 
     //Delete cart
     deleteCart: emptyProps(),
     'delete Cart success ': props<deleteCartResponseDTO>(),
-    'delete Cart failure ': emptyProps(),
-
+    'delete Cart failure ':  props<{error:ErrorResponseInterface}>(),
     //update quantity specific product
-    updateProductQuantityFromCard: props<UpdateQuantityRequest>(),
+    updateProductQuantityFromCart: props<UpdateQuantityRequest>(),
     'update Product Quantity success ': props<AddToCartResponseDTO>(),
-    'update Product Quantity failure ': emptyProps(),
+    'update Product Quantity failure ': props<{error:ErrorResponseInterface}>(),
   },
 });

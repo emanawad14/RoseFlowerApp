@@ -94,7 +94,7 @@ export class ProductCartComponent implements OnInit, OnDestroy {
   }
   addProductToCart(productId: string) {
     this.store.dispatch(
-      cartActions.addProductToCard({ product: productId, quantity: 1 })
+      cartActions.addProductToCart({ product: productId, quantity: 1 })
     );
   }
 }
