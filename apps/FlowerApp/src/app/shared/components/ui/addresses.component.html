@@ -1,0 +1,34 @@
+@for (address of addresses; track address._id){
+<div
+  class="address-card mb-2 flex justify-content-between align-items-center border-1 surface-border border-round-2xl p-3 cursor-pointer"
+  [class.active-address]="
+    selectedAddress ? address._id === selectedAddress._id : false
+  "
+  (click)="selectAddress(address)"
+>
+  <div>
+    <h3 class="m-0 text-lg font-bold">{{ address.city }}</h3>
+    <p
+      class="mt-1 px-3 border-round-2xl text-sm"
+      [class.active]="
+        selectedAddress && selectedAddress
+          ? address._id == selectedAddress._id
+          : false
+      "
+    >
+      14 Omar Ibn Akhatab St., Ramsis St., Cairo
+    </p>
+  </div>
+  <div class="flex align-items-center gap-2">
+    <span
+      class="flex align-items-center justify-content-center border-circle phone-icon"
+      [class.active-icon]="
+        selectedAddress ? address._id == selectedAddress._id : false
+      "
+    >
+      <i class="pi pi-phone"></i>
+    </span>
+    <span class="text-phone">{{ address.phone }}</span>
+  </div>
+</div>
+}

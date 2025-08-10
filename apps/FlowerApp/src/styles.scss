@@ -75,9 +75,11 @@
   --bg-light: #fbeaea;
   --primary-btn-color: #a6252a;
   --input-bg: #ffffff;
+  --bg-p-text: #f4f4f5;
 }
 
 [data-theme='dark'] {
+  --bg-p-text: #f4f4f5;
   --bg-badge: #ef4444;
   --nav-text-color: #501419;
   --zinc-50: #27272a;
