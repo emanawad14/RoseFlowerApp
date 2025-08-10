@@ -46,6 +46,14 @@ export const appRoutes: Route[] = [
                 (c) => c.CartComponent
               ),
           }, // default route
+
+          {
+            path: 'shippingAddress',
+            loadComponent: () =>
+              import('./features/pages/cart/components/shippingAddress.component').then(
+                (c) => c.ShippingAddressComponent
+              ),
+          }, 
         ],
       },
     ],

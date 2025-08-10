@@ -35,10 +35,15 @@
       <h4>Total</h4>
       <h4>{{ totalPrice$ | async }} EGP</h4>
     </div>
+
+    @if(_router.url == '/cart'){
     <app-primary-btn
+      [disabled]="!(cartData$ | async)?.cart?.cartItems?.length"
       [labelName]="'Checkout'"
       [widthFull]="true"
+      (btnClicked)="checkout()"
     ></app-primary-btn>
+    }
   </div>
 </div>
 <!-- bset Seller section -->
