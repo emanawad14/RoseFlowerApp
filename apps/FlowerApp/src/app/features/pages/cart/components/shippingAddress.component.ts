@@ -99,6 +99,7 @@ export class ShippingAddressComponent implements OnInit, OnDestroy {
       this._toastService.showInfo(
         'You should select Address and Payment Method'
       );
+      this.loading = false;
     }
 
     //cash
@@ -107,6 +108,7 @@ export class ShippingAddressComponent implements OnInit, OnDestroy {
         .createCashOrder({
           shippingAddress: shippingAddress as ShippingAddress,
         })
+        .pipe(takeUntil(this.destroy$))
         .subscribe({
           next: (res) => {
             this.loading = false;
@@ -123,6 +125,25 @@ export class ShippingAddressComponent implements OnInit, OnDestroy {
     }
     //credit
     else if (this.selectedPayment?._id == '2') {
+      this._OrdersService
+        .createCreditOrder({
+          shippingAddress: shippingAddress as ShippingAddress,
+        })
+        .pipe(takeUntil(this.destroy$))
+        .subscribe({
+          next: (res) => {
+            this.loading = false;
+            console.log(res);
+            window.open(res.session.url, '_self');
+            //this._toastService.showSuccess('order has been done');
+            // this._router.navigate(['/allOrders']);
+          },
+          error: (err) => {
+            this.loading = false;
+            // console.log(err);
+            this._toastService.showError(err.error.error);
+          },
+        });
     }
   }
 
