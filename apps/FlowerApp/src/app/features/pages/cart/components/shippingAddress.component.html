@@ -46,8 +46,8 @@
             [backgroundColor]="'var( --bg-light-pink)'"
             ><div class="py-3"></div
           ></app-primary-btn>
-
-          <div class="mt-5 flex justify-content-end">
+          <div class="line mt-5"></div>
+          <div class="flex justify-content-end">
             <app-primary-btn
               [disabled]="selectedAddress == null"
               [labelName]="'Next'"
@@ -63,14 +63,43 @@
 
     <p-step-panel [value]="2">
       <ng-template #content let-activateCallback="activateCallback">
-        <div class="flex flex-column">
+        <div class="flex flex-column gap-2">
           <div class="flex gap-3">
             <app-primary-btn
-              icon="pi pi-arrow-left"
+              [displayIcon]="false"
+              [icon]="'pi pi-arrow-left'"
               [labelName]="'Back'"
               (btnClicked)="activateCallback(1); stepNumber = 1"
             ></app-primary-btn>
             <h3>Payment Method</h3>
+          </div>
+          <div
+            class="flex md:flex-row flex-column align-items-stretch justify-content-center gap-3"
+          >
+            @for(paymentMethod of paymentMethods;track paymentMethod._id){
+            <div
+              class="flex h-auto flex-1 flex-column justify-content-center align-items-center text-center border-1 border-round-2xl p-3 cursor-pointer"
+              (click)="setPaymentMethod(paymentMethod)"
+            >
+              <img [src]="paymentMethod.imgSrc" alt="Cash" />
+              <h3 [class.active]="selectedPayment == paymentMethod">
+                {{ paymentMethod.title }}
+              </h3>
+              <p>{{ paymentMethod.description }}</p>
+            </div>
+            }
+          </div>
+
+          <div class="line mt-5"></div>
+          <div class="flex justify-content-end">
+            <app-primary-btn
+              [loading]="loading"
+              [disabled]="!selectedPayment"
+              [labelName]="'Check Out'"
+              (btnClicked)="checkout()"
+            >
+              <div class="py-2"></div>
+            </app-primary-btn>
           </div>
         </div>
       </ng-template>
