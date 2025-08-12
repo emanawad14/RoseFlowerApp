@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { AlertMessageComponent } from './alertMessage.component';
-
-describe('AlertMessageComponent', () => {
-  let component: AlertMessageComponent;
-  let fixture: ComponentFixture<AlertMessageComponent>;
+import { ProductReviewComponent } from './productReview.component';
+ 
+describe('ProductReviewComponent', () => {
+  let component: ProductReviewComponent;
+  let fixture: ComponentFixture<ProductReviewComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AlertMessageComponent],
+      imports: [ProductReviewComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(AlertMessageComponent);
+    fixture = TestBed.createComponent(ProductReviewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

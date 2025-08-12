@@ -33,6 +33,7 @@ export interface Product {
   isSuperAdmin: boolean;
   sold: number;
   id: string;
+  reviews?: [];
 }
 
 export interface ProductModel extends EntityState<Product> {

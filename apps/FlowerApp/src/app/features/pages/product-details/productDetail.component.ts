@@ -12,7 +12,7 @@ import { GalleriaModule } from 'primeng/galleria';
 import { Dialog } from 'primeng/dialog';
 import { PrimaryBtnComponent } from '../../../shared/components/ui/primary-btn.component';
 import { combineLatest, Observable, Subject, Subscription } from 'rxjs';
-import { ProductReviewComponent } from './components/productReview.component';
+import { ProductReviewComponent } from '../productReview/components/productReview.component';
 import { RelatedProductsComponent } from './components/relatedProducts.component';
 import { Store } from '@ngrx/store';
 import { cartActions } from '../cart/store/actions';

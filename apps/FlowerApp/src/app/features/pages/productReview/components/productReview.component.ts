@@ -1,10 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Rating } from 'primeng/rating';
-import { FormsModule } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { GlobalInputComponent } from 'apps/FlowerApp/src/app/shared/components/ui/globalInput.component';
 import { PrimaryBtnComponent } from 'apps/FlowerApp/src/app/shared/components/ui/primary-btn.component';
-import { Review } from '../interfaces/review.interface';
+import { Review } from '../../product-details/interfaces/review.interface';
+import { Product } from '../../../interfaces/products';
+import { ReviewService } from '../services/review.service';
+import { ToastService } from 'apps/FlowerApp/src/app/shared/services/toast.service';
 
 @Component({
   selector: 'app-product-review',
@@ -14,11 +23,27 @@ import { Review } from '../interfaces/review.interface';
     FormsModule,
     GlobalInputComponent,
     PrimaryBtnComponent,
+    ReactiveFormsModule,
   ],
   templateUrl: './productReview.component.html',
   styleUrl: './productReview.component.scss',
 })
-export class ProductReviewComponent {
+export class ProductReviewComponent implements OnInit {
+  @Input({ required: true }) product?: Product;
+  reviewForm!: FormGroup; // FormGroup defined
+  constructor(
+    private _fb: FormBuilder,
+    private _ReviewService: ReviewService,
+    private _toastService: ToastService
+  ) {}
+  ngOnInit(): void {
+    this.reviewForm = this._fb.group({
+      product: [''],
+      rating: [0, [Validators.required]],
+      title: ['', [Validators.required]],
+      comment: ['', [Validators.required]],
+    });
+  }
   reviews: Review[] = [
     {
       _id: '1',
@@ -28,7 +53,7 @@ export class ProductReviewComponent {
         'I ordered this bouquet for a special occasion, and it absolutely exceeded my expectations! The flowers were fresh, beautifully arranged, and exactly as pictured—if not better. The color combination was stunning and gave off such a luxurious vibe. Even the wrapping was elegant and ' +
         "thoughtful Delivery was right on time, and the bouquet arrived in perfect condition. The recipient was genuinely touched and couldn't stop admiring it. Highly recommend for anyone looking to make a lasting impression. Will definitely order again!",
 
-      rateAvg:4.5,
+      rateAvg: 4.5,
       date: '2025-07-05T11:30:17.866Z',
     },
     {
@@ -43,4 +68,20 @@ export class ProductReviewComponent {
       date: 'Apr 7, 2025',
     },
   ];
+
+  addReview() {
+    //////set product id /////
+    this.reviewForm.controls['product'].setValue(this.product?._id ?? '');
+    console.log(this.reviewForm.value);
+    this._ReviewService.addReview(this.reviewForm.value).subscribe({
+      next: (res) => {
+        console.log(res);
+        this.reviewForm.reset();
+      },
+      error: (err) => {
+        this._toastService.showError(err.error.error);
+        this.reviewForm.reset();
+      },
+    });
+  }
 }
