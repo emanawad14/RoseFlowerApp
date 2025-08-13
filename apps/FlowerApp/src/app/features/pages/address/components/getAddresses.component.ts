@@ -1,10 +1,10 @@
-import { Component, computed, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Address } from 'apps/FlowerApp/src/app/shared/interfaces/addressResponse.interface';
 import { PrimaryBtnComponent } from 'apps/FlowerApp/src/app/shared/components/ui/primary-btn.component';
 import { Store } from '@ngrx/store';
 import { addressActions } from '../store/actions';
-import { combineLatest, Observable } from 'rxjs';
+import { combineLatest, delay, Observable } from 'rxjs';
 import { AddressStateInterface } from '../types/addressState.interface';
 import {
   selectAddressesData,
@@ -12,8 +12,10 @@ import {
   selectIsLoading,
 } from '../store/reducers';
 import { LoadingComponent } from 'apps/FlowerApp/src/app/shared/components/ui/loading.component';
-import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { DialogService } from 'primeng/dynamicdialog';
 import { ConfirmDialogComponent } from 'apps/FlowerApp/src/app/shared/components/ui/confirmDialog.component';
+import { DialogContentService } from '../services/dialog-content.service';
+import { AddAddressComponent } from './addAddress.component';
 
 @Component({
   selector: 'app-get-addresses',
@@ -29,15 +31,18 @@ import { ConfirmDialogComponent } from 'apps/FlowerApp/src/app/shared/components
 })
 export class GetAddressesComponent implements OnInit {
   @ViewChild(ConfirmDialogComponent) confirmDialog!: ConfirmDialogComponent;
-  addresses: Address[] = [];
+  // addresses: Address[] = [];
   data$!: Observable<AddressStateInterface>;
-  constructor(private store: Store, private _DialogService: DialogService) {}
+  constructor(
+    private store: Store,
+    private _dialogContent: DialogContentService
+  ) {}
   ngOnInit(): void {
     this.data$ = combineLatest({
       data: this.store.select(selectAddressesData),
       isLoading: this.store.select(selectIsLoading),
       error: this.store.select(selectError),
-    });
+    }).pipe(delay(0));
     this.getAddressess();
   }
 
@@ -61,5 +66,10 @@ export class GetAddressesComponent implements OnInit {
       //   detail: 'Cart deleted',
       // });
     });
+  }
+
+  displayAddAddressForm() {
+    console.log('add address');
+    this._dialogContent.selectedComponentView.set(AddAddressComponent);
   }
 }

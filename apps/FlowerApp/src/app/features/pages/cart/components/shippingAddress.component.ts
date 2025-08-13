@@ -3,10 +3,7 @@ import { CommonModule } from '@angular/common';
 import { StepperModule } from 'primeng/stepper';
 import { PrimaryBtnComponent } from 'apps/FlowerApp/src/app/shared/components/ui/primary-btn.component';
 import { StepperComponent } from 'apps/FlowerApp/src/app/shared/components/ui/stepper.component';
-import {
-  Address,
-  AddressResponceInterface,
-} from 'apps/FlowerApp/src/app/shared/interfaces/addressResponse.interface';
+import { Address } from 'apps/FlowerApp/src/app/shared/interfaces/addressResponse.interface';
 import { AddressService } from '../services/address.service';
 import { Subject, takeUntil } from 'rxjs';
 import { ListboxModule } from 'primeng/listbox';
@@ -18,7 +15,7 @@ import { ToastService } from 'apps/FlowerApp/src/app/shared/services/toast.servi
 import { Router } from '@angular/router';
 import { ShippingAddress } from '../interfaces/createOrderRequest.interface';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { GetAddressesComponent } from '../../address/components/getAddresses.component';
+import { AddressDialogComponent } from '../../address/components/addressDialog.component';
 
 @Component({
   selector: 'app-shipping-address',
@@ -38,7 +35,7 @@ import { GetAddressesComponent } from '../../address/components/getAddresses.com
 export class ShippingAddressComponent implements OnInit, OnDestroy {
   private ref?: DynamicDialogRef;
   stepNumber: number = 1;
-  addresses: Address[] = [];
+  // addresses: Address[] = [];
   private destroy$ = new Subject<void>();
   selectedPayment: PaymentMethod | null = null;
   paymentMethods: PaymentMethod[] = [
@@ -56,7 +53,7 @@ export class ShippingAddressComponent implements OnInit, OnDestroy {
         'You’ll be securely redirected to Stripe to complete your payment.',
     },
   ];
-
+  ///checkout Loading
   loading = false;
   constructor(
     public _AddressService: AddressService,
@@ -71,24 +68,25 @@ export class ShippingAddressComponent implements OnInit, OnDestroy {
     this.ref?.close();
   }
   ngOnInit(): void {
-    this.getAddresses();
+    // this.getAddresses();
   }
-  getAddresses() {
-    this._AddressService
-      .getUserAddresses()
-      .pipe(takeUntil(this.destroy$))
-      .subscribe({
-        next: (res: AddressResponceInterface) => {
-          this.addresses = res.addresses;
-        },
-      });
-  }
+  // getAddresses() {
+  //   this._AddressService
+  //     .getUserAddresses()
+  //     .pipe(takeUntil(this.destroy$))
+  //     .subscribe({
+  //       next: (res: AddressResponceInterface) => {
+  //         this.addresses = res.addresses;
+  //       },
+  //     });
+  // }
 
   setPaymentMethod(paymentMethod: PaymentMethod) {
     this.selectedPayment = paymentMethod;
   }
   checkout() {
     this.loading = true;
+    ///remove _id and username from request//////////////
     const shippingAddress = this.omit(
       this._AddressService.selectedAddress() as Address,
       ['username', '_id']
@@ -146,17 +144,14 @@ export class ShippingAddressComponent implements OnInit, OnDestroy {
     }
   }
   openAddressDialog() {
-    this.ref = this._dialogService.open(GetAddressesComponent, {
+    this.ref = this._dialogService.open(AddressDialogComponent, {
       width: '70vw',
-      modal: false,
+      modal: true,
       breakpoints: {
         '960px': '75vw',
         '640px': '90vw',
       },
       closable: true,
-      data: {
-        addresses: this.addresses,
-      },
     });
   }
   omit<T extends object, K extends keyof T>(obj: T, keys: K[]): Omit<T, K> {

@@ -5,6 +5,7 @@
     [displayIcon]="false"
     [colorText]="'#A6252A'"
     [backgroundColor]="'var( --bg-light-pink)'"
+    (btnClicked)="displayAddAddressForm()"
   >
     <div class="py-2"></div>
   </app-primary-btn>
@@ -19,7 +20,8 @@
   <div>
     <h3>{{ data.error.error }}</h3>
   </div>
-  } @if(data.data){ @for (address of data.data; track address._id){
+  } @if(data.data&& data.data.length > 0){ @for (address of data.data; track
+  address._id){
 
   <div
     class="relative address-card mb-2 flex flex-column gap-2 border-1 surface-border border-round-2xl p-3 mr-2"

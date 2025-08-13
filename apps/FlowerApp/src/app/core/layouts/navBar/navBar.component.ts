@@ -1,5 +1,5 @@
 import { ThemeService } from './../../services/theme-service.service';
-import { Component, OnInit, signal, ViewChild } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
@@ -20,8 +20,7 @@ import { selectNumberOfCartItems } from '../../../features/pages/cart/store/redu
 import { Observable } from 'rxjs';
 import { cartActions } from '../../../features/pages/cart/store/actions';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { Address } from 'cluster';
-import { GetAddressesComponent } from '../../../features/pages/address/components/getAddresses.component';
+import { AddressDialogComponent } from '../../../features/pages/address/components/addressDialog.component';
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
@@ -148,7 +147,7 @@ export class NavBarComponent implements OnInit {
   }
 
   openAddressDialog() {
-    this.ref = this._dialogService.open(GetAddressesComponent, {
+    this.ref = this._dialogService.open(AddressDialogComponent, {
       header: '',
       width: '50vw',
       modal: true,
@@ -156,11 +155,7 @@ export class NavBarComponent implements OnInit {
         '960px': '75vw',
         '640px': '90vw',
       },
-      data: {
-        // Pass input data here, for example:
-        addresses: this._AuthService.getUser()?.addresses ?? [],
-        // or pass entire user object, or addresses, etc.
-      },
+      closable: true,
     });
     // this.ref.onClose.subscribe((address: Address) => {
     //   if (address) {

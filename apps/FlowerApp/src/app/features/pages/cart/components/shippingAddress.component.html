@@ -8,11 +8,11 @@
   <p-step-panels>
     <p-step-panel [value]="1">
       <ng-template #content let-activateCallback="activateCallback">
-        <div class="flex flex-column gap-2">
+        <div class="flex flex-column gap-2 relative">
           <!-- shipping adrress -->
           <h3>Shipping Address</h3>
 
-          <app-addresses [addresses]="addresses"></app-addresses>
+          <app-addresses></app-addresses>
 
           <!-- <p-listbox
             [options]="addresses"
