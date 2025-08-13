@@ -11,7 +11,7 @@
       class="flex-none"
     />
     @if(userData() ){
-    <span class="location">
+    <span class="location cursor-pointer" (click)="openAddressDialog()">
       Deliver to:
       <span class="flex align-items-center">
         <svg

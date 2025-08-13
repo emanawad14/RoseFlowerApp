@@ -37,10 +37,13 @@ import {
   cartReducer,
 } from './features/pages/cart/store/reducers';
 import * as cartEffects from './features/pages/cart/store/effects';
+import * as addressEffects from './features/pages/address/store/effects';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
-import { provideAnimations } from '@angular/platform-browser/animations';
-import { ToastService } from './shared/services/toast.service';
+import {
+  addressFeatureKey,
+  addressReducer,
+} from './features/pages/address/store/reducers';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, '/i18n/', '.json');
@@ -79,7 +82,8 @@ export const appConfig: ApplicationConfig = {
       // cart:cartReducer
     }),
     provideState(cartFeatureKey, cartReducer),
-    provideEffects([ProductsEffects, cartEffects]),
+    provideState(addressFeatureKey, addressReducer),
+    provideEffects([ProductsEffects, cartEffects, addressEffects]),
     provideStoreDevtools({
       maxAge: 25,
       logOnly: !isDevMode(),

@@ -1,5 +1,5 @@
 import { Store } from '@ngrx/store';
-import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit, Type } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { RelatedProductsComponent } from '../../product-details/components/relatedProducts.component';
@@ -11,6 +11,8 @@ import { PrimaryBtnComponent } from 'apps/FlowerApp/src/app/shared/components/ui
 import { selectCartProductData } from '../store/reducers';
 import { AddToCartResponseDTO } from '../interfaces/addToCartResponse.interface';
 import { ToastService } from 'apps/FlowerApp/src/app/shared/services/toast.service';
+import { ShippingAddressComponent } from '../components/shippingAddress.component';
+import { CartComponent } from '../components/cart.component';
 
 @Component({
   selector: 'app-cart-layout',
@@ -30,6 +32,9 @@ export class CartLayoutComponent implements OnInit, OnDestroy {
   bestSellerProducts: IItems[] = [];
   bestSellerProductsSub: Subscription = new Subscription();
   private destroy$ = new Subject<void>();
+  currentComponent: Type<any> | null = CartComponent;
+  CartComponent = CartComponent;
+
   constructor(
     private store: Store,
     private _homeServices: HomeService,
@@ -62,7 +67,8 @@ export class CartLayoutComponent implements OnInit, OnDestroy {
       .pipe((take(1), takeUntil(this.destroy$)))
       .subscribe((data) => {
         if (data?.cart.cartItems.length != 0) {
-          this._router.navigate(['/cart/shippingAddress']);
+          this.currentComponent = ShippingAddressComponent;
+          //  this._router.navigate(['/cart/shippingAddress']);
         } else {
           this._toastService.showInfo('you should have product to buy');
         }

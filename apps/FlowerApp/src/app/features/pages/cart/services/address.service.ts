@@ -1,6 +1,9 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Address, AddressResponceInterface } from 'apps/FlowerApp/src/app/shared/interfaces/addressResponse.interface';
+import { Injectable, signal, Signal, WritableSignal } from '@angular/core';
+import {
+  Address,
+  AddressResponceInterface,
+} from 'apps/FlowerApp/src/app/shared/interfaces/addressResponse.interface';
 import { environment } from 'apps/FlowerApp/src/environments/environment';
 import { Observable } from 'rxjs';
 
@@ -8,7 +11,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AddressService {
-  selectedAddress: Address | null = null;
+  selectedAddress: WritableSignal<Address | null> = signal(null);
+
   constructor(private _http: HttpClient) {}
 
   getUserAddresses(): Observable<AddressResponceInterface> {

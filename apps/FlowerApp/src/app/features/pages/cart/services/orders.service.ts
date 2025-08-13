@@ -16,8 +16,10 @@ export class OrdersService {
   }
 
   createCreditOrder(orderRequest: CreateOrderRequestInterface) {
-    const localHost = 'http://localhost:4200';
-    const url = `${this.url}/checkout?url=${localHost}`;
-    return this._http.post<CreateCreditOrderResponseInterface>(url, orderRequest);
+    const url = `${this.url}/checkout?url=${environment.APP_URL}`;
+    return this._http.post<CreateCreditOrderResponseInterface>(
+      url,
+      orderRequest
+    );
   }
 }

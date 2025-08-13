@@ -82,7 +82,7 @@ export class LoginComponent implements OnInit {
       .pipe(takeUntil(this.destroy$))
       .subscribe({
         next: (res) => {
-          console.log(res.error);
+          console.log(res.user);
           if (res.message == 'success') {
             this._tokenService.setToken(res.token);
             this._AuthService.setUser(res.user);

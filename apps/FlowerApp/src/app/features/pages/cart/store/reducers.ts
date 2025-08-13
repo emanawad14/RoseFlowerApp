@@ -1,7 +1,6 @@
 import { createFeature, createReducer, on } from '@ngrx/store';
 import { cartStateInterface } from '../interfaces/getProductsCartState.interface';
 import { cartActions } from './actions';
-import { error } from 'console';
 
 const initialState: cartStateInterface = {
   isLoading: false,

@@ -19,6 +19,9 @@ import { Store } from '@ngrx/store';
 import { selectNumberOfCartItems } from '../../../features/pages/cart/store/reducers';
 import { Observable } from 'rxjs';
 import { cartActions } from '../../../features/pages/cart/store/actions';
+import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { Address } from 'cluster';
+import { GetAddressesComponent } from '../../../features/pages/address/components/getAddresses.component';
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
@@ -37,8 +40,10 @@ import { cartActions } from '../../../features/pages/cart/store/actions';
   ],
   templateUrl: './navBar.component.html',
   styleUrl: './navBar.component.scss',
+  providers: [DialogService],
 })
 export class NavBarComponent implements OnInit {
+  private ref?: DynamicDialogRef;
   userData = signal<UserDTO | null>(null);
 
   langClick = false;
@@ -49,7 +54,8 @@ export class NavBarComponent implements OnInit {
     private _themeService: ThemeService,
     private _MyTranslateService: MyTranslateService,
     private _AuthService: AuthService,
-    private store: Store
+    private store: Store,
+    private _dialogService: DialogService
   ) {}
 
   ngOnInit() {
@@ -139,5 +145,28 @@ export class NavBarComponent implements OnInit {
   }
   darkModeToggle() {
     this.darkMode = !this.darkMode;
+  }
+
+  openAddressDialog() {
+    this.ref = this._dialogService.open(GetAddressesComponent, {
+      header: '',
+      width: '50vw',
+      modal: true,
+      breakpoints: {
+        '960px': '75vw',
+        '640px': '90vw',
+      },
+      data: {
+        // Pass input data here, for example:
+        addresses: this._AuthService.getUser()?.addresses ?? [],
+        // or pass entire user object, or addresses, etc.
+      },
+    });
+    // this.ref.onClose.subscribe((address: Address) => {
+    //   if (address) {
+    //     console.log(address);
+    //     // this._toastService.showInfo(`Selected address: ${address.city}`);
+    //   }
+    // });
   }
 }

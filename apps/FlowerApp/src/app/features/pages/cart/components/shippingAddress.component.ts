@@ -17,6 +17,8 @@ import { OrdersService } from '../services/orders.service';
 import { ToastService } from 'apps/FlowerApp/src/app/shared/services/toast.service';
 import { Router } from '@angular/router';
 import { ShippingAddress } from '../interfaces/createOrderRequest.interface';
+import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { GetAddressesComponent } from '../../address/components/getAddresses.component';
 
 @Component({
   selector: 'app-shipping-address',
@@ -31,12 +33,13 @@ import { ShippingAddress } from '../interfaces/createOrderRequest.interface';
   ],
   templateUrl: './shippingAddress.component.html',
   styleUrl: './shippingAddress.component.scss',
+  providers: [DialogService],
 })
 export class ShippingAddressComponent implements OnInit, OnDestroy {
+  private ref?: DynamicDialogRef;
   stepNumber: number = 1;
   addresses: Address[] = [];
   private destroy$ = new Subject<void>();
-  selectedAddress: Address | null = null;
   selectedPayment: PaymentMethod | null = null;
   paymentMethods: PaymentMethod[] = [
     {
@@ -56,18 +59,19 @@ export class ShippingAddressComponent implements OnInit, OnDestroy {
 
   loading = false;
   constructor(
-    private _AddressService: AddressService,
+    public _AddressService: AddressService,
     private _OrdersService: OrdersService,
     private _toastService: ToastService,
-    private _router: Router
+    private _router: Router,
+    private _dialogService: DialogService
   ) {}
   ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();
+    this.ref?.close();
   }
   ngOnInit(): void {
     this.getAddresses();
-    this.selectedAddress = this._AddressService.selectedAddress;
   }
   getAddresses() {
     this._AddressService
@@ -76,26 +80,21 @@ export class ShippingAddressComponent implements OnInit, OnDestroy {
       .subscribe({
         next: (res: AddressResponceInterface) => {
           this.addresses = res.addresses;
-          //this.selectedAddress = this.addresses[1]; // Default active (Cairo)
         },
       });
   }
-  changeAddress(address: Address) {
-    //console.log('selectedAddress', address);
-    this.selectedAddress = address;
-    this._AddressService.selectedAddress = address;
-  }
+
   setPaymentMethod(paymentMethod: PaymentMethod) {
     this.selectedPayment = paymentMethod;
   }
   checkout() {
     this.loading = true;
-    const shippingAddress = this.omit(this.selectedAddress as Address, [
-      'username',
-      '_id',
-    ]);
+    const shippingAddress = this.omit(
+      this._AddressService.selectedAddress() as Address,
+      ['username', '_id']
+    );
 
-    if (!this.selectedAddress || !this.selectedPayment) {
+    if (!this._AddressService.selectedAddress() || !this.selectedPayment) {
       this._toastService.showInfo(
         'You should select Address and Payment Method'
       );
@@ -146,7 +145,20 @@ export class ShippingAddressComponent implements OnInit, OnDestroy {
         });
     }
   }
-
+  openAddressDialog() {
+    this.ref = this._dialogService.open(GetAddressesComponent, {
+      width: '70vw',
+      modal: false,
+      breakpoints: {
+        '960px': '75vw',
+        '640px': '90vw',
+      },
+      closable: true,
+      data: {
+        addresses: this.addresses,
+      },
+    });
+  }
   omit<T extends object, K extends keyof T>(obj: T, keys: K[]): Omit<T, K> {
     const clone = { ...obj };
     keys.forEach((key) => delete clone[key]);

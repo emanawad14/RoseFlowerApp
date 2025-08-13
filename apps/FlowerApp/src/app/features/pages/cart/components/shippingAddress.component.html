@@ -12,10 +12,7 @@
           <!-- shipping adrress -->
           <h3>Shipping Address</h3>
 
-          <app-addresses
-            [addresses]="addresses"
-            (changeAddress)="changeAddress($event)"
-          ></app-addresses>
+          <app-addresses [addresses]="addresses"></app-addresses>
 
           <!-- <p-listbox
             [options]="addresses"
@@ -44,12 +41,13 @@
             [displayIcon]="false"
             [colorText]="'#A6252A'"
             [backgroundColor]="'var( --bg-light-pink)'"
+            (btnClicked)="openAddressDialog()"
             ><div class="py-3"></div
           ></app-primary-btn>
           <div class="line mt-5"></div>
           <div class="flex justify-content-end">
             <app-primary-btn
-              [disabled]="selectedAddress == null"
+              [disabled]="_AddressService.selectedAddress() == null"
               [labelName]="'Next'"
               (btnClicked)="activateCallback(2); stepNumber = 2"
             >
@@ -106,3 +104,4 @@
     </p-step-panel>
   </p-step-panels>
 </p-stepper>
+<!--      (changeAddress)="changeAddress($event)" -->

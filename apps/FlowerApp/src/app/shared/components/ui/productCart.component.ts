@@ -1,4 +1,3 @@
-import { MessageService } from 'primeng/api';
 import { Product } from './../../../features/interfaces/products';
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -11,16 +10,7 @@ import { Store } from '@ngrx/store';
 import { cartActions } from '../../../features/pages/cart/store/actions';
 import { ToastModule } from 'primeng/toast';
 
-import {
-  combineLatest,
-  filter,
-  Observable,
-  pairwise,
-  startWith,
-  Subject,
-  take,
-  takeUntil,
-} from 'rxjs';
+import { combineLatest, Observable } from 'rxjs';
 import { CartStates } from '../../../features/pages/cart/interfaces/getProductsCartState.interface';
 import {
   selectAddToCartLoading,
@@ -43,15 +33,11 @@ import { LoadingComponent } from './loading.component';
   templateUrl: './productCart.component.html',
   styleUrl: './productCart.component.scss',
 })
-export class ProductCartComponent implements OnInit, OnDestroy {
+export class ProductCartComponent implements OnInit {
   @Input() product!: Product;
   data$!: Observable<CartStates>;
-  // private destroy$ = new Subject<void>();
   constructor(private _Router: Router, private store: Store) {}
-  ngOnDestroy(): void {
-    // this.destroy$.next();
-    // this.destroy$.complete();
-  }
+
   ngOnInit(): void {
     this.data$ = combineLatest({
       // getProductsCartResponse: this.store.select(selectCartProductData),

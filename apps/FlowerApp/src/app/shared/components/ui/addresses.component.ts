@@ -12,16 +12,17 @@ import { AddressService } from '../../../features/pages/cart/services/address.se
 export class AddressesComponent {
   @Input({ required: true }) addresses?: Address[];
   // @Input({ required: true }) selectedAddress: Address | null = null;
-  selectedAddress;
-  @Output() changeAddress = new EventEmitter<Address>();
-  constructor(private _AddressService: AddressService) {
-    this.selectedAddress = this._AddressService.selectedAddress;
+  // selectedAddress: Address | null;
+ // @Output() changeAddress = new EventEmitter<Address>();
+  constructor(public _AddressService: AddressService) {
+    //this.selectedAddress.set('Updated by parent') = this._AddressService.selectedAddress.;
   }
   // selectedAddress: Address | null = null;
   selectAddress(address: Address) {
     //  console.log(address);
-    this._AddressService.selectedAddress = address;
-    this.selectedAddress = address;
-    this.changeAddress.emit(address);
+    this._AddressService.selectedAddress.set(address as Address);
+
+    // this.selectedAddress = address;
+   // this.changeAddress.emit(address);
   }
 }

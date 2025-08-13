@@ -1,6 +1,7 @@
 export interface AddressResponceInterface {
   message: string;
   addresses: Address[];
+  address?:Address[]
 }
 export interface Address {
   street: string;

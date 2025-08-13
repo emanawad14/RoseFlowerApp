@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Rating } from 'primeng/rating';
 import {
@@ -14,6 +14,8 @@ import { Review } from '../../product-details/interfaces/review.interface';
 import { Product } from '../../../interfaces/products';
 import { ReviewService } from '../services/review.service';
 import { ToastService } from 'apps/FlowerApp/src/app/shared/services/toast.service';
+import { LoadingComponent } from 'apps/FlowerApp/src/app/shared/components/ui/loading.component';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-product-review',
@@ -24,18 +26,24 @@ import { ToastService } from 'apps/FlowerApp/src/app/shared/services/toast.servi
     GlobalInputComponent,
     PrimaryBtnComponent,
     ReactiveFormsModule,
+    LoadingComponent,
   ],
   templateUrl: './productReview.component.html',
   styleUrl: './productReview.component.scss',
 })
-export class ProductReviewComponent implements OnInit {
+export class ProductReviewComponent implements OnInit, OnDestroy {
   @Input({ required: true }) product?: Product;
   reviewForm!: FormGroup; // FormGroup defined
+  private destroy$ = new Subject<void>();
   constructor(
     private _fb: FormBuilder,
     private _ReviewService: ReviewService,
     private _toastService: ToastService
   ) {}
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
   ngOnInit(): void {
     this.reviewForm = this._fb.group({
       product: [''],
@@ -73,15 +81,18 @@ export class ProductReviewComponent implements OnInit {
     //////set product id /////
     this.reviewForm.controls['product'].setValue(this.product?._id ?? '');
     console.log(this.reviewForm.value);
-    this._ReviewService.addReview(this.reviewForm.value).subscribe({
-      next: (res) => {
-        console.log(res);
-        this.reviewForm.reset();
-      },
-      error: (err) => {
-        this._toastService.showError(err.error.error);
-        this.reviewForm.reset();
-      },
-    });
+    this._ReviewService
+      .addReview(this.reviewForm.value)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe({
+        next: (res) => {
+          console.log(res);
+          this.reviewForm.reset();
+        },
+        error: (err) => {
+          this._toastService.showError(err.error.error);
+          this.reviewForm.reset();
+        },
+      });
   }
 }

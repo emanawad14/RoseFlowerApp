@@ -1,17 +1,16 @@
 <div class="grid m-0 mx-5 mt-5">
   <div class="md:col-8 col-12">
-    <router-outlet></router-outlet>
+    <ng-container *ngComponentOutlet="currentComponent"></ng-container>
   </div>
 
   <div class="md:col-4 flex flex-column gap-2 summary-section">
     <!-- Summary -->
     <h3 class="mb-2">Summary</h3>
-    <div class="flex flex-row justify-content-between gap-2">
+    <div
+      class="flex flex-row flex-wrap justify-content-between align-items-center gap-2"
+    >
       <app-global-input [placeholder]="'Coupon Code'" class="flex-1" />
-      <app-primary-btn
-      
-        [labelName]="'Apply Coupon'"
-        [displayIcon]="false"
+      <app-primary-btn [labelName]="'Apply Coupon'" [displayIcon]="false"
         ><svg
           width="24"
           height="25"
@@ -38,8 +37,7 @@
       <h4>Total</h4>
       <h4>{{ totalPrice$ | async }} EGP</h4>
     </div>
-
-    @if(_router.url == '/cart'){
+    @if (currentComponent == CartComponent){
     <app-primary-btn
       [disabled]="!(cartData$ | async)?.cart?.cartItems?.length"
       [labelName]="'Checkout'"

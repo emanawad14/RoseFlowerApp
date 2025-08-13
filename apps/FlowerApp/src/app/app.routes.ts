@@ -4,7 +4,6 @@ import { MainLayoutComponent } from './shared/components/ui/main-layout.componen
 export const appRoutes: Route[] = [
   {
     path: '',
-    // component: MainLayoutComponent, // has <app-nav-bar> and <app-footer>
     loadComponent: () =>
       import('./shared/components/ui/main-layout.component').then(
         (c) => c.MainLayoutComponent
@@ -46,14 +45,6 @@ export const appRoutes: Route[] = [
                 (c) => c.CartComponent
               ),
           }, // default route
-
-          {
-            path: 'shippingAddress',
-            loadComponent: () =>
-              import('./features/pages/cart/components/shippingAddress.component').then(
-                (c) => c.ShippingAddressComponent
-              ),
-          }, 
         ],
       },
     ],
@@ -87,20 +78,6 @@ export const appRoutes: Route[] = [
             './features/pages/forget-password/forget-password.component'
           ).then((e) => e.ForgetPasswordComponent),
       },
-      // {
-      //   path: 'verify-code',
-      //   loadComponent: () =>
-      //     import('./core/pages/verify-code/verify-code.component').then(
-      //       (e) => e.VerifyCodeComponent
-      //     ),
-      // },
-      // {
-      //   path: 'reset-password',
-      //   loadComponent: () =>
-      //     import('./core/pages/reset-password/reset-password.component').then(
-      //       (e) => e.ResetPasswordComponent
-      //     ),
-      // },
     ],
   },
 ];

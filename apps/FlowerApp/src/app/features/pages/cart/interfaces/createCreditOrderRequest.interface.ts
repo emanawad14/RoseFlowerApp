@@ -27,7 +27,7 @@ export interface CreateCreditOrderResponseInterface {
     };
     consent: null;
     consent_collection: null;
-    created: 1754919335;
+    created: number;
     currency: string;
     currency_conversion: null;
     custom_fields: [];

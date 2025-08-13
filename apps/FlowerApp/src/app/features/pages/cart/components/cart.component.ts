@@ -1,4 +1,3 @@
-import { MessageService } from 'primeng/api';
 import { Component, OnInit, signal, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PrimaryBtnComponent } from 'apps/FlowerApp/src/app/shared/components/ui/primary-btn.component';
@@ -8,7 +7,6 @@ import { Store } from '@ngrx/store';
 import { combineLatest, Observable } from 'rxjs';
 import {
   selectCartProductData,
-  selectError,
   selectIsLoading,
   selectNumberOfCartItems,
 } from '../store/reducers';
@@ -33,12 +31,12 @@ import { CartStates } from '../interfaces/getProductsCartState.interface';
 export class CartComponent implements OnInit {
   data$!: Observable<CartStates>;
   @ViewChild(ConfirmDialogComponent) confirmDialog!: ConfirmDialogComponent;
+
   constructor(private _router: Router, private store: Store) {}
   ngOnInit(): void {
     this.data$ = combineLatest({
       getProductsCartResponse: this.store.select(selectCartProductData),
       isLoading: this.store.select(selectIsLoading),
-      // error: this.store.select(selectError),
       numberOfItemsInCart: this.store.select(selectNumberOfCartItems),
     });
 
