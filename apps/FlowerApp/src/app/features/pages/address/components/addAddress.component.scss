@@ -1,0 +1,52 @@
+.step-circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: var(--line-color); /* gray */
+  color: var(--text-p);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.step-circle.active,
+.step-line.active {
+  background-color: var(--icon-bg); /* red */
+  color: var(--bg-zink);
+}
+
+.step-line {
+  height: 4px;
+  background-color: var(--line-color); /* gray line */
+}
+
+::ng-deep .p-stepper-separator {
+  display: none;
+}
+::ng-deep .p-step {
+  padding: 0 !important;
+}
+::ng-deep .p-stepper {
+  width: 100%;
+}
+.find-location-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: white;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  padding: 8px 15px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease;
+  z-index: 10;
+}

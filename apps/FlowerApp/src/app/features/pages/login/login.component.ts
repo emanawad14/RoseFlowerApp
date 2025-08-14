@@ -3,7 +3,6 @@ import { InputTextModule } from 'primeng/inputtext';
 import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
-  FormControl,
   FormGroup,
   ReactiveFormsModule,
   Validators,

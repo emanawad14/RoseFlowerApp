@@ -10,7 +10,16 @@
   <div class="grid">
     <!-- Rate Form -->
     <div class="col-12 md:col-4">
-      <form [formGroup]="reviewForm" class="flex flex-column gap-2 my-3">
+      <form
+        [formGroup]="reviewForm"
+        class="flex flex-column gap-2 my-3 relative"
+      >
+        <div
+          class="absolute top-0 bottom-0 w-full h-full z-5 p-4 backdrop-blur text-center align-items-center justify-content-center"
+          [class]="isLoggedIn ? 'hidden' : 'flex'"
+        >
+          <p class="pb-5">Please login to be able to review the product</p>
+        </div>
         <div class="flex gap-2">
           <h1 class="text-sm">Your rating:</h1>
           <p-rating formControlName="rating" [stars]="5" />

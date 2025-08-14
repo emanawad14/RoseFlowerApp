@@ -1,5 +1,7 @@
 import { Route } from '@angular/router';
 import { MainLayoutComponent } from './shared/components/ui/main-layout.component';
+import { loginBlockGuard } from './core/guards/login-block.guard';
+import { authGuard } from './core/guards/auth.guard';
 
 export const appRoutes: Route[] = [
   {
@@ -44,6 +46,7 @@ export const appRoutes: Route[] = [
               import('./features/pages/cart/components/cart.component').then(
                 (c) => c.CartComponent
               ),
+            canActivate: [authGuard],
           }, // default route
         ],
       },
@@ -62,6 +65,7 @@ export const appRoutes: Route[] = [
           import('./features/pages/login/login.component').then(
             (e) => e.LoginComponent
           ),
+        canActivate: [loginBlockGuard],
       },
       // },
       // {

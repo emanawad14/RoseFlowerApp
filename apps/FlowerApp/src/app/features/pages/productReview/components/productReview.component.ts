@@ -16,6 +16,7 @@ import { ReviewService } from '../services/review.service';
 import { ToastService } from 'apps/FlowerApp/src/app/shared/services/toast.service';
 import { LoadingComponent } from 'apps/FlowerApp/src/app/shared/components/ui/loading.component';
 import { Subject, takeUntil } from 'rxjs';
+import { AuthService } from 'apps/FlowerApp/src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-product-review',
@@ -35,10 +36,12 @@ export class ProductReviewComponent implements OnInit, OnDestroy {
   @Input({ required: true }) product?: Product;
   reviewForm!: FormGroup; // FormGroup defined
   private destroy$ = new Subject<void>();
+  isLoggedIn: boolean = false;
   constructor(
     private _fb: FormBuilder,
     private _ReviewService: ReviewService,
-    private _toastService: ToastService
+    private _toastService: ToastService,
+    private _AuthService: AuthService
   ) {}
   ngOnDestroy(): void {
     this.destroy$.next();
@@ -51,6 +54,7 @@ export class ProductReviewComponent implements OnInit, OnDestroy {
       title: ['', [Validators.required]],
       comment: ['', [Validators.required]],
     });
+    this.isLoggedIn = !!this._AuthService.userData();
   }
   reviews: Review[] = [
     {

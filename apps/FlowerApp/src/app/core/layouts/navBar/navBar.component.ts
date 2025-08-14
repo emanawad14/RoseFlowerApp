@@ -1,7 +1,7 @@
 import { ThemeService } from './../../services/theme-service.service';
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, OnInit, signal, WritableSignal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
 import { MenuModule, Menu } from 'primeng/menu';
@@ -21,6 +21,10 @@ import { Observable } from 'rxjs';
 import { cartActions } from '../../../features/pages/cart/store/actions';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { AddressDialogComponent } from '../../../features/pages/address/components/addressDialog.component';
+import { DialogContentService } from '../../../features/pages/address/services/dialog-content.service';
+import { GetAddressesComponent } from '../../../features/pages/address/components/getAddresses.component';
+import { AuthApiService } from '@rose-flower/auth-api';
+
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
@@ -43,7 +47,7 @@ import { AddressDialogComponent } from '../../../features/pages/address/componen
 })
 export class NavBarComponent implements OnInit {
   private ref?: DynamicDialogRef;
-  userData = signal<UserDTO | null>(null);
+  userData : WritableSignal<UserDTO | null>=signal(null)
 
   langClick = false;
   darkMode = false;
@@ -54,7 +58,10 @@ export class NavBarComponent implements OnInit {
     private _MyTranslateService: MyTranslateService,
     private _AuthService: AuthService,
     private store: Store,
-    private _dialogService: DialogService
+    private _dialogService: DialogService,
+    private _DialogContentService: DialogContentService,
+    private _AuthApiService: AuthApiService,
+    private _router: Router
   ) {}
 
   ngOnInit() {
@@ -63,7 +70,8 @@ export class NavBarComponent implements OnInit {
     this.getUserData();
     this.setUserMenueItems();
     //get cart
-    this.store.dispatch(cartActions['getLoggedUserCart']());
+    if (this._AuthService.isLoggedIn())
+      this.store.dispatch(cartActions['getLoggedUserCart']());
     this.numberOfCartItems$ = this.store.select(selectNumberOfCartItems);
   }
   setUserMenueItems() {
@@ -102,6 +110,10 @@ export class NavBarComponent implements OnInit {
           {
             label: 'Log out',
             icon: 'pi pi-sign-out',
+            visible: this._AuthService.isLoggedIn(),
+            command: () => {
+              this.logout();
+            },
           },
         ],
       },
@@ -126,7 +138,7 @@ export class NavBarComponent implements OnInit {
   }
 
   getUserData() {
-    this.userData.set(this._AuthService.getUser());
+    this.userData=this._AuthService.getUser();
     console.log(this.userData());
   }
   toggleDarkMode() {
@@ -157,11 +169,25 @@ export class NavBarComponent implements OnInit {
       },
       closable: true,
     });
-    // this.ref.onClose.subscribe((address: Address) => {
-    //   if (address) {
-    //     console.log(address);
-    //     // this._toastService.showInfo(`Selected address: ${address.city}`);
-    //   }
-    // });
+    this.ref.onClose.subscribe(() => {
+      this._DialogContentService.selectedComponentView.set(
+        GetAddressesComponent
+      );
+    });
+  }
+
+  logout() {
+    this._AuthApiService.logout().subscribe({
+      next: (res) => {
+        console.log(res);
+        console.log(this.userData());
+        this._AuthService.clearUser();
+        this._router.navigate(['/home']);
+        console.log('user', this.userData());
+      },
+      error: (err) => {
+        console.log(err.error.error);
+      },
+    });
   }
 }

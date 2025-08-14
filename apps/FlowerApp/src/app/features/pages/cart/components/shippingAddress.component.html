@@ -48,7 +48,7 @@
           <div class="line mt-5"></div>
           <div class="flex justify-content-end">
             <app-primary-btn
-              [disabled]="_AddressService.selectedAddress() == null"
+              [disabled]="selectedAddress() == null"
               [labelName]="'Next'"
               (btnClicked)="activateCallback(2); stepNumber = 2"
             >

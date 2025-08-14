@@ -80,3 +80,22 @@
     }
   }
 }
+.backdrop-blur {
+  p {
+    /* Primary/Semi-Bold/primary-semibold-base */
+    font-family: 'Sarabun-Regular';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 0.9em;
+    line-height: 100%;
+    /* identical to box height, or 16px */
+
+    color: #27272a;
+  }
+
+  /* blur the content *behind* this element */
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(5px); /* iOS Safari */
+  /* add a translucent fill so the blur is visible */
+  background-color: transparent;
+}

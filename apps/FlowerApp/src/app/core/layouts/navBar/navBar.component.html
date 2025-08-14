@@ -44,7 +44,7 @@
 
   <!-- Icons - Always Visible -->
   <div class="nav__Icons flex align-items-center gap-1">
-    @if(userData() ){
+    @if(userData() !=null){
     <p-menu
       #menu
       [model]="userItems"
