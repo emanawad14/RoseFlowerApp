@@ -1,11 +1,13 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Address } from '../../interfaces/addressResponse.interface';
-import { AddressService } from '../../../features/pages/cart/services/address.service';
 import { Store } from '@ngrx/store';
 import { addressActions } from '../../../features/pages/address/store/actions';
 import {
   selectAddressesData,
+ 
+  SelectedAddress,
+ 
   selectError,
   selectIsLoading,
 } from '../../../features/pages/address/store/reducers';
@@ -21,8 +23,12 @@ import { LoadingComponent } from './loading.component';
 })
 export class AddressesComponent implements OnInit {
   data$!: Observable<AddressStateInterface>;
-  // addresses$?: Observable<Address[] | null | undefined>;
-  constructor(public _AddressService: AddressService, private store: Store) {}
+
+  selectedAddress$: Observable<Address | null>;
+
+  constructor(private store: Store) {
+    this.selectedAddress$ = store.select(SelectedAddress);
+  }
   ngOnInit(): void {
     //   this.addresses$ = this.store.select(selectAddressesData);
     this.data$ = combineLatest({
@@ -35,6 +41,9 @@ export class AddressesComponent implements OnInit {
 
   selectAddress(address: Address) {
     //  console.log(address);
-    this._AddressService.selectedAddress.set(address as Address);
+    // this._AddressService.selectedAddress.set(address as Address);
+    this.store.dispatch(
+      addressActions.selectAddress({ selectedAddress: address })
+    );
   }
 }

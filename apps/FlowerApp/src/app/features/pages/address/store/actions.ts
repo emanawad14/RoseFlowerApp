@@ -31,5 +31,6 @@ export const addressActions = createActionGroup({
     }>(),
 
     openDialogComponent: props<{ view: DialogViewEnum }>(),
+    selectAddress: props<{ selectedAddress: Address }>()
   },
 });

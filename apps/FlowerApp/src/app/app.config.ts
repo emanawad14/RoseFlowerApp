@@ -44,6 +44,7 @@ import { ToastModule } from 'primeng/toast';
 import {
   addressFeatureKey,
   addressReducer,
+  selectAddressReducer,
   viewDialogReducer,
 } from './features/pages/address/store/reducers';
 
@@ -81,12 +82,13 @@ export const appConfig: ApplicationConfig = {
     }),
     provideStore({
       Products: ProductsReducer,
-      // cart:cartReducer
+      //  selectedAddress: selectAddressReducer,
     }),
     provideState(cartFeatureKey, cartReducer),
     provideState(addressFeatureKey, addressReducer),
     provideState({ name: 'viewCart', reducer: viewCartReducer }),
     provideState({ name: 'viewDialog', reducer: viewDialogReducer }),
+    provideState({ name: 'selectedAddress', reducer: selectAddressReducer }),
     provideEffects([ProductsEffects, cartEffects, addressEffects]),
     provideStoreDevtools({
       maxAge: 25,

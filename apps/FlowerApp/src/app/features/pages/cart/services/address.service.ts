@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AddressService {
-  selectedAddress: WritableSignal<Address | null> = signal(null);
+  //selectedAddress: WritableSignal<Address | null> = signal(null);
 
   constructor(private _http: HttpClient) {}
 

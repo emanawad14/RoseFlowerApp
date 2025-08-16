@@ -12,7 +12,7 @@ import { PrimaryBtnComponent } from 'apps/FlowerApp/src/app/shared/components/ui
 import { StepperComponent } from 'apps/FlowerApp/src/app/shared/components/ui/stepper.component';
 import { Address } from 'apps/FlowerApp/src/app/shared/interfaces/addressResponse.interface';
 import { AddressService } from '../services/address.service';
-import { Observable, Subject, takeUntil } from 'rxjs';
+import { firstValueFrom, Observable, Subject, takeUntil } from 'rxjs';
 import { ListboxModule } from 'primeng/listbox';
 import { FormsModule } from '@angular/forms';
 import { AddressesComponent } from 'apps/FlowerApp/src/app/shared/components/ui/addresses.component';
@@ -28,6 +28,7 @@ import { removeUnWantedProperties } from 'apps/FlowerApp/src/app/core/utills/app
 import { Store } from '@ngrx/store';
 import { DialogViewEnum } from '../../address/types/viewDialogType.enum';
 import { addressActions } from '../../address/store/actions';
+import { SelectedAddress } from '../../address/store/reducers';
 
 @Component({
   selector: 'app-shipping-address',
@@ -49,7 +50,8 @@ export class ShippingAddressComponent implements OnInit, OnDestroy {
   stepNumber: number = 1;
   private destroy$ = new Subject<void>();
   selectedPayment: PaymentMethod | null = null;
-  selectedAddress: WritableSignal<Address | null> = signal(null);
+  // selectedAddress: WritableSignal<Address | null> = signal(null);
+  selectedAddress$: Observable<Address | null>;
   paymentMethods: PaymentMethod[] = [
     {
       _id: '1',
@@ -75,32 +77,36 @@ export class ShippingAddressComponent implements OnInit, OnDestroy {
     private _router: Router,
     private _dialogService: DialogService,
     private store: Store
-  ) {}
+  ) {
+    this.selectedAddress$ = store.select(SelectedAddress);
+  }
   ngOnInit(): void {
-    this.selectedAddress = this._AddressService.selectedAddress;
+    //  this.selectedAddress = this._AddressService.selectedAddress;
     //this.currentDialogView$ = this.store.select(selectCurrentDialogView);
   }
 
   setPaymentMethod(paymentMethod: PaymentMethod) {
     this.selectedPayment = paymentMethod;
   }
-  checkout() {
+  async checkout() {
     this.loading = true;
-    ///remove _id and username from request//////////////
-    const shippingAddress = removeUnWantedProperties(
-      this._AddressService.selectedAddress() as Address,
-      ['username', '_id']
-    );
+    const selectedAddress = await firstValueFrom(this.selectedAddress$);
 
-    if (!this._AddressService.selectedAddress() || !this.selectedPayment) {
+    if (!selectedAddress || !this.selectedPayment) {
       this._toastService.showInfo(
         'You should select Address and Payment Method'
       );
       this.loading = false;
+      return;
     }
+    ///remove _id and username from request//////////////
+    const shippingAddress = removeUnWantedProperties(
+      selectedAddress as Address,
+      ['username', '_id']
+    );
 
     //cash
-    else if (this.selectedPayment?._id == '1') {
+    if (this.selectedPayment?._id == '1') {
       this._OrdersService
         .createCashOrder({
           shippingAddress: shippingAddress as ShippingAddress,
@@ -159,7 +165,9 @@ export class ShippingAddressComponent implements OnInit, OnDestroy {
       // );
 
       this.store.dispatch(
-        addressActions.openDialogComponent({ view: DialogViewEnum.getAddresses })
+        addressActions.openDialogComponent({
+          view: DialogViewEnum.getAddresses,
+        })
       );
     });
   }

@@ -8,6 +8,8 @@ import {
 import { AddressStateInterface } from '../types/addressState.interface';
 import { addressActions } from './actions';
 import { DialogViewEnum, ViewDialogState } from '../types/viewDialogType.enum';
+import { Address } from 'apps/FlowerApp/src/app/shared/interfaces/addressResponse.interface';
+import { AddressState } from '../types/selectedAddressState.interface';
 
 const initialState: AddressStateInterface = {
   isLoading: false,
@@ -58,7 +60,7 @@ export const {
   selectError, // selector for `error` property
   selectData: selectAddressesData, // feature selector
 } = addressFeature;
-
+////////////////////////////////////////Address Views in dialog/////////////////////////////////////////////////////////////////
 export const initialDialogState: ViewDialogState = {
   currentView: DialogViewEnum.getAddresses,
 };
@@ -77,3 +79,24 @@ export const selectCurrentView = createSelector(
   selectCurrentDialogView,
   (state) => state.currentView
 );
+///////////////////////////////selected Address///////////////////////////////////////
+
+export const initialAddressState: AddressState = {
+  selectedAddress: null,
+};
+export const selectAddressReducer = createReducer(
+  initialAddressState,
+  on(addressActions.selectAddress, (state, { selectedAddress }) => ({
+    ...state,
+    selectedAddress,
+  }))
+);
+export const selectSelectedAddress =
+  createFeatureSelector<AddressState>('selectedAddress');
+
+export const SelectedAddress = createSelector(
+  selectSelectedAddress,
+  (state) => state.selectedAddress
+);
+
+////////////////////////////////////////////
