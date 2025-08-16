@@ -15,6 +15,9 @@ import { ConfirmDialogComponent } from 'apps/FlowerApp/src/app/shared/components
 import { ToastModule } from 'primeng/toast';
 import { LoadingComponent } from 'apps/FlowerApp/src/app/shared/components/ui/loading.component';
 import { CartStates } from '../interfaces/getProductsCartState.interface';
+import { Product } from '../../../interfaces/products';
+import { CartItem } from '../interfaces/addToCartResponse.interface';
+import { ToastService } from 'apps/FlowerApp/src/app/shared/services/toast.service';
 @Component({
   selector: 'app-cart',
   imports: [
@@ -32,7 +35,11 @@ export class CartComponent implements OnInit {
   data$!: Observable<CartStates>;
   @ViewChild(ConfirmDialogComponent) confirmDialog!: ConfirmDialogComponent;
 
-  constructor(private _router: Router, private store: Store) {}
+  constructor(
+    private _router: Router,
+    private store: Store,
+    private _toastService: ToastService
+  ) {}
   ngOnInit(): void {
     this.data$ = combineLatest({
       getProductsCartResponse: this.store.select(selectCartProductData),
@@ -79,14 +86,22 @@ export class CartComponent implements OnInit {
     //this.store.dispatch(cartActions.deleteCart());
   }
 
-  changeProductQuantity(productId: string, quantity: number) {
-    console.log('increment', productId);
+  changeProductQuantity(
+    cartItem: CartItem,
+    quantity: number,
+    productId: string
+  ) {
+    console.log(productId);
 
-    this.store.dispatch(
-      cartActions.updateProductQuantityFromCart({
-        product: productId,
-        quantity: quantity,
-      })
-    );
+    if (quantity >= 1 || cartItem.quantity >= quantity)
+      this.store.dispatch(
+        cartActions.updateProductQuantityFromCart({
+          product: productId,
+          quantity: quantity,
+        })
+      );
+    else {
+      this._toastService.showError('out of stock ');
+    }
   }
 }

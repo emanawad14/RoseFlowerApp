@@ -126,7 +126,11 @@
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             (click)="
-              changeProductQuantity(product.product._id, product.quantity - 1)
+              changeProductQuantity(
+                product,
+                product.quantity - 1,
+                product.product._id
+              )
             "
           >
             <path
@@ -155,7 +159,11 @@
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             (click)="
-              changeProductQuantity(product.product._id, product.quantity + 1)
+              changeProductQuantity(
+                product,
+                product.quantity + 1,
+                product.product._id
+              )
             "
           >
             <path

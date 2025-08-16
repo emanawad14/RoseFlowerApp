@@ -14,8 +14,7 @@ import {
 import { LoadingComponent } from 'apps/FlowerApp/src/app/shared/components/ui/loading.component';
 import { DialogService } from 'primeng/dynamicdialog';
 import { ConfirmDialogComponent } from 'apps/FlowerApp/src/app/shared/components/ui/confirmDialog.component';
-import { DialogContentService } from '../services/dialog-content.service';
-import { AddAddressComponent } from './addAddress.component';
+ import { DialogViewEnum } from '../types/viewDialogType.enum';
 
 @Component({
   selector: 'app-get-addresses',
@@ -35,8 +34,7 @@ export class GetAddressesComponent implements OnInit {
   data$!: Observable<AddressStateInterface>;
   constructor(
     private store: Store,
-    private _dialogContent: DialogContentService
-  ) {}
+   ) {}
   ngOnInit(): void {
     this.data$ = combineLatest({
       data: this.store.select(selectAddressesData),
@@ -70,6 +68,9 @@ export class GetAddressesComponent implements OnInit {
 
   displayAddAddressForm() {
     console.log('add address');
-    this._dialogContent.selectedComponentView.set(AddAddressComponent);
+    this.store.dispatch(
+      addressActions.openDialogComponent({ view: DialogViewEnum.addAddress })
+    );
+    /// this._dialogContent.selectedComponentView.set(AddAddressComponent);
   }
 }

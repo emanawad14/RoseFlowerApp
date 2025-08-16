@@ -8,7 +8,7 @@ export const authGuard: CanActivateFn = (route, state) => {
   const token = _TokenService.getToken();
   ///not Auth user
   if (!token) {
-    router.parseUrl('');
+    router.parseUrl('/auth');
     return false;
   }
 

@@ -21,9 +21,9 @@ import { Observable } from 'rxjs';
 import { cartActions } from '../../../features/pages/cart/store/actions';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { AddressDialogComponent } from '../../../features/pages/address/components/addressDialog.component';
-import { DialogContentService } from '../../../features/pages/address/services/dialog-content.service';
-import { GetAddressesComponent } from '../../../features/pages/address/components/getAddresses.component';
 import { AuthApiService } from '@rose-flower/auth-api';
+import { addressActions } from '../../../features/pages/address/store/actions';
+import { DialogViewEnum } from '../../../features/pages/address/types/viewDialogType.enum';
 
 @Component({
   selector: 'app-nav-bar',
@@ -47,7 +47,7 @@ import { AuthApiService } from '@rose-flower/auth-api';
 })
 export class NavBarComponent implements OnInit {
   private ref?: DynamicDialogRef;
-  userData : WritableSignal<UserDTO | null>=signal(null)
+  userData: WritableSignal<UserDTO | null> = signal(null);
 
   langClick = false;
   darkMode = false;
@@ -59,7 +59,6 @@ export class NavBarComponent implements OnInit {
     private _AuthService: AuthService,
     private store: Store,
     private _dialogService: DialogService,
-    private _DialogContentService: DialogContentService,
     private _AuthApiService: AuthApiService,
     private _router: Router
   ) {}
@@ -91,6 +90,9 @@ export class NavBarComponent implements OnInit {
           {
             label: 'My Addresses',
             icon: 'pi pi-home',
+            command: () => {
+              this.openAddressDialog();
+            },
           },
           {
             label: 'My Orders',
@@ -138,7 +140,7 @@ export class NavBarComponent implements OnInit {
   }
 
   getUserData() {
-    this.userData=this._AuthService.getUser();
+    this.userData = this._AuthService.getUser();
     console.log(this.userData());
   }
   toggleDarkMode() {
@@ -170,8 +172,13 @@ export class NavBarComponent implements OnInit {
       closable: true,
     });
     this.ref.onClose.subscribe(() => {
-      this._DialogContentService.selectedComponentView.set(
-        GetAddressesComponent
+      // this._DialogContentService.selectedComponentView.set(
+      //   GetAddressesComponent
+      // );
+      this.store.dispatch(
+        addressActions.openDialogComponent({
+          view: DialogViewEnum.getAddresses,
+        })
       );
     });
   }

@@ -2,7 +2,10 @@ import { Component, Type, WritableSignal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AddAddressComponent } from './addAddress.component';
 import { GetAddressesComponent } from './getAddresses.component';
-import { DialogContentService } from '../services/dialog-content.service';
+ import { Store } from '@ngrx/store';
+import { selectCurrentDialogView } from '../store/reducers';
+import { map, Observable } from 'rxjs';
+import { DialogViewEnum, ViewDialogState } from '../types/viewDialogType.enum';
 
 @Component({
   selector: 'app-address-dialog',
@@ -11,8 +14,16 @@ import { DialogContentService } from '../services/dialog-content.service';
   styleUrl: './addressDialog.component.scss',
 })
 export class AddressDialogComponent {
-  currentComponent: WritableSignal<Type<any> | null>;
-  constructor(private _DialogContentService: DialogContentService) {
-    this.currentComponent = this._DialogContentService.selectedComponentView;
+  currentComponent$: Observable<Type<any> | null>;
+  dialogViewMap: Record<DialogViewEnum, Type<any>> = {
+    [DialogViewEnum.addAddress]: AddAddressComponent,
+    [DialogViewEnum.getAddresses]: GetAddressesComponent,
+  };
+  constructor(private store: Store) {
+    this.currentComponent$ = this.store.select(selectCurrentDialogView).pipe(
+      map((state: ViewDialogState) => {
+        return this.dialogViewMap[state.currentView] || null;
+      })
+    );
   }
 }

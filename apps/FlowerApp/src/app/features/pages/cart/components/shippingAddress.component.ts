@@ -3,6 +3,7 @@ import {
   OnDestroy,
   OnInit,
   signal,
+  Type,
   WritableSignal,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -11,7 +12,7 @@ import { PrimaryBtnComponent } from 'apps/FlowerApp/src/app/shared/components/ui
 import { StepperComponent } from 'apps/FlowerApp/src/app/shared/components/ui/stepper.component';
 import { Address } from 'apps/FlowerApp/src/app/shared/interfaces/addressResponse.interface';
 import { AddressService } from '../services/address.service';
-import { Subject, takeUntil } from 'rxjs';
+import { Observable, Subject, takeUntil } from 'rxjs';
 import { ListboxModule } from 'primeng/listbox';
 import { FormsModule } from '@angular/forms';
 import { AddressesComponent } from 'apps/FlowerApp/src/app/shared/components/ui/addresses.component';
@@ -22,8 +23,11 @@ import { Router } from '@angular/router';
 import { ShippingAddress } from '../interfaces/createOrderRequest.interface';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { AddressDialogComponent } from '../../address/components/addressDialog.component';
-import { GetAddressesComponent } from '../../address/components/getAddresses.component';
-import { DialogContentService } from '../../address/services/dialog-content.service';
+import { removeUnWantedProperties } from 'apps/FlowerApp/src/app/core/utills/app.utills';
+
+import { Store } from '@ngrx/store';
+import { DialogViewEnum } from '../../address/types/viewDialogType.enum';
+import { addressActions } from '../../address/store/actions';
 
 @Component({
   selector: 'app-shipping-address',
@@ -63,16 +67,18 @@ export class ShippingAddressComponent implements OnInit, OnDestroy {
   ];
   ///checkout Loading
   loading = false;
+
   constructor(
     private _AddressService: AddressService,
     private _OrdersService: OrdersService,
     private _toastService: ToastService,
     private _router: Router,
     private _dialogService: DialogService,
-    private _DialogContentService: DialogContentService
+    private store: Store
   ) {}
   ngOnInit(): void {
     this.selectedAddress = this._AddressService.selectedAddress;
+    //this.currentDialogView$ = this.store.select(selectCurrentDialogView);
   }
 
   setPaymentMethod(paymentMethod: PaymentMethod) {
@@ -81,7 +87,7 @@ export class ShippingAddressComponent implements OnInit, OnDestroy {
   checkout() {
     this.loading = true;
     ///remove _id and username from request//////////////
-    const shippingAddress = this.removeUnWantedProperties(
+    const shippingAddress = removeUnWantedProperties(
       this._AddressService.selectedAddress() as Address,
       ['username', '_id']
     );
@@ -148,18 +154,14 @@ export class ShippingAddressComponent implements OnInit, OnDestroy {
       closable: true,
     });
     this.ref.onClose.subscribe(() => {
-      this._DialogContentService.selectedComponentView.set(
-        GetAddressesComponent
+      // this._DialogContentService.selectedComponentView.set(
+      //   GetAddressesComponent
+      // );
+
+      this.store.dispatch(
+        addressActions.openDialogComponent({ view: DialogViewEnum.getAddresses })
       );
     });
-  }
-  removeUnWantedProperties<T extends object, K extends keyof T>(
-    obj: T,
-    keys: K[]
-  ): Omit<T, K> {
-    const clone = { ...obj };
-    keys.forEach((key) => delete clone[key]);
-    return clone;
   }
 
   ngOnDestroy(): void {

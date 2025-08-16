@@ -1,6 +1,13 @@
-import { createFeature, createReducer, on } from '@ngrx/store';
+import {
+  createFeature,
+  createFeatureSelector,
+  createReducer,
+  createSelector,
+  on,
+} from '@ngrx/store';
 import { AddressStateInterface } from '../types/addressState.interface';
 import { addressActions } from './actions';
+import { DialogViewEnum, ViewDialogState } from '../types/viewDialogType.enum';
 
 const initialState: AddressStateInterface = {
   isLoading: false,
@@ -32,7 +39,7 @@ export const addressFeature = createFeature({
       ...state,
       isLoading: true,
     })),
-    on(addressActions.deleteAddressSuccess, (state, action, ) => ({
+    on(addressActions.deleteAddressSuccess, (state, action) => ({
       ...state,
       isLoading: false,
       data: action.address,
@@ -51,3 +58,22 @@ export const {
   selectError, // selector for `error` property
   selectData: selectAddressesData, // feature selector
 } = addressFeature;
+
+export const initialDialogState: ViewDialogState = {
+  currentView: DialogViewEnum.getAddresses,
+};
+export const viewDialogReducer = createReducer(
+  initialDialogState,
+  on(addressActions.openDialogComponent, (state, { view }) => ({
+    ...state,
+    currentView: view,
+  }))
+);
+
+export const selectCurrentDialogView =
+  createFeatureSelector<ViewDialogState>('viewDialog');
+
+export const selectCurrentView = createSelector(
+  selectCurrentDialogView,
+  (state) => state.currentView
+);

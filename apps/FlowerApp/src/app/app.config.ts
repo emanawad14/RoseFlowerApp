@@ -35,6 +35,7 @@ import { provideStoreDevtools } from '@ngrx/store-devtools';
 import {
   cartFeatureKey,
   cartReducer,
+  viewCartReducer,
 } from './features/pages/cart/store/reducers';
 import * as cartEffects from './features/pages/cart/store/effects';
 import * as addressEffects from './features/pages/address/store/effects';
@@ -43,6 +44,7 @@ import { ToastModule } from 'primeng/toast';
 import {
   addressFeatureKey,
   addressReducer,
+  viewDialogReducer,
 } from './features/pages/address/store/reducers';
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -83,6 +85,8 @@ export const appConfig: ApplicationConfig = {
     }),
     provideState(cartFeatureKey, cartReducer),
     provideState(addressFeatureKey, addressReducer),
+    provideState({ name: 'viewCart', reducer: viewCartReducer }),
+    provideState({ name: 'viewDialog', reducer: viewDialogReducer }),
     provideEffects([ProductsEffects, cartEffects, addressEffects]),
     provideStoreDevtools({
       maxAge: 25,

@@ -1,6 +1,14 @@
-import { createFeature, createReducer, on } from '@ngrx/store';
+import { ViewCartState } from './../interfaces/view.enum';
+import {
+  createFeature,
+  createFeatureSelector,
+  createReducer,
+  createSelector,
+  on,
+} from '@ngrx/store';
 import { cartStateInterface } from '../interfaces/getProductsCartState.interface';
-import { cartActions } from './actions';
+import { cartActions, switchView } from './actions';
+import { ViewCartStateEnum } from '../interfaces/view.enum';
 
 const initialState: cartStateInterface = {
   isLoading: false,
@@ -10,10 +18,12 @@ const initialState: cartStateInterface = {
   addToCartLoading: false,
   addToCartProductId: null,
 };
+
 export const cartFeature = createFeature({
   name: 'cart',
   reducer: createReducer(
     initialState,
+
     on(cartActions['getLoggedUserCart'], (state) => ({
       ...state,
       isLoading: true,
@@ -100,6 +110,7 @@ export const cartFeature = createFeature({
     }))
   ),
 });
+
 export const {
   name: cartFeatureKey, // feature name
   reducer: cartReducer, // feature reducer
@@ -110,3 +121,19 @@ export const {
   selectAddToCartLoading,
   selectAddToCartProductId,
 } = cartFeature;
+
+export const initialViewState: ViewCartState = {
+  currentView: ViewCartStateEnum.Cart,
+};
+
+export const selectViewState = createFeatureSelector<ViewCartState>('viewCart');
+
+export const selectCurrentView = createSelector(
+  selectViewState,
+  (state: ViewCartState): ViewCartStateEnum => state.currentView
+);
+
+export const viewCartReducer = createReducer(
+  initialViewState,
+  on(switchView, (state, { view }) => ({ ...state, currentView: view }))
+);

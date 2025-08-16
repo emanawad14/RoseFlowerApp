@@ -1,8 +1,9 @@
 <div class="grid m-0 mx-5 mt-5">
+  @if(currentView$ | async; as currentView){
   <div class="md:col-8 col-12">
-    <ng-container *ngComponentOutlet="currentComponent"></ng-container>
+    <ng-container *ngComponentOutlet="viewMap[currentView]"></ng-container>
   </div>
-
+  }
   <div class="md:col-4 flex flex-column gap-2 summary-section">
     <!-- Summary -->
     <h3 class="mb-2">Summary</h3>
@@ -37,14 +38,16 @@
       <h4>Total</h4>
       <h4>{{ totalPrice$ | async }} EGP</h4>
     </div>
-    @if (currentComponent == CartComponent){
+    @if (currentView$ | async; as currentView) { @if (currentView ===
+    ViewType.Cart) {
+
     <app-primary-btn
       [disabled]="!(cartData$ | async)?.cart?.cartItems?.length"
       [labelName]="'Checkout'"
       [widthFull]="true"
       (btnClicked)="checkout()"
     ></app-primary-btn>
-    }
+    } }
   </div>
 </div>
 <!-- bset Seller section -->

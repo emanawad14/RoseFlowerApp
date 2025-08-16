@@ -4,7 +4,8 @@ import {
   AddressResponceInterface,
 } from 'apps/FlowerApp/src/app/shared/interfaces/addressResponse.interface';
 import { ErrorResponseInterface } from 'apps/FlowerApp/src/app/shared/interfaces/errorResponce.interface';
-
+import { DialogViewEnum } from '../types/viewDialogType.enum';
+ 
 export const addressActions = createActionGroup({
   source: 'address',
   events: {
@@ -28,5 +29,7 @@ export const addressActions = createActionGroup({
     'update Address failure ': props<{
       error: ErrorResponseInterface;
     }>(),
+
+    openDialogComponent: props<{ view: DialogViewEnum }>(),
   },
 });

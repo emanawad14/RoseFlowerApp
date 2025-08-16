@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
 })
 export class AddressService {
   constructor(private _http: HttpClient) {}
-  url = `${environment.baseUrl}/api/v1/addresses`;
+
   getUserAddresses(): Observable<AddressResponceInterface> {
     const url = `${environment.baseUrl}/api/v1/addresses`;
     return this._http.get<AddressResponceInterface>(url);
@@ -24,11 +24,15 @@ export class AddressService {
   }
 
   addAddress(address: Address): Observable<AddressResponceInterface> {
-    return this._http.patch<AddressResponceInterface>(this.url, address);
+    const url = `${environment.baseUrl}/api/v1/addresses`;
+    return this._http.patch<AddressResponceInterface>(url, address);
   }
 
-  editAddress(address: Address,_id:string): Observable<AddressResponceInterface> {
-     const url = `${environment.baseUrl}/api/v1/addresses/${_id}`;
-    return this._http.patch<AddressResponceInterface>(this.url, address);
+  editAddress(
+    address: Address,
+    _id: string
+  ): Observable<AddressResponceInterface> {
+    const url = `${environment.baseUrl}/api/v1/addresses/${_id}`;
+    return this._http.patch<AddressResponceInterface>(url, address);
   }
 }
