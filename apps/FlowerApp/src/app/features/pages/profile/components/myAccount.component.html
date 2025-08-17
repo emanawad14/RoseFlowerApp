@@ -1,4 +1,4 @@
-<app-profile-image  [imgSrc]="userData?.phone"></app-profile-image>
+<app-profile-image [imgSrc]="userData?.photo"></app-profile-image>
 
 <form
   [formGroup]="accountForm"
@@ -11,16 +11,30 @@
       formControlName="firstName"
       class="flex-1"
     ></app-global-input>
+
     <app-global-input
       labelText="Last name"
       class="flex-1"
       formControlName="lastName"
     ></app-global-input>
   </div>
+  <app-field-error
+    [control]="accountForm.get('firstName')"
+    [fieldName]="'firstName'"
+  ></app-field-error>
+  <app-field-error
+    [control]="accountForm.get('lastName')"
+    [fieldName]="'lastName'"
+  ></app-field-error>
   <app-global-input
-    [labelText]="'ُEmail'"
+    [labelText]="'Email'"
     formControlName="email"
   ></app-global-input>
+  <!-- Email Errors -->
+  <app-field-error
+    [control]="accountForm.get('email')"
+    [fieldName]="'email'"
+  ></app-field-error>
   <app-global-input
     [labelText]="'Phone'"
     formControlName="phone"
@@ -29,10 +43,15 @@
     [selectedCountry]="selectedCountry()"
     [value]="phoneNumber()"
   ></app-global-input>
+  <app-field-error
+    [control]="accountForm.get('phone')"
+    [fieldName]="'phone'"
+  ></app-field-error>
 
   <app-global-input
-    [labelText]="'ُGender'"
+    [labelText]="'Gender'"
     [isDisabled]="true"
+    [value]="userData?.gender ?? ''"
     formControlName="gender"
   ></app-global-input>
   <div class="flex justify-content-between mt-5">
@@ -44,4 +63,9 @@
       (btnClicked)="updateProfile()"
     ></app-primary-btn>
   </div>
+
+  <!-- Backend Error -->
+  @if (backendError.length>0) {
+  <app-error [errorMessages]="[backendError]"></app-error>
+  }
 </form>

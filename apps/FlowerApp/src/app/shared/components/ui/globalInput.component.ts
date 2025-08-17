@@ -36,10 +36,7 @@ export class GlobalInputComponent implements ControlValueAccessor {
   @Input() isPhone: boolean = false;
   // @Input() formControlName: string = '';
 
-  // value = '';
-  // isDisabled = false;
   @Input() isDisabled = false;
-
   @Input() selectedCountry: Country = this.countries[0];
   // @Input() phoneNumber: string = '';
   onChange = (val: string) => void 0;

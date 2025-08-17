@@ -22,6 +22,9 @@ import {
   internationalPhoneValidator,
 } from 'apps/FlowerApp/src/app/core/utills/app.utills';
 import { Subject, takeUntil } from 'rxjs';
+import { ToastService } from 'apps/FlowerApp/src/app/shared/services/toast.service';
+import { ErrorComponent } from 'apps/FlowerApp/src/app/shared/components/ui/error/error.component';
+import { FieldErrorComponent } from 'apps/FlowerApp/src/app/shared/components/business/fieldError/field-error.component';
 
 @Component({
   selector: 'app-my-account',
@@ -35,6 +38,8 @@ import { Subject, takeUntil } from 'rxjs';
     DropdownModule,
     FormsModule,
     InputTextModule,
+    ErrorComponent,
+    FieldErrorComponent,
   ],
   templateUrl: './myAccount.component.html',
   styleUrl: './myAccount.component.scss',
@@ -42,21 +47,23 @@ import { Subject, takeUntil } from 'rxjs';
 export class MyAccountComponent implements OnInit, OnDestroy {
   accountForm!: FormGroup;
   userData?: User;
+  backendError: string = '';
   selectedCountry = signal<Country>(ProfileService.countries[0]);
   phoneNumber = signal<string>('');
   private destroy$ = new Subject<void>();
   constructor(
     private fb: FormBuilder,
-    private _ProfileService: ProfileService
+    private _ProfileService: ProfileService,
+    private _toastService: ToastService
   ) {}
 
   ngOnInit() {
     this.accountForm = this.fb.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
+      firstName: [null, Validators.required],
+      lastName: [null, Validators.required],
       email: ['', Validators.required],
       phone: ['', [Validators.required, internationalPhoneValidator]],
-      gender: [''],
+      gender: [{ value: this.userData?.gender ?? '', disabled: true }],
     });
     this.getUserData();
   }
@@ -70,7 +77,8 @@ export class MyAccountComponent implements OnInit, OnDestroy {
           this.setProfileFormData(res);
         },
         error: (err) => {
-          console.log(err.error.error);
+          //console.log(err.error.error);
+          this._toastService.showError(err.error.error);
         },
       });
   }
@@ -84,14 +92,17 @@ export class MyAccountComponent implements OnInit, OnDestroy {
         .subscribe({
           next: (res) => {
             this.userData = res;
+            this._toastService.showSuccess('profile Updated');
             this.setProfileFormData(res);
           },
           error: (err) => {
-            console.log(err.error.error);
+            // console.log(err.error.error);
+            this._toastService.showError(err.error.error);
+            this.backendError = err.error['error'];
           },
         });
     } else {
-      console.log('not valid');
+      this._toastService.showError('invalid Form Data');
     }
   }
   setProfileFormData(data: User) {

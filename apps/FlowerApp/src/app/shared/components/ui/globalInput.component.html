@@ -60,7 +60,7 @@
   </div>
   }@else{
   <div class="input-wrapper">
-    <label [for]="id" class="input-label">
+    <label [for]="id" class="input-label" [class.disabled]="isDisabled">
       {{ labelText }}
     </label>
     <div class="input-container">
@@ -88,6 +88,7 @@
         (blur)="onTouched()"
         [placeholder]="placeholder"
         [disabled]="isDisabled"
+        pInputText
       />
 
       @if (type === 'password') {

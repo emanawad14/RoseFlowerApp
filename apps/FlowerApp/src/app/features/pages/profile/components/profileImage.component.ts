@@ -9,6 +9,6 @@ import { AvatarModule } from 'primeng/avatar';
   styleUrl: './profileImage.component.scss',
 })
 export class ProfileImageComponent {
-  @Input({required:true}) imgSrc?:string;
+  @Input({ required: true }) imgSrc?: string;
   uploadImage() {}
 }

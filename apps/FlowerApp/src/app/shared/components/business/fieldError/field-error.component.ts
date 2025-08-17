@@ -21,7 +21,8 @@ export class FieldErrorComponent {
 
     const errors = this.control.errors;
 
-    if (errors['required']) messages.push(`${name} is required`);
+    if (errors['required'] || this.control.value.trim().length === 0)
+      messages.push(`${name} is required`);
     if (errors['email']) messages.push(`Please enter a valid ${name}`);
     if (errors['minlength'])
       messages.push(
@@ -38,6 +39,9 @@ export class FieldErrorComponent {
           `Password must contain at least 8 characters, including uppercase, lowercase, number, and special character.`
         );
       } else messages.push(`Invalid ${name} format`);
+    }
+    if (errors['invalidPhone']) {
+      messages.push(`${name} not in right format`);
     }
 
     return messages;
