@@ -26,6 +26,7 @@
     "@ngx-translate/http-loader": "^16.0.1",
     "@primeng/themes": "^19.1.2",
     "express": "^4.21.2",
+    "libphonenumber-js": "^1.12.12",
     "ngx-cookie-service-ssr": "^19.1.2",
     "ngx-owl-carousel-o": "^19.0.2",
     "ngx-toastr": "^19.0.0",

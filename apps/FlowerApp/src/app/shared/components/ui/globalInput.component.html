@@ -1,26 +1,52 @@
-<div class="input-wrapper">
+<ng-container>
+  @if(isPhone){
   <label [for]="id" class="input-label">
     {{ labelText }}
   </label>
-  <div class="input-container">
-    @if(search){
-    <svg
-      width="19"
-      height="18"
-      viewBox="0 0 19 18"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
+  <div
+    class="phone-input flex align-items-center border-1 surface-border border-round-xl p-2"
+  >
+    <!-- Country dropdown -->
+    <p-select
+      [options]="countries"
+      optionLabel="name"
+      [showClear]="false"
+      [style]="{ 'min-width': '120px' }"
+      [panelStyle]="{ 'max-height': '250px' }"
+      [filter]="true"
+      [(ngModel)]="selectedCountry"
+      (onChange)="handleInput($event)"
+      (blur)="onTouched()"
     >
-      <path
-        d="M16.25 15.75L12.995 12.495M14.75 8.25C14.75 11.5637 12.0637 14.25 8.75 14.25C5.43629 14.25 2.75 11.5637 2.75 8.25C2.75 4.93629 5.43629 2.25 8.75 2.25C12.0637 2.25 14.75 4.93629 14.75 8.25Z"
-        stroke="#A1A1AA"
-        stroke-width="1.25"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      />
-    </svg>
-    }
+      <ng-template let-country pTemplate="selectedItem">
+        <div class="flex align-items-center">
+          <img [src]="country.flag" width="20" class="mr-2" />
+          <span>{{ country.code }} (+{{ country.dial }})</span>
+        </div>
+      </ng-template>
+      <ng-template #dropdownicon>
+        <svg
+          width="8"
+          height="12"
+          viewBox="0 0 8 12"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M4 0.666992C4.1768 0.66703 4.34634 0.737293 4.47133 0.862326L7.138 3.52899C7.25944 3.65473 7.32664 3.82313 7.32512 3.99793C7.3236 4.17272 7.25348 4.33993 7.12988 4.46354C7.00627 4.58714 6.83907 4.65726 6.66427 4.65877C6.48947 4.66029 6.32107 4.5931 6.19533 4.47166L4 2.27633L1.80467 4.47166C1.67893 4.5931 1.51053 4.66029 1.33573 4.65877C1.16093 4.65726 0.993726 4.58714 0.870121 4.46354C0.746516 4.33993 0.676403 4.17272 0.674884 3.99793C0.673365 3.82313 0.740561 3.65473 0.862 3.52899L3.52867 0.862326C3.65366 0.737293 3.8232 0.66703 4 0.666992ZM0.862 7.52899C0.987019 7.40401 1.15656 7.3338 1.33333 7.3338C1.51011 7.3338 1.67965 7.40401 1.80467 7.52899L4 9.72433L6.19533 7.52899C6.32107 7.40755 6.48947 7.34036 6.66427 7.34188C6.83907 7.34339 7.00627 7.41351 7.12988 7.53711C7.25348 7.66072 7.3236 7.82793 7.32512 8.00272C7.32664 8.17752 7.25944 8.34592 7.138 8.47166L4.47133 11.1383C4.34631 11.2633 4.17678 11.3335 4 11.3335C3.82322 11.3335 3.65369 11.2633 3.52867 11.1383L0.862 8.47166C0.737019 8.34664 0.666809 8.1771 0.666809 8.00033C0.666809 7.82355 0.737019 7.65401 0.862 7.52899Z"
+            fill="#323639"
+          />
+        </svg>
+      </ng-template>
+      <ng-template let-country pTemplate="item">
+        <div class="flex align-items-center">
+          <img [src]="country.flag" width="20" class="mr-2" />
+          <span>{{ country.name }} (+{{ country.dial }})</span>
+        </div>
+      </ng-template>
+    </p-select>
 
+    <!-- Phone number input -->
     <input
       [type]="isPasswordVisible ? 'text' : type"
       [value]="value"
@@ -28,21 +54,57 @@
       (blur)="onTouched()"
       [placeholder]="placeholder"
       [disabled]="isDisabled"
+      pInputText
+      class="flex-1 border-none ml-2 outline-none"
     />
-
-    @if (type === 'password') {
-    <img
-      role="button"
-      tabindex="0"
-      (click)="togglePassword()"
-      (keydown.enter)="togglePassword()"
-      [src]="
-        isPasswordVisible
-          ? 'images/auth/eye-slash-icon.svg'
-          : 'images/auth/eye-icon.svg'
-      "
-      alt="Toggle password visibility"
-    />
-    }
   </div>
-</div>
+  }@else{
+  <div class="input-wrapper">
+    <label [for]="id" class="input-label">
+      {{ labelText }}
+    </label>
+    <div class="input-container">
+      @if(search){
+      <svg
+        width="19"
+        height="18"
+        viewBox="0 0 19 18"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M16.25 15.75L12.995 12.495M14.75 8.25C14.75 11.5637 12.0637 14.25 8.75 14.25C5.43629 14.25 2.75 11.5637 2.75 8.25C2.75 4.93629 5.43629 2.25 8.75 2.25C12.0637 2.25 14.75 4.93629 14.75 8.25Z"
+          stroke="#A1A1AA"
+          stroke-width="1.25"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+      }
+      <input
+        [type]="isPasswordVisible ? 'text' : type"
+        [value]="value"
+        (input)="handleInput($event)"
+        (blur)="onTouched()"
+        [placeholder]="placeholder"
+        [disabled]="isDisabled"
+      />
+
+      @if (type === 'password') {
+      <img
+        role="button"
+        tabindex="0"
+        (click)="togglePassword()"
+        (keydown.enter)="togglePassword()"
+        [src]="
+          isPasswordVisible
+            ? 'images/auth/eye-slash-icon.svg'
+            : 'images/auth/eye-icon.svg'
+        "
+        alt="Toggle password visibility"
+      />
+      }
+    </div>
+  </div>
+  }
+</ng-container>

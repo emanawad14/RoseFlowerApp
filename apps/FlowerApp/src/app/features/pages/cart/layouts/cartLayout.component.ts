@@ -69,18 +69,16 @@ export class CartLayoutComponent implements OnInit, OnDestroy {
   }
   checkout() {
     //navigate if there is products in cart
-    this.cartData$
-      .pipe((take(1), takeUntil(this.destroy$)))
-      .subscribe((data) => {
-        if (data?.cart.cartItems.length != 0) {
-          //this.currentComponent = ShippingAddressComponent;
-          this.store.dispatch(switchView({ view: ViewCartStateEnum.Shipping }));
+    this.cartData$.pipe(take(1)).subscribe((data) => {
+      if (data?.cart.cartItems.length != 0) {
+        //this.currentComponent = ShippingAddressComponent;
+        this.store.dispatch(switchView({ view: ViewCartStateEnum.Shipping }));
 
-          //  this._router.navigate(['/cart/shippingAddress']);
-        } else {
-          this._toastService.showInfo('you should have product to buy');
-        }
-      });
+        //  this._router.navigate(['/cart/shippingAddress']);
+      } else {
+        this._toastService.showInfo('you should have product to buy');
+      }
+    });
   }
   ngOnDestroy(): void {
     // this.bestSellerProductsSub.unsubscribe();

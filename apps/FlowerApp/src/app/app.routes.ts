@@ -27,6 +27,14 @@ export const appRoutes: Route[] = [
           ),
       },
       {
+        path: 'profile',
+        loadComponent: () =>
+          import('./features/pages/profile/components/profile.component').then(
+            (c) => c.ProfileComponent
+          ),
+        canActivate: [authGuard],
+      },
+      {
         path: 'product-list',
         loadComponent: () =>
           import('./features/pages/product-list/productList.component').then(

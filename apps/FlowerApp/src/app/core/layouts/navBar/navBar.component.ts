@@ -85,7 +85,7 @@ export class NavBarComponent implements OnInit {
           {
             label: 'My Profile',
             icon: 'pi pi-user',
-            routerLink: '',
+            routerLink: '/profile',
           },
           {
             label: 'My Addresses',
@@ -97,7 +97,7 @@ export class NavBarComponent implements OnInit {
           {
             label: 'My Orders',
             icon: 'pi pi-save',
-            routerLink: '',
+            routerLink: '/allOrders',
           },
           {
             separator: true,

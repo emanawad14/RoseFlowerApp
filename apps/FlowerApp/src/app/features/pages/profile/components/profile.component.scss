@@ -1,0 +1,27 @@
+#profile {
+  .sidebar {
+    .active {
+      color: #ffff;
+      background-color: #27272a;
+    }
+    background-color: #f4f4f5;
+    span {
+      font-family: 'Sarabun-Regular';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 0.9em;
+      line-height: 100%;
+
+      /* Zinc/zinc-800 */
+      color: var(--text-title);
+    }
+    .logout {
+      span {
+        color: #cd2e33;
+      }
+      color: #cd2e33;
+
+      background-color: gray;
+    }
+  }
+}

@@ -1,0 +1,47 @@
+<app-profile-image  [imgSrc]="userData?.phone"></app-profile-image>
+
+<form
+  [formGroup]="accountForm"
+  (ngSubmit)="updateProfile()"
+  class="flex flex-column gap-2 md:mx-5 my-3"
+>
+  <div class="flex gap-3">
+    <app-global-input
+      [labelText]="'First name'"
+      formControlName="firstName"
+      class="flex-1"
+    ></app-global-input>
+    <app-global-input
+      labelText="Last name"
+      class="flex-1"
+      formControlName="lastName"
+    ></app-global-input>
+  </div>
+  <app-global-input
+    [labelText]="'ُEmail'"
+    formControlName="email"
+  ></app-global-input>
+  <app-global-input
+    [labelText]="'Phone'"
+    formControlName="phone"
+    [isPhone]="true"
+    [type]="'number'"
+    [selectedCountry]="selectedCountry()"
+    [value]="phoneNumber()"
+  ></app-global-input>
+
+  <app-global-input
+    [labelText]="'ُGender'"
+    [isDisabled]="true"
+    formControlName="gender"
+  ></app-global-input>
+  <div class="flex justify-content-between mt-5">
+    <h4 (click)="deleteAccount()">Delete My Account</h4>
+    <app-primary-btn
+      [labelName]="'Save Changes'"
+      [displayIcon]="false"
+      [type]="'submit'"
+      (btnClicked)="updateProfile()"
+    ></app-primary-btn>
+  </div>
+</form>
