@@ -37,11 +37,15 @@ export class ProfileService {
       .get<getLoggedUserDataDTO>(url)
       .pipe(map((res) => res.user));
   }
-  updateProfile(data:any): Observable<User> {
+  updateProfile(data: any): Observable<User> {
     const url = `${environment.baseUrl}/api/v1/auth/editProfile`;
     return this._http
       .put<getLoggedUserDataDTO>(url, data)
       .pipe(map((res) => res.user));
+  }
+  updateProfilePhoto(formData: FormData) {
+    const url = `${environment.baseUrl}/api/v1/auth/upload-photo`;
+    return this._http.put(url, formData);
   }
   deleteAccount() {}
   changePassword() {}

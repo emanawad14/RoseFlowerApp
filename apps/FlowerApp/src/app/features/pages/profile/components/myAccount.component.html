@@ -55,12 +55,13 @@
     formControlName="gender"
   ></app-global-input>
   <div class="flex justify-content-between mt-5">
-    <h4 (click)="deleteAccount()">Delete My Account</h4>
+    <h4 (click)="deleteAccount()" class="cursor-pointer">Delete My Account</h4>
     <app-primary-btn
       [labelName]="'Save Changes'"
       [displayIcon]="false"
       [type]="'submit'"
       (btnClicked)="updateProfile()"
+      ><div class="py-3"></div
     ></app-primary-btn>
   </div>
 
