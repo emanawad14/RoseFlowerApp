@@ -28,7 +28,7 @@ import { removeUnWantedProperties } from 'apps/FlowerApp/src/app/core/utills/app
 import { Store } from '@ngrx/store';
 import { DialogViewEnum } from '../../address/types/viewDialogType.enum';
 import { addressActions } from '../../address/store/actions';
-import { SelectedAddress } from '../../address/store/reducers';
+import { SelectedAddress } from '../../address/store/selectors';
 
 @Component({
   selector: 'app-shipping-address',

@@ -1,11 +1,5 @@
 import { ViewCartState } from './../interfaces/view.enum';
-import {
-  createFeature,
-  createFeatureSelector,
-  createReducer,
-  createSelector,
-  on,
-} from '@ngrx/store';
+import { createFeature, createReducer, on } from '@ngrx/store';
 import { cartStateInterface } from '../interfaces/getProductsCartState.interface';
 import { cartActions, switchView } from './actions';
 import { ViewCartStateEnum } from '../interfaces/view.enum';
@@ -125,13 +119,6 @@ export const {
 export const initialViewState: ViewCartState = {
   currentView: ViewCartStateEnum.Cart,
 };
-
-export const selectViewState = createFeatureSelector<ViewCartState>('viewCart');
-
-export const selectCurrentView = createSelector(
-  selectViewState,
-  (state: ViewCartState): ViewCartStateEnum => state.currentView
-);
 
 export const viewCartReducer = createReducer(
   initialViewState,

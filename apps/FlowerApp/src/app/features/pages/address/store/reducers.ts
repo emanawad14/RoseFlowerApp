@@ -1,14 +1,7 @@
-import {
-  createFeature,
-  createFeatureSelector,
-  createReducer,
-  createSelector,
-  on,
-} from '@ngrx/store';
+import { createFeature, createReducer, on } from '@ngrx/store';
 import { AddressStateInterface } from '../types/addressState.interface';
 import { addressActions } from './actions';
 import { DialogViewEnum, ViewDialogState } from '../types/viewDialogType.enum';
-import { Address } from 'apps/FlowerApp/src/app/shared/interfaces/addressResponse.interface';
 import { AddressState } from '../types/selectedAddressState.interface';
 
 const initialState: AddressStateInterface = {
@@ -71,14 +64,6 @@ export const viewDialogReducer = createReducer(
     currentView: view,
   }))
 );
-
-export const selectCurrentDialogView =
-  createFeatureSelector<ViewDialogState>('viewDialog');
-
-export const selectCurrentView = createSelector(
-  selectCurrentDialogView,
-  (state) => state.currentView
-);
 ///////////////////////////////selected Address///////////////////////////////////////
 
 export const initialAddressState: AddressState = {
@@ -90,13 +75,6 @@ export const selectAddressReducer = createReducer(
     ...state,
     selectedAddress,
   }))
-);
-export const selectSelectedAddress =
-  createFeatureSelector<AddressState>('selectedAddress');
-
-export const SelectedAddress = createSelector(
-  selectSelectedAddress,
-  (state) => state.selectedAddress
 );
 
 ////////////////////////////////////////////

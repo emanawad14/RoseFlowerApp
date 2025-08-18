@@ -2,10 +2,10 @@ import { Component, Type, WritableSignal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AddAddressComponent } from './addAddress.component';
 import { GetAddressesComponent } from './getAddresses.component';
- import { Store } from '@ngrx/store';
-import { selectCurrentDialogView } from '../store/reducers';
+import { Store } from '@ngrx/store';
 import { map, Observable } from 'rxjs';
 import { DialogViewEnum, ViewDialogState } from '../types/viewDialogType.enum';
+import { selectCurrentDialogView } from '../store/selectors';
 
 @Component({
   selector: 'app-address-dialog',

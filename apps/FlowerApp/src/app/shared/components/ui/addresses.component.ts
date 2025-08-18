@@ -1,19 +1,17 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Address } from '../../interfaces/addressResponse.interface';
 import { Store } from '@ngrx/store';
 import { addressActions } from '../../../features/pages/address/store/actions';
 import {
   selectAddressesData,
- 
-  SelectedAddress,
- 
   selectError,
   selectIsLoading,
 } from '../../../features/pages/address/store/reducers';
 import { combineLatest, Observable } from 'rxjs';
 import { AddressStateInterface } from '../../../features/pages/address/types/addressState.interface';
 import { LoadingComponent } from './loading.component';
+import { SelectedAddress } from '../../../features/pages/address/store/selectors';
 
 @Component({
   selector: 'app-addresses',

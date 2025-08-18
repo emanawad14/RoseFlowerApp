@@ -8,13 +8,14 @@ import { HomeService } from '../../../services/home/home.service';
 import { Subscription, Observable, map, take, takeUntil, Subject } from 'rxjs';
 import { GlobalInputComponent } from 'apps/FlowerApp/src/app/shared/components/ui/globalInput.component';
 import { PrimaryBtnComponent } from 'apps/FlowerApp/src/app/shared/components/ui/primary-btn.component';
-import { selectCartProductData, selectCurrentView } from '../store/reducers';
+import { selectCartProductData } from '../store/reducers';
 import { AddToCartResponseDTO } from '../interfaces/addToCartResponse.interface';
 import { ToastService } from 'apps/FlowerApp/src/app/shared/services/toast.service';
 import { ShippingAddressComponent } from '../components/shippingAddress.component';
 import { CartComponent } from '../components/cart.component';
 import { switchView } from '../store/actions';
 import { ViewCartStateEnum } from '../interfaces/view.enum';
+import { selectCurrentView } from '../store/selectors';
 
 @Component({
   selector: 'app-cart-layout',
