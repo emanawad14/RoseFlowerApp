@@ -12,13 +12,14 @@ import { ToastModule } from 'primeng/toast';
   providers: [MessageService, ConfirmationService],
 })
 export class ConfirmDialogComponent {
+  @Input() deleteAccount: boolean = false;
   constructor(
     private confirmationService: ConfirmationService,
     private messageService: MessageService
   ) {}
-  confirmDialog( confiemMessage: string, onConfirm: () => void) {
+  confirmDialog(confiemMessage: string, onConfirm: () => void) {
     this.confirmationService.confirm({
-     // target: event.target as EventTarget,
+      // target: event.target as EventTarget,
       message: confiemMessage,
       header: ' ',
       icon: 'pi pi-info-circle',

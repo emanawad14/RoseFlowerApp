@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { getLoggedUserDataDTO, User } from '../types/userData.interface';
 import { environment } from 'apps/FlowerApp/src/environments/environment';
-import { urlencoded } from 'express';
 import { Country } from 'apps/FlowerApp/src/app/shared/interfaces/country.interface';
 
 @Injectable({
@@ -47,6 +46,9 @@ export class ProfileService {
     const url = `${environment.baseUrl}/api/v1/auth/upload-photo`;
     return this._http.put(url, formData);
   }
-  deleteAccount() {}
+  deleteAccount() {
+    const url = `${environment.baseUrl}/api/v1/auth/deleteMe`;
+    return this._http.delete(url);
+  }
   changePassword() {}
 }

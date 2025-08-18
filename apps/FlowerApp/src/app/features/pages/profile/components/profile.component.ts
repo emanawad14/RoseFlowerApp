@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MyAccountComponent } from './myAccount.component';
 import { ChangePasswordComponent } from './changePassword.component';
@@ -24,7 +24,7 @@ import { ConfirmDialogComponent } from 'apps/FlowerApp/src/app/shared/components
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss',
 })
-export class ProfileComponent implements OnInit, OnDestroy {
+export class ProfileComponent implements OnDestroy {
   @ViewChild(ConfirmDialogComponent) confirmDialog!: ConfirmDialogComponent;
 
   activeView: 'account' | 'password' = 'account';
@@ -35,10 +35,6 @@ export class ProfileComponent implements OnInit, OnDestroy {
     private _router: Router,
     private _toastService: ToastService
   ) {}
-
-  ngOnInit(): void {
-    
-  }
 
   logout() {
     this.confirmDialog.confirmDialog('Are You sure you want to logout', () => {

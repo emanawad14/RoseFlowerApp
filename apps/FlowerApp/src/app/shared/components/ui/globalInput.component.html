@@ -23,7 +23,22 @@
     >
       <ng-template let-country pTemplate="selectedItem">
         <div class="flex align-items-center">
-          <img [src]="country.flag" width="20" class="mr-2" />
+          <img
+            [src]="country.flag"
+            width="16"
+            height="16"
+            class="mr-2 border-circle"
+          />
+          <!-- <div
+            class="mr-2 border-circle"
+            [style]="{
+              'background-image': 'url(' + country.flag + ')',
+              'background-size': 'cover',
+              'background-position': 'center',
+              width: '20px',
+              height: '20px'
+            }"
+          ></div> -->
           <span>{{ country.code }} (+{{ country.dial }})</span>
         </div>
       </ng-template>

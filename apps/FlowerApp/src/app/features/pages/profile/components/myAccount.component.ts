@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, signal } from '@angular/core';
+import { Component, OnDestroy, OnInit, signal, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GlobalInputComponent } from 'apps/FlowerApp/src/app/shared/components/ui/globalInput.component';
 import { PrimaryBtnComponent } from 'apps/FlowerApp/src/app/shared/components/ui/primary-btn.component';
@@ -25,6 +25,9 @@ import { Subject, takeUntil } from 'rxjs';
 import { ToastService } from 'apps/FlowerApp/src/app/shared/services/toast.service';
 import { ErrorComponent } from 'apps/FlowerApp/src/app/shared/components/ui/error/error.component';
 import { FieldErrorComponent } from 'apps/FlowerApp/src/app/shared/components/business/fieldError/field-error.component';
+import { AuthService } from 'apps/FlowerApp/src/app/shared/services/auth.service';
+import { Router } from '@angular/router';
+import { ConfirmDialogComponent } from 'apps/FlowerApp/src/app/shared/components/ui/confirmDialog.component';
 
 @Component({
   selector: 'app-my-account',
@@ -40,6 +43,7 @@ import { FieldErrorComponent } from 'apps/FlowerApp/src/app/shared/components/bu
     InputTextModule,
     ErrorComponent,
     FieldErrorComponent,
+    ConfirmDialogComponent,
   ],
   templateUrl: './myAccount.component.html',
   styleUrl: './myAccount.component.scss',
@@ -50,11 +54,15 @@ export class MyAccountComponent implements OnInit, OnDestroy {
   backendError: string = '';
   selectedCountry = signal<Country>(ProfileService.countries[0]);
   phoneNumber = signal<string>('');
+  @ViewChild(ConfirmDialogComponent) confirmDialog!: ConfirmDialogComponent;
+
   private destroy$ = new Subject<void>();
   constructor(
     private fb: FormBuilder,
     private _ProfileService: ProfileService,
-    private _toastService: ToastService
+    private _toastService: ToastService,
+    private _AuthService: AuthService,
+    private _router: Router
   ) {}
 
   ngOnInit() {
@@ -114,7 +122,30 @@ export class MyAccountComponent implements OnInit, OnDestroy {
     );
     this.phoneNumber.set(getLocalNumber(data.phone)!);
   }
-  deleteAccount() {}
+  deleteAccount() {
+    this.confirmDialog.confirmDialog(
+      'Are you sure you want to delete your account?',
+      () => {
+        // confirmed: handle deletion logic
+        this._ProfileService
+          .deleteAccount()
+          .pipe(takeUntil(this.destroy$))
+          .subscribe({
+            next: (res) => {
+              this._AuthService.clearUser();
+              this._toastService.showSuccess(
+                'Deleted Your Accound Successfully'
+              );
+              this._router.navigate(['/home']);
+            },
+            error: (err) => {
+              this._toastService.showError(err.error.error);
+              console.log(err.error.error);
+            },
+          });
+      }
+    );
+  }
 
   ngOnDestroy(): void {
     this.destroy$.next();
