@@ -1,12 +1,15 @@
 <ng-container>
-  @if(isPhone){
-  <label [for]="id" class="input-label">
+  <label [for]="id" class="input-label" [class.disabled]="isDisabled">
     {{ labelText }}
   </label>
+
   <div
-    class="phone-input flex align-items-center border-1 surface-border border-round-xl p-2"
+    class="input-container flex align-items-center gap-2 border-1 surface-border border-round-xl p-2"
+    [class.disabled]="isDisabled"
   >
     <!-- Country dropdown -->
+    @if(isPhone){
+
     <p-select
       [options]="countries"
       optionLabel="name"
@@ -45,67 +48,48 @@
         </div>
       </ng-template>
     </p-select>
-
+    } @if(search){
+    <svg
+      width="19"
+      height="18"
+      viewBox="0 0 19 18"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M16.25 15.75L12.995 12.495M14.75 8.25C14.75 11.5637 12.0637 14.25 8.75 14.25C5.43629 14.25 2.75 11.5637 2.75 8.25C2.75 4.93629 5.43629 2.25 8.75 2.25C12.0637 2.25 14.75 4.93629 14.75 8.25Z"
+        stroke="#A1A1AA"
+        stroke-width="1.25"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+    }
     <!-- Phone number input -->
     <input
-      [type]="isPasswordVisible ? 'text' : type"
+      [type]="type"
       [value]="value"
       (input)="handleInput($event)"
       (blur)="onTouched()"
       [placeholder]="placeholder"
       [disabled]="isDisabled"
       pInputText
-      class="flex-1 border-none ml-2 outline-none"
+      class="flex-1 border-none ml-2 outline-none py-2"
     />
+    <!-- @if (type === 'password') {
+    <img
+      class=" "
+      role="button"
+      tabindex="0"
+      (click)="togglePassword()"
+      (keydown.enter)="togglePassword()"
+      [src]="
+        isPasswordVisible
+          ? 'images/auth/eye-slash-icon.svg'
+          : 'images/auth/eye-icon.svg'
+      "
+      alt="Toggle password visibility"
+    />
+    } -->
   </div>
-  }@else{
-  <div class="input-wrapper">
-    <label [for]="id" class="input-label" [class.disabled]="isDisabled">
-      {{ labelText }}
-    </label>
-    <div class="input-container">
-      @if(search){
-      <svg
-        width="19"
-        height="18"
-        viewBox="0 0 19 18"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M16.25 15.75L12.995 12.495M14.75 8.25C14.75 11.5637 12.0637 14.25 8.75 14.25C5.43629 14.25 2.75 11.5637 2.75 8.25C2.75 4.93629 5.43629 2.25 8.75 2.25C12.0637 2.25 14.75 4.93629 14.75 8.25Z"
-          stroke="#A1A1AA"
-          stroke-width="1.25"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-      </svg>
-      }
-      <input
-        [type]="isPasswordVisible ? 'text' : type"
-        [value]="value"
-        (input)="handleInput($event)"
-        (blur)="onTouched()"
-        [placeholder]="placeholder"
-        [disabled]="isDisabled"
-        pInputText
-      />
-
-      @if (type === 'password') {
-      <img
-        role="button"
-        tabindex="0"
-        (click)="togglePassword()"
-        (keydown.enter)="togglePassword()"
-        [src]="
-          isPasswordVisible
-            ? 'images/auth/eye-slash-icon.svg'
-            : 'images/auth/eye-icon.svg'
-        "
-        alt="Toggle password visibility"
-      />
-      }
-    </div>
-  </div>
-  }
 </ng-container>

@@ -31,7 +31,7 @@ export class GlobalInputComponent implements ControlValueAccessor {
   @Input() placeholder = '';
   @Input() labelText = '';
   @Input() search = false;
-  isPasswordVisible = false;
+  //isPasswordVisible = false;
   @Input() value = '';
   @Input() isPhone: boolean = false;
   // @Input() formControlName: string = '';
@@ -83,7 +83,7 @@ export class GlobalInputComponent implements ControlValueAccessor {
     }
   }
 
-  togglePassword() {
-    this.isPasswordVisible = !this.isPasswordVisible;
-  }
+  // togglePassword() {
+  //   this.isPasswordVisible = !this.isPasswordVisible;
+  // }
 }
