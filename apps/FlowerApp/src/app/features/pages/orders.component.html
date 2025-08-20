@@ -14,11 +14,12 @@
     >
       <!-- toggle btn -->
       <div
-        class="absolute bottom-0 left-50 flex flex-column align-items-center justify-content-center cursor-pointer toggle-btn"
+        class="absolute bottom-0 w-full flex flex-column align-items-center justify-content-center cursor-pointer pt-2 background-blur"
         (click)="toggleOrder(order._id)"
         [class]="{
           hidden: order.orderItems.length < 4,
-          flex: order.orderItems.length >= 4
+          flex: order.orderItems.length >= 4,
+          'background-blur': !expandedOrders.has(order._id)
         }"
       >
         <button
@@ -101,7 +102,7 @@
           </div>
         </div>
 
-        <div class="grid">
+        <div class="grid products">
           <!-- .slice(0, displayLimit) -->
           @for (item of order.orderItems; track item._id) {
           <div class="col-6">
