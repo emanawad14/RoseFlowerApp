@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import {
   Address,
   AddressResponceInterface,
@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AddressService {
-  constructor(private _http: HttpClient) {}
+  _http: HttpClient = inject(HttpClient);
 
   getUserAddresses(): Observable<AddressResponceInterface> {
     const url = `${environment.baseUrl}/api/v1/addresses`;

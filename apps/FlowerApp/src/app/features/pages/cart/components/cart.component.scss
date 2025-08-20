@@ -16,7 +16,6 @@
   border-radius: 12px;
   .border-top {
     border-top: 1px solid var(--line-color);
-    
   }
   .title {
     font-family: 'Sarabun-Regular';
@@ -78,40 +77,44 @@
       border-radius: 10px;
       cursor: pointer;
     }
-    .svg-btn {
-      background-color: var(--bg-light);
-      border-radius: 10px;
-      cursor: pointer;
-      padding: 10px 16px;
-    }
-    input {
-      width: 100px !important;
-      height: 2rem;
-    }
+    // .svg-btn {
+    //   background-color: var(--bg-light);
+    //   border-radius: 10px;
+    //   cursor: pointer;
+    //   padding: 10px 16px;
+    // }
+    // input {
+    //   width: 100px !important;
+    //   height: 2rem;
+    // }
   }
 }
-h3 {
-  font-family: 'Sarabun-Regular';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 2.3em;
-  line-height: 100%;
 
-  /* Zinc/zinc-800 */
-  color: var(--text-zink);
-}
-.product-number {
-  /* 6 products */
-  /* Primary/Medium/primary-medium-base */
-  font-family: 'Sarabun-Regular';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 0.8em;
-  line-height: 100%;
+.cart-title {
+  h3 {
+    font-family: 'Sarabun-Regular';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2.3em;
+    line-height: 100%;
 
-  /* Zinc/zinc-400 */
-  color: var(--text-gray-reverse);
+    /* Zinc/zinc-800 */
+    color: var(--text-zink);
+  }
+  .product-number {
+    /* 6 products */
+    /* Primary/Medium/primary-medium-base */
+    font-family: 'Sarabun-Regular';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 0.8em;
+    line-height: 100%;
+
+    /* Zinc/zinc-400 */
+    color: var(--text-gray-reverse);
+  }
 }
+
 svg {
   color: var(--btn-text) !important;
 }

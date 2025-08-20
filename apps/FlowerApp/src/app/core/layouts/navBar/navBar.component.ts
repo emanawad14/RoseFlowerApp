@@ -1,5 +1,11 @@
 import { ThemeService } from './../../services/theme-service.service';
-import { Component, OnInit, signal, WritableSignal } from '@angular/core';
+import {
+  Component,
+  OnDestroy,
+  OnInit,
+  signal,
+  WritableSignal,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
@@ -17,7 +23,7 @@ import { UserDTO } from 'auth-api/src/lib/auth-api/interfaces/loginRes.dto';
 import { GlobalInputComponent } from '../../../shared/components/ui/globalInput.component';
 import { Store } from '@ngrx/store';
 import { selectNumberOfCartItems } from '../../../features/pages/cart/store/reducers';
-import { Observable } from 'rxjs';
+import { Observable, Subject, takeUntil } from 'rxjs';
 import { cartActions } from '../../../features/pages/cart/store/actions';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { AddressDialogComponent } from '../../../features/pages/address/components/addressDialog.component';
@@ -33,7 +39,6 @@ import { DialogViewEnum } from '../../../features/pages/address/types/viewDialog
     RouterLink,
     RouterLinkActive,
     ButtonModule,
-    RippleModule,
     MenuModule,
     BadgeModule,
     InputTextModule,
@@ -45,10 +50,10 @@ import { DialogViewEnum } from '../../../features/pages/address/types/viewDialog
   styleUrl: './navBar.component.scss',
   providers: [DialogService],
 })
-export class NavBarComponent implements OnInit {
+export class NavBarComponent implements OnInit, OnDestroy {
   private ref?: DynamicDialogRef;
   userData: WritableSignal<UserDTO | null> = signal(null);
-
+  private destroy$ = new Subject<void>();
   langClick = false;
   darkMode = false;
   userItems: MenuItem[] | undefined;
@@ -62,6 +67,11 @@ export class NavBarComponent implements OnInit {
     private _AuthApiService: AuthApiService,
     private _router: Router
   ) {}
+  ngOnDestroy(): void {
+    this.ref?.close();
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
 
   ngOnInit() {
     //initial theme
@@ -171,7 +181,7 @@ export class NavBarComponent implements OnInit {
       },
       closable: true,
     });
-    this.ref.onClose.subscribe(() => {
+    this.ref.onClose.pipe(takeUntil(this.destroy$)).subscribe(() => {
       // this._DialogContentService.selectedComponentView.set(
       //   GetAddressesComponent
       // );

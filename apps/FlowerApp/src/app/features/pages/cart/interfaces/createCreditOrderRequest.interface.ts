@@ -8,47 +8,47 @@ export interface CreateCreditOrderResponseInterface {
     adaptive_pricing: {
       enabled: boolean;
     };
-    after_expiration: null;
-    allow_promotion_codes: null;
+    after_expiration: any;
+    allow_promotion_codes: any;
     amount_subtotal: number;
     amount_total: number;
     automatic_tax: {
       enabled: boolean;
-      liability: null;
-      provider: null;
-      status: null;
+      liability: any;
+      provider: any;
+      status: any;
     };
-    billing_address_collection: null;
+    billing_address_collection: any;
     cancel_url: string;
     client_reference_id: string;
-    client_secret: null;
+    client_secret: any;
     collected_information: {
-      shipping_details: null;
+      shipping_details: any;
     };
-    consent: null;
-    consent_collection: null;
+    consent: any;
+    consent_collection: any;
     created: number;
     currency: string;
-    currency_conversion: null;
-    custom_fields: [];
+    currency_conversion: any;
+    custom_fields: any;
     custom_text: {
-      after_submit: null;
-      shipping_address: null;
-      submit: null;
-      terms_of_service_acceptance: null;
+      after_submit: any;
+      shipping_address: any;
+      submit: any;
+      terms_of_service_acceptance: any;
     };
-    customer: null;
+    customer: any;
     customer_creation: string;
     customer_details: {
-      address: null;
+      address: any;
       email: string;
-      name: null;
-      phone: null;
+      name: any;
+      phone: any;
       tax_exempt: string;
-      tax_ids: null;
+      tax_ids: any;
     };
     customer_email: string;
-    discounts: [];
+    discounts: any;
     expires_at: number;
     invalid_payment_methods_hash: {
       bancontact: {
@@ -70,30 +70,30 @@ export interface CreateCreditOrderResponseInterface {
         message: string;
       };
     };
-    invoice: null;
+    invoice: any;
     invoice_creation: {
       enabled: boolean;
       invoice_data: {
-        account_tax_ids: null;
-        custom_fields: null;
-        description: null;
-        footer: null;
-        issuer: null;
-        metadata: {};
-        rendering_options: null;
+        account_tax_ids: any;
+        custom_fields: any;
+        description: any;
+        footer: any;
+        issuer: any;
+        metadata: any;
+        rendering_options: any;
       };
     };
-    livemode: false;
-    locale: null;
+    livemode: boolean;
+    locale: any;
     metadata: ShippingAddress;
     mode: string;
-    origin_context: null;
-    payment_intent: null;
-    payment_link: null;
+    origin_context: any;
+    payment_intent: any;
+    payment_link: any;
     payment_method_collection: string;
     payment_method_configuration_details: {
       id: string;
-      parent: null;
+      parent: any;
     };
     payment_method_options: {
       card: {
@@ -112,7 +112,7 @@ export interface CreateCreditOrderResponseInterface {
     shipping_address_collection: null;
     shipping_cost: null;
     shipping_details: null;
-    shipping_options: [];
+    shipping_options:any;
     status: string;
     submit_type: null;
     subscription: null;

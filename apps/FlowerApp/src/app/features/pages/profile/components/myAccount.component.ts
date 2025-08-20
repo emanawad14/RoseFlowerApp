@@ -92,7 +92,7 @@ export class MyAccountComponent implements OnInit, OnDestroy {
   }
   updateProfile() {
     const { firstName, lastName, phone, email } = this.accountForm.value;
-    console.log(this.accountForm.value);
+    //console.log(this.accountForm.value);
     if (this.accountForm.valid) {
       this._ProfileService
         .updateProfile({ firstName, lastName, phone, email })
@@ -140,7 +140,7 @@ export class MyAccountComponent implements OnInit, OnDestroy {
             },
             error: (err) => {
               this._toastService.showError(err.error.error);
-              console.log(err.error.error);
+              //console.log(err.error.error);
             },
           });
       }

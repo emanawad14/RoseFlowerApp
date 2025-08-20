@@ -42,6 +42,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
   productImages: string[] = [];
   relatedProducts: Product[] = [];
   productId!: string;
+  displayDialog = false;
+  selectedImageSrc: string = '';
   // addProductLoading$: Observable<boolean> = of(false);
   responsiveOptions: any[] = [
     {
@@ -65,12 +67,9 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
   product?: Product;
   data$!: Observable<CartStates>;
   constructor(
-    private _ActivatedRoute: ActivatedRoute,
-    private _ProductService: ProductService,
-    private store: Store,
-    // private actions$: Actions,
-    private MessageService: MessageService,
-    private toastService: ToastService
+    private _activatedRoute: ActivatedRoute,
+    private _productService: ProductService,
+    private store: Store
   ) {}
   // get safeLoading(): boolean {
   //   // If Angular has not emitted yet, treat as false
@@ -80,7 +79,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
   //   return value ?? false;
   // }
   ngOnInit(): void {
-    const sub = this._ActivatedRoute.params.subscribe((params) => {
+    const sub = this._activatedRoute.params.subscribe((params) => {
       this.productId = params['id']; // example: /product-details/123
       this.getProduct();
     });
@@ -97,7 +96,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
   getProduct() {
     if (!this.productId) return;
     if (this.productId) {
-      const sub = this._ProductService
+      const sub = this._productService
         .getProductById(this.productId)
         .subscribe({
           next: (res: ProductDetailsDTO) => {
@@ -114,7 +113,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
   }
 
   getRelatedProducts(productId: string) {
-    const sub = this._ProductService
+    const sub = this._productService
       .getRelatedProductsById(productId)
       .subscribe({
         next: (res: RelatedProductsDTO) => {
@@ -129,9 +128,6 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       cartActions.addProductToCart({ product: productId, quantity: 1 })
     );
   }
-
-  displayDialog = false;
-  selectedImageSrc: string = '';
 
   openImgDialog(image: string) {
     this.selectedImageSrc = image;

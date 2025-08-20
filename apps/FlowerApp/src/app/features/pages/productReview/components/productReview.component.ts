@@ -39,9 +39,9 @@ export class ProductReviewComponent implements OnInit, OnDestroy {
   isLoggedIn: boolean = false;
   constructor(
     private _fb: FormBuilder,
-    private _ReviewService: ReviewService,
+    private _reviewService: ReviewService,
     private _toastService: ToastService,
-    private _AuthService: AuthService
+    private _authService: AuthService
   ) {}
   ngOnDestroy(): void {
     this.destroy$.next();
@@ -54,38 +54,17 @@ export class ProductReviewComponent implements OnInit, OnDestroy {
       title: ['', [Validators.required]],
       comment: ['', [Validators.required]],
     });
-    this.isLoggedIn = !!this._AuthService.userData();
+    this.isLoggedIn = !!this._authService.userData();
+
+    this.getProductReview();
   }
-  reviews: Review[] = [
-    {
-      _id: '1',
-      userName: 'Ahmed',
-      title: 'Awesome Bouquet!',
-      description:
-        'I ordered this bouquet for a special occasion, and it absolutely exceeded my expectations! The flowers were fresh, beautifully arranged, and exactly as pictured—if not better. The color combination was stunning and gave off such a luxurious vibe. Even the wrapping was elegant and ' +
-        "thoughtful Delivery was right on time, and the bouquet arrived in perfect condition. The recipient was genuinely touched and couldn't stop admiring it. Highly recommend for anyone looking to make a lasting impression. Will definitely order again!",
-
-      rateAvg: 4.5,
-      date: '2025-07-05T11:30:17.866Z',
-    },
-    {
-      _id: '2',
-      userName: 'Ahmed',
-      title: 'Awesome Bouquet!',
-      description:
-        'I ordered this bouquet for a special occasion, and it absolutely exceeded my expectations! The flowers were fresh, beautifully arranged, and exactly as pictured—if not better. The color combination was stunning and gave off such a luxurious vibe. Even the wrapping was elegant and ' +
-        "thoughtful Delivery was right on time, and the bouquet arrived in perfect condition. The recipient was genuinely touched and couldn't stop admiring it. Highly recommend for anyone looking to make a lasting impression. Will definitely order again!",
-
-      rateAvg: 3.2,
-      date: 'Apr 7, 2025',
-    },
-  ];
+  reviews: Review[] = [];
 
   addReview() {
     //////set product id /////
     this.reviewForm.controls['product'].setValue(this.product?._id ?? '');
     console.log(this.reviewForm.value);
-    this._ReviewService
+    this._reviewService
       .addReview(this.reviewForm.value)
       .pipe(takeUntil(this.destroy$))
       .subscribe({
@@ -98,5 +77,11 @@ export class ProductReviewComponent implements OnInit, OnDestroy {
           this.reviewForm.reset();
         },
       });
+  }
+
+  getProductReview() {
+    this._reviewService.getReviews().subscribe((data) => {
+      this.reviews = data;
+    });
   }
 }

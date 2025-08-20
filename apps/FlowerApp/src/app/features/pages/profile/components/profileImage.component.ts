@@ -67,7 +67,10 @@ export class ProfileImageComponent implements OnInit, OnDestroy {
           reader.onload = () => (this.imgSrc = reader.result);
           reader.readAsDataURL(file);
         },
-        error: (err) => this._toastService.showError(err.error.error),
+        error: (err) => {
+          this.loading = false;
+          this._toastService.showError(err.error.error);
+        },
       });
   }
   ngOnDestroy(): void {

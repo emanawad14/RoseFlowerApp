@@ -1,22 +1,17 @@
-import {
-  Component,
-  OnDestroy,
-  OnInit,
-  signal,
-  Type,
-  WritableSignal,
-} from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StepperModule } from 'primeng/stepper';
 import { PrimaryBtnComponent } from 'apps/FlowerApp/src/app/shared/components/ui/primary-btn.component';
 import { StepperComponent } from 'apps/FlowerApp/src/app/shared/components/ui/stepper.component';
 import { Address } from 'apps/FlowerApp/src/app/shared/interfaces/addressResponse.interface';
-import { AddressService } from '../services/address.service';
 import { firstValueFrom, Observable, Subject, takeUntil } from 'rxjs';
 import { ListboxModule } from 'primeng/listbox';
 import { FormsModule } from '@angular/forms';
 import { AddressesComponent } from 'apps/FlowerApp/src/app/shared/components/ui/addresses.component';
-import { PaymentMethod } from '../interfaces/paymentMethod.interface';
+import {
+  PaymentMethod,
+  PaymentMethodEnum,
+} from '../interfaces/paymentMethod.interface';
 import { OrdersService } from '../services/orders.service';
 import { ToastService } from 'apps/FlowerApp/src/app/shared/services/toast.service';
 import { Router } from '@angular/router';
@@ -45,19 +40,21 @@ import { SelectedAddress } from '../../address/store/selectors';
   styleUrl: './shippingAddress.component.scss',
   providers: [DialogService],
 })
-export class ShippingAddressComponent implements OnInit, OnDestroy {
+export class ShippingAddressComponent implements OnDestroy {
   private ref?: DynamicDialogRef;
   stepNumber: number = 1;
   private destroy$ = new Subject<void>();
   selectedPayment: PaymentMethod | null = null;
   // selectedAddress: WritableSignal<Address | null> = signal(null);
   selectedAddress$: Observable<Address | null>;
+
   paymentMethods: PaymentMethod[] = [
     {
       _id: '1',
       imgSrc: '/images/cash.png',
       title: 'Cash on Delivery',
       description: 'You’ll pay in cash when your order is delivered.',
+      type: PaymentMethodEnum.Cash,
     },
     {
       _id: '2',
@@ -65,24 +62,20 @@ export class ShippingAddressComponent implements OnInit, OnDestroy {
       title: 'Credit Card',
       description:
         'You’ll be securely redirected to Stripe to complete your payment.',
+      type: PaymentMethodEnum.Credit,
     },
   ];
   ///checkout Loading
   loading = false;
 
   constructor(
-    private _AddressService: AddressService,
-    private _OrdersService: OrdersService,
+    private _ordersService: OrdersService,
     private _toastService: ToastService,
     private _router: Router,
     private _dialogService: DialogService,
     private store: Store
   ) {
     this.selectedAddress$ = store.select(SelectedAddress);
-  }
-  ngOnInit(): void {
-    //  this.selectedAddress = this._AddressService.selectedAddress;
-    //this.currentDialogView$ = this.store.select(selectCurrentDialogView);
   }
 
   setPaymentMethod(paymentMethod: PaymentMethod) {
@@ -104,50 +97,92 @@ export class ShippingAddressComponent implements OnInit, OnDestroy {
       selectedAddress as Address,
       ['username', '_id']
     );
-
+    switch (this.selectedPayment.type) {
+      case PaymentMethodEnum.Cash:
+        this._ordersService
+          .createCashOrder({
+            shippingAddress: shippingAddress as ShippingAddress,
+          })
+          .pipe(takeUntil(this.destroy$))
+          .subscribe({
+            next: (res) => {
+              this.loading = false;
+              console.log(res);
+              this._toastService.showSuccess('order has been done');
+              this._router.navigate(['/myOrders']);
+            },
+            error: (err) => {
+              this.loading = false;
+              // console.log(err);
+              this._toastService.showError(err.error.error);
+            },
+          });
+        break;
+      case PaymentMethodEnum.Credit:
+        this._ordersService
+          .createCreditOrder({
+            shippingAddress: shippingAddress as ShippingAddress,
+          })
+          .pipe(takeUntil(this.destroy$))
+          .subscribe({
+            next: (res) => {
+              this.loading = false;
+              console.log(res);
+              window.open(res.session.url, '_self');
+              //this._toastService.showSuccess('order has been done');
+              // this._router.navigate(['/allOrders']);
+            },
+            error: (err) => {
+              this.loading = false;
+              // console.log(err);
+              this._toastService.showError(err.error.error);
+            },
+          });
+        break;
+    }
     //cash
-    if (this.selectedPayment?._id == '1') {
-      this._OrdersService
-        .createCashOrder({
-          shippingAddress: shippingAddress as ShippingAddress,
-        })
-        .pipe(takeUntil(this.destroy$))
-        .subscribe({
-          next: (res) => {
-            this.loading = false;
-            console.log(res);
-            this._toastService.showSuccess('order has been done');
-            this._router.navigate(['/myOrders']);
-          },
-          error: (err) => {
-            this.loading = false;
-            // console.log(err);
-            this._toastService.showError(err.error.error);
-          },
-        });
-    }
+    // if (this.selectedPayment?._id == '1') {
+    //   this._ordersService
+    //     .createCashOrder({
+    //       shippingAddress: shippingAddress as ShippingAddress,
+    //     })
+    //     .pipe(takeUntil(this.destroy$))
+    //     .subscribe({
+    //       next: (res) => {
+    //         this.loading = false;
+    //         console.log(res);
+    //         this._toastService.showSuccess('order has been done');
+    //         this._router.navigate(['/myOrders']);
+    //       },
+    //       error: (err) => {
+    //         this.loading = false;
+    //         // console.log(err);
+    //         this._toastService.showError(err.error.error);
+    //       },
+    //     });
+    // }
     //credit
-    else if (this.selectedPayment?._id == '2') {
-      this._OrdersService
-        .createCreditOrder({
-          shippingAddress: shippingAddress as ShippingAddress,
-        })
-        .pipe(takeUntil(this.destroy$))
-        .subscribe({
-          next: (res) => {
-            this.loading = false;
-            console.log(res);
-            window.open(res.session.url, '_self');
-            //this._toastService.showSuccess('order has been done');
-            // this._router.navigate(['/allOrders']);
-          },
-          error: (err) => {
-            this.loading = false;
-            // console.log(err);
-            this._toastService.showError(err.error.error);
-          },
-        });
-    }
+    // else if (this.selectedPayment?._id == '2') {
+    //   this._ordersService
+    //     .createCreditOrder({
+    //       shippingAddress: shippingAddress as ShippingAddress,
+    //     })
+    //     .pipe(takeUntil(this.destroy$))
+    //     .subscribe({
+    //       next: (res) => {
+    //         this.loading = false;
+    //         console.log(res);
+    //         window.open(res.session.url, '_self');
+    //         //this._toastService.showSuccess('order has been done');
+    //         // this._router.navigate(['/allOrders']);
+    //       },
+    //       error: (err) => {
+    //         this.loading = false;
+    //         // console.log(err);
+    //         this._toastService.showError(err.error.error);
+    //       },
+    //     });
+    // }
   }
   openAddressDialog() {
     this.ref = this._dialogService.open(AddressDialogComponent, {
@@ -159,7 +194,7 @@ export class ShippingAddressComponent implements OnInit, OnDestroy {
       },
       closable: true,
     });
-    this.ref.onClose.subscribe(() => {
+    this.ref.onClose.pipe(takeUntil(this.destroy$)).subscribe(() => {
       // this._DialogContentService.selectedComponentView.set(
       //   GetAddressesComponent
       // );

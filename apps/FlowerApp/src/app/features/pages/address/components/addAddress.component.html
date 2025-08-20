@@ -1,4 +1,4 @@
-<div class="card flex w-full">
+<div class="add-address-card flex w-full">
   <p-stepper [(value)]="activeStep" class="">
     <p-step-list class="flex align-items-center w-full">
       <p-step [value]="1" class="flex flex-row flex-auto gap-2">
@@ -116,7 +116,7 @@
                 Find My Location
               </button>
             </google-map>
-            <div *ngIf="markerPosition" style="margin-top: 10px">
+            <div *ngIf="markerPosition" >
               <strong>Latitude:</strong> {{ markerPosition.lat }}<br />
               <strong>Longitude:</strong> {{ markerPosition.lng }}
             </div>

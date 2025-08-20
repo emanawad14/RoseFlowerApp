@@ -1,7 +1,7 @@
 import { Product } from './../../interfaces/products';
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
- import {
+import {
   FormBuilder,
   FormGroup,
   FormsModule,
@@ -26,7 +26,7 @@ import {
   getErrorMsg,
   getProductsList,
 } from '../../../Store/selectors/products.selectors';
- import { ErrorResponseDTO } from './interfaces/error';
+import { ErrorResponseDTO } from './interfaces/error';
 import { PrimaryBtnComponent } from '../../../shared/components/ui/primary-btn.component';
 import { GlobalCkeckboxGroupComponent } from './components/business/global-ckeckbox-group.component';
 import { FilteredObject } from './interfaces/filtered-object';
@@ -86,12 +86,13 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
   productsList: Product[] = [];
   errorMsg = '';
-  store = inject(Store);
+  //  store = inject(Store);
 
   constructor(
     private _fb: FormBuilder,
-    private _CountByCategoryService: CountByCategoryService,
-    private _OccasionService: OccasionService
+    private _countByCategoryService: CountByCategoryService,
+    private _occasionService: OccasionService,
+    private store: Store
   ) {
     this.filtersForm = this._fb.group({
       title: [''],
@@ -134,7 +135,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
   }
 
   getCategoryByCount() {
-    const sub = this._CountByCategoryService
+    const sub = this._countByCategoryService
       .getCountByCategory()
       .pipe(
         catchError((error) => {
@@ -151,7 +152,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
   }
   ///occassions//////
   getBrands() {
-    const sub = this._OccasionService.getAllOccasions().subscribe({
+    const sub = this._occasionService.getAllOccasions().subscribe({
       next: (res) => {
         this.brandsOptions = res;
       },
@@ -222,11 +223,11 @@ export class ProductListComponent implements OnInit, OnDestroy {
           product.priceAfterDiscount <= filteredObject.priceRange[1]);
       // ✅ Return true only if ALL filters match
       return (
-        (matchesTitle &&
-          matchesCategory &&
-          matchesBrand &&
-          matchesRating &&
-          matchesPrice) &&
+        matchesTitle &&
+        matchesCategory &&
+        matchesBrand &&
+        matchesRating &&
+        matchesPrice &&
         matchPriceAfterDiscount
       );
     });

@@ -13,17 +13,19 @@
   .text-phone {
     color: var(--text-p);
   }
+
+  .active {
+    background-color: #27272a !important;
+    color: #fafafa !important;
+  }
+
+  .active-icon {
+    background: white !important;
+    color: var(--icon-bg) !important;
+  }
 }
 .active-address {
   background: var(--icon-bg);
   color: white;
   border-color: var(--icon-bg);
-}
-.active-icon {
-  background: white !important;
-  color: var(--icon-bg) !important;
-}
-.active {
-  background-color: #27272a !important;
-  color: #fafafa !important;
 }

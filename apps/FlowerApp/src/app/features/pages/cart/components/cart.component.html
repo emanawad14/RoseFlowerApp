@@ -1,6 +1,6 @@
 <ng-container>
   @if(data$ |async ;as data){
-  <div class="flex justify-content-between mb-2">
+  <div class="flex justify-content-between mb-2 cart-title">
     <div class="flex align-items-end gap-1">
       <h3>Cart</h3>
       <span class="product-number"
@@ -13,7 +13,6 @@
       [displayIcon]="false"
       [colorText]="'#A6252A'"
       [disabled]="data.numberOfItemsInCart == 0"
-      (btnClicked)="removeCart()"
     >
       <svg
         width="20"
