@@ -2,10 +2,32 @@
   <h1 class="text-2xl font-bold mt-5 mb-4">Orders</h1>
 
   <ng-container>
-    @if (orders.length > 0) { @for (order of orders.slice(0, displayLimit);
-    track order._id) {
+    <!-- .slice(0, displayLimit); -->
+    @if (orders.length > 0) { @for (order of orders; track order._id) {
 
-    <div class="border-1 border-round-md border-300 mb-4 overflow-hidden">
+    <div
+      class="relative h-auto border-1 h-30rem border-round-md border-300 mb-4 transition-all duration-300"
+      [class.h-30rem]="!expandedOrders.has(order._id)"
+      [class.h-auto]="expandedOrders.has(order._id)"
+      [class.overflow-hidden]="!expandedOrders.has(order._id)"
+      [class.overflow-y-scroll]="expandedOrders.has(order._id)"
+    >
+      <!-- toggle btn -->
+      <div
+        class="absolute bottom-0 left-50 flex flex-column align-items-center justify-content-center cursor-pointer toggle-btn"
+        (click)="toggleOrder(order._id)"
+        [class]="{
+          hidden: order.orderItems.length < 4,
+          flex: order.orderItems.length >= 4
+        }"
+      >
+        <button
+          class="text-red-600 text-sm font-semibold mt-2 border-none bg-transparent"
+        >
+          {{ expandedOrders.has(order._id) ? 'Show Min' : 'Show All' }}
+        </button>
+        <i class="pi pi-angle-down mt-1" style="font-size: 1rem"></i>
+      </div>
       <div
         class="bg-red-700 text-white px-3 py-4 flex justify-content-between align-items-center text-sm font-medium"
       >
@@ -80,18 +102,18 @@
         </div>
 
         <div class="grid">
-          @for (item of order.orderItems.slice(0, displayLimit); track item._id)
-          {
+          <!-- .slice(0, displayLimit) -->
+          @for (item of order.orderItems; track item._id) {
           <div class="col-6">
             <div
-              class="flex gap-3 p-4 border-1 border-round border-200 bg-white align-items-center"
+              class="flex gap-3 p-4 border-1 border-round border-200 bg-white align-items-center h-10rem"
             >
               <img
                 [src]="item.product.imgCover"
                 alt="Product"
                 class="w-9rem h-9rem border-round object-cover"
               />
-              <div class="flex flex-column gap-6">
+              <div class="flex flex-column gap-3">
                 <span class="font-medium text-sm">{{
                   item.product.title
                 }}</span>
@@ -112,16 +134,6 @@
             </div>
           </div>
           }
-        </div>
-
-        <div class="flex flex-column align-items-center justify-content-center">
-          <button
-            (click)="toggleDisplay()"
-            class="text-red-600 text-sm font-semibold mt-2 border-none bg-transparent cursor-pointer"
-          >
-            {{ isExpanded ? 'Show Min' : 'Show All' }}
-          </button>
-          <i class="pi pi-angle-down mt-1" style="font-size: 1rem"></i>
         </div>
       </div>
     </div>

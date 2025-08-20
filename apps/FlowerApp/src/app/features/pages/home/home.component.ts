@@ -11,9 +11,7 @@ import { FeaturesComponent } from './components/features.component';
 import { TrustedbyComponent } from './components/Trustedby/Trustedby.component';
 import { BestComponent } from './components/Best/Best.component';
 import { AboutComponent } from './components/about.component';
-import { OrdersComponent } from "../orders.component";
-import { OrderService } from '../../services/order/order.service';
-
+ 
 @Component({
   selector: 'app-home',
   imports: [
@@ -27,7 +25,7 @@ import { OrderService } from '../../services/order/order.service';
     BestComponent,
     TrustedbyComponent,
     AboutComponent,
-    OrdersComponent
+     
 ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',

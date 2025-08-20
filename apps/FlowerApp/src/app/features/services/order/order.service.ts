@@ -3,17 +3,15 @@ import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { orderResponse } from '../../interfaces/orders/orders';
 import { environment } from 'apps/FlowerApp/src/environments/environment';
- 
+
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class OrderService {
+  constructor() {}
+  private readonly http = inject(HttpClient);
 
-  constructor() { }
-  private readonly http=inject(HttpClient);
-
-  getUserOrders():Observable<orderResponse>
-  {
-     return this.http.get<orderResponse>(`${environment.baseUrl}/api/v1/orders`);
+  getUserOrders(): Observable<orderResponse> {
+    return this.http.get<orderResponse>(`${environment.baseUrl}/api/v1/orders`);
   }
 }
