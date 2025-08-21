@@ -1,0 +1,423 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>@rose-flower/source documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">@rose-flower/source documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  StarsRatingsComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>apps/FlowerApp/src/app/shared/components/ui/starsRatings.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-stars-ratings</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>CommonModule</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./starsRatings.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./starsRatings.component.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#starsRatting" >starsRatting</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="starsRatting"></a>
+                        <b>starsRatting</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>5</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/FlowerApp/src/app/shared/components/ui/starsRatings.component.ts:11</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+
+@Component({
+  selector: &#x27;app-stars-ratings&#x27;,
+  imports: [CommonModule],
+  templateUrl: &#x27;./starsRatings.component.html&#x27;,
+  styleUrl: &#x27;./starsRatings.component.scss&#x27;,
+})
+export class StarsRatingsComponent {
+  @Input() starsRatting: number &#x3D; 5;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;svg
+  width&#x3D;&quot;20&quot;
+  height&#x3D;&quot;21&quot;
+  viewBox&#x3D;&quot;0 0 20 21&quot;
+  fill&#x3D;&quot;none&quot;
+  xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;
+&gt;
+  &lt;path
+    d&#x3D;&quot;M9.60404 2.41274C9.64056 2.33895 9.69697 2.27685 9.76692 2.23342C9.83686 2.19 9.91755 2.16699 9.99987 2.16699C10.0822 2.16699 10.1629 2.19 10.2328 2.23342C10.3028 2.27685 10.3592 2.33895 10.3957 2.41274L12.3207 6.3119C12.4475 6.56854 12.6347 6.79058 12.8662 6.95895C13.0977 7.12732 13.3666 7.237 13.6499 7.27857L17.9549 7.90857C18.0364 7.92039 18.1131 7.9548 18.1761 8.0079C18.2391 8.06101 18.2861 8.13069 18.3116 8.20908C18.337 8.28746 18.3401 8.37141 18.3204 8.45143C18.3006 8.53146 18.2589 8.60436 18.1999 8.6619L15.0865 11.6936C14.8812 11.8937 14.7276 12.1406 14.6389 12.4133C14.5502 12.6859 14.5291 12.976 14.5774 13.2586L15.3124 17.5419C15.3268 17.6234 15.318 17.7074 15.287 17.7841C15.2559 17.8609 15.204 17.9274 15.137 17.9761C15.07 18.0247 14.9907 18.0536 14.9081 18.0593C14.8255 18.0651 14.743 18.0475 14.6699 18.0086L10.8215 15.9852C10.568 15.8521 10.2859 15.7825 9.99946 15.7825C9.71306 15.7825 9.43094 15.8521 9.17737 15.9852L5.32987 18.0086C5.25681 18.0472 5.17437 18.0646 5.09191 18.0588C5.00946 18.0529 4.9303 18.024 4.86345 17.9754C4.7966 17.9268 4.74473 17.8604 4.71375 17.7838C4.68277 17.7071 4.67392 17.6233 4.68821 17.5419L5.42237 13.2594C5.47087 12.9767 5.44986 12.6864 5.36115 12.4136C5.27245 12.1408 5.11871 11.8937 4.91321 11.6936L1.79987 8.66274C1.74037 8.60526 1.6982 8.53223 1.67817 8.45197C1.65815 8.3717 1.66107 8.28742 1.6866 8.20873C1.71214 8.13004 1.75926 8.0601 1.8226 8.00689C1.88594 7.95367 1.96296 7.91932 2.04487 7.90774L6.34904 7.27857C6.63259 7.23732 6.90186 7.12778 7.13369 6.95939C7.36552 6.791 7.55296 6.5688 7.67987 6.3119L9.60404 2.41274Z&quot;
+    fill&#x3D;&quot;#FFA508&quot;
+    stroke&#x3D;&quot;#FFA508&quot;
+    stroke-width&#x3D;&quot;1.45833&quot;
+    stroke-linecap&#x3D;&quot;round&quot;
+    stroke-linejoin&#x3D;&quot;round&quot;
+  /&gt;
+&lt;/svg&gt;
+
+
+@switch (starsRatting) {
+
+    @case (5) {
+&lt;svg
+  width&#x3D;&quot;20&quot;
+  height&#x3D;&quot;21&quot;
+  viewBox&#x3D;&quot;0 0 20 21&quot;
+  fill&#x3D;&quot;none&quot;
+  xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;
+&gt;
+  &lt;path
+    d&#x3D;&quot;M9.60404 2.41274C9.64056 2.33895 9.69697 2.27685 9.76692 2.23342C9.83686 2.19 9.91755 2.16699 9.99987 2.16699C10.0822 2.16699 10.1629 2.19 10.2328 2.23342C10.3028 2.27685 10.3592 2.33895 10.3957 2.41274L12.3207 6.3119C12.4475 6.56854 12.6347 6.79058 12.8662 6.95895C13.0977 7.12732 13.3666 7.237 13.6499 7.27857L17.9549 7.90857C18.0364 7.92039 18.1131 7.9548 18.1761 8.0079C18.2391 8.06101 18.2861 8.13069 18.3116 8.20908C18.337 8.28746 18.3401 8.37141 18.3204 8.45143C18.3006 8.53146 18.2589 8.60436 18.1999 8.6619L15.0865 11.6936C14.8812 11.8937 14.7276 12.1406 14.6389 12.4133C14.5502 12.6859 14.5291 12.976 14.5774 13.2586L15.3124 17.5419C15.3268 17.6234 15.318 17.7074 15.287 17.7841C15.2559 17.8609 15.204 17.9274 15.137 17.9761C15.07 18.0247 14.9907 18.0536 14.9081 18.0593C14.8255 18.0651 14.743 18.0475 14.6699 18.0086L10.8215 15.9852C10.568 15.8521 10.2859 15.7825 9.99946 15.7825C9.71306 15.7825 9.43094 15.8521 9.17737 15.9852L5.32987 18.0086C5.25681 18.0472 5.17437 18.0646 5.09191 18.0588C5.00946 18.0529 4.9303 18.024 4.86345 17.9754C4.7966 17.9268 4.74473 17.8604 4.71375 17.7838C4.68277 17.7071 4.67392 17.6233 4.68821 17.5419L5.42237 13.2594C5.47087 12.9767 5.44986 12.6864 5.36115 12.4136C5.27245 12.1408 5.11871 11.8937 4.91321 11.6936L1.79987 8.66274C1.74037 8.60526 1.6982 8.53223 1.67817 8.45197C1.65815 8.3717 1.66107 8.28742 1.6866 8.20873C1.71214 8.13004 1.75926 8.0601 1.8226 8.00689C1.88594 7.95367 1.96296 7.91932 2.04487 7.90774L6.34904 7.27857C6.63259 7.23732 6.90186 7.12778 7.13369 6.95939C7.36552 6.791 7.55296 6.5688 7.67987 6.3119L9.60404 2.41274Z&quot;
+    fill&#x3D;&quot;#FFA508&quot;
+    stroke&#x3D;&quot;#FFA508&quot;
+    stroke-width&#x3D;&quot;1.45833&quot;
+    stroke-linecap&#x3D;&quot;round&quot;
+    stroke-linejoin&#x3D;&quot;round&quot;
+  /&gt;
+&lt;/svg&gt;
+
+    }
+}</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><svg  width="20"  height="21"  viewBox="0 0 20 21"  fill="none"  xmlns="http://www.w3.org/2000/svg">  <path    d="M9.60404 2.41274C9.64056 2.33895 9.69697 2.27685 9.76692 2.23342C9.83686 2.19 9.91755 2.16699 9.99987 2.16699C10.0822 2.16699 10.1629 2.19 10.2328 2.23342C10.3028 2.27685 10.3592 2.33895 10.3957 2.41274L12.3207 6.3119C12.4475 6.56854 12.6347 6.79058 12.8662 6.95895C13.0977 7.12732 13.3666 7.237 13.6499 7.27857L17.9549 7.90857C18.0364 7.92039 18.1131 7.9548 18.1761 8.0079C18.2391 8.06101 18.2861 8.13069 18.3116 8.20908C18.337 8.28746 18.3401 8.37141 18.3204 8.45143C18.3006 8.53146 18.2589 8.60436 18.1999 8.6619L15.0865 11.6936C14.8812 11.8937 14.7276 12.1406 14.6389 12.4133C14.5502 12.6859 14.5291 12.976 14.5774 13.2586L15.3124 17.5419C15.3268 17.6234 15.318 17.7074 15.287 17.7841C15.2559 17.8609 15.204 17.9274 15.137 17.9761C15.07 18.0247 14.9907 18.0536 14.9081 18.0593C14.8255 18.0651 14.743 18.0475 14.6699 18.0086L10.8215 15.9852C10.568 15.8521 10.2859 15.7825 9.99946 15.7825C9.71306 15.7825 9.43094 15.8521 9.17737 15.9852L5.32987 18.0086C5.25681 18.0472 5.17437 18.0646 5.09191 18.0588C5.00946 18.0529 4.9303 18.024 4.86345 17.9754C4.7966 17.9268 4.74473 17.8604 4.71375 17.7838C4.68277 17.7071 4.67392 17.6233 4.68821 17.5419L5.42237 13.2594C5.47087 12.9767 5.44986 12.6864 5.36115 12.4136C5.27245 12.1408 5.11871 11.8937 4.91321 11.6936L1.79987 8.66274C1.74037 8.60526 1.6982 8.53223 1.67817 8.45197C1.65815 8.3717 1.66107 8.28742 1.6866 8.20873C1.71214 8.13004 1.75926 8.0601 1.8226 8.00689C1.88594 7.95367 1.96296 7.91932 2.04487 7.90774L6.34904 7.27857C6.63259 7.23732 6.90186 7.12778 7.13369 6.95939C7.36552 6.791 7.55296 6.5688 7.67987 6.3119L9.60404 2.41274Z"    fill="#FFA508"    stroke="#FFA508"    stroke-width="1.45833"    stroke-linecap="round"    stroke-linejoin="round"  /></svg>@switch (starsRatting) {    @case (5) {<svg  width="20"  height="21"  viewBox="0 0 20 21"  fill="none"  xmlns="http://www.w3.org/2000/svg">  <path    d="M9.60404 2.41274C9.64056 2.33895 9.69697 2.27685 9.76692 2.23342C9.83686 2.19 9.91755 2.16699 9.99987 2.16699C10.0822 2.16699 10.1629 2.19 10.2328 2.23342C10.3028 2.27685 10.3592 2.33895 10.3957 2.41274L12.3207 6.3119C12.4475 6.56854 12.6347 6.79058 12.8662 6.95895C13.0977 7.12732 13.3666 7.237 13.6499 7.27857L17.9549 7.90857C18.0364 7.92039 18.1131 7.9548 18.1761 8.0079C18.2391 8.06101 18.2861 8.13069 18.3116 8.20908C18.337 8.28746 18.3401 8.37141 18.3204 8.45143C18.3006 8.53146 18.2589 8.60436 18.1999 8.6619L15.0865 11.6936C14.8812 11.8937 14.7276 12.1406 14.6389 12.4133C14.5502 12.6859 14.5291 12.976 14.5774 13.2586L15.3124 17.5419C15.3268 17.6234 15.318 17.7074 15.287 17.7841C15.2559 17.8609 15.204 17.9274 15.137 17.9761C15.07 18.0247 14.9907 18.0536 14.9081 18.0593C14.8255 18.0651 14.743 18.0475 14.6699 18.0086L10.8215 15.9852C10.568 15.8521 10.2859 15.7825 9.99946 15.7825C9.71306 15.7825 9.43094 15.8521 9.17737 15.9852L5.32987 18.0086C5.25681 18.0472 5.17437 18.0646 5.09191 18.0588C5.00946 18.0529 4.9303 18.024 4.86345 17.9754C4.7966 17.9268 4.74473 17.8604 4.71375 17.7838C4.68277 17.7071 4.67392 17.6233 4.68821 17.5419L5.42237 13.2594C5.47087 12.9767 5.44986 12.6864 5.36115 12.4136C5.27245 12.1408 5.11871 11.8937 4.91321 11.6936L1.79987 8.66274C1.74037 8.60526 1.6982 8.53223 1.67817 8.45197C1.65815 8.3717 1.66107 8.28742 1.6866 8.20873C1.71214 8.13004 1.75926 8.0601 1.8226 8.00689C1.88594 7.95367 1.96296 7.91932 2.04487 7.90774L6.34904 7.27857C6.63259 7.23732 6.90186 7.12778 7.13369 6.95939C7.36552 6.791 7.55296 6.5688 7.67987 6.3119L9.60404 2.41274Z"    fill="#FFA508"    stroke="#FFA508"    stroke-width="1.45833"    stroke-linecap="round"    stroke-linejoin="round"  /></svg>    }}</div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AddAddressComponent', 'selector': 'app-add-address'},{'name': 'AddressDialogComponent', 'selector': 'app-address-dialog'},{'name': 'AddressesComponent', 'selector': 'app-addresses'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthLayoutComponent', 'selector': 'app-auth-layout'},{'name': 'AvatarFeaturesComponent', 'selector': 'app-avatar-features'},{'name': 'BestComponent', 'selector': 'app-best'},{'name': 'CarousolComponent', 'selector': 'app-carousol'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CartLayoutComponent', 'selector': 'app-cart-layout'},{'name': 'CatigoryComponent', 'selector': 'app-catigory'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'ErrorComponent', 'selector': 'app-error'},{'name': 'FeaturesComponent', 'selector': 'app-features'},{'name': 'FieldErrorComponent', 'selector': 'app-field-error'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgetPasswordComponent', 'selector': 'app-forget-password'},{'name': 'GallaryComponent', 'selector': 'app-gallary'},{'name': 'GetAddressesComponent', 'selector': 'app-get-addresses'},{'name': 'GiftUiComponent', 'selector': 'app-gift-ui'},{'name': 'GlobalCkeckboxGroupComponent', 'selector': 'app-global-ckeckbox-group'},{'name': 'GlobalInputComponent', 'selector': 'app-global-input'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ImageContainerComponent', 'selector': 'app-image-container'},{'name': 'LoadingComponent', 'selector': 'app-loading'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MainLayoutComponent', 'selector': 'app-main-layout'},{'name': 'MyAccountComponent', 'selector': 'app-my-account'},{'name': 'NavBarComponent', 'selector': 'app-nav-bar'},{'name': 'NxWelcomeComponent', 'selector': 'app-nx-welcome'},{'name': 'PrimaryBtnComponent', 'selector': 'app-primary-btn'},{'name': 'ProductCartComponent', 'selector': 'app-product-cart'},{'name': 'ProductComponent', 'selector': 'app-product'},{'name': 'ProductDetailComponent', 'selector': 'app-product-detail'},{'name': 'ProductListComponent', 'selector': 'app-product-list'},{'name': 'ProductReviewComponent', 'selector': 'app-product-review'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'ProfileImageComponent', 'selector': 'app-profile-image'},{'name': 'RelatedProductsComponent', 'selector': 'app-related-products'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SharedProductsComponent', 'selector': 'app-shared-products'},{'name': 'ShippingAddressComponent', 'selector': 'app-shipping-address'},{'name': 'SpecialGiftsComponent', 'selector': 'app-special-gifts'},{'name': 'StarsRatingsComponent', 'selector': 'app-stars-ratings'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'TrustedbyComponent', 'selector': 'app-trustedby'},{'name': 'VerifyCodeComponent', 'selector': 'app-verify-code'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'StarsRatingsComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'StarsRatingsComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,3032 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>@rose-flower/source documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	   <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="./" class="navbar-brand">@rose-flower/source documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content coverage">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">Documentation coverage</li>
+</ol>
+
+<div>
+    <img src="./images/coverage-badge-documentation.svg">
+</div>
+
+<table class="table table-bordered coverage" id="coverage-table">
+    <thead class="coverage-header">
+        <tr>
+            <th>File</th>
+            <th>Type</th>
+            <th>Identifier</th>
+            <th style="text-align:right" class="statements" data-sort-default>Statements</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#baseURL">apps/FlowerApp-e2e/playwright.config.ts</a>
+            </td>
+            <td>variable</td>
+            <td>baseURL</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#emptyAction">apps/FlowerApp/src/app/Store/actions/App.actions.ts</a>
+            </td>
+            <td>variable</td>
+            <td>emptyAction</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#showAlert">apps/FlowerApp/src/app/Store/actions/App.actions.ts</a>
+            </td>
+            <td>variable</td>
+            <td>showAlert</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#addProducts">apps/FlowerApp/src/app/Store/actions/products.action.ts</a>
+            </td>
+            <td>variable</td>
+            <td>addProducts</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#addProductsFail">apps/FlowerApp/src/app/Store/actions/products.action.ts</a>
+            </td>
+            <td>variable</td>
+            <td>addProductsFail</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#addProductsSuccess">apps/FlowerApp/src/app/Store/actions/products.action.ts</a>
+            </td>
+            <td>variable</td>
+            <td>addProductsSuccess</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#deleteProducts">apps/FlowerApp/src/app/Store/actions/products.action.ts</a>
+            </td>
+            <td>variable</td>
+            <td>deleteProducts</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#deleteProductsFail">apps/FlowerApp/src/app/Store/actions/products.action.ts</a>
+            </td>
+            <td>variable</td>
+            <td>deleteProductsFail</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#deleteProductsSuccess">apps/FlowerApp/src/app/Store/actions/products.action.ts</a>
+            </td>
+            <td>variable</td>
+            <td>deleteProductsSuccess</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#editProducts">apps/FlowerApp/src/app/Store/actions/products.action.ts</a>
+            </td>
+            <td>variable</td>
+            <td>editProducts</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#editProductsFail">apps/FlowerApp/src/app/Store/actions/products.action.ts</a>
+            </td>
+            <td>variable</td>
+            <td>editProductsFail</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#editProductsSuccess">apps/FlowerApp/src/app/Store/actions/products.action.ts</a>
+            </td>
+            <td>variable</td>
+            <td>editProductsSuccess</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#loadProducts">apps/FlowerApp/src/app/Store/actions/products.action.ts</a>
+            </td>
+            <td>variable</td>
+            <td>loadProducts</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#loadProductsFail">apps/FlowerApp/src/app/Store/actions/products.action.ts</a>
+            </td>
+            <td>variable</td>
+            <td>loadProductsFail</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#loadProductsSuccess">apps/FlowerApp/src/app/Store/actions/products.action.ts</a>
+            </td>
+            <td>variable</td>
+            <td>loadProductsSuccess</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/AppEffects.html">apps/FlowerApp/src/app/Store/effects/App.effects.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>AppEffects</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/ProductsEffects.html">apps/FlowerApp/src/app/Store/effects/products.effects.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>ProductsEffects</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#ProductsReducer">apps/FlowerApp/src/app/Store/reducers/products.reducer.ts</a>
+            </td>
+            <td>variable</td>
+            <td>ProductsReducer</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#getErrorMsg">apps/FlowerApp/src/app/Store/selectors/products.selectors.ts</a>
+            </td>
+            <td>variable</td>
+            <td>getErrorMsg</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#getProducts">apps/FlowerApp/src/app/Store/selectors/products.selectors.ts</a>
+            </td>
+            <td>variable</td>
+            <td>getProducts</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#getProductsList">apps/FlowerApp/src/app/Store/selectors/products.selectors.ts</a>
+            </td>
+            <td>variable</td>
+            <td>getProductsList</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#getProductsState">apps/FlowerApp/src/app/Store/selectors/products.selectors.ts</a>
+            </td>
+            <td>variable</td>
+            <td>getProductsState</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#ProductsSelector">apps/FlowerApp/src/app/Store/selectors/products.selectors.ts</a>
+            </td>
+            <td>variable</td>
+            <td>ProductsSelector</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#selectEntities">apps/FlowerApp/src/app/Store/selectors/products.selectors.ts</a>
+            </td>
+            <td>variable</td>
+            <td>selectEntities</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#initialState">apps/FlowerApp/src/app/Store/state/products.state.ts</a>
+            </td>
+            <td>variable</td>
+            <td>initialState</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#ProductsAdapter">apps/FlowerApp/src/app/Store/state/products.state.ts</a>
+            </td>
+            <td>variable</td>
+            <td>ProductsAdapter</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/AppComponent.html">apps/FlowerApp/src/app/app.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AppComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#config">apps/FlowerApp/src/app/app.config.server.ts</a>
+            </td>
+            <td>variable</td>
+            <td>config</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#serverConfig">apps/FlowerApp/src/app/app.config.server.ts</a>
+            </td>
+            <td>variable</td>
+            <td>serverConfig</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/functions.html#HttpLoaderFactory">apps/FlowerApp/src/app/app.config.ts</a>
+            </td>
+            <td>function</td>
+            <td>HttpLoaderFactory</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#appConfig">apps/FlowerApp/src/app/app.config.ts</a>
+            </td>
+            <td>variable</td>
+            <td>appConfig</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#serverRoutes">apps/FlowerApp/src/app/app.routes.server.ts</a>
+            </td>
+            <td>variable</td>
+            <td>serverRoutes</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#appRoutes">apps/FlowerApp/src/app/app.routes.ts</a>
+            </td>
+            <td>variable</td>
+            <td>appRoutes</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#baseUrl">apps/FlowerApp/src/app/core/environments/baseUrl.ts</a>
+            </td>
+            <td>variable</td>
+            <td>baseUrl</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#authGuard">apps/FlowerApp/src/app/core/guards/auth.guard.ts</a>
+            </td>
+            <td>variable</td>
+            <td>authGuard</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#loginBlockGuard">apps/FlowerApp/src/app/core/guards/login-block.guard.ts</a>
+            </td>
+            <td>variable</td>
+            <td>loginBlockGuard</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#addTokenInterceptor">apps/FlowerApp/src/app/core/interceptors/add-token.interceptor.ts</a>
+            </td>
+            <td>variable</td>
+            <td>addTokenInterceptor</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/FooterComponent.html">apps/FlowerApp/src/app/core/layouts/Footer/Footer.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>FooterComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/NavBarComponent.html">apps/FlowerApp/src/app/core/layouts/navBar/navBar.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>NavBarComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/20)</span>
+            </td>
+        </tr>
+        <tr class="medium">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/CookiesService.html">apps/FlowerApp/src/app/core/services/cookies.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>CookiesService</td>
+            <td align="right" data-sort="28">
+                <span class="coverage-percent">28 %</span>
+                <span class="coverage-count">(2/7)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/CookieOptions.html">apps/FlowerApp/src/app/core/services/cookies.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>CookieOptions</td>
+            <td align="right" data-sort="12">
+                <span class="coverage-percent">12 %</span>
+                <span class="coverage-count">(1/8)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/LocalStorageService.html">apps/FlowerApp/src/app/core/services/local-storage.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>LocalStorageService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/MyTranslateService.html">apps/FlowerApp/src/app/core/services/my-translate-service.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>MyTranslateService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/9)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/ThemeService.html">apps/FlowerApp/src/app/core/services/theme-service.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>ThemeService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/10)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/functions.html#getCountryCode">apps/FlowerApp/src/app/core/utills/app.utills.ts</a>
+            </td>
+            <td>function</td>
+            <td>getCountryCode</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/functions.html#getLocalNumber">apps/FlowerApp/src/app/core/utills/app.utills.ts</a>
+            </td>
+            <td>function</td>
+            <td>getLocalNumber</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/functions.html#internationalPhoneValidator">apps/FlowerApp/src/app/core/utills/app.utills.ts</a>
+            </td>
+            <td>function</td>
+            <td>internationalPhoneValidator</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/functions.html#removeUnWantedProperties">apps/FlowerApp/src/app/core/utills/app.utills.ts</a>
+            </td>
+            <td>function</td>
+            <td>removeUnWantedProperties</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#appInit">apps/FlowerApp/src/app/core/utills/app.utills.ts</a>
+            </td>
+            <td>variable</td>
+            <td>appInit</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Catigory.html">apps/FlowerApp/src/app/features/interfaces/catigory.FlowerApp.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Catigory</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/8)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/CatigoryResponse.html">apps/FlowerApp/src/app/features/interfaces/catigory.FlowerApp.ts</a>
+            </td>
+            <td>interface</td>
+            <td>CatigoryResponse</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/IItems.html">apps/FlowerApp/src/app/features/interfaces/i-items.ts</a>
+            </td>
+            <td>interface</td>
+            <td>IItems</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/20)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/IItemsRespon.html">apps/FlowerApp/src/app/features/interfaces/i-items.ts</a>
+            </td>
+            <td>interface</td>
+            <td>IItemsRespon</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Metadata.html">apps/FlowerApp/src/app/features/interfaces/products.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Metadata</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Product.html">apps/FlowerApp/src/app/features/interfaces/products.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Product</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/21)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/ProductModel.html">apps/FlowerApp/src/app/features/interfaces/products.ts</a>
+            </td>
+            <td>interface</td>
+            <td>ProductModel</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/ProductResponse.html">apps/FlowerApp/src/app/features/interfaces/products.ts</a>
+            </td>
+            <td>interface</td>
+            <td>ProductResponse</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/TokenInterface.html">apps/FlowerApp/src/app/features/interfaces/tokenInterface.ts</a>
+            </td>
+            <td>interface</td>
+            <td>TokenInterface</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/AddAddressComponent.html">apps/FlowerApp/src/app/features/pages/address/components/addAddress.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AddAddressComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/AddressDialogComponent.html">apps/FlowerApp/src/app/features/pages/address/components/addressDialog.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AddressDialogComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/GetAddressesComponent.html">apps/FlowerApp/src/app/features/pages/address/components/getAddresses.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>GetAddressesComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/8)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/AddressService.html">apps/FlowerApp/src/app/features/pages/address/services/address.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>AddressService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#addressActions">apps/FlowerApp/src/app/features/pages/address/store/actions.ts</a>
+            </td>
+            <td>variable</td>
+            <td>addressActions</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#deleteAddress">apps/FlowerApp/src/app/features/pages/address/store/effects.ts</a>
+            </td>
+            <td>variable</td>
+            <td>deleteAddress</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#getAllAddresses">apps/FlowerApp/src/app/features/pages/address/store/effects.ts</a>
+            </td>
+            <td>variable</td>
+            <td>getAllAddresses</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#addressFeature">apps/FlowerApp/src/app/features/pages/address/store/reducers.ts</a>
+            </td>
+            <td>variable</td>
+            <td>addressFeature</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#initialAddressState">apps/FlowerApp/src/app/features/pages/address/store/reducers.ts</a>
+            </td>
+            <td>variable</td>
+            <td>initialAddressState</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#initialDialogState">apps/FlowerApp/src/app/features/pages/address/store/reducers.ts</a>
+            </td>
+            <td>variable</td>
+            <td>initialDialogState</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#initialState">apps/FlowerApp/src/app/features/pages/address/store/reducers.ts</a>
+            </td>
+            <td>variable</td>
+            <td>initialState</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#selectAddressReducer">apps/FlowerApp/src/app/features/pages/address/store/reducers.ts</a>
+            </td>
+            <td>variable</td>
+            <td>selectAddressReducer</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#">apps/FlowerApp/src/app/features/pages/address/store/reducers.ts</a>
+            </td>
+            <td>variable</td>
+            <td></td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#viewDialogReducer">apps/FlowerApp/src/app/features/pages/address/store/reducers.ts</a>
+            </td>
+            <td>variable</td>
+            <td>viewDialogReducer</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#selectCurrentDialogView">apps/FlowerApp/src/app/features/pages/address/store/selectors.ts</a>
+            </td>
+            <td>variable</td>
+            <td>selectCurrentDialogView</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#selectCurrentView">apps/FlowerApp/src/app/features/pages/address/store/selectors.ts</a>
+            </td>
+            <td>variable</td>
+            <td>selectCurrentView</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#SelectedAddress">apps/FlowerApp/src/app/features/pages/address/store/selectors.ts</a>
+            </td>
+            <td>variable</td>
+            <td>SelectedAddress</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#selectSelectedAddress">apps/FlowerApp/src/app/features/pages/address/store/selectors.ts</a>
+            </td>
+            <td>variable</td>
+            <td>selectSelectedAddress</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/AddressStateInterface.html">apps/FlowerApp/src/app/features/pages/address/types/addressState.interface.ts</a>
+            </td>
+            <td>interface</td>
+            <td>AddressStateInterface</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/AddressState.html">apps/FlowerApp/src/app/features/pages/address/types/selectedAddressState.interface.ts</a>
+            </td>
+            <td>interface</td>
+            <td>AddressState</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/ViewDialogState.html">apps/FlowerApp/src/app/features/pages/address/types/viewDialogType.enum.ts</a>
+            </td>
+            <td>interface</td>
+            <td>ViewDialogState</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/CartComponent.html">apps/FlowerApp/src/app/features/pages/cart/components/cart.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>CartComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/9)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/ShippingAddressComponent.html">apps/FlowerApp/src/app/features/pages/cart/components/shippingAddress.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ShippingAddressComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/13)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/AddToCartRequestInterface.html">apps/FlowerApp/src/app/features/pages/cart/interfaces/addToCarRequest.interface.ts</a>
+            </td>
+            <td>interface</td>
+            <td>AddToCartRequestInterface</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/AddToCartResponseDTO.html">apps/FlowerApp/src/app/features/pages/cart/interfaces/addToCartResponse.interface.ts</a>
+            </td>
+            <td>interface</td>
+            <td>AddToCartResponseDTO</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/CartItem.html">apps/FlowerApp/src/app/features/pages/cart/interfaces/addToCartResponse.interface.ts</a>
+            </td>
+            <td>interface</td>
+            <td>CartItem</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/CartOrderDTO.html">apps/FlowerApp/src/app/features/pages/cart/interfaces/addToCartResponse.interface.ts</a>
+            </td>
+            <td>interface</td>
+            <td>CartOrderDTO</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/11)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/ProductInCartDTO.html">apps/FlowerApp/src/app/features/pages/cart/interfaces/addToCartResponse.interface.ts</a>
+            </td>
+            <td>interface</td>
+            <td>ProductInCartDTO</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/20)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/CreateCreditOrderResponseInterface.html">apps/FlowerApp/src/app/features/pages/cart/interfaces/createCreditOrderRequest.interface.ts</a>
+            </td>
+            <td>interface</td>
+            <td>CreateCreditOrderResponseInterface</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/CreateOrderRequestInterface.html">apps/FlowerApp/src/app/features/pages/cart/interfaces/createOrderRequest.interface.ts</a>
+            </td>
+            <td>interface</td>
+            <td>CreateOrderRequestInterface</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/ShippingAddress.html">apps/FlowerApp/src/app/features/pages/cart/interfaces/createOrderRequest.interface.ts</a>
+            </td>
+            <td>interface</td>
+            <td>ShippingAddress</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/cartStateInterface.html">apps/FlowerApp/src/app/features/pages/cart/interfaces/getProductsCartState.interface.ts</a>
+            </td>
+            <td>interface</td>
+            <td>cartStateInterface</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/7)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/CartStates.html">apps/FlowerApp/src/app/features/pages/cart/interfaces/getProductsCartState.interface.ts</a>
+            </td>
+            <td>interface</td>
+            <td>CartStates</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/7)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/PaymentMethod.html">apps/FlowerApp/src/app/features/pages/cart/interfaces/paymentMethod.interface.ts</a>
+            </td>
+            <td>interface</td>
+            <td>PaymentMethod</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/deleteCartResponseDTO.html">apps/FlowerApp/src/app/features/pages/cart/interfaces/updateProductQuantity.interface.ts</a>
+            </td>
+            <td>interface</td>
+            <td>deleteCartResponseDTO</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/UpdateQuantityRequest.html">apps/FlowerApp/src/app/features/pages/cart/interfaces/updateProductQuantity.interface.ts</a>
+            </td>
+            <td>interface</td>
+            <td>UpdateQuantityRequest</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/ViewCartState.html">apps/FlowerApp/src/app/features/pages/cart/interfaces/view.enum.ts</a>
+            </td>
+            <td>interface</td>
+            <td>ViewCartState</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/CartLayoutComponent.html">apps/FlowerApp/src/app/features/pages/cart/layouts/cartLayout.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>CartLayoutComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/15)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/AddressService.html">apps/FlowerApp/src/app/features/pages/cart/services/address.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>AddressService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/CartService.html">apps/FlowerApp/src/app/features/pages/cart/services/cart.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>CartService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/8)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/OrdersService.html">apps/FlowerApp/src/app/features/pages/cart/services/orders.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>OrdersService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#cartActions">apps/FlowerApp/src/app/features/pages/cart/store/actions.ts</a>
+            </td>
+            <td>variable</td>
+            <td>cartActions</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#switchView">apps/FlowerApp/src/app/features/pages/cart/store/actions.ts</a>
+            </td>
+            <td>variable</td>
+            <td>switchView</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#addProductToCartEffect">apps/FlowerApp/src/app/features/pages/cart/store/effects.ts</a>
+            </td>
+            <td>variable</td>
+            <td>addProductToCartEffect</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#addProductToCartFailureDisplayMsg">apps/FlowerApp/src/app/features/pages/cart/store/effects.ts</a>
+            </td>
+            <td>variable</td>
+            <td>addProductToCartFailureDisplayMsg</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#addProductToCartSuccessDisplayMsg">apps/FlowerApp/src/app/features/pages/cart/store/effects.ts</a>
+            </td>
+            <td>variable</td>
+            <td>addProductToCartSuccessDisplayMsg</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#deleteCartEffect">apps/FlowerApp/src/app/features/pages/cart/store/effects.ts</a>
+            </td>
+            <td>variable</td>
+            <td>deleteCartEffect</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#deleteProductFromCartEffect">apps/FlowerApp/src/app/features/pages/cart/store/effects.ts</a>
+            </td>
+            <td>variable</td>
+            <td>deleteProductFromCartEffect</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#getLoggedUserCartEffect">apps/FlowerApp/src/app/features/pages/cart/store/effects.ts</a>
+            </td>
+            <td>variable</td>
+            <td>getLoggedUserCartEffect</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#updateProductQuantityEffect">apps/FlowerApp/src/app/features/pages/cart/store/effects.ts</a>
+            </td>
+            <td>variable</td>
+            <td>updateProductQuantityEffect</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#cartFeature">apps/FlowerApp/src/app/features/pages/cart/store/reducers.ts</a>
+            </td>
+            <td>variable</td>
+            <td>cartFeature</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#initialState">apps/FlowerApp/src/app/features/pages/cart/store/reducers.ts</a>
+            </td>
+            <td>variable</td>
+            <td>initialState</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#initialViewState">apps/FlowerApp/src/app/features/pages/cart/store/reducers.ts</a>
+            </td>
+            <td>variable</td>
+            <td>initialViewState</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#viewCartReducer">apps/FlowerApp/src/app/features/pages/cart/store/reducers.ts</a>
+            </td>
+            <td>variable</td>
+            <td>viewCartReducer</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#">apps/FlowerApp/src/app/features/pages/cart/store/reducers.ts</a>
+            </td>
+            <td>variable</td>
+            <td></td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#selectCurrentView">apps/FlowerApp/src/app/features/pages/cart/store/selectors.ts</a>
+            </td>
+            <td>variable</td>
+            <td>selectCurrentView</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#selectViewState">apps/FlowerApp/src/app/features/pages/cart/store/selectors.ts</a>
+            </td>
+            <td>variable</td>
+            <td>selectViewState</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/ForgetPasswordComponent.html">apps/FlowerApp/src/app/features/pages/forget-password/forget-password.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ForgetPasswordComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/14)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/BestComponent.html">apps/FlowerApp/src/app/features/pages/home/components/Best/Best.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>BestComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/12)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/TrustedbyComponent.html">apps/FlowerApp/src/app/features/pages/home/components/Trustedby/Trustedby.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>TrustedbyComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/AboutComponent.html">apps/FlowerApp/src/app/features/pages/home/components/about.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AboutComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/FeaturesComponent.html">apps/FlowerApp/src/app/features/pages/home/components/features.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>FeaturesComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/GallaryComponent.html">apps/FlowerApp/src/app/features/pages/home/components/gallary.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>GallaryComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/GalleryImage.html">apps/FlowerApp/src/app/features/pages/home/components/gallary.component.ts</a>
+            </td>
+            <td>interface</td>
+            <td>GalleryImage</td>
+            <td align="right" data-sort="25">
+                <span class="coverage-percent">25 %</span>
+                <span class="coverage-count">(1/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/SpecialGiftsComponent.html">apps/FlowerApp/src/app/features/pages/home/components/special-gifts.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>SpecialGiftsComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/HomeComponent.html">apps/FlowerApp/src/app/features/pages/home/home.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>HomeComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/7)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/LoginComponent.html">apps/FlowerApp/src/app/features/pages/login/login.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>LoginComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/8)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/RelatedProductsComponent.html">apps/FlowerApp/src/app/features/pages/product-details/components/relatedProducts.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>RelatedProductsComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/10)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/ProductDetailEndpoints.html">apps/FlowerApp/src/app/features/pages/product-details/enum/product-detail.endpoints.ts</a>
+            </td>
+            <td>class</td>
+            <td>ProductDetailEndpoints</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/ProductDetailsDTO.html">apps/FlowerApp/src/app/features/pages/product-details/interfaces/product.interface.ts</a>
+            </td>
+            <td>interface</td>
+            <td>ProductDetailsDTO</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/ProductImage.html">apps/FlowerApp/src/app/features/pages/product-details/interfaces/product.interface.ts</a>
+            </td>
+            <td>interface</td>
+            <td>ProductImage</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/RelatedProductsDTO.html">apps/FlowerApp/src/app/features/pages/product-details/interfaces/product.interface.ts</a>
+            </td>
+            <td>interface</td>
+            <td>RelatedProductsDTO</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Review.html">apps/FlowerApp/src/app/features/pages/product-details/interfaces/review.interface.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Review</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/7)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/ProductDetailComponent.html">apps/FlowerApp/src/app/features/pages/product-details/productDetail.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ProductDetailComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/17)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/GlobalCkeckboxGroupComponent.html">apps/FlowerApp/src/app/features/pages/product-list/components/business/global-ckeckbox-group.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>GlobalCkeckboxGroupComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/12)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/CheckboxOption.html">apps/FlowerApp/src/app/features/pages/product-list/interfaces/checbox-options.ts</a>
+            </td>
+            <td>interface</td>
+            <td>CheckboxOption</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Countbycategory.html">apps/FlowerApp/src/app/features/pages/product-list/interfaces/countbycategory.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Countbycategory</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/CountbycategoryResponse.html">apps/FlowerApp/src/app/features/pages/product-list/interfaces/countbycategory.ts</a>
+            </td>
+            <td>interface</td>
+            <td>CountbycategoryResponse</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/ErrorResponseDTO.html">apps/FlowerApp/src/app/features/pages/product-list/interfaces/error.ts</a>
+            </td>
+            <td>interface</td>
+            <td>ErrorResponseDTO</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/FilteredObject.html">apps/FlowerApp/src/app/features/pages/product-list/interfaces/filtered-object.ts</a>
+            </td>
+            <td>interface</td>
+            <td>FilteredObject</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Occasion.html">apps/FlowerApp/src/app/features/pages/product-list/interfaces/occasion.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Occasion</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/9)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/OccasionResponseInterface.html">apps/FlowerApp/src/app/features/pages/product-list/interfaces/occasion.ts</a>
+            </td>
+            <td>interface</td>
+            <td>OccasionResponseInterface</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/ProductListComponent.html">apps/FlowerApp/src/app/features/pages/product-list/productList.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ProductListComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/22)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/CountbycategoryAdapter.html">apps/FlowerApp/src/app/features/pages/product-list/services/adapter/count-by-category.adapter.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>CountbycategoryAdapter</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/OccasionAdapter.html">apps/FlowerApp/src/app/features/pages/product-list/services/adapter/occasion-adapter.adapter.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>OccasionAdapter</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/CountByCategoryApiInterface.html">apps/FlowerApp/src/app/features/pages/product-list/services/base/count-by-categoryAPI.ts</a>
+            </td>
+            <td>interface</td>
+            <td>CountByCategoryApiInterface</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/OccasionApiInterface.html">apps/FlowerApp/src/app/features/pages/product-list/services/base/occasionAPI.ts</a>
+            </td>
+            <td>interface</td>
+            <td>OccasionApiInterface</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/CountByCategoryService.html">apps/FlowerApp/src/app/features/pages/product-list/services/count-by-category.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>CountByCategoryService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/FiltersAPIEEndpoints.html">apps/FlowerApp/src/app/features/pages/product-list/services/enums/filters.api.endpoints.ts</a>
+            </td>
+            <td>class</td>
+            <td>FiltersAPIEEndpoints</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/OccasionService.html">apps/FlowerApp/src/app/features/pages/product-list/services/occasion.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>OccasionService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/ProductReviewComponent.html">apps/FlowerApp/src/app/features/pages/productReview/components/productReview.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ProductReviewComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/11)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/AddReviewRequestInterface.html">apps/FlowerApp/src/app/features/pages/productReview/interfaces/addReviewRequest.interface.ts</a>
+            </td>
+            <td>interface</td>
+            <td>AddReviewRequestInterface</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/AddReviewResponseDTO.html">apps/FlowerApp/src/app/features/pages/productReview/interfaces/addReviewResponce.interface.ts</a>
+            </td>
+            <td>interface</td>
+            <td>AddReviewResponseDTO</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/ReviewService.html">apps/FlowerApp/src/app/features/pages/productReview/services/review.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>ReviewService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/ChangePasswordComponent.html">apps/FlowerApp/src/app/features/pages/profile/components/changePassword.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ChangePasswordComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/MyAccountComponent.html">apps/FlowerApp/src/app/features/pages/profile/components/myAccount.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>MyAccountComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/15)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/ProfileComponent.html">apps/FlowerApp/src/app/features/pages/profile/components/profile.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ProfileComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/7)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/ProfileImageComponent.html">apps/FlowerApp/src/app/features/pages/profile/components/profileImage.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ProfileImageComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/10)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/ProfileService.html">apps/FlowerApp/src/app/features/pages/profile/services/profile.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>ProfileService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/8)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/getLoggedUserDataDTO.html">apps/FlowerApp/src/app/features/pages/profile/types/userData.interface.ts</a>
+            </td>
+            <td>interface</td>
+            <td>getLoggedUserDataDTO</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/User.html">apps/FlowerApp/src/app/features/pages/profile/types/userData.interface.ts</a>
+            </td>
+            <td>interface</td>
+            <td>User</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/13)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/ResetPasswordComponent.html">apps/FlowerApp/src/app/features/pages/reset-password/reset-password.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ResetPasswordComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/14)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/VerifyCodeComponent.html">apps/FlowerApp/src/app/features/pages/verify-code/verify-code.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>VerifyCodeComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/13)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/CatigoryService.html">apps/FlowerApp/src/app/features/services/catigory.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>CatigoryService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/HomeService.html">apps/FlowerApp/src/app/features/services/home/home.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>HomeService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/TokenService.html">apps/FlowerApp/src/app/features/services/token.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>TokenService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/NxWelcomeComponent.html">apps/FlowerApp/src/app/nx-welcome.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>NxWelcomeComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/FieldErrorComponent.html">apps/FlowerApp/src/app/shared/components/business/fieldError/field-error.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>FieldErrorComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/SharedProductsComponent.html">apps/FlowerApp/src/app/shared/components/business/sharedProducts.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>SharedProductsComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/AddressesComponent.html">apps/FlowerApp/src/app/shared/components/ui/addresses.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AddressesComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/AuthLayoutComponent.html">apps/FlowerApp/src/app/shared/components/ui/auth-layout.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AuthLayoutComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/AvatarFeaturesComponent.html">apps/FlowerApp/src/app/shared/components/ui/avatar-features.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AvatarFeaturesComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/CarousolComponent.html">apps/FlowerApp/src/app/shared/components/ui/carousol.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>CarousolComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/8)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/CatigoryComponent.html">apps/FlowerApp/src/app/shared/components/ui/catigory/catigory.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>CatigoryComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/ConfirmDialogComponent.html">apps/FlowerApp/src/app/shared/components/ui/confirmDialog.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ConfirmDialogComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/ErrorComponent.html">apps/FlowerApp/src/app/shared/components/ui/error/error.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ErrorComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/GiftUiComponent.html">apps/FlowerApp/src/app/shared/components/ui/gift-ui.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>GiftUiComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/GlobalInputComponent.html">apps/FlowerApp/src/app/shared/components/ui/globalInput.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>GlobalInputComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/18)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/ImageContainerComponent.html">apps/FlowerApp/src/app/shared/components/ui/image-container.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ImageContainerComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/LoadingComponent.html">apps/FlowerApp/src/app/shared/components/ui/loading.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>LoadingComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/MainLayoutComponent.html">apps/FlowerApp/src/app/shared/components/ui/main-layout.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>MainLayoutComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/PrimaryBtnComponent.html">apps/FlowerApp/src/app/shared/components/ui/primary-btn.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>PrimaryBtnComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/14)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/ProductComponent.html">apps/FlowerApp/src/app/shared/components/ui/product/product.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ProductComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/12)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/ProductCartComponent.html">apps/FlowerApp/src/app/shared/components/ui/productCart.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ProductCartComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/7)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/StarsRatingsComponent.html">apps/FlowerApp/src/app/shared/components/ui/starsRatings.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>StarsRatingsComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/StepperComponent.html">apps/FlowerApp/src/app/shared/components/ui/stepper.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>StepperComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#environment">apps/FlowerApp/src/app/shared/environments/enviroment.ts</a>
+            </td>
+            <td>variable</td>
+            <td>environment</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Adapter.html">apps/FlowerApp/src/app/shared/interfaces/adapter.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Adapter</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Address.html">apps/FlowerApp/src/app/shared/interfaces/addressResponse.interface.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Address</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/8)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/AddressResponceInterface.html">apps/FlowerApp/src/app/shared/interfaces/addressResponse.interface.ts</a>
+            </td>
+            <td>interface</td>
+            <td>AddressResponceInterface</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Country.html">apps/FlowerApp/src/app/shared/interfaces/country.interface.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Country</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/ErrorResponseInterface.html">apps/FlowerApp/src/app/shared/interfaces/errorResponce.interface.ts</a>
+            </td>
+            <td>interface</td>
+            <td>ErrorResponseInterface</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Feature.html">apps/FlowerApp/src/app/shared/interfaces/feature.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Feature</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Gift.html">apps/FlowerApp/src/app/shared/interfaces/gift.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Gift</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/7)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/AuthService.html">apps/FlowerApp/src/app/shared/services/auth.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>AuthService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/8)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/ProductService.html">apps/FlowerApp/src/app/shared/services/product.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>ProductService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/SharedDataService.html">apps/FlowerApp/src/app/shared/services/shared-data.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>SharedDataService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/ToastService.html">apps/FlowerApp/src/app/shared/services/toast.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>ToastService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/13)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#Theme">apps/FlowerApp/src/app/shared/types/theme.type.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>Theme</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#environment">apps/FlowerApp/src/environments/environment.development.ts</a>
+            </td>
+            <td>variable</td>
+            <td>environment</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#environment">apps/FlowerApp/src/environments/environment.ts</a>
+            </td>
+            <td>variable</td>
+            <td>environment</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#bootstrap">apps/FlowerApp/src/main.server.ts</a>
+            </td>
+            <td>variable</td>
+            <td>bootstrap</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#angularApp">apps/FlowerApp/src/server.ts</a>
+            </td>
+            <td>variable</td>
+            <td>angularApp</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#app">apps/FlowerApp/src/server.ts</a>
+            </td>
+            <td>variable</td>
+            <td>app</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#browserDistFolder">apps/FlowerApp/src/server.ts</a>
+            </td>
+            <td>variable</td>
+            <td>browserDistFolder</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#reqHandler">apps/FlowerApp/src/server.ts</a>
+            </td>
+            <td>variable</td>
+            <td>reqHandler</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#serverDistFolder">apps/FlowerApp/src/server.ts</a>
+            </td>
+            <td>variable</td>
+            <td>serverDistFolder</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/AuthLoginApiAdapter.html">auth-api/src/lib/auth-api/adapter/auth-login-api-adapter.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>AuthLoginApiAdapter</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/AuthRegisterAdapterer.html">auth-api/src/lib/auth-api/adapter/auth-register.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>AuthRegisterAdapterer</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/ForgetPasswordAdapter.html">auth-api/src/lib/auth-api/adapter/forget-password.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>ForgetPasswordAdapter</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/LogoutAdapter.html">auth-api/src/lib/auth-api/adapter/logout.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>LogoutAdapter</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/ResetPasswordAdapter.html">auth-api/src/lib/auth-api/adapter/reset-password.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>ResetPasswordAdapter</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/VerifyCodeAdapter.html">auth-api/src/lib/auth-api/adapter/verify-code.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>VerifyCodeAdapter</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/AuthApiService.html">auth-api/src/lib/auth-api/auth-api.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>AuthApiService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/9)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#BASEURL">auth-api/src/lib/auth-api/base-url-injection.ts</a>
+            </td>
+            <td>variable</td>
+            <td>BASEURL</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/AuthApiInterface.html">auth-api/src/lib/auth-api/base/authApi.ts</a>
+            </td>
+            <td>interface</td>
+            <td>AuthApiInterface</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/7)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/AuthEndPoints.html">auth-api/src/lib/auth-api/enums/AuthApi.endpoint.ts</a>
+            </td>
+            <td>class</td>
+            <td>AuthEndPoints</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/11)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Adapter.html">auth-api/src/lib/auth-api/interfaces/adapter.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Adapter</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/ErrorMessage.html">auth-api/src/lib/auth-api/interfaces/error.interface.ts</a>
+            </td>
+            <td>interface</td>
+            <td>ErrorMessage</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/ErrorResponseDTO.html">auth-api/src/lib/auth-api/interfaces/error.interface.ts</a>
+            </td>
+            <td>interface</td>
+            <td>ErrorResponseDTO</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/ForgetPasswordDTO.html">auth-api/src/lib/auth-api/interfaces/forgetPassword.dto.ts</a>
+            </td>
+            <td>interface</td>
+            <td>ForgetPasswordDTO</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/ForgetPasswordAdapterRes.html">auth-api/src/lib/auth-api/interfaces/forgetPasswordRes.dto.ts</a>
+            </td>
+            <td>interface</td>
+            <td>ForgetPasswordAdapterRes</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/ForgetPasswordResponseDTO.html">auth-api/src/lib/auth-api/interfaces/forgetPasswordRes.dto.ts</a>
+            </td>
+            <td>interface</td>
+            <td>ForgetPasswordResponseDTO</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/LoginDTO.html">auth-api/src/lib/auth-api/interfaces/login.dto.ts</a>
+            </td>
+            <td>interface</td>
+            <td>LoginDTO</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/LoginAdapterRes.html">auth-api/src/lib/auth-api/interfaces/loginRes.dto.ts</a>
+            </td>
+            <td>interface</td>
+            <td>LoginAdapterRes</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/LoginResponseDTO.html">auth-api/src/lib/auth-api/interfaces/loginRes.dto.ts</a>
+            </td>
+            <td>interface</td>
+            <td>LoginResponseDTO</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/UserDTO.html">auth-api/src/lib/auth-api/interfaces/loginRes.dto.ts</a>
+            </td>
+            <td>interface</td>
+            <td>UserDTO</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/14)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/LogoutAdapterRes.html">auth-api/src/lib/auth-api/interfaces/logoutRes.dto.ts</a>
+            </td>
+            <td>interface</td>
+            <td>LogoutAdapterRes</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/LogoutResponseDTO.html">auth-api/src/lib/auth-api/interfaces/logoutRes.dto.ts</a>
+            </td>
+            <td>interface</td>
+            <td>LogoutResponseDTO</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/RegisterDTO.html">auth-api/src/lib/auth-api/interfaces/register.dto.ts</a>
+            </td>
+            <td>interface</td>
+            <td>RegisterDTO</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/8)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/RegisterAdapterRes.html">auth-api/src/lib/auth-api/interfaces/registerRes.dto.ts</a>
+            </td>
+            <td>interface</td>
+            <td>RegisterAdapterRes</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/RegisterResponseDTO.html">auth-api/src/lib/auth-api/interfaces/registerRes.dto.ts</a>
+            </td>
+            <td>interface</td>
+            <td>RegisterResponseDTO</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/ResetPasswordDTO.html">auth-api/src/lib/auth-api/interfaces/resetPassword.dto.ts</a>
+            </td>
+            <td>interface</td>
+            <td>ResetPasswordDTO</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/ResetPasswordAdapterRes.html">auth-api/src/lib/auth-api/interfaces/resetPasswordRes.dto.ts</a>
+            </td>
+            <td>interface</td>
+            <td>ResetPasswordAdapterRes</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/ResetPasswordResponseDTO.html">auth-api/src/lib/auth-api/interfaces/resetPasswordRes.dto.ts</a>
+            </td>
+            <td>interface</td>
+            <td>ResetPasswordResponseDTO</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/VerifyCodeAdapterRes.html">auth-api/src/lib/auth-api/interfaces/verifuCodeRes.dto.ts</a>
+            </td>
+            <td>interface</td>
+            <td>VerifyCodeAdapterRes</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/VerifyCodeResponseDTO.html">auth-api/src/lib/auth-api/interfaces/verifuCodeRes.dto.ts</a>
+            </td>
+            <td>interface</td>
+            <td>VerifyCodeResponseDTO</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/VerifyCodeDTO.html">auth-api/src/lib/auth-api/interfaces/verifyCode.dto.ts</a>
+            </td>
+            <td>interface</td>
+            <td>VerifyCodeDTO</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<script src="js/libs/tablesort.min.js"></script>
+<script src="js/libs/tablesort.number.min.js"></script>
+<script>
+    new Tablesort(document.getElementById('coverage-table'));
+</script>
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'coverage';
+            var COMPODOC_CURRENT_PAGE_URL = 'coverage.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="./js/libs/custom-elements.min.js"></script>
+       <script src="./js/libs/lit-html.js"></script>
+
+       <script src="./js/menu-wc.js" defer></script>
+       <script nomodule src="./js/menu-wc_es5.js" defer></script>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script src="./js/tabs.js"></script>
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/clipboard.min.js"></script>
+       <script src="./js/libs/prism.js"></script>
+       <script src="./js/sourceCode.js"></script>
+          <script src="./js/search/search.js"></script>
+          <script src="./js/search/lunr.min.js"></script>
+          <script src="./js/search/search-lunr.js"></script>
+          <script src="./js/search/search_index.js"></script>
+       <script src="./js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

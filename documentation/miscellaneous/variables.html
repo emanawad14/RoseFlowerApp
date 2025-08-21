@@ -1,0 +1,2735 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>@rose-flower/source documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">@rose-flower/source documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content miscellaneous-variables">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Miscellaneous</li>
+  <li class="breadcrumb-item">Variables</li>
+</ol>
+
+<section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <ul class="index-list">
+                        <li>
+                            <a href="#addProducts" title="apps/FlowerApp/src/app/Store/actions/products.action.ts" ><b>addProducts</b>&nbsp;&nbsp;&nbsp;(apps/.../products.action.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#addProductsFail" title="apps/FlowerApp/src/app/Store/actions/products.action.ts" ><b>addProductsFail</b>&nbsp;&nbsp;&nbsp;(apps/.../products.action.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#addProductsSuccess" title="apps/FlowerApp/src/app/Store/actions/products.action.ts" ><b>addProductsSuccess</b>&nbsp;&nbsp;&nbsp;(apps/.../products.action.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#addProductToCartEffect" title="apps/FlowerApp/src/app/features/pages/cart/store/effects.ts" ><b>addProductToCartEffect</b>&nbsp;&nbsp;&nbsp;(apps/.../effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#addProductToCartFailureDisplayMsg" title="apps/FlowerApp/src/app/features/pages/cart/store/effects.ts" ><b>addProductToCartFailureDisplayMsg</b>&nbsp;&nbsp;&nbsp;(apps/.../effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#addProductToCartSuccessDisplayMsg" title="apps/FlowerApp/src/app/features/pages/cart/store/effects.ts" ><b>addProductToCartSuccessDisplayMsg</b>&nbsp;&nbsp;&nbsp;(apps/.../effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#addressActions" title="apps/FlowerApp/src/app/features/pages/address/store/actions.ts" ><b>addressActions</b>&nbsp;&nbsp;&nbsp;(apps/.../actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#addressFeature" title="apps/FlowerApp/src/app/features/pages/address/store/reducers.ts" ><b>addressFeature</b>&nbsp;&nbsp;&nbsp;(apps/.../reducers.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#addTokenInterceptor" title="apps/FlowerApp/src/app/core/interceptors/add-token.interceptor.ts" ><b>addTokenInterceptor</b>&nbsp;&nbsp;&nbsp;(apps/.../add-token.interceptor.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#angularApp" title="apps/FlowerApp/src/server.ts" ><b>angularApp</b>&nbsp;&nbsp;&nbsp;(apps/.../server.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#app" title="apps/FlowerApp/src/server.ts" ><b>app</b>&nbsp;&nbsp;&nbsp;(apps/.../server.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#appConfig" title="apps/FlowerApp/src/app/app.config.ts" ><b>appConfig</b>&nbsp;&nbsp;&nbsp;(apps/.../app.config.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#appInit" title="apps/FlowerApp/src/app/core/utills/app.utills.ts" ><b>appInit</b>&nbsp;&nbsp;&nbsp;(apps/.../app.utills.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#appRoutes" title="apps/FlowerApp/src/app/app.routes.ts" ><b>appRoutes</b>&nbsp;&nbsp;&nbsp;(apps/.../app.routes.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#authGuard" title="apps/FlowerApp/src/app/core/guards/auth.guard.ts" ><b>authGuard</b>&nbsp;&nbsp;&nbsp;(apps/.../auth.guard.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#baseUrl" title="apps/FlowerApp/src/app/core/environments/baseUrl.ts" ><b>baseUrl</b>&nbsp;&nbsp;&nbsp;(apps/.../baseUrl.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#baseURL" title="apps/FlowerApp-e2e/playwright.config.ts" ><b>baseURL</b>&nbsp;&nbsp;&nbsp;(apps/.../playwright.config.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#BASEURL" title="auth-api/src/lib/auth-api/base-url-injection.ts" ><b>BASEURL</b>&nbsp;&nbsp;&nbsp;(auth-api/.../base-url-injection.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#bootstrap" title="apps/FlowerApp/src/main.server.ts" ><b>bootstrap</b>&nbsp;&nbsp;&nbsp;(apps/.../main.server.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#browserDistFolder" title="apps/FlowerApp/src/server.ts" ><b>browserDistFolder</b>&nbsp;&nbsp;&nbsp;(apps/.../server.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#cartActions" title="apps/FlowerApp/src/app/features/pages/cart/store/actions.ts" ><b>cartActions</b>&nbsp;&nbsp;&nbsp;(apps/.../actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#cartFeature" title="apps/FlowerApp/src/app/features/pages/cart/store/reducers.ts" ><b>cartFeature</b>&nbsp;&nbsp;&nbsp;(apps/.../reducers.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#config" title="apps/FlowerApp/src/app/app.config.server.ts" ><b>config</b>&nbsp;&nbsp;&nbsp;(apps/.../app.config.server.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#deleteAddress" title="apps/FlowerApp/src/app/features/pages/address/store/effects.ts" ><b>deleteAddress</b>&nbsp;&nbsp;&nbsp;(apps/.../effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#deleteCartEffect" title="apps/FlowerApp/src/app/features/pages/cart/store/effects.ts" ><b>deleteCartEffect</b>&nbsp;&nbsp;&nbsp;(apps/.../effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#deleteProductFromCartEffect" title="apps/FlowerApp/src/app/features/pages/cart/store/effects.ts" ><b>deleteProductFromCartEffect</b>&nbsp;&nbsp;&nbsp;(apps/.../effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#deleteProducts" title="apps/FlowerApp/src/app/Store/actions/products.action.ts" ><b>deleteProducts</b>&nbsp;&nbsp;&nbsp;(apps/.../products.action.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#deleteProductsFail" title="apps/FlowerApp/src/app/Store/actions/products.action.ts" ><b>deleteProductsFail</b>&nbsp;&nbsp;&nbsp;(apps/.../products.action.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#deleteProductsSuccess" title="apps/FlowerApp/src/app/Store/actions/products.action.ts" ><b>deleteProductsSuccess</b>&nbsp;&nbsp;&nbsp;(apps/.../products.action.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#editProducts" title="apps/FlowerApp/src/app/Store/actions/products.action.ts" ><b>editProducts</b>&nbsp;&nbsp;&nbsp;(apps/.../products.action.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#editProductsFail" title="apps/FlowerApp/src/app/Store/actions/products.action.ts" ><b>editProductsFail</b>&nbsp;&nbsp;&nbsp;(apps/.../products.action.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#editProductsSuccess" title="apps/FlowerApp/src/app/Store/actions/products.action.ts" ><b>editProductsSuccess</b>&nbsp;&nbsp;&nbsp;(apps/.../products.action.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#emptyAction" title="apps/FlowerApp/src/app/Store/actions/App.actions.ts" ><b>emptyAction</b>&nbsp;&nbsp;&nbsp;(apps/.../App.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#environment" title="apps/FlowerApp/src/environments/environment.development.ts" ><b>environment</b>&nbsp;&nbsp;&nbsp;(apps/.../environment.development.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#environment" title="apps/FlowerApp/src/environments/environment.ts" ><b>environment</b>&nbsp;&nbsp;&nbsp;(apps/.../environment.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#environment" title="apps/FlowerApp/src/app/shared/environments/enviroment.ts" ><b>environment</b>&nbsp;&nbsp;&nbsp;(apps/.../enviroment.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getAllAddresses" title="apps/FlowerApp/src/app/features/pages/address/store/effects.ts" ><b>getAllAddresses</b>&nbsp;&nbsp;&nbsp;(apps/.../effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getErrorMsg" title="apps/FlowerApp/src/app/Store/selectors/products.selectors.ts" ><b>getErrorMsg</b>&nbsp;&nbsp;&nbsp;(apps/.../products.selectors.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getLoggedUserCartEffect" title="apps/FlowerApp/src/app/features/pages/cart/store/effects.ts" ><b>getLoggedUserCartEffect</b>&nbsp;&nbsp;&nbsp;(apps/.../effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getProducts" title="apps/FlowerApp/src/app/Store/selectors/products.selectors.ts" ><b>getProducts</b>&nbsp;&nbsp;&nbsp;(apps/.../products.selectors.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getProductsList" title="apps/FlowerApp/src/app/Store/selectors/products.selectors.ts" ><b>getProductsList</b>&nbsp;&nbsp;&nbsp;(apps/.../products.selectors.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getProductsState" title="apps/FlowerApp/src/app/Store/selectors/products.selectors.ts" ><b>getProductsState</b>&nbsp;&nbsp;&nbsp;(apps/.../products.selectors.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#initialAddressState" title="apps/FlowerApp/src/app/features/pages/address/store/reducers.ts" ><b>initialAddressState</b>&nbsp;&nbsp;&nbsp;(apps/.../reducers.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#initialDialogState" title="apps/FlowerApp/src/app/features/pages/address/store/reducers.ts" ><b>initialDialogState</b>&nbsp;&nbsp;&nbsp;(apps/.../reducers.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#initialState" title="apps/FlowerApp/src/app/Store/state/products.state.ts" ><b>initialState</b>&nbsp;&nbsp;&nbsp;(apps/.../products.state.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#initialState" title="apps/FlowerApp/src/app/features/pages/address/store/reducers.ts" ><b>initialState</b>&nbsp;&nbsp;&nbsp;(apps/.../reducers.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#initialState" title="apps/FlowerApp/src/app/features/pages/cart/store/reducers.ts" ><b>initialState</b>&nbsp;&nbsp;&nbsp;(apps/.../reducers.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#initialViewState" title="apps/FlowerApp/src/app/features/pages/cart/store/reducers.ts" ><b>initialViewState</b>&nbsp;&nbsp;&nbsp;(apps/.../reducers.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#loadProducts" title="apps/FlowerApp/src/app/Store/actions/products.action.ts" ><b>loadProducts</b>&nbsp;&nbsp;&nbsp;(apps/.../products.action.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#loadProductsFail" title="apps/FlowerApp/src/app/Store/actions/products.action.ts" ><b>loadProductsFail</b>&nbsp;&nbsp;&nbsp;(apps/.../products.action.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#loadProductsSuccess" title="apps/FlowerApp/src/app/Store/actions/products.action.ts" ><b>loadProductsSuccess</b>&nbsp;&nbsp;&nbsp;(apps/.../products.action.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#loginBlockGuard" title="apps/FlowerApp/src/app/core/guards/login-block.guard.ts" ><b>loginBlockGuard</b>&nbsp;&nbsp;&nbsp;(apps/.../login-block.guard.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ProductsAdapter" title="apps/FlowerApp/src/app/Store/state/products.state.ts" ><b>ProductsAdapter</b>&nbsp;&nbsp;&nbsp;(apps/.../products.state.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ProductsReducer" title="apps/FlowerApp/src/app/Store/reducers/products.reducer.ts" ><b>ProductsReducer</b>&nbsp;&nbsp;&nbsp;(apps/.../products.reducer.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ProductsSelector" title="apps/FlowerApp/src/app/Store/selectors/products.selectors.ts" ><b>ProductsSelector</b>&nbsp;&nbsp;&nbsp;(apps/.../products.selectors.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#reqHandler" title="apps/FlowerApp/src/server.ts" ><b>reqHandler</b>&nbsp;&nbsp;&nbsp;(apps/.../server.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#selectAddressReducer" title="apps/FlowerApp/src/app/features/pages/address/store/reducers.ts" ><b>selectAddressReducer</b>&nbsp;&nbsp;&nbsp;(apps/.../reducers.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#selectCurrentDialogView" title="apps/FlowerApp/src/app/features/pages/address/store/selectors.ts" ><b>selectCurrentDialogView</b>&nbsp;&nbsp;&nbsp;(apps/.../selectors.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#selectCurrentView" title="apps/FlowerApp/src/app/features/pages/address/store/selectors.ts" ><b>selectCurrentView</b>&nbsp;&nbsp;&nbsp;(apps/.../selectors.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#selectCurrentView" title="apps/FlowerApp/src/app/features/pages/cart/store/selectors.ts" ><b>selectCurrentView</b>&nbsp;&nbsp;&nbsp;(apps/.../selectors.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#SelectedAddress" title="apps/FlowerApp/src/app/features/pages/address/store/selectors.ts" ><b>SelectedAddress</b>&nbsp;&nbsp;&nbsp;(apps/.../selectors.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#selectEntities" title="apps/FlowerApp/src/app/Store/selectors/products.selectors.ts" ><b>selectEntities</b>&nbsp;&nbsp;&nbsp;(apps/.../products.selectors.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#selectSelectedAddress" title="apps/FlowerApp/src/app/features/pages/address/store/selectors.ts" ><b>selectSelectedAddress</b>&nbsp;&nbsp;&nbsp;(apps/.../selectors.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#selectViewState" title="apps/FlowerApp/src/app/features/pages/cart/store/selectors.ts" ><b>selectViewState</b>&nbsp;&nbsp;&nbsp;(apps/.../selectors.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#serverConfig" title="apps/FlowerApp/src/app/app.config.server.ts" ><b>serverConfig</b>&nbsp;&nbsp;&nbsp;(apps/.../app.config.server.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#serverDistFolder" title="apps/FlowerApp/src/server.ts" ><b>serverDistFolder</b>&nbsp;&nbsp;&nbsp;(apps/.../server.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#serverRoutes" title="apps/FlowerApp/src/app/app.routes.server.ts" ><b>serverRoutes</b>&nbsp;&nbsp;&nbsp;(apps/.../app.routes.server.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#showAlert" title="apps/FlowerApp/src/app/Store/actions/App.actions.ts" ><b>showAlert</b>&nbsp;&nbsp;&nbsp;(apps/.../App.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#switchView" title="apps/FlowerApp/src/app/features/pages/cart/store/actions.ts" ><b>switchView</b>&nbsp;&nbsp;&nbsp;(apps/.../actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#" title="apps/FlowerApp/src/app/features/pages/address/store/reducers.ts" ><b></b>&nbsp;&nbsp;&nbsp;(apps/.../reducers.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#updateProductQuantityEffect" title="apps/FlowerApp/src/app/features/pages/cart/store/effects.ts" ><b>updateProductQuantityEffect</b>&nbsp;&nbsp;&nbsp;(apps/.../effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#viewCartReducer" title="apps/FlowerApp/src/app/features/pages/cart/store/reducers.ts" ><b>viewCartReducer</b>&nbsp;&nbsp;&nbsp;(apps/.../reducers.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#viewDialogReducer" title="apps/FlowerApp/src/app/features/pages/address/store/reducers.ts" ><b>viewDialogReducer</b>&nbsp;&nbsp;&nbsp;(apps/.../reducers.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#" title="apps/FlowerApp/src/app/features/pages/cart/store/reducers.ts" ><b></b>&nbsp;&nbsp;&nbsp;(apps/.../reducers.ts)</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    <h3>apps/FlowerApp/src/app/Store/actions/products.action.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addProducts"></a>
+                    <span class="name">
+                        <span ><b>addProducts</b></span>
+                        <a href="#addProducts"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(&quot;[Products page] Add Products&quot;, props&lt;{inputData: ProductResponse}&gt;())</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addProductsFail"></a>
+                    <span class="name">
+                        <span ><b>addProductsFail</b></span>
+                        <a href="#addProductsFail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(&quot;[Products page] Add Products Fail&quot;, props&lt;{errorMsg: string}&gt;())</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addProductsSuccess"></a>
+                    <span class="name">
+                        <span ><b>addProductsSuccess</b></span>
+                        <a href="#addProductsSuccess"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(&quot;[Products page] Add Products Success&quot;, props&lt;{inputData: ProductResponse}&gt;())</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteProducts"></a>
+                    <span class="name">
+                        <span ><b>deleteProducts</b></span>
+                        <a href="#deleteProducts"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(&quot;[Products page] Delete Products&quot;, props&lt;{ id: number}&gt;())</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteProductsFail"></a>
+                    <span class="name">
+                        <span ><b>deleteProductsFail</b></span>
+                        <a href="#deleteProductsFail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(&quot;[Products page] Delete Products Fail&quot;, props&lt;{errorMsg: string}&gt;())</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteProductsSuccess"></a>
+                    <span class="name">
+                        <span ><b>deleteProductsSuccess</b></span>
+                        <a href="#deleteProductsSuccess"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(&quot;[Products page] Delete Products Success&quot;, props&lt;{inputData: ProductResponse, id: number}&gt;())</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editProducts"></a>
+                    <span class="name">
+                        <span ><b>editProducts</b></span>
+                        <a href="#editProducts"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(&quot;[Products page] Edit Products&quot;, props&lt;{inputData: ProductResponse, id: number}&gt;())</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editProductsFail"></a>
+                    <span class="name">
+                        <span ><b>editProductsFail</b></span>
+                        <a href="#editProductsFail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(&quot;[Products page] Edit Products Fail&quot;, props&lt;{errorMsg: string}&gt;())</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editProductsSuccess"></a>
+                    <span class="name">
+                        <span ><b>editProductsSuccess</b></span>
+                        <a href="#editProductsSuccess"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(&quot;[Products page] Edit Products Success&quot;, props&lt;{inputData: ProductResponse, id: number}&gt;())</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadProducts"></a>
+                    <span class="name">
+                        <span ><b>loadProducts</b></span>
+                        <a href="#loadProducts"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(&quot;[Products page] load Products&quot;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadProductsFail"></a>
+                    <span class="name">
+                        <span ><b>loadProductsFail</b></span>
+                        <a href="#loadProductsFail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(&quot;[Products page] load Products Fail&quot;, props&lt;{errorMsg: string}&gt;())</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadProductsSuccess"></a>
+                    <span class="name">
+                        <span ><b>loadProductsSuccess</b></span>
+                        <a href="#loadProductsSuccess"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(&quot;[Products page] load Products Success&quot;, props&lt;{list: ProductResponse}&gt;())</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/FlowerApp/src/app/features/pages/cart/store/effects.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addProductToCartEffect"></a>
+                    <span class="name">
+                        <span ><b>addProductToCartEffect</b></span>
+                        <a href="#addProductToCartEffect"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+  (actions$ &#x3D; inject(Actions), cartService &#x3D; inject(CartService)) &#x3D;&gt; {
+    return actions$.pipe(
+      ofType(cartActions[&#x27;addProductToCart&#x27;]),
+      switchMap(({ product, quantity }) &#x3D;&gt; {
+        return cartService.addProductToCart({ product, quantity }).pipe(
+          map((addProductResponse: AddToCartResponseDTO) &#x3D;&gt; {
+            return cartActions[&#x27;addProductsInCartSuccess&#x27;](addProductResponse);
+          }),
+          catchError(({ error }) &#x3D;&gt; {
+            return of(
+              cartActions[&#x27;addProductsInCartFailure&#x27;]({ error: error })
+            );
+          })
+        );
+      })
+    );
+  },
+  { functional: true }
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addProductToCartFailureDisplayMsg"></a>
+                    <span class="name">
+                        <span ><b>addProductToCartFailureDisplayMsg</b></span>
+                        <a href="#addProductToCartFailureDisplayMsg"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+  (actions$ &#x3D; inject(Actions), toastService &#x3D; inject(ToastService)) &#x3D;&gt;
+    actions$.pipe(
+      ofType(
+        cartActions.addProductsInCartFailure,
+        cartActions.deleteCartFailure,
+        cartActions.deleteProductFromCartFailure,
+        cartActions.getProductsInCartFailure,
+        cartActions.updateProductQuantityFailure
+      ),
+      tap(({ error }) &#x3D;&gt; {
+        // console.log(error);
+
+        toastService.showError(error.error);
+      })
+    ),
+  { functional: true, dispatch: false }
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addProductToCartSuccessDisplayMsg"></a>
+                    <span class="name">
+                        <span ><b>addProductToCartSuccessDisplayMsg</b></span>
+                        <a href="#addProductToCartSuccessDisplayMsg"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+  (actions$ &#x3D; inject(Actions), toastService &#x3D; inject(ToastService)) &#x3D;&gt;
+    actions$.pipe(
+      ofType(cartActions[&#x27;addProductsInCartSuccess&#x27;]),
+      tap(() &#x3D;&gt; {
+        toastService.showSuccess(&#x27;Product added to cart&#x27;);
+      })
+    ),
+  { functional: true, dispatch: false }
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteCartEffect"></a>
+                    <span class="name">
+                        <span ><b>deleteCartEffect</b></span>
+                        <a href="#deleteCartEffect"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+  (actions$ &#x3D; inject(Actions), cartService &#x3D; inject(CartService)) &#x3D;&gt; {
+    return actions$.pipe(
+      ofType(cartActions.deleteCart),
+      switchMap(() &#x3D;&gt; {
+        return cartService.deleteCart().pipe(
+          map((deleteCartResponse: deleteCartResponseDTO) &#x3D;&gt; {
+            return cartActions[&#x27;deleteCartSuccess&#x27;](deleteCartResponse);
+          }),
+          catchError(({ error }) &#x3D;&gt; {
+            return of(cartActions[&#x27;deleteCartFailure&#x27;]({ error }));
+          })
+        );
+      })
+    );
+  },
+  { functional: true }
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteProductFromCartEffect"></a>
+                    <span class="name">
+                        <span ><b>deleteProductFromCartEffect</b></span>
+                        <a href="#deleteProductFromCartEffect"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+  (actions$ &#x3D; inject(Actions), cartService &#x3D; inject(CartService)) &#x3D;&gt; {
+    return actions$.pipe(
+      ofType(cartActions.deleteProductFromCart),
+      switchMap(({ product }) &#x3D;&gt; {
+        return cartService.deleteSpecificProduct(product).pipe(
+          map((deleteProductResponse: AddToCartResponseDTO) &#x3D;&gt; {
+            return cartActions[&#x27;deleteProductFromCartSuccess&#x27;](
+              deleteProductResponse
+            );
+          }),
+          catchError(({ error }) &#x3D;&gt; {
+            return of(cartActions[&#x27;deleteProductFromCartFailure&#x27;]({ error }));
+          })
+        );
+      })
+    );
+  },
+  { functional: true }
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getLoggedUserCartEffect"></a>
+                    <span class="name">
+                        <span ><b>getLoggedUserCartEffect</b></span>
+                        <a href="#getLoggedUserCartEffect"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+  (actions$ &#x3D; inject(Actions), cartService &#x3D; inject(CartService)) &#x3D;&gt; {
+    return actions$.pipe(
+      ofType(cartActions[&#x27;getLoggedUserCart&#x27;]),
+      switchMap(() &#x3D;&gt; {
+        return cartService.getLoggedUserCart().pipe(
+          map((loggedUserREsponse: AddToCartResponseDTO) &#x3D;&gt; {
+            return cartActions[&#x27;getProductsInCartSuccess&#x27;](loggedUserREsponse);
+          }),
+          catchError(({ error }) &#x3D;&gt; {
+            return of(cartActions[&#x27;getProductsInCartFailure&#x27;]({ error }));
+          })
+        );
+      })
+    );
+  },
+  { functional: true }
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateProductQuantityEffect"></a>
+                    <span class="name">
+                        <span ><b>updateProductQuantityEffect</b></span>
+                        <a href="#updateProductQuantityEffect"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+  (actions$ &#x3D; inject(Actions), cartService &#x3D; inject(CartService)) &#x3D;&gt; {
+    return actions$.pipe(
+      ofType(cartActions.updateProductQuantityFromCart),
+      switchMap(({ product, quantity }) &#x3D;&gt; {
+        return cartService
+          .updateSpecificCartQuantity({ product, quantity })
+          .pipe(
+            map((updateQuantityResponse: AddToCartResponseDTO) &#x3D;&gt; {
+              return cartActions[&#x27;updateProductQuantitySuccess&#x27;](
+                updateQuantityResponse
+              );
+            }),
+            catchError(({ error }) &#x3D;&gt; {
+              return of(cartActions[&#x27;updateProductQuantityFailure&#x27;]({ error }));
+            })
+          );
+      })
+    );
+  },
+  { functional: true }
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/FlowerApp/src/app/features/pages/address/store/actions.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addressActions"></a>
+                    <span class="name">
+                        <span ><b>addressActions</b></span>
+                        <a href="#addressActions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createActionGroup({
+  source: &#x27;address&#x27;,
+  events: {
+    //Get
+    &#x27;Get Logged User Address&#x27;: emptyProps(),
+    &#x27;Get Address success&#x27;: props&lt;AddressResponceInterface&gt;(),
+    &#x27;Get Address failure&#x27;: props&lt;{ error: ErrorResponseInterface }&gt;(),
+    //add
+    addAddress: props&lt;Address&gt;(),
+    &#x27;Add Address success&#x27;: props&lt;AddressResponceInterface&gt;(),
+    &#x27;Add Address failure&#x27;: props&lt;{ error: ErrorResponseInterface }&gt;(),
+    //Delete specific product
+
+    deleteAddress: props&lt;{ addressId: string }&gt;(),
+    &#x27;delete Address success &#x27;: props&lt;AddressResponceInterface&gt;(),
+    &#x27;delete Address failure &#x27;: props&lt;{ error: ErrorResponseInterface }&gt;(),
+
+    //update quantity specific product
+    updateAddress: props&lt;Address&gt;(),
+    &#x27;update Address success &#x27;: props&lt;AddressResponceInterface&gt;(),
+    &#x27;update Address failure &#x27;: props&lt;{
+      error: ErrorResponseInterface;
+    }&gt;(),
+
+    openDialogComponent: props&lt;{ view: DialogViewEnum }&gt;(),
+    selectAddress: props&lt;{ selectedAddress: Address }&gt;()
+  },
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/FlowerApp/src/app/features/pages/address/store/reducers.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addressFeature"></a>
+                    <span class="name">
+                        <span ><b>addressFeature</b></span>
+                        <a href="#addressFeature"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createFeature({
+  name: &#x27;address&#x27;,
+  reducer: createReducer(
+    initialState,
+    ///Get address
+    on(addressActions.getLoggedUserAddress, (state) &#x3D;&gt; ({
+      ...state,
+      isLoading: true,
+    })),
+    on(addressActions.getAddressSuccess, (state, action) &#x3D;&gt; ({
+      ...state,
+      isLoading: false,
+      data: action.addresses,
+    })),
+    on(addressActions.getAddressFailure, (state, action) &#x3D;&gt; ({
+      ...state,
+      isLoading: false,
+      error: action.error,
+    })),
+    //delete
+    on(addressActions.deleteAddress, (state) &#x3D;&gt; ({
+      ...state,
+      isLoading: true,
+    })),
+    on(addressActions.deleteAddressSuccess, (state, action) &#x3D;&gt; ({
+      ...state,
+      isLoading: false,
+      data: action.address,
+    })),
+    on(addressActions.deleteAddressFailure, (state, action) &#x3D;&gt; ({
+      ...state,
+      isLoading: false,
+      error: action.error,
+    }))
+  ),
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initialAddressState"></a>
+                    <span class="name">
+                        <span ><b>initialAddressState</b></span>
+                        <a href="#initialAddressState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/AddressState.html" target="_self" >AddressState</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  selectedAddress: null,
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initialDialogState"></a>
+                    <span class="name">
+                        <span ><b>initialDialogState</b></span>
+                        <a href="#initialDialogState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ViewDialogState.html" target="_self" >ViewDialogState</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  currentView: DialogViewEnum.getAddresses,
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initialState"></a>
+                    <span class="name">
+                        <span ><b>initialState</b></span>
+                        <a href="#initialState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/AddressStateInterface.html" target="_self" >AddressStateInterface</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  isLoading: false,
+  error: null,
+  data: null,
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectAddressReducer"></a>
+                    <span class="name">
+                        <span ><b>selectAddressReducer</b></span>
+                        <a href="#selectAddressReducer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createReducer(
+  initialAddressState,
+  on(addressActions.selectAddress, (state, { selectedAddress }) &#x3D;&gt; ({
+    ...state,
+    selectedAddress,
+  }))
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name=""></a>
+                    <span class="name">
+                        <span ><b></b></span>
+                        <a href="#"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>addressFeature</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="viewDialogReducer"></a>
+                    <span class="name">
+                        <span ><b>viewDialogReducer</b></span>
+                        <a href="#viewDialogReducer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createReducer(
+  initialDialogState,
+  on(addressActions.openDialogComponent, (state, { view }) &#x3D;&gt; ({
+    ...state,
+    currentView: view,
+  }))
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/FlowerApp/src/app/core/interceptors/add-token.interceptor.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addTokenInterceptor"></a>
+                    <span class="name">
+                        <span ><b>addTokenInterceptor</b></span>
+                        <a href="#addTokenInterceptor"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>HttpInterceptorFn</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(request, next) &#x3D;&gt; {
+  const _TokenService &#x3D; inject(TokenService);
+  const token &#x3D; _TokenService.getToken();
+
+  request &#x3D; request.clone({
+    setHeaders: {
+      Authorization: token ? &#x60;Bearer ${token}&#x60; : &#x27;&#x27;,
+    },
+  });
+
+  return next(request);
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/FlowerApp/src/server.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="angularApp"></a>
+                    <span class="name">
+                        <span ><b>angularApp</b></span>
+                        <a href="#angularApp"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new AngularNodeAppEngine()</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="app"></a>
+                    <span class="name">
+                        <span ><b>app</b></span>
+                        <a href="#app"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>express()</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="browserDistFolder"></a>
+                    <span class="name">
+                        <span ><b>browserDistFolder</b></span>
+                        <a href="#browserDistFolder"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>resolve(serverDistFolder, &#x27;../browser&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="reqHandler"></a>
+                    <span class="name">
+                        <span ><b>reqHandler</b></span>
+                        <a href="#reqHandler"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createNodeRequestHandler(app)</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Request handler used by the Angular CLI (for dev-server and during build) or Firebase Cloud Functions.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="serverDistFolder"></a>
+                    <span class="name">
+                        <span ><b>serverDistFolder</b></span>
+                        <a href="#serverDistFolder"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>dirname(fileURLToPath(import.meta.url))</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/FlowerApp/src/app/app.config.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="appConfig"></a>
+                    <span class="name">
+                        <span ><b>appConfig</b></span>
+                        <a href="#appConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ApplicationConfig</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  providers: [
+    MessageService,
+    ToastModule,
+    { provide: BASEURL, useValue: environment.baseUrl },
+    provideAppInitializer(() &#x3D;&gt; appInit()),
+    provideClientHydration(withEventReplay()),
+    importProvidersFrom(
+      TranslateModule.forRoot({
+        loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient],
+        },
+      })
+    ),
+    provideZoneChangeDetection({ eventCoalescing: true }),
+    provideHttpClient(withFetch(), withInterceptors([addTokenInterceptor])),
+    provideRouter(appRoutes),
+    provideAnimationsAsync(),
+    providePrimeNG({
+      theme: {
+        preset: Aura,
+        options: {
+          darkModeSelector: false,
+          darkTheme: false,
+        },
+      },
+    }),
+    provideStore({
+      Products: ProductsReducer,
+      //  selectedAddress: selectAddressReducer,
+    }),
+    provideState(cartFeatureKey, cartReducer),
+    provideState(addressFeatureKey, addressReducer),
+    provideState({ name: &#x27;viewCart&#x27;, reducer: viewCartReducer }),
+    provideState({ name: &#x27;viewDialog&#x27;, reducer: viewDialogReducer }),
+    provideState({ name: &#x27;selectedAddress&#x27;, reducer: selectAddressReducer }),
+    provideEffects([ProductsEffects, cartEffects, addressEffects]),
+    provideStoreDevtools({
+      maxAge: 25,
+      logOnly: !isDevMode(),
+      autoPause: true,
+      traceLimit: 75,
+      trace: true,
+    }),
+  ],
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/FlowerApp/src/app/core/utills/app.utills.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="appInit"></a>
+                    <span class="name">
+                        <span ><b>appInit</b></span>
+                        <a href="#appInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {
+  const themeManager &#x3D; inject(ThemeService);
+  return forkJoin([themeManager.initialTheme()]);
+
+  // return themeManager.forkJoin.initialTheme();
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/FlowerApp/src/app/app.routes.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="appRoutes"></a>
+                    <span class="name">
+                        <span ><b>appRoutes</b></span>
+                        <a href="#appRoutes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Route[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+  {
+    path: &#x27;&#x27;,
+    loadComponent: () &#x3D;&gt;
+      import(&#x27;./shared/components/ui/main-layout.component&#x27;).then(
+        (c) &#x3D;&gt; c.MainLayoutComponent
+      ),
+    children: [
+      { path: &#x27;&#x27;, redirectTo: &#x27;home&#x27;, pathMatch: &#x27;full&#x27; }, // default route
+      {
+        path: &#x27;product-details/:id&#x27;,
+        loadComponent: () &#x3D;&gt;
+          import(
+            &#x27;./features/pages/product-details/productDetail.component&#x27;
+          ).then((c) &#x3D;&gt; c.ProductDetailComponent),
+      },
+      {
+        path: &#x27;home&#x27;,
+        loadComponent: () &#x3D;&gt;
+          import(&#x27;./features/pages/home/home.component&#x27;).then(
+            (c) &#x3D;&gt; c.HomeComponent
+          ),
+      },
+      {
+        path: &#x27;profile&#x27;,
+        loadComponent: () &#x3D;&gt;
+          import(&#x27;./features/pages/profile/components/profile.component&#x27;).then(
+            (c) &#x3D;&gt; c.ProfileComponent
+          ),
+        canActivate: [authGuard],
+      },
+      {
+        path: &#x27;product-list&#x27;,
+        loadComponent: () &#x3D;&gt;
+          import(&#x27;./features/pages/product-list/productList.component&#x27;).then(
+            (c) &#x3D;&gt; c.ProductListComponent
+          ),
+      },
+      {
+        path: &#x27;cart&#x27;,
+        loadComponent: () &#x3D;&gt;
+          import(&#x27;./features/pages/cart/layouts/cartLayout.component&#x27;).then(
+            (c) &#x3D;&gt; c.CartLayoutComponent
+          ),
+        children: [
+          {
+            path: &#x27;&#x27;,
+            loadComponent: () &#x3D;&gt;
+              import(&#x27;./features/pages/cart/components/cart.component&#x27;).then(
+                (c) &#x3D;&gt; c.CartComponent
+              ),
+            canActivate: [authGuard],
+          }, // default route
+        ],
+      },
+    ],
+  },
+  {
+    path: &#x27;auth&#x27;,
+    loadComponent: () &#x3D;&gt;
+      import(&#x27;./shared/components/ui/auth-layout.component&#x27;).then(
+        (c) &#x3D;&gt; c.AuthLayoutComponent
+      ),
+    children: [
+      {
+        path: &#x27;login&#x27;,
+        loadComponent: () &#x3D;&gt;
+          import(&#x27;./features/pages/login/login.component&#x27;).then(
+            (e) &#x3D;&gt; e.LoginComponent
+          ),
+        canActivate: [loginBlockGuard],
+      },
+      // },
+      // {
+      //   path: &#x27;register&#x27;,
+      //   loadComponent: () &#x3D;&gt;
+      //     import(&#x27;./core/pages/register/register.component&#x27;).then(
+      //       (e) &#x3D;&gt; e.RegisterComponent
+      //     ),
+      // },
+      {
+        path: &#x27;forget-password&#x27;,
+        loadComponent: () &#x3D;&gt;
+          import(
+            &#x27;./features/pages/forget-password/forget-password.component&#x27;
+          ).then((e) &#x3D;&gt; e.ForgetPasswordComponent),
+      },
+    ],
+  },
+]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/FlowerApp/src/app/core/guards/auth.guard.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="authGuard"></a>
+                    <span class="name">
+                        <span ><b>authGuard</b></span>
+                        <a href="#authGuard"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>CanActivateFn</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(route, state) &#x3D;&gt; {
+  const _tokenService &#x3D; inject(TokenService);
+  const router &#x3D; inject(Router);
+  const token &#x3D; _tokenService.getToken();
+  ///not Auth user
+  if (!token) {
+    router.parseUrl(&#x27;/auth&#x27;);
+    return false;
+  }
+
+  return true;
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/FlowerApp/src/app/core/environments/baseUrl.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="baseUrl"></a>
+                    <span class="name">
+                        <span ><b>baseUrl</b></span>
+                        <a href="#baseUrl"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  basUrl: &#x27;https://flower.elevateegy.com/api/v1/&#x27;,
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/FlowerApp-e2e/playwright.config.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="baseURL"></a>
+                    <span class="name">
+                        <span ><b>baseURL</b></span>
+                        <a href="#baseURL"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>process.env[&#x27;BASE_URL&#x27;] || &#x27;http://localhost:4200&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>auth-api/src/lib/auth-api/base-url-injection.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="BASEURL"></a>
+                    <span class="name">
+                        <span ><b>BASEURL</b></span>
+                        <a href="#BASEURL"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;string&gt;(
+  &#x27;https://flower.elevateegy.com&#x27;
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/FlowerApp/src/main.server.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="bootstrap"></a>
+                    <span class="name">
+                        <span ><b>bootstrap</b></span>
+                        <a href="#bootstrap"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; bootstrapApplication(AppComponent, config)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/FlowerApp/src/app/features/pages/cart/store/actions.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cartActions"></a>
+                    <span class="name">
+                        <span ><b>cartActions</b></span>
+                        <a href="#cartActions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createActionGroup({
+  source: &#x27;cart&#x27;,
+  events: {
+    //Get
+    &#x27;Get Logged User Cart&#x27;: emptyProps(),
+    &#x27;Get products in cart success&#x27;: props&lt;AddToCartResponseDTO&gt;(),
+    &#x27;Get products in cart failure&#x27;: props&lt;{ error: ErrorResponseInterface }&gt;(),
+    //add
+    AddProductToCart: props&lt;AddToCartRequestInterface&gt;(),
+    &#x27;Add products in cart success&#x27;: props&lt;AddToCartResponseDTO&gt;(),
+    &#x27;Add products in cart failure&#x27;: props&lt;{ error: ErrorResponseInterface }&gt;(),
+    //Delete specific product
+
+    deleteProductFromCart: props&lt;{ product: string }&gt;(),
+    &#x27; delete Product From Cart success &#x27;: props&lt;AddToCartResponseDTO&gt;(),
+    &#x27; delete Product From Cart failure &#x27;: props&lt;{
+      error: ErrorResponseInterface;
+    }&gt;(),
+
+    //Delete cart
+    deleteCart: emptyProps(),
+    &#x27;delete Cart success &#x27;: props&lt;deleteCartResponseDTO&gt;(),
+    &#x27;delete Cart failure &#x27;: props&lt;{ error: ErrorResponseInterface }&gt;(),
+    //update quantity specific product
+    updateProductQuantityFromCart: props&lt;UpdateQuantityRequest&gt;(),
+    &#x27;update Product Quantity success &#x27;: props&lt;AddToCartResponseDTO&gt;(),
+    &#x27;update Product Quantity failure &#x27;: props&lt;{
+      error: ErrorResponseInterface;
+    }&gt;(),
+  },
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="switchView"></a>
+                    <span class="name">
+                        <span ><b>switchView</b></span>
+                        <a href="#switchView"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(
+  &#x27;[View] Switch&#x27;,
+  props&lt;{ view: ViewCartStateEnum }&gt;()
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/FlowerApp/src/app/features/pages/cart/store/reducers.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cartFeature"></a>
+                    <span class="name">
+                        <span ><b>cartFeature</b></span>
+                        <a href="#cartFeature"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createFeature({
+  name: &#x27;cart&#x27;,
+  reducer: createReducer(
+    initialState,
+
+    on(cartActions[&#x27;getLoggedUserCart&#x27;], (state) &#x3D;&gt; ({
+      ...state,
+      isLoading: true,
+    })),
+    on(cartActions[&#x27;getProductsInCartSuccess&#x27;], (state, action) &#x3D;&gt; ({
+      ...state,
+      isLoading: false,
+      numberOfCartItems: action.numOfCartItems,
+      data: action,
+    })),
+    on(cartActions[&#x27;getProductsInCartFailure&#x27;], (state, action) &#x3D;&gt; ({
+      ...state,
+      isLoading: false,
+      error: action.error,
+    })),
+
+    //add to cart
+    on(cartActions.addProductToCart, (state, { product }) &#x3D;&gt; ({
+      ...state,
+      addToCartLoading: true,
+      addToCartProductId: product,
+    })),
+    on(cartActions[&#x27;addProductsInCartSuccess&#x27;], (state, action) &#x3D;&gt; ({
+      ...state,
+      addToCartLoading: false,
+      addToCartProductId: null,
+      numberOfCartItems: action.numOfCartItems,
+      data: action,
+    })),
+    on(cartActions[&#x27;addProductsInCartFailure&#x27;], (state, action) &#x3D;&gt; ({
+      ...state,
+      addToCartLoading: false,
+      addToCartProductId: null,
+      error: action.error,
+    })),
+
+    //delete product
+    on(cartActions.deleteProductFromCart, (state) &#x3D;&gt; ({
+      ...state,
+      isLoading: true,
+    })),
+    on(cartActions[&#x27;deleteProductFromCartSuccess&#x27;], (state, action) &#x3D;&gt; ({
+      ...state,
+      isLoading: false,
+      numberOfCartItems: action.numOfCartItems,
+      data: action,
+    })),
+    on(cartActions[&#x27;deleteProductFromCartFailure&#x27;], (state, action) &#x3D;&gt; ({
+      ...state,
+      isLoading: false,
+      error: action.error,
+    })),
+    //delete cart
+    on(cartActions.deleteCart, (state) &#x3D;&gt; ({
+      ...state,
+      isLoading: true,
+    })),
+    on(cartActions[&#x27;deleteCartSuccess&#x27;], (state, action) &#x3D;&gt; ({
+      ...state,
+      isLoading: false,
+      numberOfCartItems: 0,
+      data: null,
+    })),
+    on(cartActions[&#x27;deleteCartFailure&#x27;], (state, action) &#x3D;&gt; ({
+      ...state,
+      isLoading: false,
+      error: action.error,
+    })),
+    //update specific product quantity in cart
+    on(cartActions.updateProductQuantityFromCart, (state) &#x3D;&gt; ({
+      ...state,
+      isLoading: true,
+    })),
+    on(cartActions[&#x27;updateProductQuantitySuccess&#x27;], (state, action) &#x3D;&gt; ({
+      ...state,
+      isLoading: false,
+      numberOfCartItems: action.numOfCartItems,
+      data: action,
+    })),
+    on(cartActions[&#x27;updateProductQuantityFailure&#x27;], (state, action) &#x3D;&gt; ({
+      ...state,
+      isLoading: false,
+      error: action.error,
+    }))
+  ),
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initialState"></a>
+                    <span class="name">
+                        <span ><b>initialState</b></span>
+                        <a href="#initialState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/cartStateInterface.html" target="_self" >cartStateInterface</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  isLoading: false,
+  error: null,
+  numberOfCartItems: 0,
+  data: null,
+  addToCartLoading: false,
+  addToCartProductId: null,
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initialViewState"></a>
+                    <span class="name">
+                        <span ><b>initialViewState</b></span>
+                        <a href="#initialViewState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ViewCartState.html" target="_self" >ViewCartState</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  currentView: ViewCartStateEnum.Cart,
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="viewCartReducer"></a>
+                    <span class="name">
+                        <span ><b>viewCartReducer</b></span>
+                        <a href="#viewCartReducer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createReducer(
+  initialViewState,
+  on(switchView, (state, { view }) &#x3D;&gt; ({ ...state, currentView: view }))
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name=""></a>
+                    <span class="name">
+                        <span ><b></b></span>
+                        <a href="#"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>cartFeature</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/FlowerApp/src/app/app.config.server.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="config"></a>
+                    <span class="name">
+                        <span ><b>config</b></span>
+                        <a href="#config"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>mergeApplicationConfig(appConfig, serverConfig)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="serverConfig"></a>
+                    <span class="name">
+                        <span ><b>serverConfig</b></span>
+                        <a href="#serverConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ApplicationConfig</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  providers: [provideServerRendering(), provideServerRouting(serverRoutes) ],
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/FlowerApp/src/app/features/pages/address/store/effects.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteAddress"></a>
+                    <span class="name">
+                        <span ><b>deleteAddress</b></span>
+                        <a href="#deleteAddress"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+  (actions$ &#x3D; inject(Actions), addressService &#x3D; inject(AddressService)) &#x3D;&gt; {
+    return actions$.pipe(
+      ofType(addressActions.deleteAddress),
+      switchMap(({ addressId }) &#x3D;&gt; {
+        return addressService.removeAddress(addressId).pipe(
+          map((deleteAddressResponse: AddressResponceInterface) &#x3D;&gt; {
+            return addressActions.deleteAddressSuccess(deleteAddressResponse);
+          }),
+          catchError(({ error }) &#x3D;&gt; {
+            return of(addressActions.deleteAddressFailure({ error }));
+          })
+        );
+      })
+    );
+  },
+  { functional: true }
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllAddresses"></a>
+                    <span class="name">
+                        <span ><b>getAllAddresses</b></span>
+                        <a href="#getAllAddresses"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+  (actions$ &#x3D; inject(Actions), addressService &#x3D; inject(AddressService)) &#x3D;&gt; {
+    return actions$.pipe(
+      ofType(addressActions.getLoggedUserAddress),
+      switchMap(() &#x3D;&gt; {
+        return addressService.getUserAddresses().pipe(
+          map((response: AddressResponceInterface) &#x3D;&gt; {
+            return addressActions.getAddressSuccess(response);
+          }),
+          catchError(({ error }) &#x3D;&gt; {
+            return of(addressActions.getAddressFailure({ error }));
+          })
+        );
+      })
+    );
+  },
+  { functional: true }
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/FlowerApp/src/app/Store/actions/App.actions.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="emptyAction"></a>
+                    <span class="name">
+                        <span ><b>emptyAction</b></span>
+                        <a href="#emptyAction"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(&#x27;[app] empty action&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showAlert"></a>
+                    <span class="name">
+                        <span ><b>showAlert</b></span>
+                        <a href="#showAlert"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(&#x27;[app] show alert&#x27;, props&lt;{message: string, resultType: string}&gt;())</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/FlowerApp/src/environments/environment.development.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="environment"></a>
+                    <span class="name">
+                        <span ><b>environment</b></span>
+                        <a href="#environment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  baseUrl: &#x27;https://flower.elevateegy.com&#x27;,
+  APP_URL: &#x27;http://localhost:4200&#x27;,
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/FlowerApp/src/environments/environment.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="environment"></a>
+                    <span class="name">
+                        <span ><b>environment</b></span>
+                        <a href="#environment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  baseUrl: &#x27;https://flower.elevateegy.com&#x27;,
+  APP_URL: &#x27;http://localhost:4200&#x27;,
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/FlowerApp/src/app/shared/environments/enviroment.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="environment"></a>
+                    <span class="name">
+                        <span ><b>environment</b></span>
+                        <a href="#environment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    baseUrl:&#x27;https://flower.elevateegy.com&#x27;,
+    currance:&#x27;USD&#x27;
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/FlowerApp/src/app/Store/selectors/products.selectors.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getErrorMsg"></a>
+                    <span class="name">
+                        <span ><b>getErrorMsg</b></span>
+                        <a href="#getErrorMsg"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createSelector(getProductsState, state &#x3D;&gt; state.errorMsg)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getProducts"></a>
+                    <span class="name">
+                        <span ><b>getProducts</b></span>
+                        <a href="#getProducts"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(id: number) &#x3D;&gt; createSelector(selectEntities, (state) &#x3D;&gt; state[id])</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getProductsList"></a>
+                    <span class="name">
+                        <span ><b>getProductsList</b></span>
+                        <a href="#getProductsList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createSelector(getProductsState, ProductsSelector.selectAll)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getProductsState"></a>
+                    <span class="name">
+                        <span ><b>getProductsState</b></span>
+                        <a href="#getProductsState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createFeatureSelector&lt;ProductModel&gt;(&#x27;Products&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ProductsSelector"></a>
+                    <span class="name">
+                        <span ><b>ProductsSelector</b></span>
+                        <a href="#ProductsSelector"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>ProductsAdapter.getSelectors()</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectEntities"></a>
+                    <span class="name">
+                        <span ><b>selectEntities</b></span>
+                        <a href="#selectEntities"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createSelector(getProductsState, ProductsSelector.selectEntities)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/FlowerApp/src/app/Store/state/products.state.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initialState"></a>
+                    <span class="name">
+                        <span ><b>initialState</b></span>
+                        <a href="#initialState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ProductModel.html" target="_self" >ProductModel</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>ProductsAdapter.getInitialState({
+  errorMsg: &#x27;&#x27;,
+  isLoading: false
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ProductsAdapter"></a>
+                    <span class="name">
+                        <span ><b>ProductsAdapter</b></span>
+                        <a href="#ProductsAdapter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EntityAdapter&lt;Product&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEntityAdapter&lt;Product&gt;({
+  selectId: (Products) &#x3D;&gt; Products._id
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/FlowerApp/src/app/core/guards/login-block.guard.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loginBlockGuard"></a>
+                    <span class="name">
+                        <span ><b>loginBlockGuard</b></span>
+                        <a href="#loginBlockGuard"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>CanActivateFn</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(route, state) &#x3D;&gt; {
+  const _TokenService &#x3D; inject(TokenService);
+  const router &#x3D; inject(Router);
+  const token &#x3D; _TokenService.getToken();
+  ///not Auth user
+  if (token) {
+    router.parseUrl(&#x27;&#x27;);
+    return false;
+  }
+
+  return true;
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/FlowerApp/src/app/Store/reducers/products.reducer.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ProductsReducer"></a>
+                    <span class="name">
+                        <span ><b>ProductsReducer</b></span>
+                        <a href="#ProductsReducer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createReducer(
+  initialState,
+  on(loadProducts, (state) &#x3D;&gt; ({
+    ...state,
+    errorMsg: &#x27;&#x27;,
+  })),
+  on(loadProductsSuccess, (state, action) &#x3D;&gt; {
+    return ProductsAdapter.setAll(action.list.products, {
+      ...state,
+      errorMsg: &#x27;&#x27;
+    })
+  }),
+  on(loadProductsFail, (state, action) &#x3D;&gt; ({
+    ...state,
+    errorMsg: action.errorMsg,
+  })),
+
+  // add Products
+  // on(addProducts, (state) &#x3D;&gt; ({
+  //   ...state,
+  //   errorMsg: &#x27;&#x27;,
+  // })),
+  // on(addProductsSuccess, (state, { inputData }) &#x3D;&gt;
+  //   ProductsAdapter.addOne(inputData, { ...state, errorMsg: &#x27;&#x27; })
+  // ),
+  // on(addProductsFail, (state, { errorMsg }) &#x3D;&gt; ({
+  //   ...state,
+  //   errorMsg: errorMsg,
+  // })),
+
+  // edit Products
+  // on(editProducts, (state) &#x3D;&gt; ({
+  //   ...state,
+  //   errorMsg: &#x27;&#x27;,
+  // })),
+  // // })),
+  // on(editProductsSuccess, (state, { inputData, id }) &#x3D;&gt;
+  //   ProductsAdapter.updateOne(
+  //     { id, changes: inputData },
+  //     { ...state, errorMsg: &#x27;&#x27; }
+  //   )
+  // ),
+  // on(editProductsFail, (state, { errorMsg }) &#x3D;&gt; ({
+  //   ...state,
+  //   errorMsg: errorMsg,
+  // })),
+
+  // // delete Products
+  // on(deleteProducts, (state) &#x3D;&gt; ({
+  //   ...state,
+  //   errorMsg: &#x27;&#x27;,
+  // })),
+  // on(deleteProductsSuccess, (state, { id }) &#x3D;&gt;
+  //   ProductsAdapter.removeOne(id, { ...state, errorMsg: &#x27;&#x27; })
+  // ),
+  // on(deleteProductsFail, (state, { errorMsg }) &#x3D;&gt; ({
+  //   ...state,
+  //   errorMsg: errorMsg,
+  // }))
+
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/FlowerApp/src/app/features/pages/address/store/selectors.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectCurrentDialogView"></a>
+                    <span class="name">
+                        <span ><b>selectCurrentDialogView</b></span>
+                        <a href="#selectCurrentDialogView"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createFeatureSelector&lt;ViewDialogState&gt;(&#x27;viewDialog&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectCurrentView"></a>
+                    <span class="name">
+                        <span ><b>selectCurrentView</b></span>
+                        <a href="#selectCurrentView"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createSelector(
+  selectCurrentDialogView,
+  (state) &#x3D;&gt; state.currentView
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="SelectedAddress"></a>
+                    <span class="name">
+                        <span ><b>SelectedAddress</b></span>
+                        <a href="#SelectedAddress"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createSelector(
+  selectSelectedAddress,
+  (state) &#x3D;&gt; state.selectedAddress
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectSelectedAddress"></a>
+                    <span class="name">
+                        <span ><b>selectSelectedAddress</b></span>
+                        <a href="#selectSelectedAddress"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createFeatureSelector&lt;AddressState&gt;(&#x27;selectedAddress&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/FlowerApp/src/app/features/pages/cart/store/selectors.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectCurrentView"></a>
+                    <span class="name">
+                        <span ><b>selectCurrentView</b></span>
+                        <a href="#selectCurrentView"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createSelector(
+  selectViewState,
+  (state: ViewCartState): ViewCartStateEnum &#x3D;&gt; state.currentView
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectViewState"></a>
+                    <span class="name">
+                        <span ><b>selectViewState</b></span>
+                        <a href="#selectViewState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createFeatureSelector&lt;ViewCartState&gt;(&#x27;viewCart&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/FlowerApp/src/app/app.routes.server.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="serverRoutes"></a>
+                    <span class="name">
+                        <span ><b>serverRoutes</b></span>
+                        <a href="#serverRoutes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ServerRoute[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+  {
+    path: &#x27;**&#x27;,
+    renderMode: RenderMode.Server,
+  },
+]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'miscellaneous-variables';
+            var COMPODOC_CURRENT_PAGE_URL = 'variables.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
