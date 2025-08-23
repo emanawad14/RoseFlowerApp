@@ -2,85 +2,7 @@ h2 {
   color: var(--secondary-text);
 }
 
-// .cover {
-//   i {
-//     color: var(--icon-sm);
-//   }
-//   position: absolute;
-//   inset: 0;
-//   background-color: rgba(248, 43, 169, 0.5);
-//   display: none;
-//   transition: display 0.8s ease;
-// }
-
-// .cover span {
-//   background-color: var(--bg-icon-hover);
-// }
-
-// .relative:hover .cover {
-//   display: flex;
-// }
-
-// ::ng-deep .p-rating {
-//   display: flex;
-//   align-items: center;
-//   gap: 0.25rem;
-// }
-
-// ::ng-deep .p-rating .p-rating-item {
-//   cursor: default;
-// }
-
-// ::ng-deep .p-rating .p-rating-icon {
-//   color: #ffd700 !important;
-//   font-size: 1.2rem;
-//   transition: color 0.2s;
-// }
-
 /* Category Menu Styles */
-::ng-deep .p-tabmenu {
-  background: transparent;
-  border: none;
-}
-
-::ng-deep .p-tabmenu .p-tabmenu-nav {
-  background: transparent;
-  border: none;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  padding: 0.5rem;
-}
-
-::ng-deep .p-tabmenu .p-tabmenu-nav .p-tabmenuitem {
-  margin: 0;
-}
-
-::ng-deep .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link {
-  background: transparent;
-  border: none;
-  border-radius: 0.5rem;
-  transition: all 0.2s;
-}
-
-::ng-deep
-  .p-tabmenu
-  .p-tabmenu-nav
-  .p-tabmenuitem
-  .p-menuitem-link:not(.p-disabled):focus {
-  box-shadow: none;
-}
-
-@media screen and (max-width: 576px) {
-  ::ng-deep .p-tabmenu .p-tabmenu-nav {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  ::ng-deep .p-tabmenu .p-tabmenu-nav .p-tabmenuitem {
-    margin: 0.25rem 0;
-  }
-}
 
 /* Category Button Styles */
 .category-btn {
@@ -95,13 +17,22 @@ h2 {
   cursor: pointer;
   transition: color 0.3s ease;
   transition: border 0.2s ease;
+  /* Primary/Medium/primary-medium-base */
+  font-family: 'Sarabun-Regular';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+
+  /* Zinc/zinc-700 */
+  color: #3f3f46;
 }
 
 .category-btn:hover,
 .category-btn.active {
   padding-bottom: 0;
   color: var(--primary-color);
-  border-bottom: 3px solid var(--primary-color);
+  //border-bottom: 3px solid var(--primary-color);
 }
 
 /* No Products Found Styles */
@@ -110,50 +41,6 @@ h2 {
   margin-bottom: 1rem;
 }
 
-:host ::ng-deep .category-carousel {
-  .p-carousel-container {
-    padding: 0.5rem;
-  }
-
-  .p-carousel-items-container {
-    padding: 0.5rem 0;
-  }
-
-  .p-carousel-items-content {
-    overflow: visible;
-  }
-
-  .p-carousel-prev,
-  .p-carousel-next {
-    color: var(--primary-color);
-    border: 1px solid var(--primary-color);
-    border-radius: 50%;
-    width: 2rem;
-    height: 2rem;
-  }
-
-  .p-carousel-prev:hover,
-  .p-carousel-next:hover {
-    background: var(--primary-color);
-    color: white;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  :host ::ng-deep .category-carousel {
-    .p-carousel-prev,
-    .p-carousel-next {
-      width: 1.5rem;
-      height: 1.5rem;
-    }
-  }
-}
-
-::ng-deep .p-carousel-items-content {
-  overflow: hidden;
-  white-space: nowrap;
-}
 .heading4 {
   color: var(--secondary-text) !important;
 }
- 
