@@ -55,7 +55,7 @@ export class MyAccountComponent implements OnInit, OnDestroy {
   selectedCountry = signal<Country>(ProfileService.countries[0]);
   phoneNumber = signal<string>('');
   @ViewChild(ConfirmDialogComponent) confirmDialog!: ConfirmDialogComponent;
-
+  loading: boolean = false;
   private destroy$ = new Subject<void>();
   constructor(
     private fb: FormBuilder,
@@ -91,6 +91,7 @@ export class MyAccountComponent implements OnInit, OnDestroy {
       });
   }
   updateProfile() {
+    this.loading = true;
     const { firstName, lastName, phone, email } = this.accountForm.value;
     //console.log(this.accountForm.value);
     if (this.accountForm.valid) {
@@ -101,10 +102,12 @@ export class MyAccountComponent implements OnInit, OnDestroy {
           next: (res) => {
             this.userData = res;
             this._toastService.showSuccess('profile Updated');
+            this.loading = false;
             this.setProfileFormData(res);
           },
           error: (err) => {
             // console.log(err.error.error);
+            this.loading = false;
             this._toastService.showError(err.error.error);
             this.backendError = err.error['error'];
           },

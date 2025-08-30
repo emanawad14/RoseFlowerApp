@@ -24,6 +24,7 @@ import { Store } from '@ngrx/store';
 import { DialogViewEnum } from '../../address/types/viewDialogType.enum';
 import { addressActions } from '../../address/store/actions';
 import { SelectedAddress } from '../../address/store/selectors';
+import { cartActions } from '../store/actions';
 
 @Component({
   selector: 'app-shipping-address',
@@ -107,9 +108,10 @@ export class ShippingAddressComponent implements OnDestroy {
           .subscribe({
             next: (res) => {
               this.loading = false;
-              console.log(res);
+              this.store.dispatch(cartActions.getLoggedUserCart());
+              // console.log(res);
               this._toastService.showSuccess('order has been done');
-              this._router.navigate(['/myOrders']);
+              this._router.navigate(['/allOrders']);
             },
             error: (err) => {
               this.loading = false;
@@ -127,8 +129,9 @@ export class ShippingAddressComponent implements OnDestroy {
           .subscribe({
             next: (res) => {
               this.loading = false;
-              console.log(res);
+              // console.log(res);
               window.open(res.session.url, '_self');
+              this.store.dispatch(cartActions.getLoggedUserCart());
               //this._toastService.showSuccess('order has been done');
               // this._router.navigate(['/allOrders']);
             },

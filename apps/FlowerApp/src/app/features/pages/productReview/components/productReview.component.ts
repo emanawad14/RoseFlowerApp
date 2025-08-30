@@ -69,7 +69,8 @@ export class ProductReviewComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.destroy$))
       .subscribe({
         next: (res) => {
-          console.log(res);
+          //  console.log(res);
+          this._toastService.showSuccess('review added successfully');
           this.reviewForm.reset();
         },
         error: (err) => {
