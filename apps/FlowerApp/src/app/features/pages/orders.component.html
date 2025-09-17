@@ -17,8 +17,8 @@
         class="absolute bottom-0 w-full flex flex-column align-items-center justify-content-center cursor-pointer pt-2 background-blur"
         (click)="toggleOrder(order._id)"
         [class]="{
-          hidden: order.orderItems.length < 4,
-          flex: order.orderItems.length >= 4,
+          hidden: order.orderItems.length < 3,
+          flex: order.orderItems.length >= 3,
           'background-blur': !expandedOrders.has(order._id)
         }"
       >
