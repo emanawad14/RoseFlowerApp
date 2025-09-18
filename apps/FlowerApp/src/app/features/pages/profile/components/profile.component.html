@@ -1,0 +1,47 @@
+<div id="profile" class="mt-5 md:mx-5">
+  <h3>Update Profile</h3>
+
+  <div class="flex flex-column gap-2 md:flex-row mt-5">
+    <div
+      class="sidebar md:w-15rem md:h-30rem w-full border-round-xl mb-5 md:relative flex flex-wrap-reverse flex-row gap-2 md:gap-0 sm:justify-content-center md:justify-content-start md:flex-column"
+    >
+      <div
+        class="flex gap-2 align-items-center py-3 px-2 mx-2 my-2 border-round-xl cursor-pointer"
+        [class.active]="activeView === 'account'"
+        (click)="activeView = 'account'"
+      >
+        <i class="pi pi-user-edit"></i>
+        <span [class.active]="activeView === 'account'">My Account</span>
+      </div>
+
+      <div
+        class="flex gap-2 align-items-center py-3 px-2 mx-2 my-2 border-round-xl cursor-pointer"
+        (click)="activeView = 'password'"
+        [class.active]="activeView === 'password'"
+      >
+        <i class="pi pi-shopping-bag"></i>
+        <span [class.active]="activeView === 'password'">Change Password</span>
+      </div>
+
+      <div
+        class="flex gap-2 align-items-center py-3 px-2 px-1 mx-2 my-3 logout border-round-xl cursor-pointer md:absolute md:bottom-0 left-0 right-0"
+        (click)="logout()"
+      >
+        <i class="pi pi-sign-out"></i>
+        <span class="hidden md:flex">Logout</span>
+      </div>
+    </div>
+
+    <div class="flex-1 mx-4">
+      <ng-container>
+        <!-- Account form here -->
+        @if(activeView === 'account'){
+        <app-my-account></app-my-account>
+        } @else {
+        <app-change-password></app-change-password>
+        }
+      </ng-container>
+    </div>
+  </div>
+</div>
+<app-confirm-dialog></app-confirm-dialog>

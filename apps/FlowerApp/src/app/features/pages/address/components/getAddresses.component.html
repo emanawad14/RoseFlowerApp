@@ -1,0 +1,70 @@
+<div class="flex justify-content-between mb-2">
+  <h3>My Addresses</h3>
+  <app-primary-btn
+    [labelName]="'Add a New Address'"
+    [displayIcon]="false"
+    [colorText]="'#A6252A'"
+    [backgroundColor]="'var( --bg-light-pink)'"
+    (btnClicked)="displayAddAddressForm()"
+  >
+    <div class="py-2"></div>
+  </app-primary-btn>
+</div>
+<div class="line mb-3"></div>
+<div class="relative min-h-22rem">
+  @if(data$|async; as data){
+  <ng-container>
+    @if(data.isLoading){
+    <app-loading></app-loading>
+    } @if(data.error){
+    <div>
+      <h3>{{ data.error.error }}</h3>
+    </div>
+    } @if(data.data&& data.data.length > 0){ @for (address of data.data; track
+    address._id){
+
+    <div
+      class="relative address-card mb-2 flex flex-column gap-2 border-1 surface-border border-round-2xl p-3 mr-2"
+    >
+      <div class="controls flex flex-column gap-2 absolute">
+        <span
+          class="edit border-1 surface-border border-circle flex align-items-center justify-content-center cursor-pointer"
+        >
+          <img src="\images\pen-line.png" alt="edit" />
+        </span>
+        <span
+          class="delete border-circle flex align-items-center justify-content-center cursor-pointer"
+          (click)="deleteAddress(address)"
+        >
+          <img src="\images\trash.png" alt="edit" />
+        </span>
+      </div>
+      <div class="flex justify-content-between">
+        <h3 class="m-0 text-lg font-bold">{{ address.city }}</h3>
+        <div class="flex align-items-center gap-2 mx-3">
+          <span
+            class="flex align-items-center justify-content-center border-circle phone-icon"
+          >
+            <i class="pi pi-phone"></i>
+          </span>
+          <span class="text-phone">{{ address.phone }}</span>
+        </div>
+      </div>
+      <p class="px-3 border-round-2xl text-sm">
+        {{ address.street }}
+      </p>
+    </div>
+    } @empty {
+    <div class="flex align-items-center justify-content-center h-20rem">
+      <h3>no addresses added</h3>
+    </div>
+    } }@else{
+    <div class="flex align-items-center justify-content-center h-20rem">
+      <h3>no addresses added</h3>
+    </div>
+    }
+  </ng-container>
+
+  }
+</div>
+<app-confirm-dialog />

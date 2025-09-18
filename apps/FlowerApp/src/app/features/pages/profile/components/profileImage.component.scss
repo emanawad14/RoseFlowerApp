@@ -1,0 +1,23 @@
+::ng-deep .p-avatar img {
+  width: 100px !important; /* Adjust size */
+  height: 100px !important;
+  border-radius: 50% !important; /* Ensure circle */
+  object-fit: cover; /* Prevent distortion */
+}
+.img-container {
+  width: 80px;
+  height: 80px;
+}
+
+p {
+  font-family: 'Sarabun-Regular';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.9em;
+  line-height: 100%;
+  color: var(--text-p);
+}
+.upload-icon {
+  bottom: 0px;
+  right: -9px;
+}

@@ -11,7 +11,7 @@ import { FeaturesComponent } from './components/features.component';
 import { TrustedbyComponent } from './components/Trustedby/Trustedby.component';
 import { BestComponent } from './components/Best/Best.component';
 import { AboutComponent } from './components/about.component';
-
+ 
 @Component({
   selector: 'app-home',
   imports: [
@@ -25,7 +25,8 @@ import { AboutComponent } from './components/about.component';
     BestComponent,
     TrustedbyComponent,
     AboutComponent,
-  ],
+     
+],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
@@ -37,6 +38,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     //console.log('Home component initializing...');
     this.GetCatigorys();
+   
   }
 
   GetCatigorys() {
@@ -51,6 +53,16 @@ export class HomeComponent implements OnInit, OnDestroy {
       },
     });
   }
+
+
+
+
+
+
+ 
+  
+   
+  
 
   ngOnDestroy() {
     if (this.sub) {

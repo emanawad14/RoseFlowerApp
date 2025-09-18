@@ -11,7 +11,7 @@
       class="flex-none"
     />
     @if(userData() ){
-    <span class="location">
+    <span class="location cursor-pointer" (click)="openAddressDialog()">
       Deliver to:
       <span class="flex align-items-center">
         <svg
@@ -44,7 +44,7 @@
 
   <!-- Icons - Always Visible -->
   <div class="nav__Icons flex align-items-center gap-1">
-    @if(userData() ){
+    @if(userData() !=null){
     <p-menu
       #menu
       [model]="userItems"
@@ -113,7 +113,12 @@
     </button>
     <!-- Shopping Cart Button -->
     <button pButton class="p-button-text" routerLink="/cart">
-      <i class="pi pi-shopping-cart" pBadge value="8" badgeSize="small"></i>
+      <i
+        class="pi pi-shopping-cart"
+        pBadge
+        [value]="(numberOfCartItems$ | async) ?? '0'"
+        badgeSize="small"
+      ></i>
     </button>
     <!-- Notification -->
     <button pButton class="p-button-text">
@@ -171,7 +176,7 @@
     </li>
     <li>
       <a
-        routerLink="/product "
+        routerLink="/products "
         routerLinkActive="nav-active "
         class="no-underline cursor-pointer"
         role="button"
@@ -195,7 +200,7 @@
     </li>
     <li>
       <a
-        routerLink="/product-listt"
+        routerLink="/occasions"
         routerLinkActive="nav-active "
         class="no-underline cursor-pointer"
         role="button"
@@ -220,7 +225,7 @@
     </li>
     <li>
       <a
-        routerLink="/ff"
+        routerLink="/contact"
         routerLinkActive="nav-active "
         class="no-underline cursor-pointer"
         role="button"

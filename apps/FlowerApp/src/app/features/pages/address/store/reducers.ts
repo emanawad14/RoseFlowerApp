@@ -1,0 +1,80 @@
+import { createFeature, createReducer, on } from '@ngrx/store';
+import { AddressStateInterface } from '../types/addressState.interface';
+import { addressActions } from './actions';
+import { DialogViewEnum, ViewDialogState } from '../types/viewDialogType.enum';
+import { AddressState } from '../types/selectedAddressState.interface';
+
+const initialState: AddressStateInterface = {
+  isLoading: false,
+  error: null,
+  data: null,
+};
+
+export const addressFeature = createFeature({
+  name: 'address',
+  reducer: createReducer(
+    initialState,
+    ///Get address
+    on(addressActions.getLoggedUserAddress, (state) => ({
+      ...state,
+      isLoading: true,
+    })),
+    on(addressActions.getAddressSuccess, (state, action) => ({
+      ...state,
+      isLoading: false,
+      data: action.addresses,
+    })),
+    on(addressActions.getAddressFailure, (state, action) => ({
+      ...state,
+      isLoading: false,
+      error: action.error,
+    })),
+    //delete
+    on(addressActions.deleteAddress, (state) => ({
+      ...state,
+      isLoading: true,
+    })),
+    on(addressActions.deleteAddressSuccess, (state, action) => ({
+      ...state,
+      isLoading: false,
+      data: action.address,
+    })),
+    on(addressActions.deleteAddressFailure, (state, action) => ({
+      ...state,
+      isLoading: false,
+      error: action.error,
+    }))
+  ),
+});
+export const {
+  name: addressFeatureKey, // feature name
+  reducer: addressReducer, // feature reducer
+  selectIsLoading, //  selector for `loading` property
+  selectError, // selector for `error` property
+  selectData: selectAddressesData, // feature selector
+} = addressFeature;
+////////////////////////////////////////Address Views in dialog/////////////////////////////////////////////////////////////////
+export const initialDialogState: ViewDialogState = {
+  currentView: DialogViewEnum.getAddresses,
+};
+export const viewDialogReducer = createReducer(
+  initialDialogState,
+  on(addressActions.openDialogComponent, (state, { view }) => ({
+    ...state,
+    currentView: view,
+  }))
+);
+///////////////////////////////selected Address///////////////////////////////////////
+
+export const initialAddressState: AddressState = {
+  selectedAddress: null,
+};
+export const selectAddressReducer = createReducer(
+  initialAddressState,
+  on(addressActions.selectAddress, (state, { selectedAddress }) => ({
+    ...state,
+    selectedAddress,
+  }))
+);
+
+////////////////////////////////////////////

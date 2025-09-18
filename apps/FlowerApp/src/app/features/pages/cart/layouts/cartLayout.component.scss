@@ -1,0 +1,23 @@
+.summary-section {
+  h3 {
+    /* Zinc/zinc-800 */
+    color: var(--text-zink);
+  }
+  .coupon-area {
+    border: 1px solid var(--line-color);
+    border-radius: 6px;
+    font-family: 'Sarabun-Regular';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1em;
+    line-height: 21px;
+    /* identical to box height */
+
+    /* Zinc/zinc-400 */
+    color: var(--text-gray-reverse);
+  }
+}
+
+svg {
+  color: var(--btn-text) !important;
+}

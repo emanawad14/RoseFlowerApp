@@ -1,9 +1,8 @@
 .input-container {
-  position: relative;
-  // margin-top: 20px;
+  background: var(--input-bg) !important;
   input {
     width: 100%;
-    background: #52525b !important;
+    background: var(--input-bg) !important;
     text-transform: capitalize;
     border-radius: 10px !important;
     font-family: 'Inter';
@@ -11,34 +10,69 @@
     font-weight: 400;
     font-size: 12px;
     outline: none !important;
-    border: none !important;
-    padding:15px 25px !important;
+    border: 1px solid var(--text-zink-500) !important;
+    // padding: 5px 25px !important;
 
-    color: #fff;
+    color: var(--text-gray-reverse);
     &::placeholder {
       //inset-inline-start: 15px;
-      color: #a1a1aa;
+      color: var(--text-gray-reverse);
+      background-color: transparent !important;
     }
     &:focus {
-      background: #52525b !important;
+      background: var(--input-bg) !important;
+    }
+    &:disabled {
+      background-color: #f4f4f5 !important;
+      color: #a1a1aa !important;
+      opacity: 1 !important; /* removes the default faded effect */
+      border: 1px solid #f4f4f5 !important;
+      cursor: not-allowed;
     }
   }
-  img {
-    width: 15px;
-    position: absolute;
-    top: 50%;
-    //right: 15px;
-    inset-inline-end: 15px;
-    width: 25px;
-    transform: translateY(-50%);
-    cursor: pointer;
+
+  .p-select {
+    border: none !important;
+    box-shadow: none !important;
   }
-  svg {
-    position: absolute;
-    top: 50%;
-    inset-inline-start: 0;
-    transform: translateY(-50%);
-    // margin-inline-end: 20px;
-     margin: 0 5px;
+  input {
+    border: none !important;
+    box-shadow: none !important;
   }
+  // img {
+  //   width: 15px;
+  //   height: 15px;
+  //   // position: absolute;
+  //   // top: 50%;
+  //   //right: 15px;
+  //   //  inset-inline-end: 15px;
+  //   // width: 25px;
+  //   // transform: translateY(-50%);
+  //   // cursor: pointer;
+  // }
+  // svg {
+  //  // position: absolute;
+  //  // top: 50%;
+  //  // inset-inline-start: 0;
+  //   //transform: translateY(-50%);
+  //   // margin-inline-end: 20px;
+  //   //margin: 0 5px;
+  // }
 }
+
+.disabled {
+  background-color: #f4f4f5 !important;
+  color: #a1a1aa !important;
+  opacity: 1 !important; /* removes the default faded effect */
+  cursor: not-allowed;
+}
+
+// .phone-input .p-select {
+//   border: none !important;
+//   box-shadow: none !important;
+// }
+
+// .phone-input input {
+//   border: none !important;
+//   box-shadow: none !important;
+// }

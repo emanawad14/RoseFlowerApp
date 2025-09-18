@@ -1,0 +1,16 @@
+<div class="stepper flex align-items-center w-full">
+  <!-- Step 1 -->
+  <div class="flex align-items-center flex-1">
+    <div class="step-line active flex-1"></div>
+    <div class="step-circle active ">1</div>
+  </div>
+
+  <!-- Step 2 -->
+  <div class="flex align-items-center flex-1">
+    <div class="step-line flex-1" [class.active]="stepNumber == 2"></div>
+    <div class="step-circle" [class.active]="stepNumber == 2">2</div>
+  </div>
+  <div class="flex align-items-center flex-1">
+    <div class="step-line flex-1"></div>
+  </div>
+</div>

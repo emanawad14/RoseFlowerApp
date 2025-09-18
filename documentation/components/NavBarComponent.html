@@ -1,0 +1,1669 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>@rose-flower/source documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">@rose-flower/source documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  NavBarComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>apps/FlowerApp/src/app/core/layouts/navBar/navBar.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+                <code>OnDestroy</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">providers</td>
+                <td class="col-md-9">
+                            <code>DialogService</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-nav-bar</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>CommonModule</code>
+                            <code>RouterLink</code>
+                            <code>RouterLinkActive</code>
+                            <code>ButtonModule</code>
+                            <code>MenuModule</code>
+                            <code>BadgeModule</code>
+                            <code>InputTextModule</code>
+                            <code>TranslatePipe</code>
+                            <code>MenubarModule</code>
+                                <code><a href="../components/GlobalInputComponent.html" target="_self" >GlobalInputComponent</a></code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./navBar.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./navBar.component.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#darkMode" >darkMode</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#destroy$" >destroy$</a>
+                            </li>
+                            <li>
+                                <a href="#langClick" >langClick</a>
+                            </li>
+                            <li>
+                                <a href="#numberOfCartItems$" >numberOfCartItems$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#ref" >ref</a>
+                            </li>
+                            <li>
+                                <a href="#userData" >userData</a>
+                            </li>
+                            <li>
+                                <a href="#userItems" >userItems</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#changeLanguage" >changeLanguage</a>
+                            </li>
+                            <li>
+                                <a href="#currentLanguage" >currentLanguage</a>
+                            </li>
+                            <li>
+                                <a href="#darkModeToggle" >darkModeToggle</a>
+                            </li>
+                            <li>
+                                <a href="#getUserData" >getUserData</a>
+                            </li>
+                            <li>
+                                <a href="#languageToggle" >languageToggle</a>
+                            </li>
+                            <li>
+                                <a href="#logout" >logout</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#openAddressDialog" >openAddressDialog</a>
+                            </li>
+                            <li>
+                                <a href="#setUserMenueItems" >setUserMenueItems</a>
+                            </li>
+                            <li>
+                                <a href="#toggleDarkMode" >toggleDarkMode</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(_themeService: <a href="../injectables/ThemeService.html" target="_self">ThemeService</a>, _MyTranslateService: <a href="../injectables/MyTranslateService.html" target="_self">MyTranslateService</a>, _AuthService: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, store: Store, _dialogService: DialogService, _AuthApiService: <a href="../injectables/AuthApiService.html" target="_self">AuthApiService</a>, _router: Router)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">apps/FlowerApp/src/app/core/layouts/navBar/navBar.component.ts:60</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>_themeService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ThemeService.html" target="_self" >ThemeService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_MyTranslateService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MyTranslateService.html" target="_self" >MyTranslateService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_AuthService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>store</td>
+                                                  
+                                                        <td>
+                                                                    <code>Store</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_dialogService</td>
+                                                  
+                                                        <td>
+                                                                    <code>DialogService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_AuthApiService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthApiService.html" target="_self" >AuthApiService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changeLanguage"></a>
+                    <span class="name">
+                        <span ><b>changeLanguage</b></span>
+                        <a href="#changeLanguage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>changeLanguage(lang: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="163"
+                                    class="link-to-prism">apps/FlowerApp/src/app/core/layouts/navBar/navBar.component.ts:163</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>lang</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="currentLanguage"></a>
+                    <span class="name">
+                        <span ><b>currentLanguage</b></span>
+                        <a href="#currentLanguage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>currentLanguage(lang: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="166"
+                                    class="link-to-prism">apps/FlowerApp/src/app/core/layouts/navBar/navBar.component.ts:166</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>lang</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="darkModeToggle"></a>
+                    <span class="name">
+                        <span ><b>darkModeToggle</b></span>
+                        <a href="#darkModeToggle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>darkModeToggle()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="169"
+                                    class="link-to-prism">apps/FlowerApp/src/app/core/layouts/navBar/navBar.component.ts:169</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUserData"></a>
+                    <span class="name">
+                        <span ><b>getUserData</b></span>
+                        <a href="#getUserData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getUserData()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="152"
+                                    class="link-to-prism">apps/FlowerApp/src/app/core/layouts/navBar/navBar.component.ts:152</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="languageToggle"></a>
+                    <span class="name">
+                        <span ><b>languageToggle</b></span>
+                        <a href="#languageToggle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>languageToggle()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="160"
+                                    class="link-to-prism">apps/FlowerApp/src/app/core/layouts/navBar/navBar.component.ts:160</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="logout"></a>
+                    <span class="name">
+                        <span ><b>logout</b></span>
+                        <a href="#logout"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>logout()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="196"
+                                    class="link-to-prism">apps/FlowerApp/src/app/core/layouts/navBar/navBar.component.ts:196</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="70"
+                                    class="link-to-prism">apps/FlowerApp/src/app/core/layouts/navBar/navBar.component.ts:70</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="76"
+                                    class="link-to-prism">apps/FlowerApp/src/app/core/layouts/navBar/navBar.component.ts:76</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openAddressDialog"></a>
+                    <span class="name">
+                        <span ><b>openAddressDialog</b></span>
+                        <a href="#openAddressDialog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openAddressDialog()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="173"
+                                    class="link-to-prism">apps/FlowerApp/src/app/core/layouts/navBar/navBar.component.ts:173</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setUserMenueItems"></a>
+                    <span class="name">
+                        <span ><b>setUserMenueItems</b></span>
+                        <a href="#setUserMenueItems"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setUserMenueItems()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="86"
+                                    class="link-to-prism">apps/FlowerApp/src/app/core/layouts/navBar/navBar.component.ts:86</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleDarkMode"></a>
+                    <span class="name">
+                        <span ><b>toggleDarkMode</b></span>
+                        <a href="#toggleDarkMode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleDarkMode()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="156"
+                                    class="link-to-prism">apps/FlowerApp/src/app/core/layouts/navBar/navBar.component.ts:156</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="darkMode"></a>
+                    <span class="name">
+                        <span ><b>darkMode</b></span>
+                        <a href="#darkMode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">apps/FlowerApp/src/app/core/layouts/navBar/navBar.component.ts:58</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="destroy$"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>destroy$</b></span>
+                        <a href="#destroy$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject&lt;void&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">apps/FlowerApp/src/app/core/layouts/navBar/navBar.component.ts:56</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="langClick"></a>
+                    <span class="name">
+                        <span ><b>langClick</b></span>
+                        <a href="#langClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">apps/FlowerApp/src/app/core/layouts/navBar/navBar.component.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="numberOfCartItems$"></a>
+                    <span class="name">
+                        <span ><b>numberOfCartItems$</b></span>
+                        <a href="#numberOfCartItems$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Observable&lt;number&gt;</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">apps/FlowerApp/src/app/core/layouts/navBar/navBar.component.ts:60</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ref"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>ref</b></span>
+                        <a href="#ref"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>DynamicDialogRef</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">apps/FlowerApp/src/app/core/layouts/navBar/navBar.component.ts:54</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="userData"></a>
+                    <span class="name">
+                        <span ><b>userData</b></span>
+                        <a href="#userData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>WritableSignal&lt;UserDTO | null&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal(null)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">apps/FlowerApp/src/app/core/layouts/navBar/navBar.component.ts:55</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="userItems"></a>
+                    <span class="name">
+                        <span ><b>userItems</b></span>
+                        <a href="#userItems"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>MenuItem[] | undefined</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">apps/FlowerApp/src/app/core/layouts/navBar/navBar.component.ts:59</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ThemeService } from &#x27;./../../services/theme-service.service&#x27;;
+import {
+  Component,
+  OnDestroy,
+  OnInit,
+  signal,
+  WritableSignal,
+} from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { Router, RouterLink, RouterLinkActive } from &#x27;@angular/router&#x27;;
+import { ButtonModule } from &#x27;primeng/button&#x27;;
+import { RippleModule } from &#x27;primeng/ripple&#x27;;
+import { MenuModule, Menu } from &#x27;primeng/menu&#x27;;
+import { MenuItem } from &#x27;primeng/api&#x27;;
+import { BadgeModule } from &#x27;primeng/badge&#x27;;
+import { InputTextModule } from &#x27;primeng/inputtext&#x27;;
+import { MyTranslateService } from &#x27;../../services/my-translate-service.service&#x27;;
+import { TranslatePipe } from &#x27;@ngx-translate/core&#x27;;
+import { AuthService } from &#x27;../../../shared/services/auth.service&#x27;;
+
+import { MenubarModule } from &#x27;primeng/menubar&#x27;;
+import { UserDTO } from &#x27;auth-api/src/lib/auth-api/interfaces/loginRes.dto&#x27;;
+import { GlobalInputComponent } from &#x27;../../../shared/components/ui/globalInput.component&#x27;;
+import { Store } from &#x27;@ngrx/store&#x27;;
+import { selectNumberOfCartItems } from &#x27;../../../features/pages/cart/store/reducers&#x27;;
+import { Observable, Subject, takeUntil } from &#x27;rxjs&#x27;;
+import { cartActions } from &#x27;../../../features/pages/cart/store/actions&#x27;;
+import { DialogService, DynamicDialogRef } from &#x27;primeng/dynamicdialog&#x27;;
+import { AddressDialogComponent } from &#x27;../../../features/pages/address/components/addressDialog.component&#x27;;
+import { AuthApiService } from &#x27;@rose-flower/auth-api&#x27;;
+import { addressActions } from &#x27;../../../features/pages/address/store/actions&#x27;;
+import { DialogViewEnum } from &#x27;../../../features/pages/address/types/viewDialogType.enum&#x27;;
+
+@Component({
+  selector: &#x27;app-nav-bar&#x27;,
+  standalone: true,
+  imports: [
+    CommonModule,
+    RouterLink,
+    RouterLinkActive,
+    ButtonModule,
+    MenuModule,
+    BadgeModule,
+    InputTextModule,
+    TranslatePipe,
+    MenubarModule,
+    GlobalInputComponent,
+  ],
+  templateUrl: &#x27;./navBar.component.html&#x27;,
+  styleUrl: &#x27;./navBar.component.scss&#x27;,
+  providers: [DialogService],
+})
+export class NavBarComponent implements OnInit, OnDestroy {
+  private ref?: DynamicDialogRef;
+  userData: WritableSignal&lt;UserDTO | null&gt; &#x3D; signal(null);
+  private destroy$ &#x3D; new Subject&lt;void&gt;();
+  langClick &#x3D; false;
+  darkMode &#x3D; false;
+  userItems: MenuItem[] | undefined;
+  numberOfCartItems$!: Observable&lt;number&gt;;
+  constructor(
+    private _themeService: ThemeService,
+    private _MyTranslateService: MyTranslateService,
+    private _AuthService: AuthService,
+    private store: Store,
+    private _dialogService: DialogService,
+    private _AuthApiService: AuthApiService,
+    private _router: Router
+  ) {}
+  ngOnDestroy(): void {
+    this.ref?.close();
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+
+  ngOnInit() {
+    //initial theme
+    this._themeService.initialTheme();
+    this.getUserData();
+    this.setUserMenueItems();
+    //get cart
+    if (this._AuthService.isLoggedIn())
+      this.store.dispatch(cartActions[&#x27;getLoggedUserCart&#x27;]());
+    this.numberOfCartItems$ &#x3D; this.store.select(selectNumberOfCartItems);
+  }
+  setUserMenueItems() {
+    this.userItems &#x3D; [
+      {
+        label: &#x60;${this.userData()?.firstName}${this.userData()?.lastName}&#x60;,
+
+        items: [
+          {
+            separator: true,
+          },
+          {
+            label: &#x27;My Profile&#x27;,
+            icon: &#x27;pi pi-user&#x27;,
+            routerLink: &#x27;/profile&#x27;,
+          },
+          {
+            label: &#x27;My Addresses&#x27;,
+            icon: &#x27;pi pi-home&#x27;,
+            command: () &#x3D;&gt; {
+              this.openAddressDialog();
+            },
+          },
+          {
+            label: &#x27;My Orders&#x27;,
+            icon: &#x27;pi pi-save&#x27;,
+            routerLink: &#x27;/allOrders&#x27;,
+          },
+          {
+            separator: true,
+          },
+          {
+            label: &#x27;Dashboard&#x27;,
+            icon: &#x27;pi pi-cog&#x27;,
+          },
+          {
+            separator: true,
+          },
+          {
+            label: &#x27;Log out&#x27;,
+            icon: &#x27;pi pi-sign-out&#x27;,
+            visible: this._AuthService.isLoggedIn(),
+            command: () &#x3D;&gt; {
+              this.logout();
+            },
+          },
+        ],
+      },
+      // {
+      //   separator: true,
+      //   styleClass: &#x27;line&#x27;,
+      // },
+      // {
+      //   icon: &#x27;pi pi-heart&#x27;,
+      //   badge:&#x27;2&#x27;,
+      //   expanded:true,
+      // },
+      // {
+      //   icon: &#x27;pi pi-shopping-cart&#x27;,
+      //    badge:&#x27;2&#x27;,
+      // },
+      // {
+      //   icon: &#x27;pi pi-bell&#x27;,
+      //    badge:&#x27;2&#x27;,
+      // },
+    ];
+  }
+
+  getUserData() {
+    this.userData &#x3D; this._AuthService.getUser();
+    console.log(this.userData());
+  }
+  toggleDarkMode() {
+    this._themeService.toggleTheme();
+  }
+
+  languageToggle() {
+    this.langClick &#x3D; !this.langClick;
+  }
+  changeLanguage(lang: string): void {
+    this._MyTranslateService.changeTranslateLange(lang);
+  }
+  currentLanguage(lang: string): boolean {
+    return this._MyTranslateService.currentLang &#x3D;&#x3D;&#x3D; lang;
+  }
+  darkModeToggle() {
+    this.darkMode &#x3D; !this.darkMode;
+  }
+
+  openAddressDialog() {
+    this.ref &#x3D; this._dialogService.open(AddressDialogComponent, {
+      header: &#x27;&#x27;,
+      width: &#x27;50vw&#x27;,
+      modal: true,
+      breakpoints: {
+        &#x27;960px&#x27;: &#x27;75vw&#x27;,
+        &#x27;640px&#x27;: &#x27;90vw&#x27;,
+      },
+      closable: true,
+    });
+    this.ref.onClose.pipe(takeUntil(this.destroy$)).subscribe(() &#x3D;&gt; {
+      // this._DialogContentService.selectedComponentView.set(
+      //   GetAddressesComponent
+      // );
+      this.store.dispatch(
+        addressActions.openDialogComponent({
+          view: DialogViewEnum.getAddresses,
+        })
+      );
+    });
+  }
+
+  logout() {
+    this._AuthApiService.logout().subscribe({
+      next: (res) &#x3D;&gt; {
+        console.log(res);
+        console.log(this.userData());
+        this._AuthService.clearUser();
+        this._router.navigate([&#x27;/home&#x27;]);
+        console.log(&#x27;user&#x27;, this.userData());
+      },
+      error: (err) &#x3D;&gt; {
+        console.log(err.error.error);
+      },
+    });
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;!-- Main Navigation Bar --&gt;
+&lt;nav
+  class&#x3D;&quot;my-3 mx-3 flex gap-2 flex-column md:flex-row align-items-stretch justify-content-center flex-wrap&quot;
+&gt;
+  &lt;!-- Logo --&gt;
+  &lt;div class&#x3D;&quot;flex align-items-center gap-2&quot;&gt;
+    &lt;img
+      src&#x3D;&quot;images/newLogo.png&quot;
+      alt&#x3D;&quot;Rose Flower Logo&quot;
+      height&#x3D;&quot;50&quot;
+      class&#x3D;&quot;flex-none&quot;
+    /&gt;
+    @if(userData() ){
+    &lt;span class&#x3D;&quot;location cursor-pointer&quot; (click)&#x3D;&quot;openAddressDialog()&quot;&gt;
+      Deliver to:
+      &lt;span class&#x3D;&quot;flex align-items-center&quot;&gt;
+        &lt;svg
+          width&#x3D;&quot;21&quot;
+          height&#x3D;&quot;20&quot;
+          viewBox&#x3D;&quot;0 0 21 20&quot;
+          fill&#x3D;&quot;none&quot;
+          xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;
+        &gt;
+          &lt;path
+            d&#x3D;&quot;M15.4748 7.75296C15.3262 6.04099 14.5222 4.45256 13.2306 3.31907C11.939 2.18558 10.2597 1.59459 8.5429 1.66941C6.82612 1.74423 5.20454 2.47908 4.01649 3.72064C2.82843 4.96219 2.16568 6.61455 2.1665 8.33296C2.1665 12.2413 6.23901 16.3013 8.01817 17.8896M18.3148 13.8546C18.6468 13.5227 18.8333 13.0724 18.8333 12.603C18.8333 12.1335 18.6468 11.6833 18.3148 11.3513C17.9829 11.0193 17.5326 10.8328 17.0632 10.8328C16.5937 10.8328 16.1435 11.0193 15.8115 11.3513L12.4698 14.6946C12.2717 14.8926 12.1267 15.1374 12.0482 15.4063L11.3507 17.798C11.3298 17.8697 11.3285 17.9457 11.347 18.018C11.3656 18.0904 11.4032 18.1564 11.456 18.2093C11.5089 18.2621 11.5749 18.2997 11.6473 18.3183C11.7196 18.3368 11.7956 18.3355 11.8673 18.3146L14.259 17.6171C14.5279 17.5386 14.7727 17.3936 14.9707 17.1955L18.3148 13.8546ZM11.3332 8.33296C11.3332 9.71367 10.2139 10.833 8.83317 10.833C7.45246 10.833 6.33317 9.71367 6.33317 8.33296C6.33317 6.95225 7.45246 5.83296 8.83317 5.83296C10.2139 5.83296 11.3332 6.95225 11.3332 8.33296Z&quot;
+            stroke&#x3D;&quot;currentcolor&quot;
+            stroke-width&#x3D;&quot;1.125&quot;
+            stroke-linecap&#x3D;&quot;round&quot;
+            stroke-linejoin&#x3D;&quot;round&quot;
+          /&gt;
+        &lt;/svg&gt;
+        Cairo
+      &lt;/span&gt;
+    &lt;/span&gt;
+
+    }
+  &lt;/div&gt;
+
+  &lt;app-global-input
+    class&#x3D;&quot;md:flex-grow-1 flex-1&quot;
+    [placeholder]&#x3D;&quot;&#x27;What awesome gift are you looking for?&#x27;&quot;
+    [search]&#x3D;&quot;true&quot;
+  &gt;&lt;/app-global-input&gt;
+
+  &lt;!-- Icons - Always Visible --&gt;
+  &lt;div class&#x3D;&quot;nav__Icons flex align-items-center gap-1&quot;&gt;
+    @if(userData() !&#x3D;null){
+    &lt;p-menu
+      #menu
+      [model]&#x3D;&quot;userItems&quot;
+      [popup]&#x3D;&quot;true&quot;
+      styleClass&#x3D;&quot;  border-round-2xl &quot;
+    /&gt;
+    &lt;div
+      class&#x3D;&quot;flex align-items-end cursor-pointer&quot;
+      (click)&#x3D;&quot;menu.toggle($event)&quot;
+    &gt;
+      &lt;div class&#x3D;&quot;flex flex-column&quot;&gt;
+        &lt;span&gt;Hello&lt;/span&gt;
+        &lt;h3 class&#x3D;&quot;mt-1&quot;&gt;{{ userData()?.firstName }}&lt;/h3&gt;
+      &lt;/div&gt;
+
+      &lt;svg
+        width&#x3D;&quot;19&quot;
+        height&#x3D;&quot;19&quot;
+        viewBox&#x3D;&quot;0 0 19 19&quot;
+        fill&#x3D;&quot;none&quot;
+        xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;
+      &gt;
+        &lt;path
+          d&#x3D;&quot;M5 7.25L9.5 11.75L14 7.25&quot;
+          stroke&#x3D;&quot;#71717A&quot;
+          stroke-width&#x3D;&quot;1.25&quot;
+          stroke-linecap&#x3D;&quot;round&quot;
+          stroke-linejoin&#x3D;&quot;round&quot;
+        /&gt;
+      &lt;/svg&gt;
+    &lt;/div&gt;
+    } @else {
+    &lt;button pButton class&#x3D;&quot;p-button-text&quot; routerLink&#x3D;&quot;/auth/login&quot;&gt;
+      &lt;svg
+        width&#x3D;&quot;20&quot;
+        height&#x3D;&quot;20&quot;
+        viewBox&#x3D;&quot;0 0 20 20&quot;
+        fill&#x3D;&quot;none&quot;
+        xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;
+      &gt;
+        &lt;path
+          d&#x3D;&quot;M15.8333 17.5V15.8333C15.8333 14.9493 15.4821 14.1014 14.857 13.4763C14.2319 12.8512 13.384 12.5 12.5 12.5H7.49996C6.6159 12.5 5.76806 12.8512 5.14294 13.4763C4.51782 14.1014 4.16663 14.9493 4.16663 15.8333V17.5M13.3333 5.83333C13.3333 7.67428 11.8409 9.16667 9.99996 9.16667C8.15901 9.16667 6.66663 7.67428 6.66663 5.83333C6.66663 3.99238 8.15901 2.5 9.99996 2.5C11.8409 2.5 13.3333 3.99238 13.3333 5.83333Z&quot;
+          stroke&#x3D;&quot;currentcolor&quot;
+          stroke-width&#x3D;&quot;1.45833&quot;
+          stroke-linecap&#x3D;&quot;round&quot;
+          stroke-linejoin&#x3D;&quot;round&quot;
+        /&gt;
+      &lt;/svg&gt;
+
+      &lt;span class&#x3D;&quot;login&quot;&gt; Login&lt;/span&gt;
+    &lt;/button&gt;
+    }
+    &lt;div class&#x3D;&quot;line h-full&quot;&gt;&lt;/div&gt;
+    &lt;!-- Menu Toggle (Mobile Only) --&gt;
+    &lt;!-- &lt;button
+          pButton
+          class&#x3D;&quot;p-button-text lg:hidden&quot;
+          (click)&#x3D;&quot;toggleMenu($event)&quot;
+        &gt;
+          &lt;i class&#x3D;&quot;fa-solid fa-bars&quot;&gt;&lt;/i&gt;
+        &lt;/button&gt; --&gt;
+
+    &lt;!-- Wishlist Button --&gt;
+    &lt;button pButton class&#x3D;&quot;p-button-text relative&quot;&gt;
+      &lt;i class&#x3D;&quot;fa-regular fa-heart&quot;&gt;&lt;/i&gt;
+    &lt;/button&gt;
+    &lt;!-- Shopping Cart Button --&gt;
+    &lt;button pButton class&#x3D;&quot;p-button-text&quot; routerLink&#x3D;&quot;/cart&quot;&gt;
+      &lt;i
+        class&#x3D;&quot;pi pi-shopping-cart&quot;
+        pBadge
+        [value]&#x3D;&quot;(numberOfCartItems$ | async) ?? &#x27;0&#x27;&quot;
+        badgeSize&#x3D;&quot;small&quot;
+      &gt;&lt;/i&gt;
+    &lt;/button&gt;
+    &lt;!-- Notification --&gt;
+    &lt;button pButton class&#x3D;&quot;p-button-text&quot;&gt;
+      &lt;i class&#x3D;&quot;pi pi-bell&quot; pBadge value&#x3D;&quot;2&quot; badgeSize&#x3D;&quot;small&quot;&gt;&lt;/i&gt;
+    &lt;/button&gt;
+    &lt;div class&#x3D;&quot;line h-full&quot;&gt;&lt;/div&gt;
+    &lt;button
+      pButton
+      class&#x3D;&quot;p-button-text btn-dark-mode&quot;
+      (click)&#x3D;&quot;darkModeToggle(); toggleDarkMode()&quot;
+    &gt;
+      @if (darkMode) {
+      &lt;i class&#x3D;&quot;fa-solid fa-sun&quot;&gt;&lt;/i&gt;
+      } @else {&lt;i class&#x3D;&quot;fa-solid fa-moon&quot;&gt;&lt;/i&gt; }
+    &lt;/button&gt;
+
+    &lt;button
+      pButton
+      [class.hidden]&#x3D;&quot;currentLanguage(&#x27;en&#x27;)&quot;
+      pButton
+      class&#x3D;&quot;p-button-text text-sm&quot;
+      (click)&#x3D;&quot;changeLanguage(&#x27;en&#x27;)&quot;
+    &gt;
+      {{ &#x27;navbar.arabic&#x27; | translate }}
+    &lt;/button&gt;
+
+    &lt;button
+      pButton
+      [class.hidden]&#x3D;&quot;currentLanguage(&#x27;ar&#x27;)&quot;
+      pButton
+      class&#x3D;&quot;p-button-text text-sm&quot;
+      (click)&#x3D;&quot;changeLanguage(&#x27;ar&#x27;)&quot;
+    &gt;
+      English
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
+
+&lt;!--   Navigation Links -   --&gt;
+&lt;div class&#x3D;&quot;navigation&quot;&gt;
+  &lt;ul
+    class&#x3D;&quot;list-none flex gap-5 md:justify-content-center align-items-center text-center&quot;
+  &gt;
+    &lt;li&gt;
+      &lt;a
+        routerLink&#x3D;&quot;/home&quot;
+        routerLinkActive&#x3D;&quot;nav-active &quot;
+        class&#x3D;&quot;no-underline cursor-pointer&quot;
+        role&#x3D;&quot;button&quot;
+        tabindex&#x3D;&quot;0&quot;
+      &gt;
+        &lt;i class&#x3D;&quot;pi pi-home&quot; style&#x3D;&quot;font-size: 1rem&quot;&gt;&lt;/i&gt;
+        {{ &#x27;navbar.home&#x27; | translate }}
+      &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a
+        routerLink&#x3D;&quot;/products &quot;
+        routerLinkActive&#x3D;&quot;nav-active &quot;
+        class&#x3D;&quot;no-underline cursor-pointer&quot;
+        role&#x3D;&quot;button&quot;
+        tabindex&#x3D;&quot;0&quot;
+      &gt;
+        &lt;i class&#x3D;&quot;pi pi-gift&quot;&gt;&lt;/i&gt;
+        {{ &#x27;navbar.products&#x27; | translate }}
+      &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a
+        routerLink&#x3D;&quot;/product-list&quot;
+        routerLinkActive&#x3D;&quot;nav-active &quot;
+        class&#x3D;&quot;no-underline cursor-pointer&quot;
+        role&#x3D;&quot;button&quot;
+        tabindex&#x3D;&quot;0&quot;
+      &gt;
+        &lt;i class&#x3D;&quot;pi pi-clone&quot;&gt;&lt;/i&gt;
+        {{ &#x27;navbar.categories&#x27; | translate }}
+      &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a
+        routerLink&#x3D;&quot;/occasions&quot;
+        routerLinkActive&#x3D;&quot;nav-active &quot;
+        class&#x3D;&quot;no-underline cursor-pointer&quot;
+        role&#x3D;&quot;button&quot;
+        tabindex&#x3D;&quot;0&quot;
+      &gt;
+        &lt;i class&#x3D;&quot;pi pi-clone&quot;&gt;&lt;/i&gt;
+        occasions
+        &lt;!-- {{ &#x27;navbar.occasions&#x27; | translate }} --&gt;
+      &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a
+        routerLink&#x3D;&quot;/about&quot;
+        routerLinkActive&#x3D;&quot;nav-active &quot;
+        class&#x3D;&quot;no-underline cursor-pointer&quot;
+        role&#x3D;&quot;button&quot;
+        tabindex&#x3D;&quot;0&quot;
+      &gt;
+        &lt;i class&#x3D;&quot;pi pi-info-circle&quot;&gt;&lt;/i&gt;
+        {{ &#x27;navbar.about&#x27; | translate }}
+      &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a
+        routerLink&#x3D;&quot;/contact&quot;
+        routerLinkActive&#x3D;&quot;nav-active &quot;
+        class&#x3D;&quot;no-underline cursor-pointer&quot;
+        role&#x3D;&quot;button&quot;
+        tabindex&#x3D;&quot;0&quot;
+      &gt;
+        &lt;i class&#x3D;&quot;pi pi-headphones&quot;&gt;&lt;/i&gt;
+        {{ &#x27;navbar.contact&#x27; | translate }}
+      &lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><!-- Main Navigation Bar --><nav  class="my-3 mx-3 flex gap-2 flex-column md:flex-row align-items-stretch justify-content-center flex-wrap">  <!-- Logo -->  <div class="flex align-items-center gap-2">    <img      src="images/newLogo.png"      alt="Rose Flower Logo"      height="50"      class="flex-none"    />    @if(userData() ){    <span class="location cursor-pointer" (click)="openAddressDialog()">      Deliver to:      <span class="flex align-items-center">        <svg          width="21"          height="20"          viewBox="0 0 21 20"          fill="none"          xmlns="http://www.w3.org/2000/svg"        >          <path            d="M15.4748 7.75296C15.3262 6.04099 14.5222 4.45256 13.2306 3.31907C11.939 2.18558 10.2597 1.59459 8.5429 1.66941C6.82612 1.74423 5.20454 2.47908 4.01649 3.72064C2.82843 4.96219 2.16568 6.61455 2.1665 8.33296C2.1665 12.2413 6.23901 16.3013 8.01817 17.8896M18.3148 13.8546C18.6468 13.5227 18.8333 13.0724 18.8333 12.603C18.8333 12.1335 18.6468 11.6833 18.3148 11.3513C17.9829 11.0193 17.5326 10.8328 17.0632 10.8328C16.5937 10.8328 16.1435 11.0193 15.8115 11.3513L12.4698 14.6946C12.2717 14.8926 12.1267 15.1374 12.0482 15.4063L11.3507 17.798C11.3298 17.8697 11.3285 17.9457 11.347 18.018C11.3656 18.0904 11.4032 18.1564 11.456 18.2093C11.5089 18.2621 11.5749 18.2997 11.6473 18.3183C11.7196 18.3368 11.7956 18.3355 11.8673 18.3146L14.259 17.6171C14.5279 17.5386 14.7727 17.3936 14.9707 17.1955L18.3148 13.8546ZM11.3332 8.33296C11.3332 9.71367 10.2139 10.833 8.83317 10.833C7.45246 10.833 6.33317 9.71367 6.33317 8.33296C6.33317 6.95225 7.45246 5.83296 8.83317 5.83296C10.2139 5.83296 11.3332 6.95225 11.3332 8.33296Z"            stroke="currentcolor"            stroke-width="1.125"            stroke-linecap="round"            stroke-linejoin="round"          />        </svg>        Cairo      </span>    </span>    }  </div>  <app-global-input    class="md:flex-grow-1 flex-1"    [placeholder]="\'What awesome gift are you looking for?\'"    [search]="true"  ></app-global-input>  <!-- Icons - Always Visible -->  <div class="nav__Icons flex align-items-center gap-1">    @if(userData() !=null){    <p-menu      #menu      [model]="userItems"      [popup]="true"      styleClass="  border-round-2xl "    />    <div      class="flex align-items-end cursor-pointer"      (click)="menu.toggle($event)"    >      <div class="flex flex-column">        <span>Hello</span>        <h3 class="mt-1">{{ userData()?.firstName }}</h3>      </div>      <svg        width="19"        height="19"        viewBox="0 0 19 19"        fill="none"        xmlns="http://www.w3.org/2000/svg"      >        <path          d="M5 7.25L9.5 11.75L14 7.25"          stroke="#71717A"          stroke-width="1.25"          stroke-linecap="round"          stroke-linejoin="round"        />      </svg>    </div>    } @else {    <button pButton class="p-button-text" routerLink="/auth/login">      <svg        width="20"        height="20"        viewBox="0 0 20 20"        fill="none"        xmlns="http://www.w3.org/2000/svg"      >        <path          d="M15.8333 17.5V15.8333C15.8333 14.9493 15.4821 14.1014 14.857 13.4763C14.2319 12.8512 13.384 12.5 12.5 12.5H7.49996C6.6159 12.5 5.76806 12.8512 5.14294 13.4763C4.51782 14.1014 4.16663 14.9493 4.16663 15.8333V17.5M13.3333 5.83333C13.3333 7.67428 11.8409 9.16667 9.99996 9.16667C8.15901 9.16667 6.66663 7.67428 6.66663 5.83333C6.66663 3.99238 8.15901 2.5 9.99996 2.5C11.8409 2.5 13.3333 3.99238 13.3333 5.83333Z"          stroke="currentcolor"          stroke-width="1.45833"          stroke-linecap="round"          stroke-linejoin="round"        />      </svg>      <span class="login"> Login</span>    </button>    }    <div class="line h-full"></div>    <!-- Menu Toggle (Mobile Only) -->    <!-- <button          pButton          class="p-button-text lg:hidden"          (click)="toggleMenu($event)"        >          <i class="fa-solid fa-bars"></i>        </button> -->    <!-- Wishlist Button -->    <button pButton class="p-button-text relative">      <i class="fa-regular fa-heart"></i>    </button>    <!-- Shopping Cart Button -->    <button pButton class="p-button-text" routerLink="/cart">      <i        class="pi pi-shopping-cart"        pBadge        [value]="(numberOfCartItems$ | async) ?? \'0\'"        badgeSize="small"      ></i>    </button>    <!-- Notification -->    <button pButton class="p-button-text">      <i class="pi pi-bell" pBadge value="2" badgeSize="small"></i>    </button>    <div class="line h-full"></div>    <button      pButton      class="p-button-text btn-dark-mode"      (click)="darkModeToggle(); toggleDarkMode()"    >      @if (darkMode) {      <i class="fa-solid fa-sun"></i>      } @else {<i class="fa-solid fa-moon"></i> }    </button>    <button      pButton      [class.hidden]="currentLanguage(\'en\')"      pButton      class="p-button-text text-sm"      (click)="changeLanguage(\'en\')"    >      {{ \'navbar.arabic\' | translate }}    </button>    <button      pButton      [class.hidden]="currentLanguage(\'ar\')"      pButton      class="p-button-text text-sm"      (click)="changeLanguage(\'ar\')"    >      English    </button>  </div></nav><!--   Navigation Links -   --><div class="navigation">  <ul    class="list-none flex gap-5 md:justify-content-center align-items-center text-center"  >    <li>      <a        routerLink="/home"        routerLinkActive="nav-active "        class="no-underline cursor-pointer"        role="button"        tabindex="0"      >        <i class="pi pi-home" style="font-size: 1rem"></i>        {{ \'navbar.home\' | translate }}      </a>    </li>    <li>      <a        routerLink="/products "        routerLinkActive="nav-active "        class="no-underline cursor-pointer"        role="button"        tabindex="0"      >        <i class="pi pi-gift"></i>        {{ \'navbar.products\' | translate }}      </a>    </li>    <li>      <a        routerLink="/product-list"        routerLinkActive="nav-active "        class="no-underline cursor-pointer"        role="button"        tabindex="0"      >        <i class="pi pi-clone"></i>        {{ \'navbar.categories\' | translate }}      </a>    </li>    <li>      <a        routerLink="/occasions"        routerLinkActive="nav-active "        class="no-underline cursor-pointer"        role="button"        tabindex="0"      >        <i class="pi pi-clone"></i>        occasions        <!-- {{ \'navbar.occasions\' | translate }} -->      </a>    </li>    <li>      <a        routerLink="/about"        routerLinkActive="nav-active "        class="no-underline cursor-pointer"        role="button"        tabindex="0"      >        <i class="pi pi-info-circle"></i>        {{ \'navbar.about\' | translate }}      </a>    </li>    <li>      <a        routerLink="/contact"        routerLinkActive="nav-active "        class="no-underline cursor-pointer"        role="button"        tabindex="0"      >        <i class="pi pi-headphones"></i>        {{ \'navbar.contact\' | translate }}      </a>    </li>  </ul></div></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AddAddressComponent', 'selector': 'app-add-address'},{'name': 'AddressDialogComponent', 'selector': 'app-address-dialog'},{'name': 'AddressesComponent', 'selector': 'app-addresses'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthLayoutComponent', 'selector': 'app-auth-layout'},{'name': 'AvatarFeaturesComponent', 'selector': 'app-avatar-features'},{'name': 'BestComponent', 'selector': 'app-best'},{'name': 'CarousolComponent', 'selector': 'app-carousol'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CartLayoutComponent', 'selector': 'app-cart-layout'},{'name': 'CatigoryComponent', 'selector': 'app-catigory'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'ErrorComponent', 'selector': 'app-error'},{'name': 'FeaturesComponent', 'selector': 'app-features'},{'name': 'FieldErrorComponent', 'selector': 'app-field-error'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgetPasswordComponent', 'selector': 'app-forget-password'},{'name': 'GallaryComponent', 'selector': 'app-gallary'},{'name': 'GetAddressesComponent', 'selector': 'app-get-addresses'},{'name': 'GiftUiComponent', 'selector': 'app-gift-ui'},{'name': 'GlobalCkeckboxGroupComponent', 'selector': 'app-global-ckeckbox-group'},{'name': 'GlobalInputComponent', 'selector': 'app-global-input'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ImageContainerComponent', 'selector': 'app-image-container'},{'name': 'LoadingComponent', 'selector': 'app-loading'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MainLayoutComponent', 'selector': 'app-main-layout'},{'name': 'MyAccountComponent', 'selector': 'app-my-account'},{'name': 'NavBarComponent', 'selector': 'app-nav-bar'},{'name': 'NxWelcomeComponent', 'selector': 'app-nx-welcome'},{'name': 'PrimaryBtnComponent', 'selector': 'app-primary-btn'},{'name': 'ProductCartComponent', 'selector': 'app-product-cart'},{'name': 'ProductComponent', 'selector': 'app-product'},{'name': 'ProductDetailComponent', 'selector': 'app-product-detail'},{'name': 'ProductListComponent', 'selector': 'app-product-list'},{'name': 'ProductReviewComponent', 'selector': 'app-product-review'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'ProfileImageComponent', 'selector': 'app-profile-image'},{'name': 'RelatedProductsComponent', 'selector': 'app-related-products'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SharedProductsComponent', 'selector': 'app-shared-products'},{'name': 'ShippingAddressComponent', 'selector': 'app-shipping-address'},{'name': 'SpecialGiftsComponent', 'selector': 'app-special-gifts'},{'name': 'StarsRatingsComponent', 'selector': 'app-stars-ratings'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'TrustedbyComponent', 'selector': 'app-trustedby'},{'name': 'VerifyCodeComponent', 'selector': 'app-verify-code'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'NavBarComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'NavBarComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

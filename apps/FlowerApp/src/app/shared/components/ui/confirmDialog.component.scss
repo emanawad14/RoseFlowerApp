@@ -1,0 +1,14 @@
+span {
+  /* This action is permanent and cannot be undone. */
+  font-family: 'Sarabun-Regular';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.9rem;
+  line-height: 100%;
+  /* Maroon/maroon-500 */
+  color: #cd2e33;
+}
+::ng-deep .p-dialog-footer {
+  justify-content: center;
+  width: 100%;
+}

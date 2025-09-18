@@ -2,15 +2,26 @@
   [disabled]="disabled"
   pButton
   [type]="type"
-  class="p-button h-auto py-3"
+  class="p-button h-auto py-2 px-4"
   [class.w-full]="widthFull"
   (click)="dispatchClick()"
+  [loading]="loading"
+  [icon]="icon"
+  [style]="{
+    'background-color': backgroundColor || 'var(--primary-btn-bg)',
+  }"
 >
   <ng-content></ng-content>
-  <span class="custom-label">{{ labelName }}</span>
+  <span
+    class="custom-label"
+    [style]="{
+      color: colorText || 'var( --btn-text) '
+    }"
+    >{{ labelName }}</span
+  >
   <span [class.hidden]="!displayIcon">
     <svg
-      [ngClass]="{
+      [class]="{
         'order-first rotate-180': translate.currentLang === 'ar',
         'order-last rotate-0': translate.currentLang !== 'ar'
       }"

@@ -1,0 +1,146 @@
+<div class="add-address-card flex w-full">
+  <p-stepper [(value)]="activeStep" class="">
+    <p-step-list class="flex align-items-center w-full">
+      <p-step [value]="1" class="flex flex-row flex-auto gap-2">
+        <ng-template
+          #content
+          let-activateCallback="activateCallback"
+          let-value="value"
+        >
+          <div class="flex align-items-center flex-1">
+            <div class="step-line active flex-1"></div>
+            <div
+              class="step-circle active"
+              [class]="{
+                active: value <= activeStep,
+                
+              }"
+              (click)="activateCallback()"
+            >
+              1
+            </div>
+          </div>
+        </ng-template>
+      </p-step>
+
+      <p-step [value]="2" class="flex flex-row flex-auto gap-2">
+        <ng-template
+          #content
+          let-activateCallback="activateCallback"
+          let-value="value"
+        >
+          <div class="flex align-items-center flex-1">
+            <div
+              class="step-line flex-1"
+              [class]="{
+                active: value <= activeStep,
+               
+              }"
+            ></div>
+            <div
+              class="step-circle"
+              [class]="{
+                active: value <= activeStep,
+               
+              }"
+              (click)="activateCallback()"
+            >
+              2
+            </div>
+          </div>
+        </ng-template>
+      </p-step>
+
+      <p-step [value]="3" class="flex flex-row flex-auto gap-2">
+        <ng-template
+          #content
+          let-activateCallback="activateCallback"
+          let-value="value"
+        >
+          <div class="flex align-items-center flex-1">
+            <div class="step-line flex-1"></div>
+          </div>
+        </ng-template>
+      </p-step>
+    </p-step-list>
+
+    <p-step-panels>
+      <p-step-panel [value]="1">
+        <ng-template #content let-activateCallback="activateCallback">
+          <!-- address Form  -->
+          <form class="flex flex-column gap-2 mb-5">
+            <h3>Enter address details</h3>
+            <div class="line"></div>
+            <app-global-input
+              [labelText]="'City'"
+              [placeholder]="'Enter city name'"
+            ></app-global-input>
+            <app-global-input
+              [labelText]="'Address'"
+              [placeholder]="'Enter your full address'"
+            ></app-global-input>
+            <app-global-input
+              [labelText]="'Phone'"
+              [placeholder]="'Phone number'"
+            ></app-global-input>
+          </form>
+
+          <app-primary-btn
+            [labelName]="'Next'"
+            [widthFull]="true"
+            [displayIcon]="false"
+            (btnClicked)="activateCallback(2)"
+            ><div class="py-2"></div
+          ></app-primary-btn>
+        </ng-template>
+      </p-step-panel>
+
+      <p-step-panel [value]="2">
+        <ng-template #content let-activateCallback="activateCallback">
+          <div class="flex flex-column gap-3">
+            <div>
+              <h3>Find Your Location</h3>
+            </div>
+            <div class="line"></div>
+
+            <google-map
+              class="relative"
+              height="400px"
+              width="100%"
+              [zoom]="zoom"
+              (mapClick)="setLocation($event)"
+            >
+              <map-marker [position]="markerPosition"> </map-marker>
+
+              <button class="find-location-btn" (click)="findMyLocation()">
+                Find My Location
+              </button>
+            </google-map>
+            <div *ngIf="markerPosition" >
+              <strong>Latitude:</strong> {{ markerPosition.lat }}<br />
+              <strong>Longitude:</strong> {{ markerPosition.lng }}
+            </div>
+            <app-primary-btn
+              class="mt-5"
+              [type]="'submit'"
+              [labelName]="'Add Address'"
+              [widthFull]="true"
+              [displayIcon]="false"
+              (btnClicked)="activateCallback(2)"
+              ><div class="py-2"></div
+            ></app-primary-btn>
+          </div>
+          <!-- <div class="flex pt-6 justify-between">
+            <button
+              (onClick)="activateCallback(1)"
+              label="Back"
+              severity="secondary"
+              icon="pi pi-arrow-left"
+            ></button>
+          </div> -->
+        </ng-template>
+      </p-step-panel>
+    </p-step-panels>
+  </p-stepper>
+</div>
+    <!-- set location [center]="markerPosition" -->

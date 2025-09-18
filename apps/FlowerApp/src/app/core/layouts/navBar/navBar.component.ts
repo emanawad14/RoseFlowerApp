@@ -1,7 +1,13 @@
 import { ThemeService } from './../../services/theme-service.service';
-import { Component, OnInit, signal, ViewChild } from '@angular/core';
+import {
+  Component,
+  OnDestroy,
+  OnInit,
+  signal,
+  WritableSignal,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
 import { MenuModule, Menu } from 'primeng/menu';
@@ -14,7 +20,17 @@ import { AuthService } from '../../../shared/services/auth.service';
 
 import { MenubarModule } from 'primeng/menubar';
 import { UserDTO } from 'auth-api/src/lib/auth-api/interfaces/loginRes.dto';
-import { GlobalInputComponent } from "../../../shared/components/ui/globalInput.component";
+import { GlobalInputComponent } from '../../../shared/components/ui/globalInput.component';
+import { Store } from '@ngrx/store';
+import { selectNumberOfCartItems } from '../../../features/pages/cart/store/reducers';
+import { Observable, Subject, takeUntil } from 'rxjs';
+import { cartActions } from '../../../features/pages/cart/store/actions';
+import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { AddressDialogComponent } from '../../../features/pages/address/components/addressDialog.component';
+import { AuthApiService } from '@rose-flower/auth-api';
+import { addressActions } from '../../../features/pages/address/store/actions';
+import { DialogViewEnum } from '../../../features/pages/address/types/viewDialogType.enum';
+
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
@@ -23,72 +39,49 @@ import { GlobalInputComponent } from "../../../shared/components/ui/globalInput.
     RouterLink,
     RouterLinkActive,
     ButtonModule,
-    RippleModule,
     MenuModule,
     BadgeModule,
     InputTextModule,
     TranslatePipe,
     MenubarModule,
-    GlobalInputComponent
-],
+    GlobalInputComponent,
+  ],
   templateUrl: './navBar.component.html',
   styleUrl: './navBar.component.scss',
+  providers: [DialogService],
 })
-export class NavBarComponent implements OnInit {
-  userData = signal<UserDTO | null>(null);
-
+export class NavBarComponent implements OnInit, OnDestroy {
+  private ref?: DynamicDialogRef;
+  userData: WritableSignal<UserDTO | null> = signal(null);
+  private destroy$ = new Subject<void>();
   langClick = false;
   darkMode = false;
   userItems: MenuItem[] | undefined;
-
-  // @ViewChild('menu') menu!: Menu;
-  // menuItems: MenuItem[] = [
-  //   {
-  //     label: 'Home',
-  //     // icon: 'fa-solid fa-home text-pink-500',
-  //     routerLink: '/home',
-  //     styleClass: 'py-2 paragraph-text',
-  //     routerLinkActive: 'text-primary-color',
-  //   },
-  //   {
-  //     label: 'Categories',
-  //     // icon: 'fa-solid fa-list text-pink-500',
-  //     routerLink: '/product-list',
-  //     styleClass: 'py-2 paragraph-text',
-  //     routerLinkActive: 'text-primary-color',
-  //   },
-  //   {
-  //     label: 'About',
-  //     // icon: 'fa-solid fa-circle-info text-pink-500',
-  //     routerLink: '/about',
-  //     styleClass: 'py-2 paragraph-text',
-  //     routerLinkActive: 'text-primary-color',
-  //   },
-  //   {
-  //     label: 'Contact',
-  //     // icon: 'fa-solid fa-envelope text-pink-500',
-  //     routerLink: '/contact',
-  //     styleClass: 'py-2 paragraph-text',
-  //     routerLinkActive: 'text-primary-color',
-  //   },
-  // ];
+  numberOfCartItems$!: Observable<number>;
   constructor(
     private _themeService: ThemeService,
     private _MyTranslateService: MyTranslateService,
-    private _AuthService: AuthService
+    private _AuthService: AuthService,
+    private store: Store,
+    private _dialogService: DialogService,
+    private _AuthApiService: AuthApiService,
+    private _router: Router
   ) {}
-  /**
-   * Toggles the mobile menu
-   * @param event - The click event that triggered the toggle
-   */
-  // toggleMenu(event: Event) {
-  //   this.menu.toggle(event);
-  // }
+  ngOnDestroy(): void {
+    this.ref?.close();
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+
   ngOnInit() {
     //initial theme
     this._themeService.initialTheme();
     this.getUserData();
     this.setUserMenueItems();
+    //get cart
+    if (this._AuthService.isLoggedIn())
+      this.store.dispatch(cartActions['getLoggedUserCart']());
+    this.numberOfCartItems$ = this.store.select(selectNumberOfCartItems);
   }
   setUserMenueItems() {
     this.userItems = [
@@ -102,16 +95,19 @@ export class NavBarComponent implements OnInit {
           {
             label: 'My Profile',
             icon: 'pi pi-user',
-            routerLink: '',
+            routerLink: '/profile',
           },
           {
             label: 'My Addresses',
             icon: 'pi pi-home',
+            command: () => {
+              this.openAddressDialog();
+            },
           },
           {
             label: 'My Orders',
             icon: 'pi pi-save',
-            routerLink: '',
+            routerLink: '/allOrders',
           },
           {
             separator: true,
@@ -126,6 +122,10 @@ export class NavBarComponent implements OnInit {
           {
             label: 'Log out',
             icon: 'pi pi-sign-out',
+            visible: this._AuthService.isLoggedIn(),
+            command: () => {
+              this.logout();
+            },
           },
         ],
       },
@@ -150,41 +150,12 @@ export class NavBarComponent implements OnInit {
   }
 
   getUserData() {
-    this.userData.set(this._AuthService.getUser());
+    this.userData = this._AuthService.getUser();
     console.log(this.userData());
   }
   toggleDarkMode() {
     this._themeService.toggleTheme();
   }
-
-  // visible = false;
-
-  // position:
-  //   | 'left'
-  //   | 'right'
-  //   | 'top'
-  //   | 'bottom'
-  //   | 'center'
-  //   | 'topleft'
-  //   | 'topright'
-  //   | 'bottomleft'
-  //   | 'bottomright' = 'topleft';
-
-  // showDialog(
-  //   position:
-  //     | 'left'
-  //     | 'right'
-  //     | 'top'
-  //     | 'bottom'
-  //     | 'center'
-  //     | 'topleft'
-  //     | 'topright'
-  //     | 'bottomleft'
-  //     | 'bottomright'
-  // ) {
-  //   this.position = 'topleft';
-  //   this.visible = true;
-  // }
 
   languageToggle() {
     this.langClick = !this.langClick;
@@ -197,5 +168,43 @@ export class NavBarComponent implements OnInit {
   }
   darkModeToggle() {
     this.darkMode = !this.darkMode;
+  }
+
+  openAddressDialog() {
+    this.ref = this._dialogService.open(AddressDialogComponent, {
+      header: '',
+      width: '50vw',
+      modal: true,
+      breakpoints: {
+        '960px': '75vw',
+        '640px': '90vw',
+      },
+      closable: true,
+    });
+    this.ref.onClose.pipe(takeUntil(this.destroy$)).subscribe(() => {
+      // this._DialogContentService.selectedComponentView.set(
+      //   GetAddressesComponent
+      // );
+      this.store.dispatch(
+        addressActions.openDialogComponent({
+          view: DialogViewEnum.getAddresses,
+        })
+      );
+    });
+  }
+
+  logout() {
+    this._AuthApiService.logout().subscribe({
+      next: (res) => {
+        console.log(res);
+        console.log(this.userData());
+        this._AuthService.clearUser();
+        this._router.navigate(['/home']);
+        console.log('user', this.userData());
+      },
+      error: (err) => {
+        console.log(err.error.error);
+      },
+    });
   }
 }

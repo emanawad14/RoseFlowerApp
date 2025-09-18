@@ -1,0 +1,33 @@
+.address-card {
+  .phone-icon {
+    width: 2rem;
+    height: 2rem;
+    background: var(--icon-bg);
+    color: white;
+  }
+
+  p {
+    width: fit-content;
+    background-color: var(--bg-p-text);
+    color: var(--text-zink);
+  }
+  .text-phone {
+    color: var(--text-p);
+  }
+}
+.controls {
+  // img {
+  //   height: 10px;
+  //   width: 18px;
+  // }
+  right: -36px;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  span {
+    width: 36px;
+    height: 36px;
+  }
+  .delete {
+    background-color: var(--icon-bg);
+  }
+}

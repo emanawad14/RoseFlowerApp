@@ -1,0 +1,31 @@
+<div class="flex align-items-center gap-5 md:mx-5">
+  <div class="relative flex-shrink-0">
+    @if(loading){
+    <app-loading></app-loading>
+    }
+    <p-avatar
+      [image]="imgSrc"
+      size="xlarge"
+      shape="circle"
+      styleClass="img-container"
+    />
+    <input
+      id="fileInput"
+      type="file"
+      accept="image/*"
+      (change)="onFileSelected($event)"
+      hidden
+    />
+    <label for="fileInput" class="cursor-pointer">
+      <img
+        src="/images/uploadIcon.png"
+        alt="uplad-icon"
+        class="absolute upload-icon w-5 h-5 cursor-pointer"
+      />
+    </label>
+  </div>
+  <div class="flex flex-column gap-2">
+    <h5>Upload Photo</h5>
+    <p>You can upload a .jpg, .png, or .gif photo with max size of 5MB. </p>
+  </div>
+</div>

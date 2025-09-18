@@ -1,0 +1,72 @@
+<app-profile-image [imgSrc]="userData?.photo"></app-profile-image>
+
+<form
+  [formGroup]="accountForm"
+  (ngSubmit)="updateProfile()"
+  class="flex flex-column gap-2 md:mx-5 my-3"
+>
+  <div class="flex gap-3">
+    <app-global-input
+      [labelText]="'First name'"
+      formControlName="firstName"
+      class="flex-1"
+    ></app-global-input>
+
+    <app-global-input
+      labelText="Last name"
+      class="flex-1"
+      formControlName="lastName"
+    ></app-global-input>
+  </div>
+  <app-field-error
+    [control]="accountForm.get('firstName')"
+    [fieldName]="'firstName'"
+  ></app-field-error>
+  <app-field-error
+    [control]="accountForm.get('lastName')"
+    [fieldName]="'lastName'"
+  ></app-field-error>
+  <app-global-input
+    [labelText]="'Email'"
+    formControlName="email"
+  ></app-global-input>
+  <!-- Email Errors -->
+  <app-field-error
+    [control]="accountForm.get('email')"
+    [fieldName]="'email'"
+  ></app-field-error>
+  <app-global-input
+    [labelText]="'Phone'"
+    formControlName="phone"
+    [isPhone]="true"
+    [selectedCountry]="selectedCountry()"
+    [value]="phoneNumber()"
+  ></app-global-input>
+  <app-field-error
+    [control]="accountForm.get('phone')"
+    [fieldName]="'phone'"
+  ></app-field-error>
+
+  <app-global-input
+    [labelText]="'Gender'"
+    [isDisabled]="true"
+    [value]="userData?.gender ?? ''"
+    formControlName="gender"
+  ></app-global-input>
+  <div class="flex justify-content-between mt-5">
+    <h4 (click)="deleteAccount()" class="cursor-pointer">Delete My Account</h4>
+    <app-primary-btn
+      [loading]="loading"
+      [labelName]="'Save Changes'"
+      [displayIcon]="false"
+      [type]="'submit'"
+      ><div class="py-3"></div
+    ></app-primary-btn>
+  </div>
+
+  <!-- Backend Error -->
+  @if (backendError.length>0) {
+  <app-error [errorMessages]="[backendError]"></app-error>
+  }
+</form>
+<app-confirm-dialog [deleteAccount]="true"></app-confirm-dialog>

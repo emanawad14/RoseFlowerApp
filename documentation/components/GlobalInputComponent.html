@@ -1,0 +1,1383 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>@rose-flower/source documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">@rose-flower/source documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  GlobalInputComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>apps/FlowerApp/src/app/shared/components/ui/globalInput.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>ControlValueAccessor</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">providers</td>
+                <td class="col-md-9">
+                                <code><a href="../components/GlobalInputComponent.html" target="_self" >{
+    provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() &#x3D;&gt; GlobalInputComponent), multi: true,
+}</a></code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-global-input</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>FormsModule</code>
+                            <code>ReactiveFormsModule</code>
+                            <code>SelectModule</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./globalInput.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./globalInput.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#countries" >countries</a>
+                            </li>
+                            <li>
+                                <a href="#onChange" >onChange</a>
+                            </li>
+                            <li>
+                                <a href="#onTouched" >onTouched</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#handleInput" >handleInput</a>
+                            </li>
+                            <li>
+                                <a href="#registerOnChange" >registerOnChange</a>
+                            </li>
+                            <li>
+                                <a href="#registerOnTouched" >registerOnTouched</a>
+                            </li>
+                            <li>
+                                <a href="#setDisabledState" >setDisabledState</a>
+                            </li>
+                            <li>
+                                <a href="#writeValue" >writeValue</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#id" >id</a>
+                            </li>
+                            <li>
+                                <a href="#isDisabled" >isDisabled</a>
+                            </li>
+                            <li>
+                                <a href="#isPhone" >isPhone</a>
+                            </li>
+                            <li>
+                                <a href="#labelText" >labelText</a>
+                            </li>
+                            <li>
+                                <a href="#placeholder" >placeholder</a>
+                            </li>
+                            <li>
+                                <a href="#search" >search</a>
+                            </li>
+                            <li>
+                                <a href="#selectedCountry" >selectedCountry</a>
+                            </li>
+                            <li>
+                                <a href="#type" >type</a>
+                            </li>
+                            <li>
+                                <a href="#value" >value</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="id"></a>
+                        <b>id</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">apps/FlowerApp/src/app/shared/components/ui/globalInput.component.ts:29</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isDisabled"></a>
+                        <b>isDisabled</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">apps/FlowerApp/src/app/shared/components/ui/globalInput.component.ts:39</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isPhone"></a>
+                        <b>isPhone</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">apps/FlowerApp/src/app/shared/components/ui/globalInput.component.ts:36</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="labelText"></a>
+                        <b>labelText</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">apps/FlowerApp/src/app/shared/components/ui/globalInput.component.ts:32</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="placeholder"></a>
+                        <b>placeholder</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">apps/FlowerApp/src/app/shared/components/ui/globalInput.component.ts:31</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="search"></a>
+                        <b>search</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">apps/FlowerApp/src/app/shared/components/ui/globalInput.component.ts:33</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectedCountry"></a>
+                        <b>selectedCountry</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Country.html" target="_self" >Country</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this.countries[0]</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">apps/FlowerApp/src/app/shared/components/ui/globalInput.component.ts:40</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="type"></a>
+                        <b>type</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;text&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">apps/FlowerApp/src/app/shared/components/ui/globalInput.component.ts:30</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="value"></a>
+                        <b>value</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">apps/FlowerApp/src/app/shared/components/ui/globalInput.component.ts:35</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleInput"></a>
+                    <span class="name">
+                        <span ><b>handleInput</b></span>
+                        <a href="#handleInput"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>handleInput(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="67"
+                                    class="link-to-prism">apps/FlowerApp/src/app/shared/components/ui/globalInput.component.ts:67</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="registerOnChange"></a>
+                    <span class="name">
+                        <span ><b>registerOnChange</b></span>
+                        <a href="#registerOnChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>registerOnChange(fn: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="55"
+                                    class="link-to-prism">apps/FlowerApp/src/app/shared/components/ui/globalInput.component.ts:55</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>fn</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="registerOnTouched"></a>
+                    <span class="name">
+                        <span ><b>registerOnTouched</b></span>
+                        <a href="#registerOnTouched"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>registerOnTouched(fn: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="59"
+                                    class="link-to-prism">apps/FlowerApp/src/app/shared/components/ui/globalInput.component.ts:59</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>fn</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setDisabledState"></a>
+                    <span class="name">
+                        <span ><b>setDisabledState</b></span>
+                        <a href="#setDisabledState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setDisabledState(isDisabled: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="63"
+                                    class="link-to-prism">apps/FlowerApp/src/app/shared/components/ui/globalInput.component.ts:63</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>isDisabled</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="writeValue"></a>
+                    <span class="name">
+                        <span ><b>writeValue</b></span>
+                        <a href="#writeValue"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>writeValue(value: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="45"
+                                    class="link-to-prism">apps/FlowerApp/src/app/shared/components/ui/globalInput.component.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>value</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="countries"></a>
+                    <span class="name">
+                        <span ><b>countries</b></span>
+                        <a href="#countries"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Country.html" target="_self" >Country[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>ProfileService.countries</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">apps/FlowerApp/src/app/shared/components/ui/globalInput.component.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onChange"></a>
+                    <span class="name">
+                        <span ><b>onChange</b></span>
+                        <a href="#onChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">apps/FlowerApp/src/app/shared/components/ui/globalInput.component.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onTouched"></a>
+                    <span class="name">
+                        <span ><b>onTouched</b></span>
+                        <a href="#onTouched"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">apps/FlowerApp/src/app/shared/components/ui/globalInput.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, forwardRef, Input } from &#x27;@angular/core&#x27;;
+import {
+  ControlValueAccessor,
+  FormsModule,
+  NG_VALUE_ACCESSOR,
+  ReactiveFormsModule,
+} from &#x27;@angular/forms&#x27;;
+import { Country } from &#x27;../../interfaces/country.interface&#x27;;
+import { SelectModule } from &#x27;primeng/select&#x27;;
+import { ProfileService } from &#x27;../../../features/pages/profile/services/profile.service&#x27;;
+
+@Component({
+  selector: &#x27;app-global-input&#x27;,
+  templateUrl: &#x27;./globalInput.component.html&#x27;,
+  styleUrls: [&#x27;./globalInput.component.scss&#x27;],
+  imports: [FormsModule, ReactiveFormsModule, SelectModule],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() &#x3D;&gt; GlobalInputComponent),
+      multi: true,
+    },
+  ],
+  standalone: true,
+})
+export class GlobalInputComponent implements ControlValueAccessor {
+  countries: Country[] &#x3D; ProfileService.countries;
+
+  @Input() id &#x3D; &#x27;&#x27;;
+  @Input() type &#x3D; &#x27;text&#x27;;
+  @Input() placeholder &#x3D; &#x27;&#x27;;
+  @Input() labelText &#x3D; &#x27;&#x27;;
+  @Input() search &#x3D; false;
+  //isPasswordVisible &#x3D; false;
+  @Input() value &#x3D; &#x27;&#x27;;
+  @Input() isPhone: boolean &#x3D; false;
+  // @Input() formControlName: string &#x3D; &#x27;&#x27;;
+
+  @Input() isDisabled &#x3D; false;
+  @Input() selectedCountry: Country &#x3D; this.countries[0];
+  // @Input() phoneNumber: string &#x3D; &#x27;&#x27;;
+  onChange &#x3D; (val: string) &#x3D;&gt; void 0;
+  onTouched &#x3D; () &#x3D;&gt; void 0;
+
+  writeValue(value: any): void {
+    this.value &#x3D; value ?? &#x27;&#x27;;
+    if (this.isPhone &amp;&amp; value) {
+      // this.selectedCountry &#x3D; value.country || this.countries[0];
+      // this.phoneNumber &#x3D; value.phone || &#x27;&#x27;;
+      // this.value &#x3D; &#x60;+${this.selectedCountry.dial}${this.phoneNumber}&#x60;;
+      this.value &#x3D; value.replace(&#x60;+${this.selectedCountry.dial}&#x60;, &#x27;&#x27;);
+    }
+  }
+
+  registerOnChange(fn: any): void {
+    this.onChange &#x3D; fn;
+  }
+
+  registerOnTouched(fn: any): void {
+    this.onTouched &#x3D; fn;
+  }
+
+  setDisabledState(isDisabled: boolean): void {
+    this.isDisabled &#x3D; isDisabled;
+  }
+
+  handleInput(event: any): void {
+    if (this.isPhone) {
+      // Case: dropdown changed
+      if (event?.value &amp;&amp; event.originalEvent) {
+        this.selectedCountry &#x3D; event.value;
+        this.onChange(&#x60;+${this.selectedCountry.dial}${this.value}&#x60;);
+      }
+      // Case: user typed in phone input
+      else if (event?.target) {
+        this.value &#x3D; (event.target as HTMLInputElement).value;
+        this.onChange(&#x60;+${this.selectedCountry.dial}${this.value}&#x60;);
+      }
+    } else {
+      const inputValue &#x3D; (event.target as HTMLInputElement).value;
+      this.value &#x3D; inputValue;
+      this.onChange(inputValue);
+    }
+  }
+
+  // togglePassword() {
+  //   this.isPasswordVisible &#x3D; !this.isPasswordVisible;
+  // }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ng-container&gt;
+  &lt;label [for]&#x3D;&quot;id&quot; class&#x3D;&quot;input-label&quot; [class.disabled]&#x3D;&quot;isDisabled&quot;&gt;
+    {{ labelText }}
+  &lt;/label&gt;
+  &lt;div
+    class&#x3D;&quot;input-container flex align-items-center gap-2 border-1 surface-border border-round-xl p-2&quot;
+    [class.disabled]&#x3D;&quot;isDisabled&quot;
+  &gt;
+    &lt;!-- Country dropdown --&gt;
+    @if(isPhone){
+
+    &lt;p-select
+      [options]&#x3D;&quot;countries&quot;
+      optionLabel&#x3D;&quot;name&quot;
+      [showClear]&#x3D;&quot;false&quot;
+      [style]&#x3D;&quot;{ &#x27;min-width&#x27;: &#x27;120px&#x27; }&quot;
+      [panelStyle]&#x3D;&quot;{ &#x27;max-height&#x27;: &#x27;250px&#x27; }&quot;
+      [filter]&#x3D;&quot;true&quot;
+      [(ngModel)]&#x3D;&quot;selectedCountry&quot;
+      (onChange)&#x3D;&quot;handleInput($event)&quot;
+      (blur)&#x3D;&quot;onTouched()&quot;
+    &gt;
+      &lt;ng-template let-country pTemplate&#x3D;&quot;selectedItem&quot;&gt;
+        &lt;div class&#x3D;&quot;flex align-items-center&quot;&gt;
+          &lt;img
+            [src]&#x3D;&quot;country.flag&quot;
+            width&#x3D;&quot;16&quot;
+            height&#x3D;&quot;16&quot;
+            class&#x3D;&quot;mr-2 border-circle&quot;
+          /&gt;
+          &lt;!-- &lt;div
+            class&#x3D;&quot;mr-2 border-circle&quot;
+            [style]&#x3D;&quot;{
+              &#x27;background-image&#x27;: &#x27;url(&#x27; + country.flag + &#x27;)&#x27;,
+              &#x27;background-size&#x27;: &#x27;cover&#x27;,
+              &#x27;background-position&#x27;: &#x27;center&#x27;,
+              width: &#x27;20px&#x27;,
+              height: &#x27;20px&#x27;
+            }&quot;
+          &gt;&lt;/div&gt; --&gt;
+          &lt;span&gt;{{ country.code }} (+{{ country.dial }})&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/ng-template&gt;
+      &lt;ng-template #dropdownicon&gt;
+        &lt;svg
+          width&#x3D;&quot;8&quot;
+          height&#x3D;&quot;12&quot;
+          viewBox&#x3D;&quot;0 0 8 12&quot;
+          fill&#x3D;&quot;none&quot;
+          xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;
+        &gt;
+          &lt;path
+            d&#x3D;&quot;M4 0.666992C4.1768 0.66703 4.34634 0.737293 4.47133 0.862326L7.138 3.52899C7.25944 3.65473 7.32664 3.82313 7.32512 3.99793C7.3236 4.17272 7.25348 4.33993 7.12988 4.46354C7.00627 4.58714 6.83907 4.65726 6.66427 4.65877C6.48947 4.66029 6.32107 4.5931 6.19533 4.47166L4 2.27633L1.80467 4.47166C1.67893 4.5931 1.51053 4.66029 1.33573 4.65877C1.16093 4.65726 0.993726 4.58714 0.870121 4.46354C0.746516 4.33993 0.676403 4.17272 0.674884 3.99793C0.673365 3.82313 0.740561 3.65473 0.862 3.52899L3.52867 0.862326C3.65366 0.737293 3.8232 0.66703 4 0.666992ZM0.862 7.52899C0.987019 7.40401 1.15656 7.3338 1.33333 7.3338C1.51011 7.3338 1.67965 7.40401 1.80467 7.52899L4 9.72433L6.19533 7.52899C6.32107 7.40755 6.48947 7.34036 6.66427 7.34188C6.83907 7.34339 7.00627 7.41351 7.12988 7.53711C7.25348 7.66072 7.3236 7.82793 7.32512 8.00272C7.32664 8.17752 7.25944 8.34592 7.138 8.47166L4.47133 11.1383C4.34631 11.2633 4.17678 11.3335 4 11.3335C3.82322 11.3335 3.65369 11.2633 3.52867 11.1383L0.862 8.47166C0.737019 8.34664 0.666809 8.1771 0.666809 8.00033C0.666809 7.82355 0.737019 7.65401 0.862 7.52899Z&quot;
+            fill&#x3D;&quot;#323639&quot;
+          /&gt;
+        &lt;/svg&gt;
+      &lt;/ng-template&gt;
+      &lt;ng-template let-country pTemplate&#x3D;&quot;item&quot;&gt;
+        &lt;div class&#x3D;&quot;flex align-items-center&quot;&gt;
+          &lt;img [src]&#x3D;&quot;country.flag&quot; width&#x3D;&quot;20&quot; class&#x3D;&quot;mr-2&quot; /&gt;
+          &lt;span&gt;{{ country.name }} (+{{ country.dial }})&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/ng-template&gt;
+    &lt;/p-select&gt;
+    } @if(search){
+    &lt;svg
+      width&#x3D;&quot;19&quot;
+      height&#x3D;&quot;18&quot;
+      viewBox&#x3D;&quot;0 0 19 18&quot;
+      fill&#x3D;&quot;none&quot;
+      xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;
+    &gt;
+      &lt;path
+        d&#x3D;&quot;M16.25 15.75L12.995 12.495M14.75 8.25C14.75 11.5637 12.0637 14.25 8.75 14.25C5.43629 14.25 2.75 11.5637 2.75 8.25C2.75 4.93629 5.43629 2.25 8.75 2.25C12.0637 2.25 14.75 4.93629 14.75 8.25Z&quot;
+        stroke&#x3D;&quot;#A1A1AA&quot;
+        stroke-width&#x3D;&quot;1.25&quot;
+        stroke-linecap&#x3D;&quot;round&quot;
+        stroke-linejoin&#x3D;&quot;round&quot;
+      /&gt;
+    &lt;/svg&gt;
+    }
+    &lt;!-- Phone number input --&gt;
+    &lt;input
+      [type]&#x3D;&quot;type&quot;
+      [value]&#x3D;&quot;value&quot;
+      (input)&#x3D;&quot;handleInput($event)&quot;
+      (blur)&#x3D;&quot;onTouched()&quot;
+      [placeholder]&#x3D;&quot;placeholder&quot;
+      [disabled]&#x3D;&quot;isDisabled&quot;
+      pInputText
+      class&#x3D;&quot;flex-1 border-none ml-2 outline-none py-2&quot;
+    /&gt;
+    &lt;!-- @if (type &#x3D;&#x3D;&#x3D; &#x27;password&#x27;) {
+    &lt;img
+      class&#x3D;&quot; &quot;
+      role&#x3D;&quot;button&quot;
+      tabindex&#x3D;&quot;0&quot;
+      (click)&#x3D;&quot;togglePassword()&quot;
+      (keydown.enter)&#x3D;&quot;togglePassword()&quot;
+      [src]&#x3D;&quot;
+        isPasswordVisible
+          ? &#x27;images/auth/eye-slash-icon.svg&#x27;
+          : &#x27;images/auth/eye-icon.svg&#x27;
+      &quot;
+      alt&#x3D;&quot;Toggle password visibility&quot;
+    /&gt;
+    } --&gt;
+  &lt;/div&gt;
+&lt;/ng-container&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./globalInput.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.input-container {
+  background: var(--input-bg) !important;
+  input {
+    width: 100%;
+    background: var(--input-bg) !important;
+    text-transform: capitalize;
+    border-radius: 10px !important;
+    font-family: &#x27;Inter&#x27;;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    outline: none !important;
+    border: 1px solid var(--text-zink-500) !important;
+    // padding: 5px 25px !important;
+
+    color: var(--text-gray-reverse);
+    &amp;::placeholder {
+      //inset-inline-start: 15px;
+      color: var(--text-gray-reverse);
+      background-color: transparent !important;
+    }
+    &amp;:focus {
+      background: var(--input-bg) !important;
+    }
+    &amp;:disabled {
+      background-color: #f4f4f5 !important;
+      color: #a1a1aa !important;
+      opacity: 1 !important; /* removes the default faded effect */
+      border: 1px solid #f4f4f5 !important;
+      cursor: not-allowed;
+    }
+  }
+
+  .p-select {
+    border: none !important;
+    box-shadow: none !important;
+  }
+  input {
+    border: none !important;
+    box-shadow: none !important;
+  }
+  // img {
+  //   width: 15px;
+  //   height: 15px;
+  //   // position: absolute;
+  //   // top: 50%;
+  //   //right: 15px;
+  //   //  inset-inline-end: 15px;
+  //   // width: 25px;
+  //   // transform: translateY(-50%);
+  //   // cursor: pointer;
+  // }
+  // svg {
+  //  // position: absolute;
+  //  // top: 50%;
+  //  // inset-inline-start: 0;
+  //   //transform: translateY(-50%);
+  //   // margin-inline-end: 20px;
+  //   //margin: 0 5px;
+  // }
+}
+
+.disabled {
+  background-color: #f4f4f5 !important;
+  color: #a1a1aa !important;
+  opacity: 1 !important; /* removes the default faded effect */
+  cursor: not-allowed;
+}
+
+// .phone-input .p-select {
+//   border: none !important;
+//   box-shadow: none !important;
+// }
+
+// .phone-input input {
+//   border: none !important;
+//   box-shadow: none !important;
+// }
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ng-container>  <label [for]="id" class="input-label" [class.disabled]="isDisabled">    {{ labelText }}  </label>  <div    class="input-container flex align-items-center gap-2 border-1 surface-border border-round-xl p-2"    [class.disabled]="isDisabled"  >    <!-- Country dropdown -->    @if(isPhone){    <p-select      [options]="countries"      optionLabel="name"      [showClear]="false"      [style]="{ \'min-width\': \'120px\' }"      [panelStyle]="{ \'max-height\': \'250px\' }"      [filter]="true"      [(ngModel)]="selectedCountry"      (onChange)="handleInput($event)"      (blur)="onTouched()"    >      <ng-template let-country pTemplate="selectedItem">        <div class="flex align-items-center">          <img            [src]="country.flag"            width="16"            height="16"            class="mr-2 border-circle"          />          <!-- <div            class="mr-2 border-circle"            [style]="{              \'background-image\': \'url(\' + country.flag + \')\',              \'background-size\': \'cover\',              \'background-position\': \'center\',              width: \'20px\',              height: \'20px\'            }"          ></div> -->          <span>{{ country.code }} (+{{ country.dial }})</span>        </div>      </ng-template>      <ng-template #dropdownicon>        <svg          width="8"          height="12"          viewBox="0 0 8 12"          fill="none"          xmlns="http://www.w3.org/2000/svg"        >          <path            d="M4 0.666992C4.1768 0.66703 4.34634 0.737293 4.47133 0.862326L7.138 3.52899C7.25944 3.65473 7.32664 3.82313 7.32512 3.99793C7.3236 4.17272 7.25348 4.33993 7.12988 4.46354C7.00627 4.58714 6.83907 4.65726 6.66427 4.65877C6.48947 4.66029 6.32107 4.5931 6.19533 4.47166L4 2.27633L1.80467 4.47166C1.67893 4.5931 1.51053 4.66029 1.33573 4.65877C1.16093 4.65726 0.993726 4.58714 0.870121 4.46354C0.746516 4.33993 0.676403 4.17272 0.674884 3.99793C0.673365 3.82313 0.740561 3.65473 0.862 3.52899L3.52867 0.862326C3.65366 0.737293 3.8232 0.66703 4 0.666992ZM0.862 7.52899C0.987019 7.40401 1.15656 7.3338 1.33333 7.3338C1.51011 7.3338 1.67965 7.40401 1.80467 7.52899L4 9.72433L6.19533 7.52899C6.32107 7.40755 6.48947 7.34036 6.66427 7.34188C6.83907 7.34339 7.00627 7.41351 7.12988 7.53711C7.25348 7.66072 7.3236 7.82793 7.32512 8.00272C7.32664 8.17752 7.25944 8.34592 7.138 8.47166L4.47133 11.1383C4.34631 11.2633 4.17678 11.3335 4 11.3335C3.82322 11.3335 3.65369 11.2633 3.52867 11.1383L0.862 8.47166C0.737019 8.34664 0.666809 8.1771 0.666809 8.00033C0.666809 7.82355 0.737019 7.65401 0.862 7.52899Z"            fill="#323639"          />        </svg>      </ng-template>      <ng-template let-country pTemplate="item">        <div class="flex align-items-center">          <img [src]="country.flag" width="20" class="mr-2" />          <span>{{ country.name }} (+{{ country.dial }})</span>        </div>      </ng-template>    </p-select>    } @if(search){    <svg      width="19"      height="18"      viewBox="0 0 19 18"      fill="none"      xmlns="http://www.w3.org/2000/svg"    >      <path        d="M16.25 15.75L12.995 12.495M14.75 8.25C14.75 11.5637 12.0637 14.25 8.75 14.25C5.43629 14.25 2.75 11.5637 2.75 8.25C2.75 4.93629 5.43629 2.25 8.75 2.25C12.0637 2.25 14.75 4.93629 14.75 8.25Z"        stroke="#A1A1AA"        stroke-width="1.25"        stroke-linecap="round"        stroke-linejoin="round"      />    </svg>    }    <!-- Phone number input -->    <input      [type]="type"      [value]="value"      (input)="handleInput($event)"      (blur)="onTouched()"      [placeholder]="placeholder"      [disabled]="isDisabled"      pInputText      class="flex-1 border-none ml-2 outline-none py-2"    />    <!-- @if (type === \'password\') {    <img      class=" "      role="button"      tabindex="0"      (click)="togglePassword()"      (keydown.enter)="togglePassword()"      [src]="        isPasswordVisible          ? \'images/auth/eye-slash-icon.svg\'          : \'images/auth/eye-icon.svg\'      "      alt="Toggle password visibility"    />    } -->  </div></ng-container></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AddAddressComponent', 'selector': 'app-add-address'},{'name': 'AddressDialogComponent', 'selector': 'app-address-dialog'},{'name': 'AddressesComponent', 'selector': 'app-addresses'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthLayoutComponent', 'selector': 'app-auth-layout'},{'name': 'AvatarFeaturesComponent', 'selector': 'app-avatar-features'},{'name': 'BestComponent', 'selector': 'app-best'},{'name': 'CarousolComponent', 'selector': 'app-carousol'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CartLayoutComponent', 'selector': 'app-cart-layout'},{'name': 'CatigoryComponent', 'selector': 'app-catigory'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'ErrorComponent', 'selector': 'app-error'},{'name': 'FeaturesComponent', 'selector': 'app-features'},{'name': 'FieldErrorComponent', 'selector': 'app-field-error'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgetPasswordComponent', 'selector': 'app-forget-password'},{'name': 'GallaryComponent', 'selector': 'app-gallary'},{'name': 'GetAddressesComponent', 'selector': 'app-get-addresses'},{'name': 'GiftUiComponent', 'selector': 'app-gift-ui'},{'name': 'GlobalCkeckboxGroupComponent', 'selector': 'app-global-ckeckbox-group'},{'name': 'GlobalInputComponent', 'selector': 'app-global-input'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ImageContainerComponent', 'selector': 'app-image-container'},{'name': 'LoadingComponent', 'selector': 'app-loading'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MainLayoutComponent', 'selector': 'app-main-layout'},{'name': 'MyAccountComponent', 'selector': 'app-my-account'},{'name': 'NavBarComponent', 'selector': 'app-nav-bar'},{'name': 'NxWelcomeComponent', 'selector': 'app-nx-welcome'},{'name': 'PrimaryBtnComponent', 'selector': 'app-primary-btn'},{'name': 'ProductCartComponent', 'selector': 'app-product-cart'},{'name': 'ProductComponent', 'selector': 'app-product'},{'name': 'ProductDetailComponent', 'selector': 'app-product-detail'},{'name': 'ProductListComponent', 'selector': 'app-product-list'},{'name': 'ProductReviewComponent', 'selector': 'app-product-review'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'ProfileImageComponent', 'selector': 'app-profile-image'},{'name': 'RelatedProductsComponent', 'selector': 'app-related-products'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SharedProductsComponent', 'selector': 'app-shared-products'},{'name': 'ShippingAddressComponent', 'selector': 'app-shipping-address'},{'name': 'SpecialGiftsComponent', 'selector': 'app-special-gifts'},{'name': 'StarsRatingsComponent', 'selector': 'app-stars-ratings'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'TrustedbyComponent', 'selector': 'app-trustedby'},{'name': 'VerifyCodeComponent', 'selector': 'app-verify-code'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'GlobalInputComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'GlobalInputComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

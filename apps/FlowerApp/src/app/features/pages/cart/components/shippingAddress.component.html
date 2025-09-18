@@ -1,0 +1,108 @@
+<p-stepper [value]="1" class="w-full mx-2">
+  <app-stepper [stepNumber]="stepNumber"></app-stepper>
+  <!-- <p-step-list class="flex justify-content-center">
+    <p-step [value]="1" class="flex align-items-center flex-1"> </p-step>
+    <p-step [value]="2"> </p-step>
+    <p-step> </p-step>
+  </p-step-list> -->
+  <p-step-panels>
+    <p-step-panel [value]="1">
+      <ng-template #content let-activateCallback="activateCallback">
+        <div class="flex flex-column gap-2 relative">
+          <!-- shipping adrress -->
+          <h3>Shipping Address</h3>
+          <div class="relative min-h-22rem">
+            <app-addresses></app-addresses>
+          </div>
+
+          <!-- <p-listbox
+            [options]="addresses"
+            [(ngModel)]="selectedAddress"
+            optionLabel="city"
+            [style]="{ width: '100%' }"
+          >
+            <ng-template let-option pTemplate="item">
+              <app-address
+                [address]="option"
+                [selectedAddress]="selectedAddress"
+              ></app-address>
+            </ng-template>
+          </p-listbox> -->
+
+          <div
+            class="flex flex-row gap-2 justify-content-center align-items-center"
+          >
+            <div class="line"></div>
+            <p>OR</p>
+            <div class="line"></div>
+          </div>
+          <app-primary-btn
+            [labelName]="'Add New Address'"
+            [widthFull]="true"
+            [displayIcon]="false"
+            [colorText]="'#A6252A'"
+            [backgroundColor]="'var( --bg-light-pink)'"
+            (btnClicked)="openAddressDialog()"
+            ><div class="py-3"></div
+          ></app-primary-btn>
+          <div class="line mt-5"></div>
+          <div class="flex justify-content-end">
+            <app-primary-btn
+              [disabled]="(selectedAddress$ | async) == null"
+              [labelName]="'Next'"
+              (btnClicked)="activateCallback(2); stepNumber = 2"
+            >
+              <div class="py-2"></div>
+            </app-primary-btn>
+            <!-- <p-button label="Next" icon="pi pi-arrow-right" iconPos="right" (onClick)="activateCallback(2)" /> -->
+          </div>
+        </div>
+      </ng-template>
+    </p-step-panel>
+
+    <p-step-panel [value]="2">
+      <ng-template #content let-activateCallback="activateCallback">
+        <div class="flex flex-column gap-2 payment-methods">
+          <div class="flex gap-3">
+            <app-primary-btn
+              [displayIcon]="false"
+              [icon]="'pi pi-arrow-left'"
+              [labelName]="'Back'"
+              (btnClicked)="activateCallback(1); stepNumber = 1"
+            ></app-primary-btn>
+            <h3>Payment Method</h3>
+          </div>
+          <div
+            class="flex md:flex-row flex-column align-items-stretch justify-content-center gap-3"
+          >
+            @for(paymentMethod of paymentMethods;track paymentMethod._id){
+            <div
+              class="flex h-auto flex-1 flex-column justify-content-center align-items-center text-center border-1 border-round-2xl p-3 cursor-pointer"
+              (click)="setPaymentMethod(paymentMethod)"
+            >
+              <img [src]="paymentMethod.imgSrc" alt="Cash" />
+              <h3 [class.active]="selectedPayment == paymentMethod">
+                {{ paymentMethod.title }}
+              </h3>
+              <p>{{ paymentMethod.description }}</p>
+            </div>
+            }
+          </div>
+
+          <div class="line mt-5"></div>
+          <div class="flex justify-content-end">
+            <app-primary-btn
+              [loading]="loading"
+              [disabled]="!selectedPayment"
+              [labelName]="'Check Out'"
+              (btnClicked)="checkout()"
+            >
+              <div class="py-2"></div>
+            </app-primary-btn>
+          </div>
+        </div>
+      </ng-template>
+    </p-step-panel>
+  </p-step-panels>
+</p-stepper>
+<!--      (changeAddress)="changeAddress($event)" -->

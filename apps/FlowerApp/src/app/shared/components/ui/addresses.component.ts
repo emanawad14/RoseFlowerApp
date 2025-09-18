@@ -1,0 +1,47 @@
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Address } from '../../interfaces/addressResponse.interface';
+import { Store } from '@ngrx/store';
+import { addressActions } from '../../../features/pages/address/store/actions';
+import {
+  selectAddressesData,
+  selectError,
+  selectIsLoading,
+} from '../../../features/pages/address/store/reducers';
+import { combineLatest, Observable } from 'rxjs';
+import { AddressStateInterface } from '../../../features/pages/address/types/addressState.interface';
+import { LoadingComponent } from './loading.component';
+import { SelectedAddress } from '../../../features/pages/address/store/selectors';
+
+@Component({
+  selector: 'app-addresses',
+  imports: [CommonModule, LoadingComponent],
+  templateUrl: './addresses.component.html',
+  styleUrl: './addresses.component.scss',
+})
+export class AddressesComponent implements OnInit {
+  data$!: Observable<AddressStateInterface>;
+
+  selectedAddress$: Observable<Address | null>;
+
+  constructor(private store: Store) {
+    this.selectedAddress$ = store.select(SelectedAddress);
+  }
+  ngOnInit(): void {
+    //   this.addresses$ = this.store.select(selectAddressesData);
+    this.data$ = combineLatest({
+      data: this.store.select(selectAddressesData),
+      isLoading: this.store.select(selectIsLoading),
+      error: this.store.select(selectError),
+    });
+    this.store.dispatch(addressActions.getLoggedUserAddress());
+  }
+
+  selectAddress(address: Address) {
+    //  console.log(address);
+    // this._AddressService.selectedAddress.set(address as Address);
+    this.store.dispatch(
+      addressActions.selectAddress({ selectedAddress: address })
+    );
+  }
+}

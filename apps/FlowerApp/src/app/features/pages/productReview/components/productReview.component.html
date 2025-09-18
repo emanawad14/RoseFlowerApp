@@ -1,0 +1,105 @@
+<section id="product-review" class="py-5 mx-5">
+  <h2 class="heading3 text-with-line-and-bg w-100 relative">Product Reviews</h2>
+  <h3 class="mt-2 text-lg">General rating:</h3>
+  <span class="rate-avg">
+    {{ product?.rateAvg }}
+    <span class="ratings">({{ product?.rateCount }} ratigns)</span>
+  </span>
+  <p-rating [ngModel]="product?.rateAvg" [readonly]="true" [stars]="5" />
+  <div class="line my-2"></div>
+  <div class="grid">
+    <!-- Rate Form -->
+    <div class="col-12 md:col-4">
+      <form
+        [formGroup]="reviewForm"
+        class="flex flex-column gap-2 my-3 relative"
+      >
+        <div
+          class="absolute top-0 bottom-0 w-full h-full z-5 p-4 backdrop-blur text-center align-items-center justify-content-center"
+          [class]="isLoggedIn ? 'hidden' : 'flex'"
+        >
+          <p class="pb-5">Please login to be able to review the product</p>
+        </div>
+        <div class="flex gap-2">
+          <h1 class="text-sm">Your rating:</h1>
+          <p-rating formControlName="rating" [stars]="5" />
+        </div>
+        <!-- <app-global-input
+        class="hidden"
+          formControlName="product"
+          [labelText]="'productID'"
+          [value]="product ? product._id : ''"
+        ></app-global-input> -->
+        <app-global-input
+          formControlName="title"
+          [labelText]="'title'"
+        ></app-global-input>
+        <app-global-input
+          formControlName="comment"
+          [labelText]="'reviews'"
+        ></app-global-input>
+        <app-primary-btn
+          [disabled]="reviewForm.invalid"
+          [type]="'submit'"
+          [labelName]="'Add Review'"
+          [displayIcon]="false"
+          [widthFull]="true"
+          (btnClicked)="addReview()"
+        >
+          <div class="py-3"></div>
+        </app-primary-btn>
+      </form>
+    </div>
+    <div class="line m-2"></div>
+    <!-- Rattings -->
+    <div class="col-12 md:col-7">
+      <div class="reviews h-20rem overflow-y-auto hide-scrollbar">
+        @if (product?.reviews) { @for(review of reviews; track review._id ){
+        <div class="review my-3">
+          <div class="flex align-items-center gap-2">
+            <div
+              class="w-3rem h-3rem border-circle flex align-items-center justify-content-center user"
+            >
+              {{ review.userName.charAt(0) }}
+            </div>
+            <div>
+              <h5>{{ review.userName }}</h5>
+              <span>{{ review.date | date : 'MMM d, y' }} </span>
+            </div>
+          </div>
+          <div class="flex gap-2 my-3">
+            <p-rating
+              [ngModel]="review.rateAvg"
+              [readonly]="true"
+              value="5"
+              [stars]="5"
+            />
+            <span>({{ review.rateAvg }})</span>
+          </div>
+
+          <h5 class="mb-1">{{ review.title }}</h5>
+          <p>
+            {{ review.description }}
+          </p>
+        </div>
+
+        } }@else { <app-loading></app-loading> }
+      </div>
+    </div>
+  </div>
+</section>
+<!-- <div class="flex align-items-center gap-1 my-5">
+          <ng-container *ngFor="let star of [1, 2, 3, 4, 5]; let i = index">
+            <i
+              class="pi"
+              [ngClass]="{
+                'pi-star-fill':review.rateAvg  >= star,
+                'pi-star-half': review.rateAvg + 0.5 === star,
+                'pi-star':
+                  review.rateAvg < star && review.rateAvg + 0.5 !== star
+              }"
+              style="color: gold; font-size: 1.5rem"
+            ></i>
+          </ng-container>
+          <span class="ml-2 font-bold">({{ review.rateAvg }})</span>
+        </div> -->

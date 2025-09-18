@@ -4,13 +4,13 @@ import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { ProductService } from '../../../services/product.service';
 import { Product } from '../../../../features/interfaces/products';
-import { Subscription } from 'rxjs';
+import { map, Subscription } from 'rxjs';
 import { RatingModule } from 'primeng/rating';
 import { FormsModule } from '@angular/forms';
 import { Catigory } from '../../../../features/interfaces/catigory.FlowerApp';
-import { Carousel } from 'primeng/carousel';
 import { TranslatePipe } from '@ngx-translate/core';
 import { SharedProductsComponent } from '../../business/sharedProducts.component';
+import { CatigoryService } from 'apps/FlowerApp/src/app/features/services/catigory.service';
 
 @Component({
   selector: 'app-product',
@@ -21,7 +21,6 @@ import { SharedProductsComponent } from '../../business/sharedProducts.component
     ButtonModule,
     FormsModule,
     RatingModule,
-    Carousel,
     TranslatePipe,
     SharedProductsComponent,
   ],
@@ -30,17 +29,45 @@ import { SharedProductsComponent } from '../../business/sharedProducts.component
 })
 export class ProductComponent implements OnInit, OnDestroy {
   private readonly _ProductService = inject(ProductService);
-  sub!: Subscription;
+  sub: Subscription[] = [];
   products: Product[] = [];
-  @Input() categories!: Catigory[];
+  categories!: Catigory[];
   activeCategory = 'all';
-  carouselItems!: any[];
 
+  private readonly _catigory = inject(CatigoryService);
   ngOnInit(): void {
     this.getAllproducts();
-    this.carouselItems = ['all', ...this.categories];
+    this.GetCatigorys();
   }
-
+  GetCatigorys() {
+    // console.log('Fetching categories...');
+    const sub = this._catigory
+      .getCatigory()
+      .pipe(
+        map((data) => data.categories.filter((item) => item.productsCount > 0))
+      )
+      .subscribe({
+        next: (response) => {
+          // console.log('Categories received:', response);
+          this.categories = [
+            {
+              _id: 'all',
+              name: 'All Products',
+              slug: 'string',
+              image: 'string',
+              createdAt: 'string',
+              updatedAt: 'string',
+              productsCount: 10,
+            },
+            ...response,
+          ];
+        },
+        error: (error) => {
+          // console.error('Error fetching categories:', error);
+        },
+      });
+    this.sub.push(sub);
+  }
   filterByCategory(categoryId: string) {
     this.activeCategory = categoryId;
     if (categoryId === 'all') {
@@ -51,26 +78,26 @@ export class ProductComponent implements OnInit, OnDestroy {
   }
 
   getAllproducts() {
-    this.sub = this._ProductService.getAllProducts().subscribe({
+    const sub = this._ProductService.getAllProducts().subscribe({
       next: (response) => {
         this.products = response.products;
       },
     });
+    this.sub.push(sub);
   }
 
   getProductsByCategory(categoryId: string) {
-    this.sub = this._ProductService
+    const sub = this._ProductService
       .getProductByCategoryId(categoryId)
       .subscribe({
         next: (response) => {
           this.products = response.products;
         },
       });
+    this.sub.push(sub);
   }
 
   ngOnDestroy(): void {
-    if (this.sub) {
-      this.sub.unsubscribe();
-    }
+    this.sub.forEach((sub) => sub.unsubscribe());
   }
 }

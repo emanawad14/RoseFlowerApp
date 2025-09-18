@@ -1,67 +1,50 @@
-<section class="p-4">
+<section class="p-4 m-0">
   <!-- Category Menu -->
   <div class="category-menu my-4">
     <div
-      class="header flex justify-content-between w-100 flex-wrap align-items-center"
+      class="header flex justify-content-between flex-wrap align-items-center"
     >
       <h2 class="font-bold text-4xl my-5 head text-with-line-and-bg heading3">
         {{ 'popular.PopularItems' | translate }}
       </h2>
+      <div class="flex flex-wrap">
+        @for(category of categories;track category._id){
 
-      <p-carousel
-        [value]="carouselItems"
-        [numVisible]="5"
-        [numScroll]="1"
-        [circular]="true"
-        [showNavigators]="true"
-        [showIndicators]="false"
-        styleClass="category-carousel"
-      >
-        <ng-template let-item pTemplate="item">
-          <div class="px-2">
-            @if (item === 'all') {
-            <button
-              class="category-btn p-3 text-center"
-              [class.active]="activeCategory === 'all'"
-              (click)="filterByCategory('all')"
-            >
-              All Products
-            </button>
-            } @else {
-            <button
-              class="category-btn p-3 text-center"
-              [class.active]="activeCategory === item._id"
-              (click)="filterByCategory(item._id)"
-            >
-              {{ item.name }}
-            </button>
-            }
-          </div>
-        </ng-template>
-      </p-carousel>
+        <button
+          class="category-btn p-3 text-center"
+          [class.active]="activeCategory === category._id"
+          (click)="filterByCategory(category._id)"
+        >
+          {{ category.name }}
+        </button>
+
+        }
+      </div>
     </div>
 
     <!-- Products Section -->
-    <div class="section flex flex-wrap justify-content-start w-full my-3">
-      @if (products.length === 0) {
-      <div
-        class="w-full flex align-items-center justify-content-center"
-        style="min-height: 300px"
-      >
-        <div class="text-center">
-          <i class="pi pi-inbox text-primary-color text-5xl mb-3"></i>
-          <h3 class="text-primary-color text-2xl font-medium">
-            No Products Found
-          </h3>
-          <p class="paragraph-text">Try selecting a different category</p>
-        </div>
+    <!-- <div class="section flex flex-wrap justify-content-start w-full my-3"> -->
+    @if (products.length === 0) {
+    <div
+      class="w-full flex align-items-center justify-content-center"
+      style="min-height: 300px"
+    >
+      <div class="text-center">
+        <i class="pi pi-inbox text-primary-color text-5xl mb-3"></i>
+        <h3 class="text-primary-color text-2xl font-medium">
+          No Products Found
+        </h3>
+        <p class="paragraph-text">Try selecting a different category</p>
       </div>
-      } @else { 
-      <!-- <div class="product-card p-5 w-full sm:w-6 md:w-4 lg:w-3"> -->
-      <app-shared-products [products]="products" [popularItems]="true" ></app-shared-products>
-       <!-- </div> -->
-       }
     </div>
+    } @else {
+    <!-- <div class="product-card p-5 w-full sm:w-6 md:w-4 lg:w-3"> -->
+    <app-shared-products
+      [products]="products"
+      [popularItems]="true"
+    ></app-shared-products>
+    <!-- </div> -->
+    }
   </div>
+  <!-- </div> -->
 </section>
- 

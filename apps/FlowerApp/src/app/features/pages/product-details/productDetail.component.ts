@@ -1,3 +1,4 @@
+import { MessageService } from 'primeng/api';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
@@ -10,10 +11,19 @@ import {
 import { GalleriaModule } from 'primeng/galleria';
 import { Dialog } from 'primeng/dialog';
 import { PrimaryBtnComponent } from '../../../shared/components/ui/primary-btn.component';
-import { Subscription } from 'rxjs';
-import { ProductReviewComponent } from './components/productReview.component';
+import { combineLatest, Observable, Subject, Subscription } from 'rxjs';
+import { ProductReviewComponent } from '../productReview/components/productReview.component';
 import { RelatedProductsComponent } from './components/relatedProducts.component';
-
+import { Store } from '@ngrx/store';
+import { cartActions } from '../cart/store/actions';
+import {
+  selectAddToCartLoading,
+  selectError,
+  selectNumberOfCartItems,
+} from '../cart/store/reducers';
+import { ToastModule } from 'primeng/toast';
+import { CartStates } from '../cart/interfaces/getProductsCartState.interface';
+import { ToastService } from '../../../shared/services/toast.service';
 @Component({
   selector: 'app-product-detail',
   imports: [
@@ -23,6 +33,7 @@ import { RelatedProductsComponent } from './components/relatedProducts.component
     PrimaryBtnComponent,
     ProductReviewComponent,
     RelatedProductsComponent,
+    ToastModule,
   ],
   templateUrl: './productDetail.component.html',
   styleUrl: './productDetail.component.scss',
@@ -31,7 +42,9 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
   productImages: string[] = [];
   relatedProducts: Product[] = [];
   productId!: string;
-
+  displayDialog = false;
+  selectedImageSrc: string = '';
+  // addProductLoading$: Observable<boolean> = of(false);
   responsiveOptions: any[] = [
     {
       breakpoint: '1300px',
@@ -52,27 +65,38 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
   ];
   subs: Subscription[] = [];
   product?: Product;
+  data$!: Observable<CartStates>;
   constructor(
-    private _ActivatedRoute: ActivatedRoute,
-    private _ProductService: ProductService
+    private _activatedRoute: ActivatedRoute,
+    private _productService: ProductService,
+    private store: Store
   ) {}
-
+  // get safeLoading(): boolean {
+  //   // If Angular has not emitted yet, treat as false
+  //   let value: boolean | null = null;
+  //   const sub = this.addProductLoading$.subscribe((v) => (value = v));
+  //   this.subs.push(sub);
+  //   return value ?? false;
+  // }
   ngOnInit(): void {
-    const sub = this._ActivatedRoute.params.subscribe((params) => {
+    const sub = this._activatedRoute.params.subscribe((params) => {
       this.productId = params['id']; // example: /product-details/123
       this.getProduct();
     });
     this.subs.push(sub);
+
+    this.data$ = combineLatest({
+      // getProductsCartResponse: this.store.select(selectCartProductData),
+      addToCartLoading: this.store.select(selectAddToCartLoading),
+      error: this.store.select(selectError),
+      numberOfItemsInCart: this.store.select(selectNumberOfCartItems),
+    });
   }
 
   getProduct() {
-    //  const productId = this._ActivatedRoute.snapshot.paramMap.get('id');
-    // Subscribing to route parameters
-
-    //  this.subs.push(sub);
     if (!this.productId) return;
     if (this.productId) {
-      const sub = this._ProductService
+      const sub = this._productService
         .getProductById(this.productId)
         .subscribe({
           next: (res: ProductDetailsDTO) => {
@@ -89,7 +113,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
   }
 
   getRelatedProducts(productId: string) {
-    const sub = this._ProductService
+    const sub = this._productService
       .getRelatedProductsById(productId)
       .subscribe({
         next: (res: RelatedProductsDTO) => {
@@ -99,8 +123,11 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
       });
     this.subs.push(sub);
   }
-  displayDialog = false;
-  selectedImageSrc: string = '';
+  addProductToCart(productId: string) {
+    this.store.dispatch(
+      cartActions.addProductToCart({ product: productId, quantity: 1 })
+    );
+  }
 
   openImgDialog(image: string) {
     this.selectedImageSrc = image;

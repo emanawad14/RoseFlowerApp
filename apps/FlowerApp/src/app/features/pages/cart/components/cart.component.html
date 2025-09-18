@@ -1,2 +1,223 @@
-<p>cart works!</p>
-<!-- <img src="/images/gallary-1.png" alt="" /> -->
+<ng-container>
+  @if(data$ |async ;as data){
+  <div class="flex justify-content-between mb-2 cart-title">
+    <div class="flex align-items-end gap-1">
+      <h3>Cart</h3>
+      <span class="product-number"
+        >{{ data.numberOfItemsInCart }} products</span
+      >
+    </div>
+    <app-primary-btn
+      [backgroundColor]="'var( --bg-light-pink)'"
+      [labelName]="'Clear Cart'"
+      [displayIcon]="false"
+      [colorText]="'#A6252A'"
+      [disabled]="data.numberOfItemsInCart == 0"
+    >
+      <svg
+        width="20"
+        height="21"
+        viewBox="0 0 20 21"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M13.3338 18.8337L12.5004 15.5003M15.8338 12.1587C16.0548 12.1587 16.2667 12.0709 16.423 11.9146C16.5793 11.7583 16.6671 11.5463 16.6671 11.3253V10.5003C16.6671 10.0583 16.4915 9.63437 16.1789 9.32181C15.8664 9.00925 15.4425 8.83366 15.0004 8.83366H12.5004C12.2794 8.83366 12.0675 8.74586 11.9112 8.58958C11.7549 8.4333 11.6671 8.22134 11.6671 8.00033V3.83366C11.6671 3.39163 11.4915 2.96771 11.1789 2.65515C10.8664 2.34259 10.4425 2.16699 10.0004 2.16699C9.55841 2.16699 9.13449 2.34259 8.82192 2.65515C8.50936 2.96771 8.33377 3.39163 8.33377 3.83366V8.00033C8.33377 8.22134 8.24597 8.4333 8.08969 8.58958C7.93341 8.74586 7.72145 8.83366 7.50044 8.83366H5.00044C4.55841 8.83366 4.13449 9.00925 3.82192 9.32181C3.50936 9.63437 3.33377 10.0583 3.33377 10.5003V11.3253C3.33377 11.5463 3.42157 11.7583 3.57785 11.9146C3.73413 12.0709 3.94609 12.1587 4.1671 12.1587M6.6671 18.8337L7.50044 15.5003M4.1671 12.167H15.8338L17.4779 17.8062C17.5073 17.9287 17.5085 18.0563 17.4814 18.1793C17.4544 18.3023 17.3998 18.4177 17.3217 18.5166C17.2437 18.6155 17.1442 18.6954 17.0308 18.7503C16.9174 18.8052 16.7931 18.8337 16.6671 18.8337H3.33377C3.20778 18.8337 3.08342 18.8052 2.97004 18.7503C2.85666 18.6954 2.7572 18.6155 2.67916 18.5166C2.60111 18.4177 2.5465 18.3023 2.51945 18.1793C2.49239 18.0563 2.49358 17.9287 2.52294 17.8062L4.1671 12.167Z"
+          stroke="#A6252A"
+          stroke-width="1.45833"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </app-primary-btn>
+  </div>
+
+  <div class="product-cart relative mb-3 min-h-18rem">
+    @if(data.isLoading){
+    <app-loading></app-loading> }
+    <!-- @if(data.error){ {{ data.error.error }} } -->
+    @for(product of data.getProductsCartResponse?.cart?.cartItems ; track
+    product._id ;let first=$first){
+
+    <div
+      class="flex flex-column md:flex-row justify-content-between mb-3 gap-2 pt-2"
+      [class]="{
+        'border-top': !first
+      }"
+    >
+      <div class="md:w-8rem flex flex-row justify-content-between">
+        <img
+          class="border-round mx-auto w-full md:max-width-7rem"
+          [src]="product.product.imgCover"
+          [alt]="product.product.title"
+        />
+      </div>
+      <div class="flex-grow-1 flex flex-column justify-content-between">
+        <div>
+          <span class="title">{{ product.product.slug }}</span>
+
+          <div class="rate flex align-items-center gap-2">
+            <svg
+              width="20"
+              height="21"
+              viewBox="0 0 20 21"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9.60404 2.41274C9.64056 2.33895 9.69697 2.27685 9.76692 2.23342C9.83686 2.19 9.91755 2.16699 9.99987 2.16699C10.0822 2.16699 10.1629 2.19 10.2328 2.23342C10.3028 2.27685 10.3592 2.33895 10.3957 2.41274L12.3207 6.3119C12.4475 6.56854 12.6347 6.79058 12.8662 6.95895C13.0977 7.12732 13.3666 7.237 13.6499 7.27857L17.9549 7.90857C18.0364 7.92039 18.1131 7.9548 18.1761 8.0079C18.2391 8.06101 18.2861 8.13069 18.3116 8.20908C18.337 8.28746 18.3401 8.37141 18.3204 8.45143C18.3006 8.53146 18.2589 8.60436 18.1999 8.6619L15.0865 11.6936C14.8812 11.8937 14.7276 12.1406 14.6389 12.4133C14.5502 12.6859 14.5291 12.976 14.5774 13.2586L15.3124 17.5419C15.3268 17.6234 15.318 17.7074 15.287 17.7841C15.2559 17.8609 15.204 17.9274 15.137 17.9761C15.07 18.0247 14.9907 18.0536 14.9081 18.0593C14.8255 18.0651 14.743 18.0475 14.6699 18.0086L10.8215 15.9852C10.568 15.8521 10.2859 15.7825 9.99946 15.7825C9.71306 15.7825 9.43094 15.8521 9.17737 15.9852L5.32987 18.0086C5.25681 18.0472 5.17437 18.0646 5.09191 18.0588C5.00946 18.0529 4.9303 18.024 4.86345 17.9754C4.7966 17.9268 4.74473 17.8604 4.71375 17.7838C4.68277 17.7071 4.67392 17.6233 4.68821 17.5419L5.42237 13.2594C5.47087 12.9767 5.44986 12.6864 5.36115 12.4136C5.27245 12.1408 5.11871 11.8937 4.91321 11.6936L1.79987 8.66274C1.74037 8.60526 1.6982 8.53223 1.67817 8.45197C1.65815 8.3717 1.66107 8.28742 1.6866 8.20873C1.71214 8.13004 1.75926 8.0601 1.8226 8.00689C1.88594 7.95367 1.96296 7.91932 2.04487 7.90774L6.34904 7.27857C6.63259 7.23732 6.90186 7.12778 7.13369 6.95939C7.36552 6.791 7.55296 6.5688 7.67987 6.3119L9.60404 2.41274Z"
+                fill="#FFA508"
+                stroke="#FFA508"
+                stroke-width="1.45833"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+
+            <span class="rate">Rating: {{ product.product.rateAvg }}/5</span>
+            <span class="ratings"
+              >({{ product.product.rateCount }} ratings)</span
+            >
+          </div>
+        </div>
+        <span class="price"
+          ><span class="xprice">(×{{ product.quantity }})</span>
+          {{ product.price }} <span class="currency">EGP</span></span
+        >
+      </div>
+      <div
+        class="flex md:flex-column flex-wrap flex-row justify-content-between gap-2 align-content-end text-right"
+      >
+        <app-primary-btn
+          [backgroundColor]="'#DC2626'"
+          [labelName]="'Remove'"
+          [widthFull]="false"
+          [displayIcon]="false"
+          (btnClicked)="
+            removeFromCart(product.product._id, product.product.title)
+          "
+          ><svg
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M2.5 5.00033H17.5M15.8333 5.00033V16.667C15.8333 17.5003 15 18.3337 14.1667 18.3337H5.83333C5 18.3337 4.16667 17.5003 4.16667 16.667V5.00033M6.66667 5.00033V3.33366C6.66667 2.50033 7.5 1.66699 8.33333 1.66699H11.6667C12.5 1.66699 13.3333 2.50033 13.3333 3.33366V5.00033M8.33333 9.16699V14.167M11.6667 9.16699V14.167"
+              stroke="currentColor"
+              stroke-width="1.45833"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </app-primary-btn>
+        <!-- <app-product-quantity></app-product-quantity> -->
+        <div class="flex flex-row align-items-end gap-2 product-quantity">
+          <!-- <div
+          class="svg-btn flex align-items-center justify-content-center  h-full"
+        > -->
+          <svg
+            [class]="{ unclickable: product.quantity == 1 }"
+            width="21"
+            height="21"
+            viewBox="0 0 21 21"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            (click)="
+              changeProductQuantity(
+                product,
+                product.quantity - 1,
+                product.product._id
+              )
+            "
+          >
+            <path
+              d="M4.66699 10.5H16.3337"
+              stroke="#A6252A"
+              stroke-width="1.45833"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <!-- </div> -->
+          <div class="max-width-5rem md:w-6rem">
+            <app-global-input
+              [isDisabled]="true"
+              [value]="product.quantity.toString()"
+            ></app-global-input>
+          </div>
+
+          <svg
+            [class]="{
+              unclickable: product.quantity == product.product.quantity
+            }"
+            width="21"
+            height="21"
+            viewBox="0 0 21 21"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            (click)="
+              changeProductQuantity(
+                product,
+                product.quantity + 1,
+                product.product._id
+              )
+            "
+          >
+            <path
+              d="M4.66699 10.5003H16.3337M10.5003 4.66699V16.3337"
+              stroke="#A6252A"
+              stroke-width="1.45833"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+        <!-- <app-global-input /> -->
+      </div>
+    </div>
+    } @empty {
+    <div
+      class="min-h-18rem flex flex-column align-items-center justify-content-center py-4"
+    >
+      <img src="/images/no-cart.png" alt="no-cart" width="250" height="214" />
+
+      <p>Your cart is empty, wanna try shopping?</p>
+    </div>
+    }
+  </div>
+
+  }
+  <app-primary-btn
+    [labelName]="'Continue Shopping'"
+    [displayIcon]="false"
+    (btnClicked)="goToProductsListPage()"
+    ><svg
+      width="20"
+      height="21"
+      viewBox="0 0 20 21"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M5.00033 7.16699L1.66699 10.5003M1.66699 10.5003L5.00033 13.8337M1.66699 10.5003L18.3337 10.5003"
+        stroke="currentColor"
+        stroke-width="1.45833"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  </app-primary-btn>
+</ng-container>
+<app-confirm-dialog></app-confirm-dialog>
+<!-- <p-toast /> -->
+<!-- @if(!data.numberOfItemsInCart){
+    <div
+      class="min-h-18rem flex flex-column align-items-center justify-content-center py-4"
+    >
+      <img src="/images/no-cart.png" alt="no-cart" width="250" height="214" />
+
+      <p>Your cart is empty, wanna try shopping?</p>
+    </div>
+    }@else{ -->

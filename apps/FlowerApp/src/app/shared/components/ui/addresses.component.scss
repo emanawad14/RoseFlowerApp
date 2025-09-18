@@ -1,0 +1,31 @@
+.address-card {
+  .phone-icon {
+    width: 2rem;
+    height: 2rem;
+    background: var(--icon-bg);
+    color: white;
+  }
+
+  p {
+    background-color: var(--bg-p-text);
+    color: var(--text-zink);
+  }
+  .text-phone {
+    color: var(--text-p);
+  }
+
+  .active {
+    background-color: #27272a !important;
+    color: #fafafa !important;
+  }
+
+  .active-icon {
+    background: white !important;
+    color: var(--icon-bg) !important;
+  }
+}
+.active-address {
+  background: var(--icon-bg);
+  color: white;
+  border-color: var(--icon-bg);
+}

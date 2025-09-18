@@ -1,10 +1,11 @@
 import { Route } from '@angular/router';
 import { MainLayoutComponent } from './shared/components/ui/main-layout.component';
+import { loginBlockGuard } from './core/guards/login-block.guard';
+import { authGuard } from './core/guards/auth.guard';
 
 export const appRoutes: Route[] = [
   {
     path: '',
-    // component: MainLayoutComponent, // has <app-nav-bar> and <app-footer>
     loadComponent: () =>
       import('./shared/components/ui/main-layout.component').then(
         (c) => c.MainLayoutComponent
@@ -26,6 +27,22 @@ export const appRoutes: Route[] = [
           ),
       },
       {
+        path: 'profile',
+        loadComponent: () =>
+          import('./features/pages/profile/components/profile.component').then(
+            (c) => c.ProfileComponent
+          ),
+        canActivate: [authGuard],
+      },
+      {
+        path: 'allOrders',
+        loadComponent: () =>
+          import('./features/pages/orders.component').then(
+            (c) => c.OrdersComponent
+          ),
+      },
+
+      {
         path: 'product-list',
         loadComponent: () =>
           import('./features/pages/product-list/productList.component').then(
@@ -45,6 +62,7 @@ export const appRoutes: Route[] = [
               import('./features/pages/cart/components/cart.component').then(
                 (c) => c.CartComponent
               ),
+            canActivate: [authGuard],
           }, // default route
         ],
       },
@@ -63,6 +81,7 @@ export const appRoutes: Route[] = [
           import('./features/pages/login/login.component').then(
             (e) => e.LoginComponent
           ),
+        canActivate: [loginBlockGuard],
       },
       // },
       // {
@@ -79,20 +98,6 @@ export const appRoutes: Route[] = [
             './features/pages/forget-password/forget-password.component'
           ).then((e) => e.ForgetPasswordComponent),
       },
-      // {
-      //   path: 'verify-code',
-      //   loadComponent: () =>
-      //     import('./core/pages/verify-code/verify-code.component').then(
-      //       (e) => e.VerifyCodeComponent
-      //     ),
-      // },
-      // {
-      //   path: 'reset-password',
-      //   loadComponent: () =>
-      //     import('./core/pages/reset-password/reset-password.component').then(
-      //       (e) => e.ResetPasswordComponent
-      //     ),
-      // },
     ],
   },
 ];
