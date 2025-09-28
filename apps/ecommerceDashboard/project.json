@@ -22,7 +22,10 @@
             "input": "apps/ecommerceDashboard/public"
           }
         ],
-        "styles": ["apps/ecommerceDashboard/src/styles.scss"],
+        "styles": [
+          "node_modules/primeicons/primeicons.css",
+          "apps/ecommerceDashboard/src/styles.scss"
+        ],
         "scripts": [],
         "server": "apps/ecommerceDashboard/src/main.server.ts",
         "ssr": {
