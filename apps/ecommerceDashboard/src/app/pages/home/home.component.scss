@@ -1,0 +1,18 @@
+/* تعديل الشكل ليبقى قريب من الديزاين */
+table {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+th {
+  font-weight: bold;
+}
+
+mat-form-field {
+  max-width: 300px;
+}
+
+button {
+  margin-left: 8px;
+}
