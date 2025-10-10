@@ -1,0 +1,21 @@
+.cityname
+{
+  padding: 30px 0px !important;
+}
+
+
+::ng-deep .p-paginator {
+  background-color: #fff !important;
+  border: none !important;
+  padding: 1rem !important;
+}
+
+::ng-deep .p-paginator .p-paginator-pages .p-paginator-page {
+  border-radius: 8px !important;
+  margin: 0 3px !important;
+}
+
+::ng-deep .p-paginator .p-paginator-page.p-highlight {
+  background-color: #a6252a !important;
+  color: #fff !important;
+}
