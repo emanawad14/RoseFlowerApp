@@ -1,5 +1,4 @@
- 
-export interface ICategory {
+ export interface IOccasion {
   _id: string;
   name: string;
   slug: string;
@@ -10,9 +9,8 @@ export interface ICategory {
   productsCount: number;
 }
 
-
-export interface CatigoryResponse {
+export interface OccasionResponse {
   message: string;
   metadata: [];
-  categories: ICategory[];
+  categories: IOccasion[];
 }

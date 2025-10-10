@@ -1,0 +1,93 @@
+<div class="min-h-screen bg-[#F6F7F8] flex justify-center p-4">
+  <div class="w-full max-w-8xl bg-white rounded-2xl shadow-lg border border-gray-200 p-4">
+
+   
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
+      <div class="flex items-center gap-3">
+        <i class="pi pi-list text-[#A6252A] text-2xl"></i>
+        <h2 class="text-2xl font-semibold text-gray-800">All Occasion</h2>
+      </div>
+
+      <div class="flex items-center gap-4 w-full sm:w-auto">
+        <button
+          type="button"
+          class="flex items-center gap-2 bg-[#A6252A] hover:bg-[#8e1f24] text-white text-sm font-semibold px-5 py-2.5 rounded-lg shadow-md transition"
+          (click)="routeToAdd()"
+        >
+          <i class="pi pi-plus"></i>
+          Add a new Occasion
+        </button>
+      </div>
+    </div>
+
+  
+    <div class="relative w-full mb-4">
+      <i class="pi pi-search absolute left-3 top-3 text-gray-400"></i>
+      <input
+        type="text"
+        placeholder="Search Occasion..."
+        [(ngModel)]="searchTerm"
+        (input)="filteroccassion()"
+        class="w-full pl-10 pr-4 py-2.5 rounded-lg border border-gray-200 focus:ring-2 focus:ring-[#A6252A] focus:border-[#A6252A] outline-none transition"
+      />
+    </div>
+
+   
+    <div class="overflow-hidden rounded-xl mt-5">
+      <p-table
+        [value]="filteredoccassion"
+        [paginator]="true"
+        [rows]="rows"
+        [first]="first"
+        [rowsPerPageOptions]="[5,10,20]"
+        [responsiveLayout]="'scroll'"
+        (onPage)="onPageChange($event)"
+        class="w-full text-sm"
+      >
+        <ng-template pTemplate="header">
+          <tr class="bg-gray-50 text-gray-700 text-lg">
+            <th class="px-6 text-left cityname">Name</th>
+            <th class="px-6 text-left cityname">Products</th>
+            <th class="px-6 text-center" colspan="2"></th>
+            <th class="px-6 text-center" colspan="2"></th>
+          </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-cat>
+          <tr class="bg-[#F9FAFB] hover:bg-gray-50 transition-all duration-200 border-b border-gray-100">
+            <td class="px-6 py-3 font-medium text-gray-800 cityname">{{ cat.name }}</td>
+            <td class="px-6 py-3 text-gray-600 cityname">{{ cat.productsCount }} products</td>
+
+            <td class="px-6 py-3 text-center">
+              <button
+                (click)="routeToEdit()"
+                type="button"
+                class="flex items-center justify-center gap-1 text-[#2563EB] bg-[#EFF6FF] px-3 py-1.5 rounded-lg text-sm hover:bg-[#DBEAFE] transition"
+              >
+                <i class="pi pi-pencil"></i> Edit
+              </button>
+            </td>
+
+            <td class="px-6 py-3 text-center">
+              <button
+                type="button"
+                class="flex items-center justify-center gap-1 text-[#DC2626] bg-[#FEF2F2] px-3 py-1.5 rounded-lg text-sm hover:bg-[#FEE2E2] transition"
+              >
+                <i class="pi pi-trash"></i> Delete
+              </button>
+            </td>
+          </tr>
+        </ng-template>
+
+        <ng-template pTemplate="paginatorleft" let-state>
+          <div class="text-sm text-gray-600 px-4">
+            Showing {{ state.first + 1 }}–
+            {{ Math.min(state.first + state.rows, filteredoccassion.length) }}
+            of {{ filteredoccassion.length }} Occasion
+          </div>
+        </ng-template>
+      </p-table>
+    </div>
+
+  </div>
+</div>
