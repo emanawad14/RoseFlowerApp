@@ -1,2 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'tailwindcss';
+
+@theme {
+  --color-primary: #a6252a;
+  --color-secondary: #9333ea;
+  --color-custom-green: #00ff7f;
+}
+:root {
+  --main-color: #a6252a;
+}
+.btn-main {
+  padding: 14px 16px;
+  background-color: var(--main-color);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  text-wrap: nowrap;
+  white-space: nowrap;
+}
+.btn-main:hover {
+  background-color: #8b1f22;
+}

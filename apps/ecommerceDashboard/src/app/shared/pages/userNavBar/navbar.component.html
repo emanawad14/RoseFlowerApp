@@ -1,0 +1,26 @@
+<nav class=" px-4 py-2 flex items-center justify-between ">
+  <!-- Left: Logo -->
+  <div class="text-xl font-bold text-gray-700  md:hidden">
+    <span class="w-1rem"> <img src="logo1.png" alt="App logo" class="w-25"></span>
+  </div>
+
+  <!-- Right: Links -->
+  <ul class="flex space-x-2 text-sm font-medium">
+    <li>
+      <a routerLink="/dashboard" routerLinkActive="text-blue-600 font-semibold" class="hover:text-blue-500 transition">
+        Dashboard
+      </a>
+    </li>
+    <li>
+      <a routerLink="/dashboard/account" routerLinkActive="text-blue-600 font-" class="hover:text-blue-500 transition">
+        Account Settings
+      </a>
+    </li>
+    <li>
+      <a routerLink="/dashboard/account/change-password" routerLinkActive="text-red-600 font-semibold"
+        class="hover:text-red-500 transition">
+        Change Password
+      </a>
+    </li>
+  </ul>
+</nav>
