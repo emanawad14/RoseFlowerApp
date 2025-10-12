@@ -1,0 +1,99 @@
+<div class="w-full mx-auto p-4 rounded-2xl shadow-md bg-gray-100 mb-3">
+  <!-- Title -->
+  <h2 class="text-2xl font-semibold mb-6">Account Settings</h2>
+
+  <!-- Profile Picture -->
+  <div class="flex items-center gap-6 mb-6  ">
+    <div class="relative">
+      <img src="user1.png" alt="User Avatar" class="w-20 h-20 rounded-full border relative">
+      <span class="w-1rem h-1rem rounded-full bg-white absolute bottom-0 right-0">
+        <img src="cloud-upload.png" alt="upload icon" class="w-full cursor-pointer">
+
+
+
+      </span>
+    </div>
+    <div>
+      <label for="profile-photo" class="block text-sm font-medium mb-2">Upload Photo</label>
+      <p class="text-sm text-gray-400 font-light white-space-nowrap fs-6">You can upload a .jpg, .png, or .gif photo
+        with max
+        size of 5MB.</p>
+
+    </div>
+  </div>
+
+  <!-- Form -->
+  <form class="space-y-3  ">
+    <!-- first Name -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <!-- !First -->
+      <div>
+        <label for="first-name" class="block text-sm font-medium mb-1">First Name</label>
+        <input id="first-name" type="text" placeholder="John"
+          class="w-full shadow rounded-lg p-2 focus:ring-2 focus:ring-blue-500 focus:outline-none" />
+      </div>
+      <!-- *last -->
+      <div>
+
+        <div>
+          <label for="last-name" class="block text-sm font-medium mb-1">last Name</label>
+          <input id="last-name" type="text" placeholder="John"
+            class="w-full shadow rounded-lg p-2 focus:ring-2 focus:ring-blue-500 focus:outline-none" />
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Email -->
+    <div>
+      <label for="email" class="block text-sm font-medium mb-1">Email</label>
+      <input id="email" type="email" placeholder="john@example.com"
+        class="w-full shadow rounded-lg p-2 focus:ring-2 focus:ring-blue-500 focus:outline-none" />
+    </div>
+
+    <!-- Phone -->
+    <div>
+      <div class="flex items-center shadow rounded-lg overflow-hidden">
+        <!-- Country code dropdown -->
+        <select class="flex items-center px-2 bg-gray-100 text-sm outline-none border-r">
+          <option value="eg">🇪🇬 EG (+20)</option>
+          <option value="us">🇺🇸 US (+1)</option>
+          <option value="sa">🇸🇦 SA (+966)</option>
+        </select>
+
+        <!-- Phone input -->
+        <input type="tel" placeholder="1012345678" class="flex-1 px-3 py-2 outline-none" />
+      </div>
+
+      <!-- <label for="phone" class="block text-sm font-medium mb-1">Phone</label>
+      <input id="phone" type="text" placeholder="+20 1012345678"
+        class="w-full border rounded-lg p-2 focus:ring-2 focus:ring-blue-500 focus:outline-none" /> -->
+    </div>
+
+    <!-- Gender -->
+    <div>
+      <label for="gender" class="block text-sm font-medium mb-1">Gender</label>
+      <select id="gender" class="w-full shadow rounded-lg p-2 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+        <option>Male</option>
+        <option>Female</option>
+      </select>
+    </div>
+
+    <!-- Actions -->
+    <div class="flex justify-between items-center  flex-wrap pt-4">
+      <div class="flex justify-between align-items-center w-full md:w-auto ">
+        <button type="button" class="text-red-600  px-4 py-2 rounded-lg hover:text-red-700 transition">
+          Delete Account
+        </button><button type="button"
+          class="text-black-500  px-4 py-2 rounded-lg hover:text-black-alpha-90 transition">
+          change Password
+        </button>
+      </div>
+      <button type="submit" class="btn-main block w-full mt-4 md:w-auto md:mt-0">
+        Save Changes
+      </button>
+    </div>
+  </form>
+</div>
