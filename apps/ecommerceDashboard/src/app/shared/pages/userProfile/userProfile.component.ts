@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FileUploadModule } from 'primeng/fileupload';
 import { ButtonModule } from 'primeng/button';
 import intlTelInput from 'intl-tel-input';
 
@@ -8,7 +7,7 @@ import { AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-user-profile',
-  imports: [CommonModule, FileUploadModule, ButtonModule],
+  imports: [CommonModule, ButtonModule],
   templateUrl: './userProfile.component.html',
   styleUrl: './userProfile.component.scss',
 })
@@ -21,11 +20,5 @@ export class UserProfileComponent implements AfterViewInit {
       utilsScript:
         'https://cdn.jsdelivr.net/npm/intl-tel-input/build/js/utils.js',
     });
-  }
-
-  onUpload(event: any) {
-    const file = event.files[0];
-    console.log('Uploaded file:', file);
-    // You can preview or upload to server here
   }
 }
