@@ -4,11 +4,21 @@
 
   <!-- Profile Picture -->
   <div class="flex items-center gap-6 mb-6  ">
-    <img src="user.png" alt="User Avatar" class="w-20 h-20 rounded-full border">
+    <div class="relative">
+      <img src="user1.png" alt="User Avatar" class="w-20 h-20 rounded-full border relative">
+      <span class="w-1rem h-1rem rounded-full bg-white absolute bottom-0 right-0">
+        <img src="cloud-upload.png" alt="upload icon" class="w-full cursor-pointer">
+
+
+
+      </span>
+    </div>
     <div>
-      <label for="profile-photo" class="block text-sm font-medium mb-2">Change Photo</label>
-      <input id="profile-photo" type="file"
-        class="block text-sm text-gray-500 file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-blue-600 file:text-white hover:file:bg-blue-700 cursor-pointer" />
+      <label for="profile-photo" class="block text-sm font-medium mb-2">Upload Photo</label>
+      <p class="text-sm text-gray-400 font-light white-space-nowrap fs-6">You can upload a .jpg, .png, or .gif photo
+        with max
+        size of 5MB.</p>
+
     </div>
   </div>
 
