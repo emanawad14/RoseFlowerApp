@@ -27,7 +27,6 @@
     "@ngx-translate/http-loader": "^16.0.1",
     "@primeng/themes": "^19.1.2",
     "@tailwindcss/postcss": "^4.1.12",
-    "chart.js": "^4.5.0",
     "express": "^4.21.2",
     "libphonenumber-js": "^1.12.12",
     "ngx-cookie-service-ssr": "^19.1.2",
