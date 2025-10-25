@@ -1,0 +1,186 @@
+<h2 class="text-2xl font-semibold mb-6 flex items-center gap-2">
+     Add a New Product
+</h2>
+
+<div class=" mx-auto bg-white p-8 rounded-2xl shadow-sm">
+  
+
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="space-y-6">
+    <!-- Title -->
+    <div>
+      <label class="font-medium">Title <span class="text-red-500">*</span></label>
+      <input
+        pInputText
+        formControlName="title"
+        placeholder="Enter product title"
+        class="w-full mt-1 "
+      />
+      <small
+        *ngIf="submitted && productForm.get('title')?.invalid"
+        class="text-red-500"
+      >
+        Product title is required
+      </small>
+    </div>
+
+    <!-- Description -->
+    <div>
+      <label class="font-medium">Description <span class="text-red-500">*</span></label>
+      <textarea
+        pInputTextarea
+        formControlName="description"
+        rows="4"
+        placeholder="Enter product description"
+        class="w-full mt-1"
+      ></textarea>
+      <small
+        *ngIf="submitted && productForm.get('description')?.invalid"
+        class="text-red-500"
+      >
+        Product description is required
+      </small>
+    </div>
+
+    <!-- Price + Discount + Price after discount -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div>
+        <label class="font-medium">Price <span class="text-red-500">*</span></label>
+        <input
+          type="number"
+          pInputText
+          formControlName="price"
+          placeholder="Example: 100"
+          class="w-full mt-1"
+        />
+        <small
+          *ngIf="submitted && productForm.get('price')?.invalid"
+          class="text-red-500"
+        >
+          Please enter a valid price
+        </small>
+      </div>
+
+      <div>
+        <label class="font-medium">Discount</label>
+        <input
+          type="number"
+          pInputText
+          formControlName="discount"
+          placeholder="Example: 5"
+          class="w-full mt-1"
+        />
+      </div>
+
+      <div>
+        <label class="font-medium">Price after discount</label>
+        <input
+          type="number"
+          pInputText
+          formControlName="priceAfterDiscount"
+          placeholder="Example: 95"
+          class="w-full mt-1"
+          [readonly]="true"
+        />
+      </div>
+    </div>
+
+    <!-- Quantity -->
+    <div>
+      <label class="font-medium">Quantity <span class="text-red-500">*</span></label>
+      <input
+        type="number"
+        pInputText
+        formControlName="quantity"
+        placeholder="Example: 200"
+        class="w-full mt-1"
+      />
+      <small
+        *ngIf="submitted && productForm.get('quantity')?.invalid"
+        class="text-red-500"
+      >
+        Product quantity is required
+      </small>
+    </div>
+
+    <!-- Cover and Gallery -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div>
+        <label class="font-medium">Product cover <span class="text-red-500">*</span></label>
+        
+          <p-fileupload customUpload="true" mode="basic" chooseLabel="upload file" chooseIcon="pi pi-upload" accept="image/*" maxFileSize="1000000" (onSelect)="onFileUpload($event, 'cover')"   />   
+
+        <small
+          *ngIf="submitted && !coverFile"
+          class="text-red-500"
+        >
+          Product cover is required
+        </small>
+      </div>
+
+      <div>
+        <label class="font-medium">Product gallery <span class="text-red-500">*</span></label>
+          <p-fileupload customUpload="true"  mode="basic" chooseLabel="upload file" chooseIcon="pi pi-upload" multiple accept="image/*" maxFileSize="1000000" (onSelect)="onFileUpload($event, 'gallery') "   />   
+           
+          
+
+          
+        <small
+          *ngIf="submitted && galleryFiles.length === 0"
+          class="text-red-500"
+        >
+          Product gallery images are required
+        </small>
+      </div>
+    </div>
+
+    <!-- Category & Occasion -->
+    <div class="grid grid-cols-1   gap-4">
+      <div>
+        <label class="font-medium">Category <span class="text-red-500">*</span></label>
+      <p-dropdown
+                  [options]="categories"
+                  optionLabel="name"
+                  optionValue="_id"
+                  formControlName="category"
+                  placeholder='Select a category'
+                  styleClass="w-full"
+                >
+                </p-dropdown> 
+        <small
+          *ngIf="submitted && productForm.get('category')?.invalid"
+          class="text-red-500"
+        >
+          Please select a category for the product
+        </small>
+      </div>
+
+      <div>
+        <label class="font-medium">Occasion <span class="text-red-500">*</span></label>
+            <p-dropdown
+                  [options]="occasions"
+                  optionLabel="name"
+                  optionValue="_id"
+                  formControlName="occasion"
+                  placeholder= 'Select an occasion'
+                  styleClass="w-full"
+                >
+                </p-dropdown>
+        <small
+          *ngIf="submitted && productForm.get('occasion')?.invalid"
+          class="text-red-500"
+        >
+          Please select an occasion
+        </small>
+      </div>
+    </div>
+
+    <!-- Submit -->
+    <button
+      pButton
+      type="submit"
+      label="Add Product"
+      class="w-full mt-6 "
+      [disabled]="loading"
+    ></button>
+  </form>
+</div>

@@ -1,0 +1,19 @@
+input, textarea ,p-dropdown  {
+    border: 1px solid #D4D4D8;
+    border-radius: 0.375rem;
+    padding: 0.5rem;
+}
+input:focus, textarea:focus {
+    outline: none;
+    border: 1px solid #D4D4D8;
+ }
+ ::ng-deep .p-fileupload-basic{
+    border: 1px solid #D4D4D8;
+    border-radius: 0.375rem;
+    padding: 0.5rem;
+    justify-content: right;
+ }
+ ::ng-deep .p-fileupload .filelabel{
+    display: none;
+ }
+    

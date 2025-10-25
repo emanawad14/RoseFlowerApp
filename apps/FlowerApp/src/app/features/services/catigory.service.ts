@@ -12,7 +12,7 @@ export class CatigoryService {
 
   getCatigory(): Observable<CatigoryResponse> {
     return this._httpClient.get<CatigoryResponse>(
-      baseUrl.basUrl + 'categories'
+      'https://flower.elevateegy.com/api/v1/categories'
     );
   }
 }
